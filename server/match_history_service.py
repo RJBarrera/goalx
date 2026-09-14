@@ -374,11 +374,23 @@ class MatchHistoryService:
         fixture_id = detail.get("fixture_id") or detail.get("id")
         date = detail.get("date")
         referee = str(detail.get("referee") or "Desconocido").strip()
-        local = (detail.get("home") or "Desconocido").strip()
-        visitante = (detail.get("away") or "Desconocido").strip()
-        
-        home_name = EQUIVALENCIAS.get(local, local)
-        away_name = EQUIVALENCIAS.get(visitante, visitante)
+
+        home = detail.get("home") or {}
+        away = detail.get("away") or {}
+
+        local = str(home.get("name") or "Desconocido").strip()
+
+        visitante = str(away.get("name") or "Desconocido").strip()
+
+        home_name = EQUIVALENCIAS.get(
+            local,
+            local,
+        )
+
+        away_name = EQUIVALENCIAS.get(
+            visitante,
+            visitante,
+        )
         
         home_goals = _to_int(
             detail.get(
