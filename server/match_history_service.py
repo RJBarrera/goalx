@@ -140,6 +140,8 @@ class MatchHistoryService:
         else:
             self.state_path = self.history_path.parent / "dataset_state.json"
 
+        self.highlights_path = self.history_path.parent / "season_highlights.json"
+
         self._lock = threading.RLock()
         self._initialize_storage()
 
@@ -181,6 +183,14 @@ class MatchHistoryService:
 
             if not self.state_path.exists():
                 self._write_state(DEFAULT_STATE.copy())
+
+            if not self.highlights_path.exists():
+                self._write_highlights_state(
+                    {
+                        "version": 1,
+                        "fixtures": {},
+                    }
+                )
 
     # VALIDAR CSV
     def _validate_schema(
@@ -248,6 +258,170 @@ class MatchHistoryService:
             temp_path,
             self.state_path,
         )
+
+    # Leer estado de destacados
+    def _read_highlights_state(
+        self,
+    ):
+
+        try:
+
+            with open(
+                self.highlights_path,
+                "r",
+                encoding="utf-8",
+            ) as file:
+
+                data = json.load(file)
+
+            fixtures = data.get("fixtures") or {}
+
+            if not isinstance(fixtures, dict):
+                fixtures = {}
+
+            return {
+                "version": 1,
+                "fixtures": fixtures,
+            }
+
+        except Exception:
+            return {
+                "version": 1,
+                "fixtures": {},
+            }
+
+    # Guardar estado de destacados
+    def _write_highlights_state(
+        self,
+        state,
+    ):
+
+        temp_path = self.highlights_path.with_suffix(".json.tmp")
+
+        with open(
+            temp_path,
+            "w",
+            encoding="utf-8",
+        ) as file:
+
+            json.dump(
+                state,
+                file,
+                ensure_ascii=False,
+                indent=2,
+            )
+
+        os.replace(
+            temp_path,
+            self.highlights_path,
+        )
+
+    # Obtener competencia actual
+    def _current_competition(
+        self,
+    ):
+
+        now = datetime.now(timezone.utc)
+        year = now.year
+
+        if now.month >= 7:
+            name = f"Apertura {year}"
+            start = pd.Timestamp(f"{year}-07-01", tz="UTC")
+            end = pd.Timestamp(f"{year + 1}-01-01", tz="UTC")
+
+        else:
+            name = f"Clausura {year}"
+            start = pd.Timestamp(f"{year}-01-01", tz="UTC")
+            end = pd.Timestamp(f"{year}-07-01", tz="UTC")
+
+        return {
+            "name": name,
+            "year": year,
+            "start": start,
+            "end": end,
+        }
+
+    # Guardar goles y asistencias del partido
+    def _register_highlight_fixture(
+        self,
+        detail,
+    ):
+
+        fixture_id = detail.get("fixture_id") or detail.get("id")
+        date = detail.get("date")
+
+        if not fixture_id or not date:
+            return
+
+        home = detail.get("home") or {}
+        away = detail.get("away") or {}
+
+        home_name = str(home.get("name") or "").strip()
+        away_name = str(away.get("name") or "").strip()
+        players = {}
+
+        def get_player(player_name, team_name):
+
+            player_name = str(player_name or "").strip()
+            team_name = str(team_name or "").strip()
+
+            if not player_name:
+                return None
+
+            key = f"{team_name}|{player_name}".casefold()
+
+            if key not in players:
+                players[key] = {
+                    "name": player_name,
+                    "team": team_name,
+                    "goals": 0,
+                    "assists": 0,
+                }
+
+            return players[key]
+
+        for event in detail.get("events") or []:
+
+            if str(event.get("type") or "").strip() != "Goal":
+                continue
+
+            event_detail = str(event.get("detail") or "").casefold()
+
+            if "missed penalty" in event_detail:
+                continue
+
+            team_name = str(event.get("team") or "").strip()
+            player_name = event.get("player")
+            assist_name = event.get("assist")
+
+            if player_name and "own goal" not in event_detail:
+                player = get_player(player_name, team_name)
+
+                if player:
+                    player["goals"] += 1
+
+            if assist_name and "own goal" not in event_detail:
+                assistant = get_player(assist_name, team_name)
+
+                if assistant:
+                    assistant["assists"] += 1
+
+        state = self._read_highlights_state()
+        fixtures = state.setdefault("fixtures", {})
+        existing_fixture = fixtures.get(str(fixture_id)) or {}
+
+        if existing_fixture.get("players") and not players:
+            return
+
+        fixtures[str(fixture_id)] = {
+            "fixture_id": int(fixture_id),
+            "date": date,
+            "home": home_name,
+            "away": away_name,
+            "players": players,
+        }
+
+        self._write_highlights_state(state)
 
     # LEER CSV
     def _read_history(
@@ -549,6 +723,9 @@ class MatchHistoryService:
 
         with self._lock:
 
+            # Guardamos jugadores del partido
+            self._register_highlight_fixture(detail)
+
             # NO DUPLICAR
             if self.has_fixture(fixture_id):
                 return {
@@ -642,6 +819,208 @@ class MatchHistoryService:
                 "row": row,
                 "records": len(df),
             }
+
+    # Obtener destacados de la competencia actual
+    def get_season_highlights(
+        self,
+    ):
+
+        competition = self._current_competition()
+        start = competition["start"]
+        end = competition["end"]
+
+        with self._lock:
+            df = self._read_history()
+            highlights_state = self._read_highlights_state()
+
+        season_df = df.copy()
+
+        if not season_df.empty:
+            season_df["_date"] = season_df["date"].apply(
+                lambda value: pd.to_datetime(
+                    value,
+                    errors="coerce",
+                    utc=True,
+                )
+            )
+
+            season_df = season_df[
+                (season_df["_date"] >= start)
+                & (season_df["_date"] < end)
+            ].copy()
+
+        best_matches = []
+
+        if not season_df.empty:
+            season_df["_home_goals"] = pd.to_numeric(
+                season_df["home_goals"],
+                errors="coerce",
+            )
+            season_df["_away_goals"] = pd.to_numeric(
+                season_df["away_goals"],
+                errors="coerce",
+            )
+
+            season_df = season_df.dropna(
+                subset=[
+                    "_home_goals",
+                    "_away_goals",
+                ]
+            )
+
+            season_df["_total_goals"] = (
+                season_df["_home_goals"]
+                + season_df["_away_goals"]
+            )
+            season_df["_goal_difference"] = (
+                season_df["_home_goals"]
+                - season_df["_away_goals"]
+            ).abs()
+
+            season_df = season_df.sort_values(
+                by=[
+                    "_total_goals",
+                    "_goal_difference",
+                    "_date",
+                ],
+                ascending=[
+                    False,
+                    True,
+                    False,
+                ],
+            ).head(4)
+
+            for _, row in season_df.iterrows():
+                fixture_key = _fixture_key(row.get("fixture_id"))
+
+                best_matches.append(
+                    {
+                        "fixture_id": (
+                            int(fixture_key)
+                            if fixture_key.isdigit()
+                            else fixture_key
+                        ),
+                        "date": (
+                            row["_date"].isoformat()
+                            if not pd.isna(row["_date"])
+                            else None
+                        ),
+                        "home": {
+                            "name": str(row.get("home_team") or ""),
+                            "goals": int(row["_home_goals"]),
+                        },
+                        "away": {
+                            "name": str(row.get("away_team") or ""),
+                            "goals": int(row["_away_goals"]),
+                        },
+                        "total_goals": int(row["_total_goals"]),
+                        "total_corners": _to_int(row.get("total_corners")),
+                        "total_cards": _to_int(row.get("total_cards")),
+                    }
+                )
+
+        aggregated = {}
+
+        for fixture in (highlights_state.get("fixtures") or {}).values():
+            fixture_date = pd.to_datetime(
+                fixture.get("date"),
+                errors="coerce",
+                utc=True,
+            )
+
+            if pd.isna(fixture_date):
+                continue
+
+            if not start <= fixture_date < end:
+                continue
+
+            for player in (fixture.get("players") or {}).values():
+                name = str(player.get("name") or "").strip()
+                team = str(player.get("team") or "").strip()
+
+                if not name:
+                    continue
+
+                key = f"{team}|{name}".casefold()
+
+                if key not in aggregated:
+                    aggregated[key] = {
+                        "name": name,
+                        "team": team,
+                        "goals": 0,
+                        "assists": 0,
+                    }
+
+                aggregated[key]["goals"] += int(
+                    player.get("goals") or 0
+                )
+                aggregated[key]["assists"] += int(
+                    player.get("assists") or 0
+                )
+
+        players = list(aggregated.values())
+        players.sort(
+            key=lambda item: (
+                -item["goals"],
+                -item["assists"],
+                item["name"].casefold(),
+            )
+        )
+
+        best_players = [
+            {
+                "name": player["name"],
+                "team": {
+                    "name": player["team"],
+                },
+                "goals": player["goals"],
+                "assists": player["assists"],
+                "contributions": (
+                    player["goals"]
+                    + player["assists"]
+                ),
+            }
+            for player in players[:4]
+        ]
+
+        slides = []
+        total = max(
+            len(best_players),
+            len(best_matches),
+        )
+
+        for index in range(total):
+
+            if index < len(best_players):
+                slides.append(
+                    {
+                        "type": "player",
+                        "badge": (
+                            "TOP GOLEADOR"
+                            if index == 0
+                            else "JUGADOR DESTACADO"
+                        ),
+                        "player": best_players[index],
+                    }
+                )
+
+            if index < len(best_matches):
+                slides.append(
+                    {
+                        "type": "match",
+                        "badge": "PARTIDO DESTACADO",
+                        "match": best_matches[index],
+                    }
+                )
+
+        return {
+            "competition": competition["name"],
+            "season": competition["year"],
+            "matches_count": len(best_matches),
+            "players_count": len(best_players),
+            "slides": slides,
+            "count": len(slides),
+        }
 
     # DATASET DIRTY
     def is_dirty(

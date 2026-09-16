@@ -712,7 +712,7 @@ DATASET_SYNC_TOKEN = os.getenv(
 )
 
 
-# ENDPOINT DE PRUEBA PARA EXPORTAR CSV DESDE RAILWAY
+# Este endpoint lo usamos para sincronizar CSV de railway en github
 @app.get("/api/dataset/export")
 def exportar_dataset(
     x_matchlab_token: str | None = Header(default=None),
@@ -742,6 +742,62 @@ def exportar_dataset(
         media_type="text/csv",
         filename="historial_ligamx_2023.csv",
     )
+
+# Este endpoint lo usamos para sincronizar season_highlights.json de railway en github
+@app.get("/api/highlights/export")
+def exportar_highlights(
+    x_matchlab_token: str | None = Header(default=None),
+):
+
+    # Validar token
+    if not DATASET_SYNC_TOKEN or x_matchlab_token != DATASET_SYNC_TOKEN:
+
+        raise HTTPException(
+            status_code=401,
+            detail="No autorizado.",
+        )
+
+    # Archivo de destacados
+    highlights_path = HISTORY_SERVICE.highlights_path
+
+    if not highlights_path.exists():
+
+        raise HTTPException(
+            status_code=404,
+            detail="No existe el histórico de destacados.",
+        )
+
+    return FileResponse(
+        path=str(highlights_path),
+        media_type="application/json",
+        filename="season_highlights.json",
+    )
+
+
+# Este endpoint se encarga de obtener las estadisticas mas destacadas de la temporada
+@app.get("/api/highlights")
+def obtener_destacados_temporada():
+
+    try:
+
+        data = HISTORY_SERVICE.get_season_highlights()
+
+        return {
+            "success": True,
+            **data,
+        }
+
+    except Exception as error:
+
+        print(
+            "ERROR SEASON HIGHLIGHTS:",
+            error,
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(error),
+        )
 
 
 ## FrontEnd React

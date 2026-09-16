@@ -1,6 +1,7 @@
 import { useState } from "react";
-import LiveCenter from "./components/LiveCenter";
+import SeasonHighlights from "./components/SeasonHighlights";
 import MatchAnalytics from "./components/MatchAnalytics";
+import LiveCenter from "./components/LiveCenter";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -25,7 +26,7 @@ function App() {
   return (
     <>
       <Navbar />
-
+      <SeasonHighlights />
       <MatchAnalytics partidoSeleccionado={partidoSeleccionado} />
       <LiveCenter onSeleccionarPartido={seleccionarPartidoParaPrediccion} />
 

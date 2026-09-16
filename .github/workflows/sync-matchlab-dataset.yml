@@ -16,17 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ======================================================
-      # REPOSITORY
-      # ======================================================
-
+      # Repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ======================================================
-      # DESCARGAR CSV DESDE RAILWAY
-      # ======================================================
-
+      # Aqui descargamos el CSV desde railway
       - name: Download MatchLab dataset
         env:
           DATASET_URL: ${{ secrets.MATCHLAB_DATASET_URL }}
@@ -41,35 +35,45 @@ jobs:
             "${DATASET_URL}" \
             --output server/historial_ligamx_2023.csv
 
-      # ======================================================
-      # VALIDACIÓN BÁSICA
-      # ======================================================
+      # Descargar destacados desde Railway
+      - name: Download MatchLab highlights
+        env:
+          HIGHLIGHTS_URL: ${{ secrets.MATCHLAB_HIGHLIGHTS_URL }}
+          DATASET_TOKEN: ${{ secrets.MATCHLAB_DATASET_SYNC_TOKEN }}
 
+        run: |
+          curl --fail \
+            --silent \
+            --show-error \
+            --location \
+            --header "x-matchlab-token: ${DATASET_TOKEN}" \
+            "${HIGHLIGHTS_URL}" \
+            --output server/season_highlights.json
+
+      # Validaciones
       - name: Validate dataset
         run: |
           test -s server/historial_ligamx_2023.csv
+          test -s server/season_highlights.json
 
           echo "CSV downloaded successfully"
+          echo "Highlights JSON downloaded successfully"
 
           wc -l server/historial_ligamx_2023.csv
+          wc -c server/season_highlights.json
 
-      # ======================================================
-      # CONFIGURAR GIT
-      # ======================================================
-
+      # Aqui configuramos github
       - name: Configure Git
         run: |
           git config user.name "MatchLab Data Bot"
           git config user.email "matchlab-data-bot@users.noreply.github.com"
 
-      # ======================================================
-      # COMMIT SOLO SI CAMBIÓ
-      # ======================================================
-
+      # Hacemos el commit solamente si hubo una modificacion
       - name: Commit dataset changes
         run: |
-
-          git add server/historial_ligamx_2023.csv
+          git add \
+            server/historial_ligamx_2023.csv \
+            server/season_highlights.json
 
           if git diff --cached --quiet; then
             echo "No dataset changes detected."

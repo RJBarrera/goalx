@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "fixtures": {
+    "1550948": {
+      "fixture_id": 1550948,
+      "date": "2026-09-16T01:00:00+00:00",
+      "home": "Puebla",
+      "away": "Toluca",
+      "players": {}
+    }
+  }
+}
