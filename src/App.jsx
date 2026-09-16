@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import SeasonHighlights from "./components/SeasonHighlights";
 import MatchAnalytics from "./components/MatchAnalytics";
 import LiveCenter from "./components/LiveCenter";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AdBanner from "./components/AdBanner/AdBanner";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import "./App.css";
 
-function App() {
+function Home() {
   const [partidoSeleccionado, setPartidoSeleccionado] = useState(null);
 
   const seleccionarPartidoParaPrediccion = (match) => {
@@ -63,6 +65,16 @@ function App() {
 
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+
+      <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
+    </Routes>
   );
 }
 

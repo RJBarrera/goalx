@@ -100,23 +100,6 @@ function Footer() {
 
             <div className="goalx-footer__links">
               <a
-                href="/terminos-de-servicio"
-                className="goalx-footer__link-row"
-              >
-                <span className="goalx-footer__link-icon">
-                  <FontAwesomeIcon icon={faFileLines} />
-                </span>
-
-                <span className="goalx-footer__link-text">
-                  Términos de servicio
-                </span>
-
-                <span className="goalx-footer__arrow">
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </span>
-              </a>
-
-              <a
                 href="/politica-de-privacidad"
                 className="goalx-footer__link-row"
               >
