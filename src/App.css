@@ -182,3 +182,90 @@
     border-right-color: var(--border);
   }
 }
+
+/* LAYOUT PRINCIPAL CON PUBLICIDAD LATERAL */
+.goalx-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(140px, 180px)
+    minmax(0, 1344px)
+    minmax(140px, 180px);
+
+  justify-content: center;
+
+  width: 100%;
+
+  gap: 12px;
+}
+
+/* CONTENIDO CENTRAL */
+.goalx-layout__content {
+  min-width: 0;
+
+  width: 100%;
+}
+
+/* COLUMNAS DE PUBLICIDAD */
+.goalx-layout__ad {
+  min-width: 0;
+
+  padding-top: 24px;
+}
+
+/* Mantiene visible el anuncio al hacer scroll */
+.goalx-layout__ad-sticky {
+  position: sticky;
+
+  top: 100px;
+
+  width: 100%;
+}
+
+/* MONITORES GRANDES */
+@media (min-width: 1800px) {
+  .goalx-layout {
+    grid-template-columns:
+      200px
+      minmax(0, 1344px)
+      200px;
+
+    gap: 20px;
+  }
+}
+
+/* LAPTOP / PANTALLAS DONDE YA NO CABEN LOS LATERALES */
+@media (max-width: 1500px) {
+  .goalx-layout {
+    grid-template-columns: minmax(0, 1320px);
+
+    padding-inline: 16px;
+  }
+
+  .goalx-layout__ad {
+    display: none;
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .goalx-layout {
+    padding-inline: 12px;
+  }
+}
+
+/* PUBLICIDAD MÓVIL */
+.goalx-mobile-ad {
+  display: none;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .goalx-mobile-ad {
+    display: block;
+
+    width: 100%;
+
+    margin: 20px 0;
+  }
+}
