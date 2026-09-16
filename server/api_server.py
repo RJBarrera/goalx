@@ -803,14 +803,40 @@ def obtener_destacados_temporada():
 ## FrontEnd React
 if FRONTEND_DIR is not None:
     print(f"🌐 Frontend encontrado: {FRONTEND_DIR}")
-    app.mount(
-        "/",
-        StaticFiles(
-            directory=str(FRONTEND_DIR),
-            html=True,
-        ),
-        name="frontend",
-    )
+
+    assets_dir = FRONTEND_DIR / "assets"
+
+    if assets_dir.exists():
+        app.mount(
+            "/assets",
+            StaticFiles(directory=str(assets_dir)),
+            name="frontend-assets",
+        )
+
+    # archivo ads.txt - para adsense
+    @app.get("/ads.txt", include_in_schema=False)
+    async def ads_txt():
+        ads_file = FRONTEND_DIR / "ads.txt"
+
+        return FileResponse(
+            path=str(ads_file),
+            media_type="text/plain",
+        )
+
+    # react spa fallback
+    @app.get("/{full_path:path}", include_in_schema=False)
+    async def frontend_spa(full_path: str):
+        requested_file = FRONTEND_DIR / full_path
+
+        if full_path and requested_file.is_file():
+            return FileResponse(
+                path=str(requested_file),
+            )
+
+        return FileResponse(
+            path=str(FRONTEND_DIR / "index.html"),
+            media_type="text/html",
+        )
 
 else:
     print("ℹ️ Frontend compilado no encontrado.")
