@@ -36,7 +36,7 @@
   overflow-x: hidden;
   overflow-y: visible;
 
-  background: var(--sports-bg);
+  /* background: var(--sports-bg); */
 }
 
 .match-shell {
@@ -479,13 +479,13 @@
 
   padding: 42px 0 70px;
 
-  background:
+  /* background:
     radial-gradient(
       circle at 10% 25%,
       rgba(32, 201, 151, 0.04),
       transparent 25%
     ),
-    #f4f7fb;
+    #f4f7fb; */
 }
 
 /* =========================================================
@@ -524,7 +524,7 @@
 
   background: #ffffff;
 
-  box-shadow: 0 18px 55px rgba(25, 38, 55, 0.07);
+  /* box-shadow: 0 18px 55px rgba(25, 38, 55, 0.07); */
 }
 
 .match-prediction-block__heading {
