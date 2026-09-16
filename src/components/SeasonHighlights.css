@@ -416,7 +416,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .season-highlights__progress {
@@ -482,11 +482,11 @@
   }
 
   .season-highlight-score {
-    padding: 10px 13px;
+    padding: 8px 13px;
   }
 
   .season-highlight-score span {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -496,17 +496,19 @@
   }
 
   .season-highlights__header {
-    top: 21px;
+    top: 15px;
     right: 22px;
     left: 22px;
   }
 
   .season-highlights__season {
-    display: none;
+    gap: 2px;
+    padding: 2px 5px;
+    font-size: 0.5rem;
   }
 
   .season-highlight-slide {
-    min-height: 510px;
+    min-height: 390px;
   }
 
   .season-highlight-player-stats {
@@ -529,17 +531,17 @@
   }
 
   .season-highlight-club__logo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .season-highlight-club__logo img {
     width: 55px;
     height: 55px;
   }
 
-  .season-highlight-club__logo img {
-    width: 40px;
-    height: 40px;
-  }
-
   .season-highlight-club strong {
-    font-size: 0.83rem;
+    font-size: 0.6rem;
   }
 
   .season-highlights__footer {

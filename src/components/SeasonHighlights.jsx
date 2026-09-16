@@ -216,7 +216,7 @@ function SeasonHighlights() {
       <div className="season-highlights__shell">
         <div className="season-highlights__header">
           <div>
-            <span>GOALX DESTACADOS</span>
+            <span>DESTACADOS</span>
 
             <h2>Lo mejor de la temporada</h2>
           </div>
@@ -262,8 +262,6 @@ function SeasonHighlights() {
               />
             ))}
           </div>
-
-          {/* <span>Actualizado automáticamente</span> */}
         </div>
       </div>
     </section>
