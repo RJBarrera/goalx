@@ -1,4 +1,127 @@
 {
   "version": 1,
-  "fixtures": {}
+  "fixtures": {
+    "1550968": {
+      "fixture_id": 1550968,
+      "date": "2026-09-19T23:00:00+00:00",
+      "home": "Atlas",
+      "away": "U.N.A.M. - Pumas",
+      "players": {
+        "u.n.a.m. - pumas|ángel azuaje": {
+          "name": "Ángel Azuaje",
+          "team": "U.N.A.M. - Pumas",
+          "goals": 1,
+          "assists": 0
+        },
+        "u.n.a.m. - pumas|pedro vite": {
+          "name": "Pedro Vite",
+          "team": "U.N.A.M. - Pumas",
+          "goals": 0,
+          "assists": 1
+        },
+        "atlas|luís andré leite esteves": {
+          "name": "Luís André Leite Esteves",
+          "team": "Atlas",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1550969": {
+      "fixture_id": 1550969,
+      "date": "2026-09-19T23:00:00+00:00",
+      "home": "Atletico San Luis",
+      "away": "Necaxa",
+      "players": {
+        "necaxa|julián carranza": {
+          "name": "Julián Carranza",
+          "team": "Necaxa",
+          "goals": 1,
+          "assists": 0
+        },
+        "necaxa|javier ruiz": {
+          "name": "Javier Ruiz",
+          "team": "Necaxa",
+          "goals": 0,
+          "assists": 1
+        },
+        "atletico san luis|felipe mora": {
+          "name": "Felipe Mora",
+          "team": "Atletico San Luis",
+          "goals": 1,
+          "assists": 0
+        },
+        "atletico san luis|david rodriguez": {
+          "name": "David Rodriguez",
+          "team": "Atletico San Luis",
+          "goals": 0,
+          "assists": 1
+        },
+        "atletico san luis|eduardo aguila": {
+          "name": "Eduardo Aguila",
+          "team": "Atletico San Luis",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1550970": {
+      "fixture_id": 1550970,
+      "date": "2026-09-20T01:10:00+00:00",
+      "home": "Monterrey",
+      "away": "Cruz Azul",
+      "players": {
+        "monterrey|césar garza": {
+          "name": "César Garza",
+          "team": "Monterrey",
+          "goals": 1,
+          "assists": 0
+        },
+        "monterrey|jesús corona": {
+          "name": "Jesús Corona",
+          "team": "Monterrey",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1550971": {
+      "fixture_id": 1550971,
+      "date": "2026-09-20T03:25:00+00:00",
+      "home": "Club America",
+      "away": "Guadalajara Chivas",
+      "players": {
+        "guadalajara chivas|bryan gonzalez": {
+          "name": "Bryan Gonzalez",
+          "team": "Guadalajara Chivas",
+          "goals": 1,
+          "assists": 0
+        },
+        "guadalajara chivas|omar govea": {
+          "name": "Omar Govea",
+          "team": "Guadalajara Chivas",
+          "goals": 0,
+          "assists": 1
+        },
+        "club america|miguel borja": {
+          "name": "Miguel Borja",
+          "team": "Club America",
+          "goals": 2,
+          "assists": 0
+        },
+        "club america|brian rodríguez": {
+          "name": "Brian Rodríguez",
+          "team": "Club America",
+          "goals": 0,
+          "assists": 1
+        },
+        "club america|henry martin": {
+          "name": "Henry Martin",
+          "team": "Club America",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    }
+  }
 }
