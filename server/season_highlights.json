@@ -122,6 +122,100 @@
           "assists": 1
         }
       }
+    },
+    "1550972": {
+      "fixture_id": 1550972,
+      "date": "2026-09-21T00:00:00+00:00",
+      "home": "CF Pachuca",
+      "away": "Club Tijuana",
+      "players": {
+        "club tijuana|gilberto mora": {
+          "name": "Gilberto Mora",
+          "team": "Club Tijuana",
+          "goals": 1,
+          "assists": 0
+        },
+        "club tijuana|jesus gomez": {
+          "name": "Jesus Gomez",
+          "team": "Club Tijuana",
+          "goals": 1,
+          "assists": 0
+        },
+        "club tijuana|jesús vega": {
+          "name": "Jesús Vega",
+          "team": "Club Tijuana",
+          "goals": 0,
+          "assists": 1
+        },
+        "cf pachuca|salomón rondón": {
+          "name": "Salomón Rondón",
+          "team": "CF Pachuca",
+          "goals": 2,
+          "assists": 0
+        },
+        "cf pachuca|javier vallejo": {
+          "name": "Javier Vallejo",
+          "team": "CF Pachuca",
+          "goals": 0,
+          "assists": 1
+        },
+        "cf pachuca|sergio barreto": {
+          "name": "Sergio Barreto",
+          "team": "CF Pachuca",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1550973": {
+      "fixture_id": 1550973,
+      "date": "2026-09-21T00:00:00+00:00",
+      "home": "Toluca",
+      "away": "Santos Laguna",
+      "players": {
+        "toluca|federico viñas": {
+          "name": "Federico Viñas",
+          "team": "Toluca",
+          "goals": 1,
+          "assists": 0
+        },
+        "toluca|alexis vega": {
+          "name": "Alexis Vega",
+          "team": "Toluca",
+          "goals": 0,
+          "assists": 2
+        },
+        "toluca|joão paulo dias fernandes": {
+          "name": "João Paulo Dias Fernandes",
+          "team": "Toluca",
+          "goals": 1,
+          "assists": 0
+        },
+        "santos laguna|ezequiel bullaude": {
+          "name": "Ezequiel Bullaude",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 0
+        },
+        "santos laguna|kevin palacios": {
+          "name": "Kevin Palacios",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 0
+        },
+        "santos laguna|francisco villalba": {
+          "name": "Francisco Villalba",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 1
+        },
+        "santos laguna|mauricio cuevas": {
+          "name": "Mauricio Cuevas",
+          "team": "Santos Laguna",
+          "goals": 0,
+          "assists": 1
+        }
+      }
     }
   }
 }
