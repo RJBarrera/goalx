@@ -10,17 +10,22 @@ import requests
 
 from dotenv import load_dotenv
 
+from competition_config import (
+    get_competition,
+    TEAM_ALIASES,
+    EUROPE_TEAM_ALIASES,
+    TEAM_EQUIVALENCES as EQUIVALENCIAS,
+)
+
 from sportsdb_service import (
     SportsDBService,
 )
-
-# Diccionario de traducción temporal en caliente
-EQUIVALENCIAS = {"Atlante": "Mazatlán"}
 
 # RUTAS
 SERVER_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SERVER_DIR.parent
 
+load_dotenv(SERVER_DIR / ".env")
 load_dotenv(PROJECT_DIR / ".env")
 
 # API FOOTBALL
@@ -31,9 +36,10 @@ API_FOOTBALL_KEY = os.getenv(
     "",
 )
 
-LIGA_MX_ID = 262
+DEFAULT_COMPETITION = get_competition()
+LIGA_MX_ID = DEFAULT_COMPETITION["api_football_league_id"]
 
-TIMEZONE = "America/Mazatlan"
+TIMEZONE = DEFAULT_COMPETITION["timezone"]
 
 # MODO API
 API_FOOTBALL_MODE = os.getenv(
@@ -103,57 +109,22 @@ def _normalize_text(
     return " ".join(value.split())
 
 
-# ALIAS
-TEAM_ALIASES = {
-    "club america": "america",
-    "america": "america",
-    "cf america": "america",
-    "pumas unam": "pumas",
-    "unam pumas": "pumas",
-    "unam": "pumas",
-    "u n a m pumas": "pumas",
-    "guadalajara": "chivas",
-    "cd guadalajara": "chivas",
-    "guadalajara chivas": "chivas",
-    "chivas": "chivas",
-    "fc juarez": "juarez",
-    "juarez": "juarez",
-    "club tijuana": "tijuana",
-    "tijuana": "tijuana",
-    "atletico san luis": "san luis",
-    "san luis": "san luis",
-    "club leon": "leon",
-    "leon": "leon",
-    "cf pachuca": "pachuca",
-    "pachuca": "pachuca",
-    "club necaxa": "necaxa",
-    "necaxa": "necaxa",
-    "club puebla": "puebla",
-    "puebla": "puebla",
-    "club queretaro": "queretaro",
-    "queretaro": "queretaro",
-    "santos laguna": "santos",
-    "santos": "santos",
-    "tigres uanl": "tigres",
-    "tigres": "tigres",
-    "toluca": "toluca",
-    "deportivo toluca": "toluca",
-    "cruz azul": "cruz azul",
-    "atlas": "atlas",
-    "monterrey": "monterrey",
-    "rayados": "monterrey",
-    "rayados de monterrey": "monterrey",
-    "mazatlan": "atlante",
-    "atlante": "atlante",
-}
-
-
 def _canonical_team(
     value,
+    competition_id="liga-mx",
 ):
 
-    value = EQUIVALENCIAS.get(value, value)
+    if competition_id == "liga-mx":
+        value = EQUIVALENCIAS.get(value, value)
+
     normalized = _normalize_text(value)
+
+    if competition_id != "liga-mx":
+        return EUROPE_TEAM_ALIASES.get(
+            normalized,
+            normalized,
+        )
+
     return TEAM_ALIASES.get(
         normalized,
         normalized,
@@ -233,11 +204,42 @@ class LiveFootballService:
 
     def __init__(
         self,
+        competition=None,
     ):
 
+        self.competition = (
+            competition
+            if isinstance(competition, dict)
+            else get_competition(competition)
+        )
+        self.competition_id = self.competition["id"]
         self.api_key = API_FOOTBALL_KEY
+        self.league_id = self.competition["api_football_league_id"]
+        self.timezone = self.competition["timezone"]
 
-        self.sportsdb = SportsDBService()
+        self.sportsdb = SportsDBService(
+            competition=self.competition,
+        )
+
+    def _translate_team(
+        self,
+        value,
+    ):
+
+        if self.competition_id == "liga-mx":
+            return EQUIVALENCIAS.get(value, value)
+
+        return value
+
+    def _canonical_team_name(
+        self,
+        value,
+    ):
+
+        return _canonical_team(
+            value,
+            competition_id=self.competition_id,
+        )
 
     # API DISPONIBLE
     def has_api_football(
@@ -425,14 +427,14 @@ class LiveFootballService:
         api_fixtures,
     ):
 
-        target_home = _canonical_team(
+        target_home = self._canonical_team_name(
             schedule_match.get(
                 "home",
                 {},
             ).get("name")
         )
 
-        target_away = _canonical_team(
+        target_away = self._canonical_team_name(
             schedule_match.get(
                 "away",
                 {},
@@ -446,11 +448,11 @@ class LiveFootballService:
                 {},
             ).get("id")
 
-            if league_id != LIGA_MX_ID:
+            if league_id != self.league_id:
 
                 continue
 
-            api_home = _canonical_team(
+            api_home = self._canonical_team_name(
                 fixture.get(
                     "teams",
                     {},
@@ -462,7 +464,7 @@ class LiveFootballService:
                 .get("name")
             )
 
-            api_away = _canonical_team(
+            api_away = self._canonical_team_name(
                 fixture.get(
                     "teams",
                     {},
@@ -663,7 +665,7 @@ class LiveFootballService:
                             "date": date_value,
                             # "league": LIGA_MX_ID,
                             # "season": "2026",
-                            "timezone": TIMEZONE,
+                            "timezone": self.timezone,
                         },
                         cache_seconds=OVERLAY_CACHE_SECONDS,
                         allow_stale=True,
@@ -759,7 +761,7 @@ class LiveFootballService:
                 "date": date,
                 # "league": LIGA_MX_ID,
                 # "season": "2026",
-                "timezone": TIMEZONE,
+                "timezone": self.timezone,
             },
             cache_seconds=RESOLVE_CACHE_SECONDS,
             allow_stale=True,
@@ -787,12 +789,8 @@ class LiveFootballService:
 
         return {
             "fixture_id": fixture["fixture"]["id"],
-            "home": EQUIVALENCIAS.get(
-                fixture["teams"]["home"]["name"], fixture["teams"]["home"]["name"]
-            ),
-            "away": EQUIVALENCIAS.get(
-                fixture["teams"]["away"]["name"], fixture["teams"]["away"]["name"]
-            ),
+            "home": self._translate_team(fixture["teams"]["home"]["name"]),
+            "away": self._translate_team(fixture["teams"]["away"]["name"]),
         }
 
     # DETALLE PARTIDO
@@ -891,15 +889,11 @@ class LiveFootballService:
                     "home",
                     {},
                 ).get("id"),
-                "name": EQUIVALENCIAS.get(
+                "name": self._translate_team(
                     teams.get(
                         "home",
                         {},
-                    ).get("name"),
-                    teams.get(
-                        "home",
-                        {},
-                    ).get("name"),
+                    ).get("name")
                 ),
                 "logo": teams.get(
                     "home",
@@ -912,15 +906,11 @@ class LiveFootballService:
                     "away",
                     {},
                 ).get("id"),
-                "name": EQUIVALENCIAS.get(
+                "name": self._translate_team(
                     teams.get(
                         "away",
                         {},
-                    ).get("name"),
-                    teams.get(
-                        "away",
-                        {},
-                    ).get("name"),
+                    ).get("name")
                 ),
                 "logo": teams.get(
                     "away",
@@ -972,7 +962,12 @@ class LiveFootballService:
                         "team",
                         {},
                     ).get("id"),
-                    "team": EQUIVALENCIAS.get(event.get("team",{},).get("name"), event.get("team",{},).get("name")),
+                    "team": self._translate_team(
+                        event.get(
+                            "team",
+                            {},
+                        ).get("name")
+                    ),
                     "player": event.get(
                         "player",
                         {},
@@ -1037,7 +1032,7 @@ class LiveFootballService:
 
     # FIXTURES LIGA MX POR FECHA
     # UTILIZADO POR LIVE OVERLAY Y DATASET SYNC
-    def get_liga_mx_fixtures_by_date(
+    def get_competition_fixtures_by_date(
         self,
         date_value,
     ):
@@ -1046,7 +1041,7 @@ class LiveFootballService:
             "/fixtures",
             params={
                 "date": date_value,
-                "timezone": TIMEZONE,
+                "timezone": self.timezone,
             },
             cache_seconds=OVERLAY_CACHE_SECONDS,
             allow_stale=True,
@@ -1060,8 +1055,16 @@ class LiveFootballService:
                     "league",
                     {},
                 ).get("id")
-                == LIGA_MX_ID
+                == self.league_id
             )
         ]
 
         return fixtures
+
+    # Compatibilidad temporal con llamadas anteriores
+    def get_liga_mx_fixtures_by_date(
+        self,
+        date_value,
+    ):
+
+        return self.get_competition_fixtures_by_date(date_value)

@@ -5,17 +5,12 @@
 
 .ad-banner__label {
   display: block;
-
   margin-bottom: 8px;
-
   text-align: center;
-
   font-size: 9px;
   font-weight: 600;
-
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #8b97a8;
 }
 
@@ -30,7 +25,6 @@
 }
 
 /* BANNER LATERAL */
-
 .ad-banner--sidebar {
   width: 100%;
   margin: 0 auto;
@@ -38,44 +32,24 @@
 
 .ad-banner--sidebar .adsbygoogle {
   display: block;
-
   width: 100%;
   min-height: 250px;
 }
 
 /* Sin anuncio disponible */
-
 .ad-banner .adsbygoogle[data-ad-status="unfilled"] {
   display: none !important;
-}
-
-.ad-banner--sidebar {
-  width: 100%;
-
-  margin: 0 auto;
-}
-
-.ad-banner--sidebar .adsbygoogle {
-  display: block;
-
-  width: 100%;
-
-  min-height: 300px;
 }
 
 /* BANNER MÓVIL */
 .ad-banner--mobile {
   width: 100%;
-
   margin: 0 auto;
-
   overflow: hidden;
 }
 
 .ad-banner--mobile .adsbygoogle {
   display: block;
-
   width: 100%;
-
   min-height: 100px;
 }

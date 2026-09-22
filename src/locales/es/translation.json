@@ -1,0 +1,499 @@
+{
+  "navbar": {
+    "competition": "Ligas",
+    "mobile-competition": "LIGA",
+    "competition-menu": "SELECCIONA UNA LIGA",
+    "prediction": "Predicción",
+    "analytics": "Analítica",
+    "model": "Modelo",
+    "subtitle": "Análisis de tu Liga favorita",
+    "live": "En Vivo",
+    "new_prediction": "Nueva predicción",
+    "admin_panel": "Panel admin",
+    "admin": "Administrador",
+    "user": "Usuario",
+    "logout": "Salir",
+    "login": "Iniciar sesión",
+    "engine_available": "Motor estadístico disponible",
+    "loading": "Cargando..."
+  },
+
+  "footer": {
+    "subtitle": "Análisis de tu Liga favorita",
+    "description": "Datos historicos. Análisis. Mejores decisiones.",
+    "description-1": "Estadísticas y predicciones",
+    "description-2": "para entender mejor cada partido.",
+    "navegation": "Navegación",
+    "prediction": "Predicción",
+    "analytics": "Analítica",
+    "model": "Modelo",
+    "live": "En Vivo",
+    "liveBadge": "EN VIVO",
+    "legal": "Legal",
+    "privacy-policy": "Política de privacidad",
+    "contact": "Contacto",
+
+    "bottom": {
+      "rights": "© {{year}} GoalX. Todos los derechos reservados.",
+      "message": "Datos · Análisis · Fútbol"
+    }
+  },
+
+  "liveCenter": {
+    "liveStream": "Encuentro en vivo",
+    "todaysMatches": "Partidos de hoy",
+    "nextMatches": "Próximos partidos",
+    "nextMatchday": "Próxima jornada",
+    "engine": "MOTOR",
+    "overlayActive": "Live Overlay activo",
+    "overlayWaiting": "Inteligencia en espera",
+    "overlayLive": "Datos live cada",
+    "overlayKickoff": "Se activará cerca del kickoff",
+    "refresh": "Próxima actualización",
+    "liveOverlay": "Live Overlay",
+    "availableRequests": "Peticiones disponibles",
+    "liveCenter": "Live Center",
+    "statusLive": "EN VIVO",
+    "statusReady": "LISTO",
+
+    "sectionTitles": {
+      "live": "Partidos en vivo",
+      "today": "Partidos de hoy",
+      "upcoming": "Próximos partidos",
+      "nextWithRound": "Próxima · {{round}}",
+      "nextFallback": "Próxima jornada",
+      "default": "Partidos"
+    },
+    "emptyStates": {
+      "liveBadge": "EN VIVO",
+      "liveTitle": "No hay partidos de {{competition}} en vivo",
+      "liveDescription": "GoalX seguirá consultando automáticamente. También puedes revisar los partidos programados para hoy.",
+
+      "todayBadge": "HOY",
+      "todayTitle": "No hay partidos de {{competition}} programados para hoy",
+      "todayDescription": "Puedes consultar {{nextLabel}} para revisar los siguientes encuentros.",
+
+      "upcomingBadge": "PRÓXIMA",
+      "upcomingTitle": "No hay {{nextLabel}} disponible",
+      "upcomingDescription": "El calendario de {{competition}} todavía no tiene disponibles los siguientes encuentros.",
+
+      "defaultCompetition": "esta competición",
+      "defaultNextScope": "la próxima jornada"
+    },
+    "sportsDB": {
+      "title": "TheSportsDB",
+      "calendar": "Calendario de"
+    },
+    "apiFootball": {
+      "title": "API-Football",
+      "liveOnDemand": "Live data bajo demanda"
+    },
+    "matchLab": {
+      "title": "MatchLab Intelligence",
+      "model": "Modelo + AI",
+      "live": "MATCHLAB LIVE",
+      "activatingLiveIntelligence": "Activando Live Intelligence"
+    },
+    "matches": {
+      "competitionName": "{{name}}",
+      "matchesCount": "{{count}} encuentros",
+      "search": "Buscando partidos de {{competitionName}}...",
+      "viewTodayMatches": "Ver partidos de hoy",
+      "live": "EN VIVO",
+      "linkingMatchWithProvider": "Relacionando el encuentro con el proveedor de datos en vivo..."
+    },
+    "detail": {
+      "processingLiveIntelligence": "Procesando Live Intelligence..."
+    },
+    "scoreboard": {
+      "titleLive": "GoalX en vivo",
+      "halfTime": "Descanso",
+      "home": "LOCAL",
+      "away": "VISITANTE",
+      "referee": "Árbitro:",
+      "unaviable": "No disponible",
+      "updated": "Actualizado:"
+    },
+    "momentum": {
+      "liveMomentum": "Inteligencia en tiempo real",
+      "matchMomentum": "Impulso del partido",
+      "intelligence": "Intelligence",
+      "minuteTooltip": "Minuto {{value}}"
+    },
+    "stats": {
+      "matchData": "Datos del Partido",
+      "liveStats": "ESTADÍSTICAS EN VIVO",
+      "signalDetector": "DETECTOR DE SEÑALES",
+      "matchSignals": "Señales del partido",
+      "noDominantSignal": "El motor todavía no detecta una señal dominante.",
+      "possession": "Posesión",
+      "shots": "Tiros",
+      "shotsOnGoal": "A portería",
+      "corners": "Córners",
+      "fouls": "Faltas",
+      "yellowCards": "Amarillas"
+    },
+    "prematch": {
+      "title": "CAMBIO DE MODELO",
+      "heading": "Pre-match vs En vivo",
+      "description": "Cómo cambió la lectura del modelo desde el inicio.",
+      "pre": "PRE",
+      "live": "EN VIVO",
+      "draw": "Empate",
+      "percentagePoints": "pp",
+      "note": "La proyección live utiliza marcador actual, minuto y expectativa de goles del modelo Dixon-Coles."
+    },
+    "timeline": {
+      "title": "CRONOLOGÍA DEL PARTIDO",
+      "heading": "Historia del encuentro",
+      "eventsCount": "{{count}} eventos",
+      "assist": "Asistencia: {{name}}",
+      "emptyState": "Todavía no existen eventos registrados para este partido."
+    },
+    "ai": {
+      "title": "GoalX AI",
+      "heading": "Analista de partidos en directo",
+      "description": "Pregunta sobre lo que está ocurriendo en el partido.",
+      "status": "BASADO EN DATOS",
+      "suggestions": {
+        "q1": "¿Quién está dominando realmente?",
+        "q2": "¿Qué cambió respecto al pre-match?",
+        "q3": "¿Qué señales importantes detectas?",
+        "q4": "Resume los últimos minutos"
+      },
+      "welcomeTitle": "Estoy leyendo el partido.",
+      "welcomeText": "Puedo interpretar el impulso, estadísticas, eventos y cambios de probabilidad utilizando únicamente los datos disponibles.",
+      "userRole": "TÚ",
+      "thinking": "Analizando partido...",
+      "placeholder": "Pregunta a MatchLab AI...",
+      "disclaimer": "GoalX AI interpreta datos estadísticos disponibles y no inventa eventos ni garantiza resultados.",
+      "providerOpenAI": "MatchLab AI",
+      "providerLocal": "MatchLab Local Analyst"
+    },
+    "common": {
+      "competition": "la competición",
+      "defaultCompetition": "Competición"
+    }
+  },
+
+  "matchAnalytics": {
+    "form": {
+      "defaultCompetition": "Competición",
+      "title": "Selecciona tus equipos",
+      "subtitle": "Selecciona los equipos del partido para ejecutar el motor estadístico.",
+      "localLabel": "Equipo local",
+      "localBadge": "LOCAL",
+      "localPlaceholder": "Seleccionar equipo local",
+      "visitorLabel": "Equipo visitante",
+      "visitorBadge": "VISITANTE",
+      "visitorPlaceholder": "Seleccionar equipo visitante",
+      "searchPlaceholder": "Buscar equipo...",
+      "vs": "VS",
+      "refereeLabel": "Árbitro",
+      "refereeBadge": "ÁRBITRO",
+      "refereePlaceholder": "Seleccionar árbitro",
+      "searchRefereePlaceholder": "Buscar árbitro...",
+      "modelPreparingTitle": "Histórico en preparación",
+      "modelPreparingMessage": "GoalX está preparando el motor estadístico de {{competition}}.",
+      "thisCompetition": "esta competición",
+      "recordsProgress": "{{records}} de {{minimum}} partidos mínimos cargados",
+      "connectionErrorTitle": "No fue posible realizar la conexión",
+      "analysisErrorTitle": "No fue posible realizar el análisis",
+      "processingButton": "Procesando modelo...",
+      "executeButton": "Ejecutar análisis"
+    },
+    "analytics": {
+      "empty": {
+        "kicker": "Centro de Análisis",
+        "title": "Tu lectura del partido aparecerá aquí",
+        "subtitle": "Selecciona un equipo local, visitante y árbitro para ejecutar el análisis estadístico.",
+        "marketResult": "Resultado",
+        "marketGoals": "Goles",
+        "marketCorners": "Córners",
+        "marketCards": "Tarjetas",
+        "marketScores": "Marcadores"
+      },
+      "loading": {
+        "kicker": "Calculando",
+        "title": "Procesando modelo estadístico",
+        "subtitle": "Generando probabilidades del encuentro."
+      },
+      "results": {
+        "toolbar": {
+          "status": "Análisis completado",
+          "title": "Reporte del encuentro",
+          "subtitle": "Exporta los resultados visibles en un documento PDF."
+        },
+        "fixture": {
+          "kicker": "ANÁLISIS DEL PARTIDO",
+          "processed": "Modelo procesado",
+          "localLabel": "LOCAL",
+          "visitorLabel": "VISITANTE",
+          "predictionLabel": "PREDICCIÓN",
+          "vs": "VS",
+          "refereeLabel": "Árbitro"
+        },
+        "h2h": {
+          "icon": "H2H",
+          "title": "Historial directo",
+          "badge": "Histórico"
+        },
+        "market1x2": {
+          "eyebrow": "Resultado",
+          "title": "Probabilidad del partido",
+          "description": "Distribución probabilística entre victoria local, empate y victoria visitante.",
+          "probabilityName": "Probabilidad",
+          "dominantScenario": "ESCENARIO DOMINANTE",
+          "dominantDescription": "Resultado individual con mayor probabilidad."
+        },
+        "goals": {
+          "eyebrow": "Mercado de goles",
+          "title": "Predicción ofensiva esperada",
+          "description": "Expectativas y probabilidades derivadas del modelo de goles.",
+          "expectedHomeDesc": "Goles esperados local",
+          "expectedAwayDesc": "Goles esperados visitante",
+          "totalXgLabel": "Total xG",
+          "jointExpectation": "Expectativa conjunta",
+          "overUnderTag": "OVER / UNDER",
+          "overUnderTitle": "Líneas de goles",
+          "over15": "Más de 1.5 goles",
+          "under15": "Menos de 1.5 goles",
+          "over25": "Más de 2.5 goles",
+          "under25": "Menos de 2.5 goles",
+          "bttsTag": "BTTS",
+          "bttsTitle": "Ambos equipos anotan",
+          "yesBadge": "SÍ"
+        },
+        "scores": {
+          "tag": "MARCADOR EXACTO",
+          "title": "Top 5 resultados más probables",
+          "probabilityName": "Probabilidad"
+        },
+        "corners": {
+          "eyebrow": "Tiros de esquina",
+          "title": "Mercado de córners",
+          "description": "Expectativa general y distribución por equipo.",
+          "totalExpected": "Total esperado",
+          "fullMatch": "Partido completo",
+          "firstHalf": "Primera mitad",
+          "firstHalfDesc": "Córners esperados 1T",
+          "expectedHomeDesc": "Esperados local",
+          "expectedAwayDesc": "Esperados visitante",
+          "over95": "Más de 9.5 córners",
+          "under95": "Menos de 9.5 córners",
+          "over45H1": "Más de 4.5 córners 1T",
+          "under45H1": "Menos de 4.5 córners 1T",
+          "expectedBarName": "Córners esperados",
+          "homeOver45": "Más de 4.5 córners",
+          "homeUnder45": "Menos de 4.5 córners",
+          "homeOver55": "Más de 5.5 córners",
+          "homeUnder55": "Menos de 5.5 córners",
+          "awayOver35": "Más de 3.5 córners",
+          "awayUnder35": "Menos de 3.5 córners",
+          "awayOver45": "Más de 4.5 córners",
+          "awayUnder45": "Menos de 4.5 córners"
+        },
+        "cards": {
+          "eyebrow": "Disciplina",
+          "title": "Mercado de tarjetas",
+          "description": "Estimación ajustada según el árbitro {{referee}}.",
+          "expectedCards": "Tarjetas esperadas",
+          "refereeAdjusted": "Ajustadas por {{referee}}",
+          "over45": "Más de 4.5 tarjetas",
+          "under45": "Menos de 4.5 tarjetas"
+        },
+        "summary": {
+          "eyebrow": "Resumen final",
+          "title": "Señales de mayor probabilidad",
+          "description": "Lectura consolidada de los mercados con mayor probabilidad calculada por el modelo.",
+          "highestProbabilityTag": "MAYOR PROBABILIDAD DEL MODELO",
+          "probabilityLabel": "Probabilidad",
+          "levels": {
+            "moderate": "Moderada",
+            "high": "Alta",
+            "strong": "Fuerte"
+          },
+          "readingTitle": "Lectura del encuentro",
+          "noTrends": "No se detecta una tendencia extrema adicional entre los mercados analizados.",
+          "mostProbableScoreTag": "MARCADOR MÁS PROBABLE",
+          "probabilityPercentage": "{{percentage}}% de probabilidad",
+          "disclaimerTitle": "Interpretación estadística:",
+          "disclaimerText": "una probabilidad alta indica que el modelo considera ese escenario más probable, pero no significa que sea una apuesta rentable ni garantiza el resultado. Para calcular valor esperado también se necesita conocer la cuota ofrecida."
+        },
+        "footerText": "Resultados estadísticos basados en información histórica. Las probabilidades no representan resultados garantizados."
+      }
+    }
+  },
+
+  "seasonHighlights": {
+    "playerSlide": {
+      "defaultCompetition": "Competición",
+      "kicker": "{{competition}} · TEMPORADA ACTUAL",
+      "goals": "Goles",
+      "assists": "Asistencias",
+      "contributions": "Participaciones"
+    },
+    "matchSlide": {
+      "defaultCompetition": "Competición",
+      "kicker": "{{competition}} · PARTIDO DESTACADO",
+      "goals": "{{count}} goles",
+      "corners": "{{count}} córners",
+      "cards": "{{count}} tarjetas"
+    },
+    "container": {
+      "kicker": "DESTACADOS",
+      "title": "Lo mejor de la temporada",
+      "defaultSeason": "Temporada actual"
+    }
+  },
+
+  "sportsSelect": {
+    "loading": "Cargando catálogo...",
+    "optionsCount": "{{count}} opciones",
+    "clear": "Limpiar",
+    "noResults": "No se encontraron resultados",
+    "alreadySelected": "Ya seleccionado"
+  },
+
+  "exportPdfButton": {
+    "generating": "Generando PDF...",
+    "exportReport": "Exportar reporte",
+    "preparing": "Preparando análisis",
+    "documentType": "Documento PDF"
+  },
+
+  "adBanner": {
+    "label": "Publicidad"
+  },
+
+  "login": {
+    "errors": {
+      "emptyFields": "Ingresa tu usuario y contraseña.",
+      "failedLogin": "No fue posible iniciar sesión. Verifica tus datos."
+    },
+    "brand": {
+      "subtitle": "CUENTA GOALX",
+      "title": "Bienvenido de nuevo",
+      "description": "Inicia sesión para acceder a tu cuenta y disfruta de una experiencia personalizada en GoalX."
+    },
+    "form": {
+      "usernameLabel": "Usuario",
+      "usernamePlaceholder": "Tu usuario",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Tu contraseña",
+      "submitting": "Ingresando...",
+      "submit": "Iniciar sesión"
+    },
+    "footer": {
+      "visitorLink": "← Continuar como visitante",
+      "visitorNote": "GoalX continúa disponible sin iniciar sesión."
+    },
+    "side": {
+      "brand": "GOALX",
+      "title": "Fútbol-Datos-Experiencia",
+      "description": "Analiza cada partido, sigue la acción en vivo y lleva tu experiencia de fútbol a otro nivel.",
+      "statusTitle": "GoalX está listo",
+      "statusSubtitle": "Predicciones, analítica y Live Center disponibles para todos."
+    }
+  },
+
+  "privacyPolicy": {
+    "backLink": "Volver a GoalX",
+    "eyebrow": "LEGAL",
+    "title": "Política de privacidad",
+    "lastUpdated": "Última actualización: 16 de septiembre de 2026",
+    "intro": "En GoalX respetamos la privacidad de nuestros usuarios. Esta Política de privacidad explica de forma general qué información puede recopilarse al utilizar el sitio, cómo puede utilizarse y qué tecnologías de terceros pueden intervenir durante la navegación.",
+    "sections": {
+      "collection": {
+        "title": "Información que puede recopilarse",
+        "p1": "GoalX puede procesar información técnica generada durante el uso del sitio, como dirección IP, tipo de navegador, dispositivo, sistema operativo, páginas visitadas, fecha y hora de acceso y otros datos técnicos relacionados con la navegación.",
+        "p2": "GoalX no solicita de forma directa información financiera, contraseñas bancarias ni datos de tarjetas de crédito para utilizar las funcionalidades públicas del sitio."
+      },
+      "cookies": {
+        "title": "Cookies y tecnologías similares",
+        "p1": "GoalX y determinados proveedores externos pueden utilizar cookies, identificadores, balizas web u otras tecnologías similares para operar el sitio, medir su funcionamiento y mostrar publicidad.",
+        "p2": "El usuario puede configurar su navegador para bloquear o eliminar cookies. Sin embargo, algunas funciones del sitio o determinados servicios de terceros podrían verse afectados."
+      },
+      "ads": {
+        "title": "Google AdSense y publicidad",
+        "p1": "GoalX utiliza Google AdSense para mostrar anuncios. Google y otros proveedores externos pueden utilizar cookies para mostrar anuncios basados en visitas anteriores del usuario a GoalX o a otros sitios web.",
+        "p2": "El uso de cookies publicitarias permite a Google y a sus socios mostrar anuncios que pueden estar relacionados con los intereses del usuario y con su actividad previa en Internet.",
+        "p3": "Los usuarios pueden administrar o desactivar la publicidad personalizada desde la configuración de anuncios de Google.",
+        "externalLink": "Administrar preferencias de anuncios de Google"
+      },
+      "consent": {
+        "title": "Consentimiento y gestión de privacidad",
+        "p1": "Cuando sea requerido por la legislación aplicable, GoalX podrá mostrar un mensaje de consentimiento administrado mediante una plataforma de gestión de consentimiento certificada por Google.",
+        "p2": "Dicho mecanismo permite al usuario aceptar, rechazar o administrar determinadas finalidades relacionadas con cookies y publicidad, según su ubicación y la normativa aplicable."
+      },
+      "thirdParty": {
+        "title": "Proveedores externos",
+        "p1": "Algunos anuncios pueden ser suministrados por Google o por redes y proveedores de publicidad autorizados. Estos terceros pueden utilizar tecnologías propias de medición, publicidad o identificación de dispositivos de acuerdo con sus respectivas políticas.",
+        "p2": "El tratamiento realizado directamente por terceros se encuentra sujeto a sus propias políticas y condiciones."
+      },
+      "purpose": {
+        "title": "Finalidad de la información",
+        "subtitle": "La información técnica recopilada puede utilizarse para:",
+        "list": [
+          "operar y mantener el funcionamiento del sitio;",
+          "analizar el rendimiento y uso de GoalX;",
+          "mejorar la experiencia del usuario;",
+          "detectar errores o comportamientos anómalos;",
+          "mostrar y medir publicidad;",
+          "cumplir obligaciones legales aplicables."
+        ]
+      },
+      "externalLinks": {
+        "title": "Enlaces a sitios externos",
+        "p1": "GoalX puede contener enlaces a sitios externos. GoalX no controla las políticas de privacidad, contenido ni prácticas de esos sitios. Se recomienda revisar sus respectivas políticas antes de proporcionar información."
+      },
+      "changes": {
+        "title": "Cambios a esta política",
+        "p1": "Esta Política de privacidad puede actualizarse cuando cambien las funcionalidades de GoalX, los proveedores utilizados o las obligaciones legales aplicables. La fecha de actualización se mostrará al inicio del documento."
+      },
+      "contact": {
+        "title": "Contacto",
+        "p1": "Si tienes alguna pregunta relacionada con esta Política de privacidad, puedes comunicarte a:"
+      }
+    },
+    "footerNote": "GoalX es una plataforma informativa de análisis, estadísticas y predicciones deportivas. La información presentada no constituye asesoría financiera ni garantiza resultados futuros."
+  },
+
+  "watchMatch": {
+    "team": {
+      "fallbackName": "Equipo"
+    },
+    "teams": {
+      "home": "Local",
+      "away": "Visitante"
+    },
+    "errors": {
+      "defaultStreamError": "La transmisión no está disponible."
+    },
+    "states": {
+      "loading": "Preparando transmisión...",
+      "errorTitle": "Transmisión no disponible",
+      "backToMatches": "Regresar a partidos",
+      "noSource": "No hay una fuente disponible para este partido."
+    },
+    "sources": {
+      "eyebrow": "FUENTES",
+      "title": "Selecciona una señal",
+      "count_one": "{{count}} fuente",
+      "count_other": "{{count}} fuentes",
+      "hint": "Si una fuente no carga o el proveedor la desactiva, prueba otra señal disponible."
+    },
+    "topbar": {
+      "back": "← Volver a GoalX"
+    },
+    "status": {
+      "live": "EN VIVO",
+      "available": "TRANSMISIÓN DISPONIBLE"
+    },
+    "heading": {
+      "eyebrow": "GOALX EN VIVO",
+      "defaultCompetition": "Competición"
+    },
+    "notice": "GoalX muestra únicamente fuentes externas configuradas y autorizadas para inserción. La reproducción depende del proveedor de cada señal."
+  }
+}

@@ -1,0 +1,287 @@
+.goalx-login-page {
+  min-height: calc(100vh - 76px);
+  padding: 56px 24px 80px;
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(50, 221, 165, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(56, 189, 248, 0.08),
+      transparent 28%
+    ),
+    #f4f7fb;
+}
+
+.goalx-login-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #dde5ed;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(23, 38, 58, 0.1);
+}
+
+.goalx-login-panel {
+  padding: 48px;
+}
+
+.goalx-login-brand {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.goalx-login-logo {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  border: 1px solid #cfeee4;
+  border-radius: 17px;
+  background: #effbf7;
+}
+
+.goalx-login-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.goalx-login-brand span,
+.goalx-login-side > span {
+  color: #13a579;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.goalx-login-brand h1 {
+  margin: 5px 0 7px;
+  color: #172438;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.045em;
+}
+
+.goalx-login-brand p {
+  max-width: 520px;
+  margin: 0;
+  color: #7d8998;
+  line-height: 1.65;
+}
+
+.goalx-login-form {
+  display: grid;
+  gap: 18px;
+}
+
+.goalx-login-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.goalx-login-form label > span {
+  color: #435164;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.goalx-login-form input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 15px;
+  border: 1px solid #dce4eb;
+  border-radius: 11px;
+  outline: none;
+  color: #1c293b;
+  background: #fafcfd;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.goalx-login-form input:focus {
+  border-color: #63d6b4;
+  box-shadow: 0 0 0 4px rgba(49, 218, 167, 0.1);
+}
+
+.goalx-login-form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  margin-top: 3px;
+  border: 0;
+  border-radius: 11px;
+  color: #052019;
+  background: linear-gradient(135deg, #5bf0bc, #25d798);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 900;
+  box-shadow: 0 12px 28px rgba(37, 215, 152, 0.18);
+}
+
+.goalx-login-form > button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.goalx-login-error {
+  padding: 11px 13px;
+  border: 1px solid #f0c9c9;
+  border-radius: 9px;
+  color: #a03434;
+  background: #fff4f4;
+  font-size: 0.82rem;
+}
+
+.goalx-login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #edf1f4;
+}
+
+.goalx-login-footer a {
+  color: #148d69;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.goalx-login-footer small {
+  color: #97a1ae;
+  text-align: right;
+}
+
+.goalx-login-side {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 48px;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(50, 221, 165, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 100%,
+      rgba(56, 189, 248, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(145deg, #06111e, #0a1d2d);
+}
+
+.goalx-login-side h2 {
+  margin: 12px 0 14px;
+  color: #f3f7fa;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.goalx-login-side p {
+  margin: 0;
+  color: #8ca0b4;
+  line-height: 1.7;
+}
+
+.goalx-login-side__status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.goalx-login-side__status i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #39e89f;
+  box-shadow: 0 0 0 6px rgba(57, 232, 159, 0.08);
+}
+
+.goalx-login-side__status div {
+  display: grid;
+  gap: 3px;
+}
+
+.goalx-login-side__status strong {
+  color: #dce7ef;
+  font-size: 0.82rem;
+}
+
+.goalx-login-side__status small {
+  color: #71869a;
+  font-size: 0.7rem;
+}
+
+.goalx-auth-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 320px;
+  color: #748294;
+}
+
+.goalx-auth-loading span {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #dbe5e1;
+  border-top-color: #25c996;
+  border-radius: 50%;
+  animation: goalx-auth-spin 0.8s linear infinite;
+}
+
+@keyframes goalx-auth-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 820px) {
+  .goalx-login-page {
+    padding: 30px 14px 55px;
+  }
+
+  .goalx-login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .goalx-login-panel,
+  .goalx-login-side {
+    padding: 30px 22px;
+  }
+
+  .goalx-login-side {
+    display: none;
+  }
+
+  .goalx-login-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .goalx-login-footer small {
+    text-align: left;
+  }
+}

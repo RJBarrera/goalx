@@ -2,18 +2,28 @@ import os
 import sys
 import time
 from datetime import datetime
+from pathlib import Path
 import requests
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
 from scipy.stats import poisson
+from dotenv import load_dotenv
+
+from competition_config import get_competition
 
 # ==========================================
 # 1. CONFIGURACION
 # ==========================================
-API_KEY = "4d8aa137f38c36e55a3e1adcc5e203dc"  # Principal
+
+SERVER_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = SERVER_DIR.parent
+load_dotenv(SERVER_DIR / ".env")
+load_dotenv(PROJECT_DIR / ".env")
+
+API_KEY = os.getenv("API_FOOTBALL_KEY", "")
 BASE_URL = "https://v3.football.api-sports.io"
-LIGA_MX_ID = 262
+LIGA_MX_ID = get_competition()["api_football_league_id"]
 
 
 # ==========================================

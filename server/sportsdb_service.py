@@ -14,13 +14,13 @@ from zoneinfo import ZoneInfo
 import requests
 from dotenv import load_dotenv
 
-# Diccionario de traducción temporal en caliente
-EQUIVALENCIAS = {"Atlante": "Mazatlán"}
+from competition_config import get_competition, TEAM_EQUIVALENCES as EQUIVALENCIAS
 
 # RUTAS
 SERVER_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SERVER_DIR.parent
 
+load_dotenv(SERVER_DIR / ".env")
 load_dotenv(PROJECT_DIR / ".env")
 
 # CONFIGURACION
@@ -30,9 +30,10 @@ SPORTSDB_API_KEY = os.getenv(
 )
 
 SPORTSDB_BASE_URL = "https://www.thesportsdb.com/api/v1/json"
-SPORTSDB_LIGA_MX_ID = 4350
+DEFAULT_COMPETITION = get_competition()
+SPORTSDB_LIGA_MX_ID = DEFAULT_COMPETITION["sportsdb_league_id"]
 
-TIMEZONE_NAME = "America/Mazatlan"
+TIMEZONE_NAME = DEFAULT_COMPETITION["timezone"]
 LOCAL_TIMEZONE = ZoneInfo(TIMEZONE_NAME)
 
 SCHEDULE_CACHE_SECONDS = 300
@@ -87,6 +88,7 @@ def _to_int(
 # FECHA/HORA
 def _parse_datetime(
     event,
+    local_timezone=LOCAL_TIMEZONE,
 ):
     """
     Convierte siempre el partido a America/Mazatlan.
@@ -118,7 +120,7 @@ def _parse_datetime(
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
 
-            return dt.astimezone(LOCAL_TIMEZONE)
+            return dt.astimezone(local_timezone)
 
         except (
             TypeError,
@@ -141,7 +143,7 @@ def _parse_datetime(
 
             dt = datetime.fromisoformat(f"{local_date}T{clean_time}")
 
-            return dt.replace(tzinfo=LOCAL_TIMEZONE)
+            return dt.replace(tzinfo=local_timezone)
 
         except (
             TypeError,
@@ -165,7 +167,7 @@ def _parse_datetime(
             dt = datetime.fromisoformat(f"{date_value}T{clean_time}")
             dt = dt.replace(tzinfo=timezone.utc)
 
-            return dt.astimezone(LOCAL_TIMEZONE)
+            return dt.astimezone(local_timezone)
 
         except (
             TypeError,
@@ -255,10 +257,31 @@ class SportsDBService:
 
     def __init__(
         self,
+        competition=None,
     ):
 
+        self.competition = (
+            competition
+            if isinstance(competition, dict)
+            else get_competition(competition)
+        )
+        self.competition_id = self.competition["id"]
         self.api_key = SPORTSDB_API_KEY
         self.base_url = SPORTSDB_BASE_URL
+        self.league_id = self.competition["sportsdb_league_id"]
+        self.timezone_name = self.competition["timezone"]
+        self.local_timezone = ZoneInfo(self.timezone_name)
+        self.round_label = self.competition.get("round_label", "Jornada")
+
+    def _translate_team(
+        self,
+        value,
+    ):
+
+        if self.competition_id == "liga-mx":
+            return EQUIVALENCIAS.get(value, value)
+
+        return value
 
     # REQUEST
     def _get(
@@ -333,7 +356,7 @@ class SportsDBService:
             "eventsday.php",
             params={
                 "d": date_value,
-                "l": SPORTSDB_LIGA_MX_ID,
+                "l": self.league_id,
             },
         )
 
@@ -346,7 +369,7 @@ class SportsDBService:
         payload = self._get(
             "eventsnextleague.php",
             params={
-                "id": SPORTSDB_LIGA_MX_ID,
+                "id": self.league_id,
             },
         )
 
@@ -359,7 +382,7 @@ class SportsDBService:
         payload = self._get(
             "eventspastleague.php",
             params={
-                "id": SPORTSDB_LIGA_MX_ID,
+                "id": self.league_id,
             },
         )
 
@@ -403,7 +426,7 @@ class SportsDBService:
     def _get_next_round_matches(
         self,
     ):
-        now = datetime.now(LOCAL_TIMEZONE)
+        now = datetime.now(self.local_timezone)
         current_round, current_season = self._get_current_round_context()
         next_events = self._next_league_events()
 
@@ -413,7 +436,7 @@ class SportsDBService:
         anchor_event = next_events[0]
         anchor_round = _to_int(anchor_event.get("intRound"))
         anchor_season = str(anchor_event.get("strSeason") or "").strip()
-        anchor_kickoff = _parse_datetime(anchor_event)
+        anchor_kickoff = _parse_datetime(anchor_event, self.local_timezone)
 
         target_round = None
         target_season = None
@@ -454,7 +477,7 @@ class SportsDBService:
                 for event in events:
                     event_round = _to_int(event.get("intRound"))
                     event_season = str(event.get("strSeason") or "").strip()
-                    kickoff = _parse_datetime(event)
+                    kickoff = _parse_datetime(event, self.local_timezone)
 
                     if event_round is None:
                         continue
@@ -551,9 +574,9 @@ class SportsDBService:
         event,
     ):
 
-        kickoff = _parse_datetime(event)
+        kickoff = _parse_datetime(event, self.local_timezone)
         status = _normalize_status(event)
-        now = datetime.now(LOCAL_TIMEZONE)
+        now = datetime.now(self.local_timezone)
 
         # VENTANA EN VIVO
         # 20 min antes
@@ -599,10 +622,10 @@ class SportsDBService:
             "live_data_source": None,
             "status": status,
             "league": {
-                "id": SPORTSDB_LIGA_MX_ID,
-                "name": event.get("strLeague") or "Liga MX",
+                "id": self.league_id,
+                "name": event.get("strLeague") or self.competition["name"],
                 "round": (
-                    f"Jornada " f"{event.get('intRound')}"
+                    f"{self.round_label} " f"{event.get('intRound')}"
                     if event.get("intRound")
                     else None
                 ),
@@ -611,13 +634,13 @@ class SportsDBService:
             },
             "home": {
                 "id": event.get("idHomeTeam"),
-                "name": EQUIVALENCIAS.get(event.get("strHomeTeam"), event.get("strHomeTeam")),
+                "name": self._translate_team(event.get("strHomeTeam")),
                 "logo": event.get("strHomeTeamBadge"),
                 "goals": _to_int(event.get("intHomeScore")),
             },
             "away": {
                 "id": event.get("idAwayTeam"),
-                "name": EQUIVALENCIAS.get(event.get("strAwayTeam"), event.get("strAwayTeam")),
+                "name": self._translate_team(event.get("strAwayTeam")),
                 "logo": event.get("strAwayTeamBadge"),
                 "goals": _to_int(event.get("intAwayScore")),
             },
@@ -631,7 +654,7 @@ class SportsDBService:
     def _get_upcoming_matches(
         self,
     ):
-        now = datetime.now(LOCAL_TIMEZONE)
+        now = datetime.now(self.local_timezone)
         current_round, current_season = self._get_current_round_context()
 
         if current_round is None:
@@ -711,7 +734,7 @@ class SportsDBService:
         if scope == "upcoming":
             return self._get_upcoming_matches()
 
-        now = datetime.now(LOCAL_TIMEZONE)
+        now = datetime.now(self.local_timezone)
         local_today = now.date()
 
         # THE SPORTS DB USA FECHAS UTC

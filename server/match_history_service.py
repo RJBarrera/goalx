@@ -12,9 +12,16 @@ from pathlib import Path
 
 import pandas as pd
 
+from competition_config import (
+    TEAM_EQUIVALENCES as EQUIVALENCIAS,
+    DEFAULT_COMPETITION_ID,
+    get_competition,
+)
+
 # RUTAS
 SERVER_DIR = Path(__file__).resolve().parent
-SEED_HISTORY_PATH = SERVER_DIR / "historial_ligamx_2023.csv"
+DEFAULT_COMPETITION = get_competition()
+SEED_HISTORY_PATH = SERVER_DIR / DEFAULT_COMPETITION["seed_history_filename"]
 
 
 # COLUMNAS DEL DATASET
@@ -56,8 +63,6 @@ DEFAULT_STATE = {
     "pending_fixtures": {},
 }
 
-# Diccionario de traducción temporal en caliente
-EQUIVALENCIAS = {"Atlante": "Mazatlán"}
 
 # HELPERS
 def _utc_now():
@@ -116,34 +121,74 @@ class MatchHistoryService:
 
     def __init__(
         self,
+        competition=None,
     ):
 
-        # LOCAL
-        # server/historial_ligamx_2023.csv
+        self.competition = (
+            competition
+            if isinstance(competition, dict)
+            else get_competition(competition)
+        )
+        self.competition_id = self.competition["id"]
 
-        # RAILWAY
-        # MATCHLAB_HISTORY_PATH=/data/historial_ligamx_2023.csv
-        # ====================================================
-        configured_history = os.getenv("MATCHLAB_HISTORY_PATH")
+        self.seed_history_path = SERVER_DIR / self.competition["seed_history_filename"]
+        self.seed_highlights_path = (
+            SERVER_DIR / self.competition["seed_highlights_filename"]
+        )
+
+        configured_history = None
+
+        if self.competition_id == DEFAULT_COMPETITION_ID:
+            configured_history = os.getenv("MATCHLAB_HISTORY_PATH")
+
+        data_root = os.getenv("GOALX_DATA_ROOT", "").strip()
 
         if configured_history:
             self.history_path = Path(configured_history)
-
+        elif data_root:
+            self.history_path = (
+                Path(data_root)
+                / self.competition_id
+                / self.competition["history_filename"]
+            )
+        elif self.competition_id == DEFAULT_COMPETITION_ID:
+            self.history_path = self.seed_history_path
         else:
-            self.history_path = SEED_HISTORY_PATH
+            self.history_path = (
+                SERVER_DIR
+                / "data"
+                / self.competition_id
+                / self.competition["history_filename"]
+            )
 
-        configured_state = os.getenv("MATCHLAB_DATASET_STATE_PATH")
+        configured_state = None
+
+        if self.competition_id == DEFAULT_COMPETITION_ID:
+            configured_state = os.getenv("MATCHLAB_DATASET_STATE_PATH")
 
         if configured_state:
             self.state_path = Path(configured_state)
-
         else:
             self.state_path = self.history_path.parent / "dataset_state.json"
 
-        self.highlights_path = self.history_path.parent / "season_highlights.json"
+        self.highlights_path = (
+            self.history_path.parent / self.competition["highlights_filename"]
+        )
 
         self._lock = threading.RLock()
         self._initialize_storage()
+
+    def normalize_team_name(
+        self,
+        value,
+    ):
+
+        value = str(value or "").strip()
+
+        if self.competition_id == "liga-mx":
+            return EQUIVALENCIAS.get(value, value)
+
+        return value
 
     # INICIALIZAR STORAGE
     def _initialize_storage(
@@ -162,12 +207,12 @@ class MatchHistoryService:
             )
 
             # Copiar el historico base del repositorio.
-            if not self.history_path.exists() and SEED_HISTORY_PATH.exists():
+            if not self.history_path.exists() and self.seed_history_path.exists():
 
-                if self.history_path.resolve() != SEED_HISTORY_PATH.resolve():
+                if self.history_path.resolve() != self.seed_history_path.resolve():
 
                     shutil.copy2(
-                        SEED_HISTORY_PATH,
+                        self.seed_history_path,
                         self.history_path,
                     )
 
@@ -183,6 +228,17 @@ class MatchHistoryService:
 
             if not self.state_path.exists():
                 self._write_state(DEFAULT_STATE.copy())
+
+            if (
+                not self.highlights_path.exists()
+                and self.seed_highlights_path.exists()
+                and self.highlights_path.resolve()
+                != self.seed_highlights_path.resolve()
+            ):
+                shutil.copy2(
+                    self.seed_highlights_path,
+                    self.highlights_path,
+                )
 
             if not self.highlights_path.exists():
                 self._write_highlights_state(
@@ -316,27 +372,44 @@ class MatchHistoryService:
             self.highlights_path,
         )
 
-    # Obtener competencia actual
+    # Obtener periodo actual de la competición
     def _current_competition(
         self,
     ):
 
         now = datetime.now(timezone.utc)
         year = now.year
+        mode = self.competition.get("season_mode", "calendar")
 
-        if now.month >= 7:
-            name = f"Apertura {year}"
-            start = pd.Timestamp(f"{year}-07-01", tz="UTC")
-            end = pd.Timestamp(f"{year + 1}-01-01", tz="UTC")
+        if mode == "split_calendar":
+            if now.month >= 7:
+                name = f"Apertura {year}"
+                start = pd.Timestamp(f"{year}-07-01", tz="UTC")
+                end = pd.Timestamp(f"{year + 1}-01-01", tz="UTC")
+            else:
+                name = f"Clausura {year}"
+                start = pd.Timestamp(f"{year}-01-01", tz="UTC")
+                end = pd.Timestamp(f"{year}-07-01", tz="UTC")
+
+            season = year
+
+        elif mode == "european":
+            start_year = year if now.month >= 7 else year - 1
+            end_year = start_year + 1
+            name = f"{start_year}/{str(end_year)[-2:]}"
+            start = pd.Timestamp(f"{start_year}-07-01", tz="UTC")
+            end = pd.Timestamp(f"{end_year}-07-01", tz="UTC")
+            season = start_year
 
         else:
-            name = f"Clausura {year}"
+            name = str(year)
             start = pd.Timestamp(f"{year}-01-01", tz="UTC")
-            end = pd.Timestamp(f"{year}-07-01", tz="UTC")
+            end = pd.Timestamp(f"{year + 1}-01-01", tz="UTC")
+            season = year
 
         return {
             "name": name,
-            "year": year,
+            "year": season,
             "start": start,
             "end": end,
         }
@@ -556,16 +629,9 @@ class MatchHistoryService:
 
         visitante = str(away.get("name") or "Desconocido").strip()
 
-        home_name = EQUIVALENCIAS.get(
-            local,
-            local,
-        )
+        home_name = self.normalize_team_name(local)
+        away_name = self.normalize_team_name(visitante)
 
-        away_name = EQUIVALENCIAS.get(
-            visitante,
-            visitante,
-        )
-        
         home_goals = _to_int(
             detail.get(
                 "home",
@@ -845,8 +911,7 @@ class MatchHistoryService:
             )
 
             season_df = season_df[
-                (season_df["_date"] >= start)
-                & (season_df["_date"] < end)
+                (season_df["_date"] >= start) & (season_df["_date"] < end)
             ].copy()
 
         best_matches = []
@@ -869,12 +934,10 @@ class MatchHistoryService:
             )
 
             season_df["_total_goals"] = (
-                season_df["_home_goals"]
-                + season_df["_away_goals"]
+                season_df["_home_goals"] + season_df["_away_goals"]
             )
             season_df["_goal_difference"] = (
-                season_df["_home_goals"]
-                - season_df["_away_goals"]
+                season_df["_home_goals"] - season_df["_away_goals"]
             ).abs()
 
             season_df = season_df.sort_values(
@@ -896,9 +959,7 @@ class MatchHistoryService:
                 best_matches.append(
                     {
                         "fixture_id": (
-                            int(fixture_key)
-                            if fixture_key.isdigit()
-                            else fixture_key
+                            int(fixture_key) if fixture_key.isdigit() else fixture_key
                         ),
                         "date": (
                             row["_date"].isoformat()
@@ -951,12 +1012,8 @@ class MatchHistoryService:
                         "assists": 0,
                     }
 
-                aggregated[key]["goals"] += int(
-                    player.get("goals") or 0
-                )
-                aggregated[key]["assists"] += int(
-                    player.get("assists") or 0
-                )
+                aggregated[key]["goals"] += int(player.get("goals") or 0)
+                aggregated[key]["assists"] += int(player.get("assists") or 0)
 
         players = list(aggregated.values())
         players.sort(
@@ -975,10 +1032,7 @@ class MatchHistoryService:
                 },
                 "goals": player["goals"],
                 "assists": player["assists"],
-                "contributions": (
-                    player["goals"]
-                    + player["assists"]
-                ),
+                "contributions": (player["goals"] + player["assists"]),
             }
             for player in players[:4]
         ]
@@ -996,9 +1050,7 @@ class MatchHistoryService:
                     {
                         "type": "player",
                         "badge": (
-                            "TOP GOLEADOR"
-                            if index == 0
-                            else "JUGADOR DESTACADO"
+                            "TOP GOLEADOR" if index == 0 else "JUGADOR DESTACADO"
                         ),
                         "player": best_players[index],
                     }
@@ -1014,7 +1066,9 @@ class MatchHistoryService:
                 )
 
         return {
-            "competition": competition["name"],
+            "competition": self.competition["name"],
+            "competition_id": self.competition_id,
+            "season_name": competition["name"],
             "season": competition["year"],
             "matches_count": len(best_matches),
             "players_count": len(best_players),
@@ -1030,6 +1084,17 @@ class MatchHistoryService:
         with self._lock:
             state = self._read_state()
             return bool(state.get("dataset_dirty"))
+
+    # MARCAR DATASET PARA RECARGA
+    def mark_dataset_dirty(
+        self,
+    ):
+
+        with self._lock:
+            state = self._read_state()
+            state["dataset_dirty"] = True
+            state["last_update"] = _utc_now()
+            self._write_state(state)
 
     # MODELO ACTUALIZADO
     def mark_models_clean(
@@ -1064,6 +1129,8 @@ class MatchHistoryService:
                 )
 
             return {
+                "competition_id": self.competition_id,
+                "competition": self.competition["name"],
                 "history_path": str(self.history_path),
                 "records": len(df),
                 "years": years,

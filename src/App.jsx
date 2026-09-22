@@ -1,80 +1,37 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import SeasonHighlights from "./components/SeasonHighlights";
-import MatchAnalytics from "./components/MatchAnalytics";
-import LiveCenter from "./components/LiveCenter";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import AdBanner from "./components/AdBanner/AdBanner";
-import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
-import "./App.css";
-
-function Home() {
-  const [partidoSeleccionado, setPartidoSeleccionado] = useState(null);
-
-  const seleccionarPartidoParaPrediccion = (match) => {
-    setPartidoSeleccionado({
-      local: match.home,
-      visitante: match.away,
-      id: Date.now(),
-    });
-
-    window.requestAnimationFrame(() => {
-      document.getElementById("prediccion")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  };
-
-  return (
-    <>
-      <Navbar />
-
-      <div className="goalx-layout">
-        {/* Publicidad - lado izquierdo */}
-        <aside className="goalx-layout__ad">
-          <div className="goalx-layout__ad-sticky">
-            <AdBanner slot="4569523678" variant="sidebar" />
-          </div>
-        </aside>
-
-        <main className="goalx-layout__content">
-          <SeasonHighlights />
-
-          <div className="goalx-mobile-ad">
-            <AdBanner slot="3123001052" variant="mobile" />
-          </div>
-
-          <MatchAnalytics partidoSeleccionado={partidoSeleccionado} />
-
-          <div className="goalx-mobile-ad">
-            <AdBanner slot="9053984589" variant="mobile" />
-          </div>
-
-          <LiveCenter onSeleccionarPartido={seleccionarPartidoParaPrediccion} />
-        </main>
-
-        {/* Publicidad - lado derecho */}
-        <aside className="goalx-layout__ad">
-          <div className="goalx-layout__ad-sticky">
-            <AdBanner slot="5691033650" variant="sidebar" />
-          </div>
-        </aside>
-      </div>
-
-      <Footer />
-    </>
-  );
-}
+import { Route, Routes } from "react-router-dom";
+import AdminRoute from "./components/auth/AdminRoute";
+import { AuthProvider } from "./context/AuthContext";
+import { CompetitionProvider } from "./context/CompetitionContext";
+import StreamAdmin from "./pages/admin/StreamAdmin";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import WatchMatch from "./pages/WatchMatch/WatchMatch";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
+    <AuthProvider>
+      <CompetitionProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-      <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
-    </Routes>
+          <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
+
+          <Route path="/ver-partido/:streamId" element={<WatchMatch />} />
+
+          <Route path="/login" element={<Login />} />
+
+          <Route
+            path="/admin/transmisiones"
+            element={
+              <AdminRoute>
+                <StreamAdmin />
+              </AdminRoute>
+            }
+          />
+        </Routes>
+      </CompetitionProvider>
+    </AuthProvider>
   );
 }
 

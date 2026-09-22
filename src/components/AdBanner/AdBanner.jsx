@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-
+import { useTranslation } from "react-i18next";
 import "./AdBanner.css";
 
 const ADSENSE_CLIENT = "ca-pub-2884427950883230";
@@ -11,6 +11,8 @@ function AdBanner({
   format = "auto",
   responsive = true,
 }) {
+  // Hook de traduccion
+  const { t } = useTranslation();
   const initialized = useRef(false);
 
   useEffect(() => {
@@ -19,7 +21,8 @@ function AdBanner({
     }
 
     try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
 
       initialized.current = true;
     } catch (error) {
@@ -33,7 +36,7 @@ function AdBanner({
 
   return (
     <div className={`ad-banner ad-banner--${variant} ${className}`}>
-      <span className="ad-banner__label">Publicidad</span>
+      <span className="ad-banner__label">{t("adBanner.label")}</span>
 
       <ins
         className="adsbygoogle"

@@ -8,6 +8,7 @@ SERVER_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SERVER_DIR.parent
 
 
+load_dotenv(SERVER_DIR / ".env")
 load_dotenv(PROJECT_DIR / ".env")
 
 OPENAI_API_KEY = os.getenv(
@@ -179,6 +180,7 @@ def _openai_analysis(
     detail,
     intelligence,
     question,
+    competition_name="Liga MX",
 ):
 
     if not OPENAI_API_KEY or OpenAI is None:
@@ -206,8 +208,8 @@ def _openai_analysis(
         "intelligence": intelligence,
     }
 
-    instructions = """
-    Eres MatchLab AI Analyst, analista especializado en Liga MX.
+    instructions = f"""
+    Eres GoalX AI Analyst, analista especializado en {competition_name}.
 
     Reglas obligatorias:
 
@@ -249,6 +251,7 @@ def answer_live_question(
     detail,
     intelligence,
     question,
+    competition_name="Liga MX",
 ):
 
     question = str(
@@ -266,6 +269,7 @@ def answer_live_question(
             detail,
             intelligence,
             question,
+            competition_name=competition_name,
         )
 
         if generated:

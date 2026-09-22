@@ -1,0 +1,499 @@
+{
+  "navbar": {
+    "competition": "Leagues",
+    "mobile-competition": "LEAGUE",
+    "competition-menu": "SELECT A LEAGUE",
+    "prediction": "Prediction",
+    "analytics": "Analytics",
+    "model": "Model",
+    "subtitle": "Analysis of your favorite League",
+    "live": "Live",
+    "new_prediction": "New prediction",
+    "admin_panel": "Admin panel",
+    "admin": "Administrator",
+    "user": "User",
+    "logout": "Logout",
+    "login": "Login",
+    "engine_available": "Statistical engine available",
+    "loading": "Loading..."
+  },
+
+  "footer": {
+    "subtitle": "Analysis of your favorite League",
+    "description": "Historical data. Analysis. Better decisions.",
+    "description-1": "Statistics and predictions",
+    "description-2": "to better understand every match.",
+    "navegation": "Navigation",
+    "prediction": "Prediction",
+    "analytics": "Analytics",
+    "model": "Model",
+    "live": "Live",
+    "liveBadge": "LIVE",
+    "legal": "Legal",
+    "privacy-policy": "Privacy policy",
+    "contact": "Contact",
+
+    "bottom": {
+      "rights": "© {{year}} GoalX. All rights reserved.",
+      "message": "Data · Analysis · Football"
+    }
+  },
+
+  "liveCenter": {
+    "liveStream": "Live match",
+    "todaysMatches": "Today's matches",
+    "nextMatches": "Upcoming matches",
+    "nextMatchday": "Next matchday",
+    "engine": "ENGINE",
+    "overlayActive": "Live Overlay active",
+    "overlayWaiting": "Intelligence on standby",
+    "overlayLive": "Live data every",
+    "overlayKickoff": "Will activate near kickoff",
+    "refresh": "Next update",
+    "liveOverlay": "Live Overlay",
+    "availableRequests": "Available requests",
+    "liveCenter": "Live Center",
+    "statusLive": "LIVE",
+    "statusReady": "READY",
+
+    "sectionTitles": {
+      "live": "Live matches",
+      "today": "Today's matches",
+      "upcoming": "Upcoming matches",
+      "nextWithRound": "Next · {{round}}",
+      "nextFallback": "Next matchday",
+      "default": "Matches"
+    },
+    "emptyStates": {
+      "liveBadge": "LIVE",
+      "liveTitle": "No live {{competition}} matches",
+      "liveDescription": "GoalX will continue checking automatically. You can also review today's scheduled matches.",
+
+      "todayBadge": "TODAY",
+      "todayTitle": "No {{competition}} matches scheduled for today",
+      "todayDescription": "You can check {{nextLabel}} to review upcoming matches.",
+
+      "upcomingBadge": "UPCOMING",
+      "upcomingTitle": "No {{nextLabel}} available",
+      "upcomingDescription": "The {{competition}} schedule does not yet have upcoming matches available.",
+
+      "defaultCompetition": "this competition",
+      "defaultNextScope": "the next matchday"
+    },
+    "sportsDB": {
+      "title": "TheSportsDB",
+      "calendar": "Schedule for"
+    },
+    "apiFootball": {
+      "title": "API-Football",
+      "liveOnDemand": "Live data on demand"
+    },
+    "matchLab": {
+      "title": "MatchLab Intelligence",
+      "model": "Model + AI",
+      "live": "MATCHLAB LIVE",
+      "activatingLiveIntelligence": "Activating Live Intelligence"
+    },
+    "matches": {
+      "competitionName": "{{name}}",
+      "matchesCount": "{{count}} matches",
+      "search": "Searching for {{competitionName}} matches...",
+      "viewTodayMatches": "View today's matches",
+      "live": "LIVE",
+      "linkingMatchWithProvider": "Linking the match with the live data provider..."
+    },
+    "detail": {
+      "processingLiveIntelligence": "Processing Live Intelligence..."
+    },
+    "scoreboard": {
+      "titleLive": "GoalX live",
+      "halfTime": "Half-time",
+      "home": "HOME",
+      "away": "AWAY",
+      "referee": "Referee:",
+      "unaviable": "Unavailable",
+      "updated": "Updated:"
+    },
+    "momentum": {
+      "liveMomentum": "Real-time intelligence",
+      "matchMomentum": "Match momentum",
+      "intelligence": "Intelligence",
+      "minuteTooltip": "Minute {{value}}"
+    },
+    "stats": {
+      "matchData": "Match Data",
+      "liveStats": "LIVE STATISTICS",
+      "signalDetector": "SIGNAL DETECTOR",
+      "matchSignals": "Match signals",
+      "noDominantSignal": "The engine does not yet detect a dominant signal.",
+      "possession": "Possession",
+      "shots": "Shots",
+      "shotsOnGoal": "On target",
+      "corners": "Corners",
+      "fouls": "Fouls",
+      "yellowCards": "Yellow Cards"
+    },
+    "prematch": {
+      "title": "MODEL CHANGE",
+      "heading": "Pre-match vs Live",
+      "description": "How the model's reading changed since kickoff.",
+      "pre": "PRE",
+      "live": "LIVE",
+      "draw": "Draw",
+      "percentagePoints": "pp",
+      "note": "The live projection uses the current score, minute, and expected goals from the Dixon-Coles model."
+    },
+    "timeline": {
+      "title": "MATCH TIMELINE",
+      "heading": "Match history",
+      "eventsCount": "{{count}} events",
+      "assist": "Assist: {{name}}",
+      "emptyState": "There are no events recorded for this match yet."
+    },
+    "ai": {
+      "title": "GoalX AI",
+      "heading": "Live match analyst",
+      "description": "Ask about what is happening in the match.",
+      "status": "DATA-DRIVEN",
+      "suggestions": {
+        "q1": "Who is really dominating?",
+        "q2": "What changed compared to the pre-match?",
+        "q3": "What important signals do you detect?",
+        "q4": "Summarize the last few minutes"
+      },
+      "welcomeTitle": "I am reading the match.",
+      "welcomeText": "I can interpret momentum, statistics, events, and probability changes using only the available data.",
+      "userRole": "YOU",
+      "thinking": "Analyzing match...",
+      "placeholder": "Ask MatchLab AI...",
+      "disclaimer": "GoalX AI interprets available statistical data and does not invent events or guarantee results.",
+      "providerOpenAI": "MatchLab AI",
+      "providerLocal": "MatchLab Local Analyst"
+    },
+    "common": {
+      "competition": "the competition",
+      "defaultCompetition": "Competition"
+    }
+  },
+
+  "matchAnalytics": {
+    "form": {
+      "defaultCompetition": "Competition",
+      "title": "Select your teams",
+      "subtitle": "Select the match teams to run the statistical engine.",
+      "localLabel": "Home team",
+      "localBadge": "HOME",
+      "localPlaceholder": "Select home team",
+      "visitorLabel": "Away team",
+      "visitorBadge": "AWAY",
+      "visitorPlaceholder": "Select away team",
+      "searchPlaceholder": "Search team...",
+      "vs": "VS",
+      "refereeLabel": "Referee",
+      "refereeBadge": "REFEREE",
+      "refereePlaceholder": "Select referee",
+      "searchRefereePlaceholder": "Search referee...",
+      "modelPreparingTitle": "Historical data in preparation",
+      "modelPreparingMessage": "GoalX is preparing the {{competition}} statistical engine.",
+      "thisCompetition": "this competition",
+      "recordsProgress": "{{records}} of {{minimum}} minimum matches loaded",
+      "connectionErrorTitle": "Unable to establish connection",
+      "analysisErrorTitle": "Unable to perform analysis",
+      "processingButton": "Processing model...",
+      "executeButton": "Run analysis"
+    },
+    "analytics": {
+      "empty": {
+        "kicker": "Analytics Center",
+        "title": "Your match reading will appear here",
+        "subtitle": "Select a home team, away team and referee to run the statistical analysis.",
+        "marketResult": "Result",
+        "marketGoals": "Goals",
+        "marketCorners": "Corners",
+        "marketCards": "Cards",
+        "marketScores": "Scores"
+      },
+      "loading": {
+        "kicker": "Calculating",
+        "title": "Processing statistical model",
+        "subtitle": "Generating match probabilities."
+      },
+      "results": {
+        "toolbar": {
+          "status": "Analysis completed",
+          "title": "Match report",
+          "subtitle": "Export the visible results to a PDF document."
+        },
+        "fixture": {
+          "kicker": "MATCH ANALYSIS",
+          "processed": "Model processed",
+          "localLabel": "HOME",
+          "visitorLabel": "AWAY",
+          "predictionLabel": "PREDICTION",
+          "vs": "VS",
+          "refereeLabel": "Referee"
+        },
+        "h2h": {
+          "icon": "H2H",
+          "title": "Head-to-head",
+          "badge": "Historical"
+        },
+        "market1x2": {
+          "eyebrow": "Result",
+          "title": "Match probability",
+          "description": "Probabilistic distribution between home win, draw, and away win.",
+          "probabilityName": "Probability",
+          "dominantScenario": "DOMINANT SCENARIO",
+          "dominantDescription": "Individual result with the highest probability."
+        },
+        "goals": {
+          "eyebrow": "Goals market",
+          "title": "Expected offensive prediction",
+          "description": "Expectations and probabilities derived from the goals model.",
+          "expectedHomeDesc": "Expected home goals",
+          "expectedAwayDesc": "Expected away goals",
+          "totalXgLabel": "Total xG",
+          "jointExpectation": "Joint expectation",
+          "overUnderTag": "OVER / UNDER",
+          "overUnderTitle": "Goal lines",
+          "over15": "Over 1.5 goals",
+          "under15": "Under 1.5 goals",
+          "over25": "Over 2.5 goals",
+          "under25": "Under 2.5 goals",
+          "bttsTag": "BTTS",
+          "bttsTitle": "Both teams to score",
+          "yesBadge": "YES"
+        },
+        "scores": {
+          "tag": "CORRECT SCORE",
+          "title": "Top 5 most probable scores",
+          "probabilityName": "Probability"
+        },
+        "corners": {
+          "eyebrow": "Corner kicks",
+          "title": "Corners market",
+          "description": "General expectation and distribution per team.",
+          "totalExpected": "Total expected",
+          "fullMatch": "Full match",
+          "firstHalf": "First half",
+          "firstHalfDesc": "Expected corners 1H",
+          "expectedHomeDesc": "Expected home",
+          "expectedAwayDesc": "Expected away",
+          "over95": "Over 9.5 corners",
+          "under95": "Under 9.5 corners",
+          "over45H1": "Over 4.5 corners 1H",
+          "under45H1": "Under 4.5 corners 1H",
+          "expectedBarName": "Expected corners",
+          "homeOver45": "Over 4.5 corners",
+          "homeUnder45": "Under 4.5 corners",
+          "homeOver55": "Over 5.5 corners",
+          "homeUnder55": "Under 5.5 corners",
+          "awayOver35": "Over 3.5 corners",
+          "awayUnder35": "Under 3.5 corners",
+          "awayOver45": "Over 4.5 corners",
+          "awayUnder45": "Under 4.5 corners"
+        },
+        "cards": {
+          "eyebrow": "Discipline",
+          "title": "Cards market",
+          "description": "Estimation adjusted based on referee {{referee}}.",
+          "expectedCards": "Expected cards",
+          "refereeAdjusted": "Adjusted by {{referee}}",
+          "over45": "Over 4.5 cards",
+          "under45": "Under 4.5 cards"
+        },
+        "summary": {
+          "eyebrow": "Final summary",
+          "title": "Highest probability signals",
+          "description": "Consolidated reading of the markets with the highest probability calculated by the model.",
+          "highestProbabilityTag": "HIGHEST MODEL PROBABILITY",
+          "probabilityLabel": "Probability",
+          "levels": {
+            "moderate": "Moderate",
+            "high": "High",
+            "strong": "Strong"
+          },
+          "readingTitle": "Match reading",
+          "noTrends": "No additional extreme trend detected among the analyzed markets.",
+          "mostProbableScoreTag": "MOST PROBABLE SCORE",
+          "probabilityPercentage": "{{percentage}}% probability",
+          "disclaimerTitle": "Statistical interpretation:",
+          "disclaimerText": "a high probability indicates that the model considers that scenario more likely, but it does not mean it is a profitable bet nor does it guarantee the result. To calculate expected value, the offered odds must also be known."
+        },
+        "footerText": "Statistical results based on historical information. Probabilities do not represent guaranteed results."
+      }
+    }
+  },
+
+  "seasonHighlights": {
+    "playerSlide": {
+      "defaultCompetition": "Competition",
+      "kicker": "{{competition}} · CURRENT SEASON",
+      "goals": "Goals",
+      "assists": "Assists",
+      "contributions": "Contributions"
+    },
+    "matchSlide": {
+      "defaultCompetition": "Competition",
+      "kicker": "{{competition}} · FEATURED MATCH",
+      "goals": "{{count}} goals",
+      "corners": "{{count}} corners",
+      "cards": "{{count}} cards"
+    },
+    "container": {
+      "kicker": "HIGHLIGHTS",
+      "title": "Best of the season",
+      "defaultSeason": "Current season"
+    }
+  },
+
+  "sportsSelect": {
+    "loading": "Loading catalog...",
+    "optionsCount": "{{count}} options",
+    "clear": "Clear",
+    "noResults": "No results found",
+    "alreadySelected": "Already selected"
+  },
+
+  "exportPdfButton": {
+    "generating": "Generating PDF...",
+    "exportReport": "Export report",
+    "preparing": "Preparing analysis",
+    "documentType": "PDF document"
+  },
+
+  "adBanner": {
+    "label": "Advertisement"
+  },
+
+  "login": {
+    "errors": {
+      "emptyFields": "Enter your username and password.",
+      "failedLogin": "Unable to log in. Please check your details."
+    },
+    "brand": {
+      "subtitle": "GOALX ACCOUNT",
+      "title": "Welcome back",
+      "description": "Log in to access your account and enjoy a personalized experience on GoalX."
+    },
+    "form": {
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Your username",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Your password",
+      "submitting": "Logging in...",
+      "submit": "Log in"
+    },
+    "footer": {
+      "visitorLink": "← Continue as guest",
+      "visitorNote": "GoalX remains available without logging in."
+    },
+    "side": {
+      "brand": "GOALX",
+      "title": "Football-Data-Experience",
+      "description": "Analyze every match, follow the live action and take your football experience to another level.",
+      "statusTitle": "GoalX is ready",
+      "statusSubtitle": "Predictions, analytics and Live Center available for everyone."
+    }
+  },
+
+  "privacyPolicy": {
+    "backLink": "Back to GoalX",
+    "eyebrow": "LEGAL",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: September 16, 2026",
+    "intro": "At GoalX, we respect the privacy of our users. This Privacy Policy explains in general terms what information may be collected when using the site, how it may be used, and what third-party technologies may be involved during navigation.",
+    "sections": {
+      "collection": {
+        "title": "Information that may be collected",
+        "p1": "GoalX may process technical information generated during the use of the site, such as IP address, browser type, device, operating system, pages visited, date and time of access, and other technical data related to navigation.",
+        "p2": "GoalX does not directly request financial information, bank passwords, or credit card data to use the public features of the site."
+      },
+      "cookies": {
+        "title": "Cookies and similar technologies",
+        "p1": "GoalX and certain external providers may use cookies, identifiers, web beacons, or other similar technologies to operate the site, measure its performance, and display advertising.",
+        "p2": "Users can configure their browser to block or delete cookies. However, some site features or certain third-party services could be affected."
+      },
+      "ads": {
+        "title": "Google AdSense and advertising",
+        "p1": "GoalX uses Google AdSense to display ads. Google and other third-party vendors may use cookies to serve ads based on a user's prior visits to GoalX or other websites.",
+        "p2": "The use of advertising cookies enables Google and its partners to serve ads that may be related to the user's interests and previous internet activity.",
+        "p3": "Users may manage or opt out of personalized advertising by visiting Google's Ads Settings.",
+        "externalLink": "Manage Google Ads preferences"
+      },
+      "consent": {
+        "title": "Consent and privacy management",
+        "p1": "When required by applicable law, GoalX may display a consent message managed through a Google-certified consent management platform.",
+        "p2": "Such mechanism allows the user to accept, reject, or manage certain purposes related to cookies and advertising, depending on their location and applicable regulations."
+      },
+      "thirdParty": {
+        "title": "Third-party vendors",
+        "p1": "Some ads may be served by Google or authorized advertising networks and vendors. These third parties may use their own measurement, advertising, or device identification technologies in accordance with their respective policies.",
+        "p2": "The processing carried out directly by third parties is subject to their own policies and conditions."
+      },
+      "purpose": {
+        "title": "Purpose of information",
+        "subtitle": "The technical information collected may be used to:",
+        "list": [
+          "operate and maintain the functioning of the site;",
+          "analyze the performance and usage of GoalX;",
+          "improve user experience;",
+          "detect errors or anomalous behaviors;",
+          "display and measure advertising;",
+          "comply with applicable legal obligations."
+        ]
+      },
+      "externalLinks": {
+        "title": "Links to external sites",
+        "p1": "GoalX may contain links to external sites. GoalX does not control the privacy policies, content, or practices of those sites. It is recommended to review their respective policies before providing information."
+      },
+      "changes": {
+        "title": "Changes to this policy",
+        "p1": "This Privacy Policy may be updated when GoalX's features, the providers used, or applicable legal obligations change. The update date will be shown at the top of the document."
+      },
+      "contact": {
+        "title": "Contact",
+        "p1": "If you have any questions related to this Privacy Policy, you can contact us at:"
+      }
+    },
+    "footerNote": "GoalX is an informational platform for sports analysis, statistics, and predictions. The information presented does not constitute financial advice nor does it guarantee future results."
+  },
+
+  "watchMatch": {
+    "team": {
+      "fallbackName": "Team"
+    },
+    "teams": {
+      "home": "Home",
+      "away": "Away"
+    },
+    "errors": {
+      "defaultStreamError": "The stream is not available."
+    },
+    "states": {
+      "loading": "Preparing stream...",
+      "errorTitle": "Stream not available",
+      "backToMatches": "Back to matches",
+      "noSource": "There is no source available for this match."
+    },
+    "sources": {
+      "eyebrow": "SOURCES",
+      "title": "Select a stream",
+      "count_one": "{{count}} source",
+      "count_other": "{{count}} sources",
+      "hint": "If a source doesn't load or the provider disables it, try another available stream."
+    },
+    "topbar": {
+      "back": "← Back to GoalX"
+    },
+    "status": {
+      "live": "LIVE",
+      "available": "STREAM AVAILABLE"
+    },
+    "heading": {
+      "eyebrow": "GOALX LIVE",
+      "defaultCompetition": "Competition"
+    },
+    "notice": "GoalX only displays external sources configured and authorized for embedding. Playback depends on each stream's provider."
+  }
+}

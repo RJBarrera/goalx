@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "streams": [
+    {
+      "competition": "liga-mx",
+      "id": "stream-ef9b4f7e6be1",
+      "sportsdb_event_id": "2487524",
+      "fixture_id": null,
+      "date": "2026-09-18",
+      "time": "18:00",
+      "home": "Puebla",
+      "away": "Atlante",
+      "title": "Puebla vs Atlante",
+      "enabled": true,
+      "sources": [
+        {
+          "id": "fuente-1",
+          "name": "Azteca Deportes - YT",
+          "type": "iframe",
+          "url": "https://www.youtube.com/embed/ma-kt9Gnz8k"
+        },
+        {
+          "id": "fuente-2",
+          "name": "Disney +",
+          "type": "iframe",
+          "url": "https://streamxhd.com/live1.php?stream=disney6"
+        },
+        {
+          "id": "fuente-3",
+          "name": "TUDN USA",
+          "type": "iframe",
+          "url": "https://streamxhd.com/live1.php?stream=tudn_usa"
+        }
+      ]
+    },
+    {
+      "competition": "liga-mx",
+      "id": "stream-b4d75c2d7fb9",
+      "sportsdb_event_id": "2487525",
+      "fixture_id": null,
+      "date": "2026-09-18",
+      "time": "20:00",
+      "home": "Juárez",
+      "away": "Tigres UANL",
+      "title": "Juárez vs Tigres UANL",
+      "enabled": true,
+      "sources": [
+        {
+          "id": "fuente-1",
+          "name": "Azteca Deportes - YT",
+          "type": "iframe",
+          "url": "https://www.youtube.com/embed/ma-kt9Gnz8k"
+        },
+        {
+          "id": "fuente-2",
+          "name": "Fox One",
+          "type": "iframe",
+          "url": "https://streamxhd.com/live1.php?stream=foxone"
+        },
+        {
+          "id": "fuente-3",
+          "name": "Universo",
+          "type": "iframe",
+          "url": "https://streamxhd.com/live1.php?stream=universo"
+        },
+        {
+          "id": "fuente-4",
+          "name": "Fox Deportes USA",
+          "type": "iframe",
+          "url": "https://streamxhd.com/live1.php?stream=fox_deportes_usa"
+        }
+      ]
+    },
+    {
+      "competition": "liga-mx",
+      "id": "stream-5b070b0b07f5",
+      "sportsdb_event_id": "2487533",
+      "fixture_id": null,
+      "date": "2026-09-25",
+      "time": "18:00",
+      "home": "Atlante",
+      "away": "Monterrey",
+      "title": "Atlante vs Monterrey",
+      "enabled": true,
+      "sources": [
+        {
+          "id": "fuente-1",
+          "name": "Fuente 1",
+          "type": "iframe",
+          "url": "https://www.youtube.com/embed/D0eLMN4hhwEm/watch?v"
+        }
+      ]
+    }
+  ]
+}

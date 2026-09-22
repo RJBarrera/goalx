@@ -6,8 +6,10 @@ from datetime import (
 
 from zoneinfo import ZoneInfo
 
+from competition_config import get_competition
+
 # CONFIG
-TIMEZONE = ZoneInfo("America/Mazatlan")
+TIMEZONE = ZoneInfo(get_competition()["timezone"])
 
 FINAL_STATUSES = {
     "FT",
@@ -23,10 +25,17 @@ class DatasetSyncService:
         self,
         live_service,
         history_service,
+        competition=None,
     ):
 
+        self.competition = (
+            competition
+            if isinstance(competition, dict)
+            else get_competition(competition)
+        )
         self.live_service = live_service
         self.history_service = history_service
+        self.timezone = ZoneInfo(self.competition["timezone"])
         self._lock = threading.Lock()
 
     # Validamos si hay algun partido por finalizar
@@ -44,7 +53,7 @@ class DatasetSyncService:
         if not matches:
             return False
 
-        now_timestamp = datetime.now(TIMEZONE).timestamp()
+        now_timestamp = datetime.now(self.timezone).timestamp()
 
         for match in matches:
 
@@ -130,12 +139,18 @@ class DatasetSyncService:
                 }
 
             # FECHA ACTUAL
-            date_value = datetime.now(TIMEZONE).date().isoformat()
+            date_value = datetime.now(self.timezone).date().isoformat()
 
-            print("🔄 DATASET SYNC: consultando fixtures:",date_value,)
-            # Obtiene todos los fixtures disponibles de Liga MX para la fecha actual.
-            fixtures = self.live_service.get_liga_mx_fixtures_by_date(date_value)
-            print("🔄 DATASET SYNC: fixtures encontrados:",len(fixtures),)
+            print(
+                "🔄 DATASET SYNC: consultando fixtures:",
+                date_value,
+            )
+            # Obtiene los fixtures de la competición para la fecha actual.
+            fixtures = self.live_service.get_competition_fixtures_by_date(date_value)
+            print(
+                "🔄 DATASET SYNC: fixtures encontrados:",
+                len(fixtures),
+            )
 
             # CONTENEDORES DE RESULTADO
             saved = []
@@ -156,8 +171,12 @@ class DatasetSyncService:
                     "status",
                     {},
                 ).get("short")
-                
-                print("🔎 DATASET FIXTURE:",fixture_id,status,)
+
+                print(
+                    "🔎 DATASET FIXTURE:",
+                    fixture_id,
+                    status,
+                )
 
                 # VALIRDAR SI YA FINALIZO
                 if status not in FINAL_STATUSES:
@@ -170,16 +189,26 @@ class DatasetSyncService:
                 if fixture_id and self.history_service.has_fixture(fixture_id):
                     duplicates.append(fixture_id)
                     continue
-                
-                print("📥 DATASET: obteniendo detalle:",fixture_id,)
+
+                print(
+                    "📥 DATASET: obteniendo detalle:",
+                    fixture_id,
+                )
 
                 # OBTENEMOS EL DETALLE COMPLETO SI YA TERMINO EL PARTIDO
                 detail = self.live_service.get_fixture_detail(fixture_id)
-                print("📥 DATASET: detalle obtenido:",fixture_id,)
+                print(
+                    "📥 DATASET: detalle obtenido:",
+                    fixture_id,
+                )
 
                 # REALIZAMOS EL INTENTO DE GUARDADO
                 result = self.history_service.save_finished_match(detail)
-                print("💾 DATASET:",fixture_id,result.get("action"),)
+                print(
+                    "💾 DATASET:",
+                    fixture_id,
+                    result.get("action"),
+                )
                 action = result.get("action")
 
                 if action == "saved":
