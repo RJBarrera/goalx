@@ -344,6 +344,15 @@
       "kicker": "FAITS SAILLANTS",
       "title": "Le meilleur de la saison",
       "defaultSeason": "Saison actuelle"
+    },
+    "badges": {
+      "topScorer": "MEILLEUR BUTEUR",
+      "featuredPlayer": "JOUEUR VEDETTE",
+      "featuredMatch": "MATCH EN VEDETTE"
+    },
+    "seasons": {
+      "apertura": "Apertura {{year}}",
+      "clausura": "Clausura {{year}}"
     }
   },
 

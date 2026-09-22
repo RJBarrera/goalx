@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 import {
-  faRightToBracket,
-  faPowerOff,
   faDisplay,
+  faPowerOff,
+  faRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -176,14 +176,16 @@ function Navbar() {
           ))}
           <a href="/#en-vivo" className="navbar-live-link">
             <span className="navbar-live-dot" /> {t("navbar.live")}{" "}
-            <small>LIVE</small>
+            <small>{t("navbar.live")}</small>
           </a>
         </nav>
 
         {/* RIGHT */}
         <div className="sports-navbar__actions">
           {/* Botón para cambiar idioma */}
-          <LanguageSelector />
+          <div className="sports-navbar__lang-desktop">
+            <LanguageSelector />
+          </div>
 
           <a href="/" className="sports-navbar__cta">
             {t("navbar.new_prediction")} <span>→</span>
@@ -257,6 +259,10 @@ function Navbar() {
           menuOpen ? "sports-navbar__mobile--open" : ""
         }`}
       >
+        {/* Botón para cambiar idioma */}
+        <div className="sports-navbar__mobile-lang">
+          <LanguageSelector />
+        </div>
         <div className="sports-navbar__mobile-competition">
           <span>{t("navbar.mobile-competition")}</span>
 

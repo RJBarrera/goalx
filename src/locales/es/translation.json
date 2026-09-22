@@ -344,6 +344,15 @@
       "kicker": "DESTACADOS",
       "title": "Lo mejor de la temporada",
       "defaultSeason": "Temporada actual"
+    },
+    "badges": {
+      "topScorer": "TOP GOLEADOR",
+      "featuredPlayer": "JUGADOR DESTACADO",
+      "featuredMatch": "PARTIDO DESTACADO"
+    },
+    "seasons": {
+      "apertura": "Apertura {{year}}",
+      "clausura": "Clausura {{year}}"
     }
   },
 

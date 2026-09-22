@@ -853,191 +853,60 @@
   font-size: 0.9rem;
 }
 
-@media (max-width: 700px) {
-  .sports-navbar__inner {
-    width: calc(100% - 28px);
-    min-height: 68px;
-    gap: 10px;
-  }
+/* MOBILE & HAMBURGER */
 
-  .sports-navbar__brand {
-    min-width: 0;
-    flex: 1;
-    gap: 10px;
-  }
-
-  .sports-navbar__brand-text {
-    min-width: 0;
-  }
-
-  .sports-navbar__brand-text strong {
-    font-size: 1.55rem;
-  }
-
-  .glob-sports-navbar__engine-dot {
-    min-width: 0;
-  }
-
-  .sports-navbar__brand-text small {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .sports-navbar__actions {
-    flex-shrink: 0;
-    gap: 7px;
-  }
-
-  .sports-navbar__lang-button {
-    min-height: 40px;
-    padding: 0 9px;
-    gap: 6px;
-  }
-
-  .sports-navbar__mobile--open {
-    max-height: calc(100dvh - 68px);
-    overflow-y: auto;
-  }
+/* Por defecto, selector del menu no existe en PC */
+.sports-navbar__mobile-lang {
+  display: none;
 }
 
-@media (max-width: 520px) {
-  .sports-navbar__inner {
-    width: calc(100% - 22px);
-    min-height: 64px;
-    gap: 8px;
-  }
-
-  .sports-navbar__brand {
-    gap: 9px;
-  }
-
-  .sports-navbar__logo {
-    width: 40px;
-    height: 40px;
-  }
-
-  .sports-navbar__brand-text strong {
-    font-size: 1.4rem;
-  }
-
-  .glob-sports-navbar__engine-dot {
-    display: none;
-  }
-
+@media (max-width: 900px) {
+  /* Quitar ancho fijo */
   .sports-navbar__actions {
-    gap: 6px;
+    min-width: auto;
   }
 
-  .sports-navbar__lang-flag {
-    width: 20px;
-    height: 14px;
-  }
-
-  .sports-navbar__menu-button {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-  }
-
-  .sports-navbar__lang-menu {
-    right: 0;
-    min-width: 155px;
-  }
-
-  .sports-navbar__mobile-competition,
-  .sports-navbar__mobile nav,
-  .sports-navbar__mobile-engine {
-    width: calc(100% - 24px);
-  }
-
-  .sports-navbar__mobile--open {
-    max-height: calc(100dvh - 64px);
-  }
-
-  .sports-navbar__lang-button {
-    width: auto;
-    min-width: 64px;
-    height: 40px;
-    min-height: 40px;
-    padding: 0 9px;
-    gap: 6px;
-  }
-
-  .sports-navbar__lang-label {
-    display: block;
-    white-space: nowrap;
-  }
-
-  .sports-navbar__lang-chevron {
+  /* Ocultar selector del navbar */
+  /* .sports-navbar__lang-desktop {
     display: none;
-  }
+  } */
 
-  .sports-navbar__lang-flag {
-    width: 20px;
-    height: 14px;
-  }
-
-  .sports-navbar__lang-menu {
-    right: 0;
-    width: 190px;
-    min-width: 190px;
-    max-width: calc(100vw - 24px);
-    padding: 7px;
-  }
-
-  .sports-navbar__lang-option {
-    gap: 10px;
-    min-height: 42px;
-    padding: 9px 10px;
-  }
-
-  .sports-navbar__lang-option .sports-navbar__lang-label {
+  /* Mostrar el selector dentro del menu */
+  /* .sports-navbar__mobile-lang {
     display: block;
+    width: min(100% - 32px, 720px);
+    margin: 14px auto 0;
+  } */
+
+  /* Ajuste de diseño para parecer nativo en movil */
+  .sports-navbar__mobile-lang .sports-navbar__lang-wrapper {
+    width: 100%;
+  }
+
+  .sports-navbar__mobile-lang .sports-navbar__lang-button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Reaparece el texto del boton */
+  /* .sports-navbar__mobile-lang .sports-navbar__lang-text {
+    display: inline-block;
     flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: inherit;
     text-align: left;
-    white-space: nowrap;
-  }
-}
+    margin-left: 8px;
+  } */
 
-@media (max-width: 370px) {
-  .sports-navbar__inner {
-    width: calc(100% - 16px);
-    gap: 6px;
-  }
-
-  .sports-navbar__logo {
-    width: 37px;
-    height: 37px;
-  }
-
-  .sports-navbar__brand {
-    gap: 7px;
-  }
-
-  .sports-navbar__brand-text strong {
-    font-size: 1.25rem;
-  }
-
-  .sports-navbar__lang-button {
-    width: auto;
-    min-width: 60px;
-    height: 37px;
-    min-height: 37px;
-    padding: 0 7px;
-    gap: 5px;
-  }
-
-  .sports-navbar__lang-menu {
-    width: 180px;
-    min-width: 180px;
-  }
-
-  .sports-navbar__menu-button {
-    width: 37px;
-    height: 37px;
+  /* Modificamos el "dropdown" para que fluya hacia abajo como acordeón y no flote */
+  .sports-navbar__mobile-lang .sports-navbar__lang-menu {
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-top: 8px;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.04);
   }
 }

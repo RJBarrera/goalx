@@ -53,7 +53,7 @@ function PlayerSlide({ slide, competitionName }) {
         <div className="season-highlight-badge">
           <FontAwesomeIcon icon={faFire} />
 
-          {slide.badge}
+          {t(`seasonHighlights.badges.${slide.badge}`)}
         </div>
 
         <span className="season-highlight-kicker">
@@ -107,7 +107,7 @@ function MatchSlide({ slide, competitionName }) {
         <div className="season-highlight-badge">
           <FontAwesomeIcon icon={faFutbol} />
 
-          {slide.badge}
+          {t(`seasonHighlights.badges.${slide.badge}`)}
         </div>
 
         <span className="season-highlight-kicker">
@@ -191,7 +191,11 @@ function SeasonHighlights() {
   const { t } = useTranslation();
   const { competition, competitionId } = useCompetition();
   const [slides, setSlides] = useState([]);
-  const [seasonName, setSeasonName] = useState("");
+  const [seasonInfo, setSeasonInfo] = useState({
+    name: "",
+    type: "",
+    year: "",
+  });
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -217,7 +221,11 @@ function SeasonHighlights() {
 
         setSlides(Array.isArray(data?.slides) ? data.slides : []);
 
-        setSeasonName(data?.season_name || data?.competition || "");
+        setSeasonInfo({
+          name: data?.season_name || data?.competition || "",
+          type: data?.season_type || "",
+          year: data?.season || "",
+        });
       } catch (error) {
         console.error("Season highlights:", error);
       } finally {
@@ -262,7 +270,13 @@ function SeasonHighlights() {
 
           <div className="season-highlights__season">
             <FontAwesomeIcon icon={faTrophy} />
-            {seasonName || t("seasonHighlights.container.defaultSeason")}
+
+            {seasonInfo.type === "apertura" || seasonInfo.type === "clausura"
+              ? t(`seasonHighlights.seasons.${seasonInfo.type}`, {
+                  year: seasonInfo.year,
+                })
+              : seasonInfo.name ||
+                t("seasonHighlights.container.defaultSeason")}
           </div>
         </div>
 

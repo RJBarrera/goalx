@@ -20,8 +20,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Aqui descargamos el CSV desde railway
-      - name: Download MatchLab dataset
+      # Preparar directorios
+      - name: Prepare directories
+        run: |
+          mkdir -p server/data/champions
+
+      # Descargar CSV Liga MX desde Railway
+      - name: Download Liga MX dataset
         env:
           DATASET_URL: ${{ secrets.MATCHLAB_DATASET_URL }}
           DATASET_TOKEN: ${{ secrets.MATCHLAB_DATASET_SYNC_TOKEN }}
@@ -32,11 +37,11 @@ jobs:
             --show-error \
             --location \
             --header "x-matchlab-token: ${DATASET_TOKEN}" \
-            "${DATASET_URL}" \
+            "${DATASET_URL}?competition=liga-mx" \
             --output server/historial_ligamx_2023.csv
 
-      # Descargar destacados desde Railway
-      - name: Download MatchLab highlights
+      # Descargar destacados Liga MX desde Railway
+      - name: Download Liga MX highlights
         env:
           HIGHLIGHTS_URL: ${{ secrets.MATCHLAB_HIGHLIGHTS_URL }}
           DATASET_TOKEN: ${{ secrets.MATCHLAB_DATASET_SYNC_TOKEN }}
@@ -47,33 +52,91 @@ jobs:
             --show-error \
             --location \
             --header "x-matchlab-token: ${DATASET_TOKEN}" \
-            "${HIGHLIGHTS_URL}" \
+            "${HIGHLIGHTS_URL}?competition=liga-mx" \
             --output server/season_highlights.json
 
+      # Descargar CSV Champions desde Railway
+      - name: Download Champions dataset
+        env:
+          DATASET_URL: ${{ secrets.MATCHLAB_DATASET_URL }}
+          DATASET_TOKEN: ${{ secrets.MATCHLAB_DATASET_SYNC_TOKEN }}
+
+        run: |
+          curl --fail \
+            --silent \
+            --show-error \
+            --location \
+            --header "x-matchlab-token: ${DATASET_TOKEN}" \
+            "${DATASET_URL}?competition=champions" \
+            --output server/data/champions/historial.csv
+
+      # Descargar destacados Champions desde Railway
+      - name: Download Champions highlights
+        env:
+          HIGHLIGHTS_URL: ${{ secrets.MATCHLAB_HIGHLIGHTS_URL }}
+          DATASET_TOKEN: ${{ secrets.MATCHLAB_DATASET_SYNC_TOKEN }}
+
+        run: |
+          curl --fail \
+            --silent \
+            --show-error \
+            --location \
+            --header "x-matchlab-token: ${DATASET_TOKEN}" \
+            "${HIGHLIGHTS_URL}?competition=champions" \
+            --output server/data/champions/season_highlights.json
+
       # Validaciones
-      - name: Validate dataset
+      - name: Validate datasets
         run: |
           test -s server/historial_ligamx_2023.csv
           test -s server/season_highlights.json
+          test -s server/data/champions/historial.csv
+          test -s server/data/champions/season_highlights.json
 
-          echo "CSV downloaded successfully"
-          echo "Highlights JSON downloaded successfully"
+          LIGA_MX_LINES=$(wc -l < server/historial_ligamx_2023.csv)
+          CHAMPIONS_LINES=$(wc -l < server/data/champions/historial.csv)
 
-          wc -l server/historial_ligamx_2023.csv
+          echo "Liga MX CSV lines: ${LIGA_MX_LINES}"
+          echo "Champions CSV lines: ${CHAMPIONS_LINES}"
+
+          if [ "${LIGA_MX_LINES}" -le 1 ]; then
+            echo "ERROR: Liga MX dataset is empty."
+            exit 1
+          fi
+
+          if [ "${CHAMPIONS_LINES}" -le 30 ]; then
+            echo "ERROR: Champions dataset does not contain enough records."
+            exit 1
+          fi
+
+          if cmp -s \
+            server/historial_ligamx_2023.csv \
+            server/data/champions/historial.csv; then
+
+            echo "ERROR: Liga MX and Champions datasets are identical."
+            echo "Verify that the competition parameter is being processed."
+            exit 1
+          fi
+
+          echo "Datasets downloaded successfully."
+
           wc -c server/season_highlights.json
+          wc -c server/data/champions/season_highlights.json
 
-      # Aqui configuramos github
+      # Configurar Git
       - name: Configure Git
         run: |
           git config user.name "MatchLab Data Bot"
           git config user.email "matchlab-data-bot@users.noreply.github.com"
 
-      # Hacemos el commit solamente si hubo una modificacion
+      # Commit solamente si hubo modificaciones
       - name: Commit dataset changes
         run: |
           git add \
             server/historial_ligamx_2023.csv \
-            server/season_highlights.json
+            server/season_highlights.json \
+            server/data/champions/historial.csv \
+            server/data/champions/season_highlights.json
 
           if git diff --cached --quiet; then
             echo "No dataset changes detected."
@@ -81,6 +144,6 @@ jobs:
           fi
 
           git commit \
-            -m "data: actualizar histórico Liga MX"
+            -m "data: actualizar históricos Liga MX y Champions"
 
           git push

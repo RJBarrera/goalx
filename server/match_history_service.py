@@ -383,10 +383,12 @@ class MatchHistoryService:
 
         if mode == "split_calendar":
             if now.month >= 7:
+                season_type = "apertura"
                 name = f"Apertura {year}"
                 start = pd.Timestamp(f"{year}-07-01", tz="UTC")
                 end = pd.Timestamp(f"{year + 1}-01-01", tz="UTC")
             else:
+                season_type = "clausura"
                 name = f"Clausura {year}"
                 start = pd.Timestamp(f"{year}-01-01", tz="UTC")
                 end = pd.Timestamp(f"{year}-07-01", tz="UTC")
@@ -394,6 +396,7 @@ class MatchHistoryService:
             season = year
 
         elif mode == "european":
+            season_type = "european"
             start_year = year if now.month >= 7 else year - 1
             end_year = start_year + 1
             name = f"{start_year}/{str(end_year)[-2:]}"
@@ -402,6 +405,7 @@ class MatchHistoryService:
             season = start_year
 
         else:
+            season_type = "calendar"
             name = str(year)
             start = pd.Timestamp(f"{year}-01-01", tz="UTC")
             end = pd.Timestamp(f"{year + 1}-01-01", tz="UTC")
@@ -409,6 +413,7 @@ class MatchHistoryService:
 
         return {
             "name": name,
+            "type": season_type,
             "year": season,
             "start": start,
             "end": end,
@@ -1049,9 +1054,7 @@ class MatchHistoryService:
                 slides.append(
                     {
                         "type": "player",
-                        "badge": (
-                            "TOP GOLEADOR" if index == 0 else "JUGADOR DESTACADO"
-                        ),
+                        "badge": ("topScorer" if index == 0 else "featuredPlayer"),
                         "player": best_players[index],
                     }
                 )
@@ -1060,7 +1063,7 @@ class MatchHistoryService:
                 slides.append(
                     {
                         "type": "match",
-                        "badge": "PARTIDO DESTACADO",
+                        "badge": "featuredMatch",  # Enviamos clave y no texto
                         "match": best_matches[index],
                     }
                 )
@@ -1069,6 +1072,7 @@ class MatchHistoryService:
             "competition": self.competition["name"],
             "competition_id": self.competition_id,
             "season_name": competition["name"],
+            "season_type": competition.get("type"),
             "season": competition["year"],
             "matches_count": len(best_matches),
             "players_count": len(best_players),

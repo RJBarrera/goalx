@@ -344,6 +344,15 @@
       "kicker": "HIGHLIGHTS",
       "title": "Best of the season",
       "defaultSeason": "Current season"
+    },
+    "badges": {
+      "topScorer": "TOP SCORER",
+      "featuredPlayer": "FEATURED PLAYER",
+      "featuredMatch": "FEATURED MATCH"
+    },
+    "seasons": {
+      "apertura": "Apertura {{year}}",
+      "clausura": "Clausura {{year}}"
     }
   },
 
