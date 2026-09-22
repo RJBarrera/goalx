@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
+import {
+  faRightToBracket,
+  faPowerOff,
+  faDisplay,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { LanguageSelector } from "../LanguageSelector";
@@ -190,11 +197,11 @@ function Navbar() {
                   className="sports-navbar__admin"
                   onClick={cerrarMenu}
                 >
-                  {t("navbar.admin_panel")}
+                  <FontAwesomeIcon icon={faDisplay} />
                 </Link>
               )}
 
-              <div className="sports-navbar__user">
+              {/* <div className="sports-navbar__user">
                 <span>
                   {String(user?.username || "U")
                     .slice(0, 1)
@@ -208,14 +215,14 @@ function Navbar() {
                       : t("navbar.user")}
                   </small>
                 </div>
-              </div>
+              </div> */}
 
               <button
                 type="button"
                 className="sports-navbar__logout"
                 onClick={cerrarSesion}
               >
-                {t("navbar.logout")}
+                <FontAwesomeIcon icon={faPowerOff} />
               </button>
             </div>
           ) : (
@@ -224,7 +231,7 @@ function Navbar() {
               className="sports-navbar__login"
               onClick={cerrarMenu}
             >
-              {t("navbar.login")}
+              <FontAwesomeIcon icon={faRightToBracket} />
             </Link>
           )}
 

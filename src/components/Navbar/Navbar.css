@@ -1,7 +1,4 @@
-/* =========================================================
-   NAVBAR
-   ========================================================= */
-
+/* NAVBAR */
 .sports-navbar {
   position: sticky;
   top: 0;
@@ -42,10 +39,7 @@
   margin: 0 auto;
 }
 
-/* =========================================================
-   BRAND
-   ========================================================= */
-
+/* BRAND */
 .sports-navbar__brand {
   display: flex;
   align-items: center;
@@ -104,10 +98,7 @@
   text-transform: uppercase;
 }
 
-/* =========================================================
-   LINKS
-   ========================================================= */
-
+/* LINKS */
 .sports-navbar__links {
   display: flex;
   align-items: center;
@@ -157,10 +148,7 @@
   transform: scaleX(1);
 }
 
-/* =========================================================
-   ACTIONS
-   ========================================================= */
-
+/* ACTIONS */
 .sports-navbar__actions {
   display: flex;
   align-items: center;
@@ -224,20 +212,20 @@
 .sports-navbar__cta {
   display: inline-flex;
   align-items: center;
-  min-width: 180px;
   justify-content: center;
-  text-align: center;
-  gap: 10px;
-  min-height: 42px;
-  padding: 0 16px;
+  gap: 6px;
+  min-width: auto;
+  min-height: 40px;
+  padding: 0 12px;
   border: 1px solid rgba(66, 231, 172, 0.24);
-  border-radius: 10px;
+  border-radius: 9px;
   color: #07171a;
   background: linear-gradient(135deg, #5bf0bc, #25d798);
   box-shadow: 0 9px 24px rgba(37, 215, 152, 0.16);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 850;
+  white-space: nowrap;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -256,7 +244,7 @@
 .sports-navbar__admin {
   display: inline-flex;
   align-items: center;
-  min-width: 125px;
+  min-width: 40px;
   justify-content: center;
   text-align: center;
   min-height: 40px;
@@ -266,7 +254,7 @@
   color: #d6e0ea;
   background: rgba(255, 255, 255, 0.045);
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 800;
   transition:
     border-color 0.2s ease,
@@ -276,6 +264,34 @@
 
 .sports-navbar__login:hover,
 .sports-navbar__admin:hover {
+  border-color: rgba(66, 231, 172, 0.32);
+  color: #fff;
+  background: rgba(66, 231, 172, 0.08);
+}
+
+.sports-navbar__logout {
+  display: inline-flex;
+  align-items: center;
+  min-width: 40px;
+  justify-content: center;
+  text-align: center;
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 9px;
+  color: #da6f61;
+  background: rgba(255, 255, 255, 0.045);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.sports-navbar__logout:hover {
   border-color: rgba(66, 231, 172, 0.32);
   color: #fff;
   background: rgba(66, 231, 172, 0.08);
@@ -325,21 +341,6 @@
   text-transform: uppercase;
 }
 
-.sports-navbar__logout {
-  min-height: 38px;
-  padding: 0 10px;
-  border: 0;
-  color: #8ea0b5;
-  background: transparent;
-  cursor: pointer;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.sports-navbar__logout:hover {
-  color: #fff;
-}
-
 .sports-navbar__menu-button {
   display: none;
   width: 42px;
@@ -375,10 +376,7 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
+/* MOBILE */
 .sports-navbar__mobile {
   display: none;
   max-height: 0;
@@ -429,15 +427,12 @@
   margin: 0 auto 16px;
   padding: 12px 14px;
   border-radius: 10px;
-  color: #8595aa;
+  color: #5d6979;
   background: rgba(255, 255, 255, 0.04);
   font-size: 0.69rem;
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
+/* RESPONSIVE */
 @media (max-width: 1320px) {
   .sports-navbar__user {
     display: none;
@@ -447,7 +442,32 @@
   .sports-navbar__cta {
     display: none;
   }
+
+  .sports-navbar__actions {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .sports-navbar__links {
+    gap: 2px;
+  }
+
+  .sports-navbar__links a {
+    min-width: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .sports-navbar__competition {
+    margin-left: 8px;
+  }
+
+  .sports-navbar__lang-button {
+    padding-right: 9px;
+    padding-left: 9px;
+  }
 }
+
 @media (max-width: 1100px) {
   .sports-navbar__engine {
     display: none;
@@ -456,7 +476,7 @@
     min-width: 200px;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .sports-navbar__links,
   .sports-navbar__cta,
   .sports-navbar__account,
@@ -526,7 +546,7 @@
   padding: 6px 10px;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 11px;
-  color: #dce6ef;
+  color: #63717e;
   background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
   text-align: left;
@@ -633,7 +653,7 @@
 .sports-navbar__competition-menu button:hover,
 .sports-navbar__competition-menu button.active {
   color: #fff;
-  background: rgba(66, 231, 172, 0.08);
+  background: rgba(17, 55, 45, 0.95);
 }
 
 .sports-navbar__competition-menu button > div {
@@ -662,7 +682,7 @@
     min-width: 146px;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .sports-navbar__competition {
     display: none;
   }
@@ -695,13 +715,13 @@
     padding: 11px 12px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 9px;
-    color: #aebccd;
+    color: #606b79;
     background: rgba(255, 255, 255, 0.03);
     cursor: pointer;
   }
   .sports-navbar__mobile-competition button.active {
     border-color: rgba(66, 231, 172, 0.22);
-    color: #f1f7f5;
+    color: #54ddaf;
     background: rgba(66, 231, 172, 0.07);
   }
   .sports-navbar__mobile-competition button strong {
@@ -709,10 +729,7 @@
   }
 }
 
-/* =========================================================
-   LANGUAGE SELECTOR (DROPDOWN)
-   ========================================================= */
-
+/* LANGUAGE SELECTOR (DROPDOWN) */
 .sports-navbar__lang-wrapper {
   position: relative;
 }
@@ -834,4 +851,193 @@
   color: #42e7ac; /* Verde para el check */
   font-weight: 900;
   font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .sports-navbar__inner {
+    width: calc(100% - 28px);
+    min-height: 68px;
+    gap: 10px;
+  }
+
+  .sports-navbar__brand {
+    min-width: 0;
+    flex: 1;
+    gap: 10px;
+  }
+
+  .sports-navbar__brand-text {
+    min-width: 0;
+  }
+
+  .sports-navbar__brand-text strong {
+    font-size: 1.55rem;
+  }
+
+  .glob-sports-navbar__engine-dot {
+    min-width: 0;
+  }
+
+  .sports-navbar__brand-text small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sports-navbar__actions {
+    flex-shrink: 0;
+    gap: 7px;
+  }
+
+  .sports-navbar__lang-button {
+    min-height: 40px;
+    padding: 0 9px;
+    gap: 6px;
+  }
+
+  .sports-navbar__mobile--open {
+    max-height: calc(100dvh - 68px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .sports-navbar__inner {
+    width: calc(100% - 22px);
+    min-height: 64px;
+    gap: 8px;
+  }
+
+  .sports-navbar__brand {
+    gap: 9px;
+  }
+
+  .sports-navbar__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sports-navbar__brand-text strong {
+    font-size: 1.4rem;
+  }
+
+  .glob-sports-navbar__engine-dot {
+    display: none;
+  }
+
+  .sports-navbar__actions {
+    gap: 6px;
+  }
+
+  .sports-navbar__lang-flag {
+    width: 20px;
+    height: 14px;
+  }
+
+  .sports-navbar__menu-button {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .sports-navbar__lang-menu {
+    right: 0;
+    min-width: 155px;
+  }
+
+  .sports-navbar__mobile-competition,
+  .sports-navbar__mobile nav,
+  .sports-navbar__mobile-engine {
+    width: calc(100% - 24px);
+  }
+
+  .sports-navbar__mobile--open {
+    max-height: calc(100dvh - 64px);
+  }
+
+  .sports-navbar__lang-button {
+    width: auto;
+    min-width: 64px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0 9px;
+    gap: 6px;
+  }
+
+  .sports-navbar__lang-label {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .sports-navbar__lang-chevron {
+    display: none;
+  }
+
+  .sports-navbar__lang-flag {
+    width: 20px;
+    height: 14px;
+  }
+
+  .sports-navbar__lang-menu {
+    right: 0;
+    width: 190px;
+    min-width: 190px;
+    max-width: calc(100vw - 24px);
+    padding: 7px;
+  }
+
+  .sports-navbar__lang-option {
+    gap: 10px;
+    min-height: 42px;
+    padding: 9px 10px;
+  }
+
+  .sports-navbar__lang-option .sports-navbar__lang-label {
+    display: block;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: inherit;
+    text-align: left;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 370px) {
+  .sports-navbar__inner {
+    width: calc(100% - 16px);
+    gap: 6px;
+  }
+
+  .sports-navbar__logo {
+    width: 37px;
+    height: 37px;
+  }
+
+  .sports-navbar__brand {
+    gap: 7px;
+  }
+
+  .sports-navbar__brand-text strong {
+    font-size: 1.25rem;
+  }
+
+  .sports-navbar__lang-button {
+    width: auto;
+    min-width: 60px;
+    height: 37px;
+    min-height: 37px;
+    padding: 0 7px;
+    gap: 5px;
+  }
+
+  .sports-navbar__lang-menu {
+    width: 180px;
+    min-width: 180px;
+  }
+
+  .sports-navbar__menu-button {
+    width: 37px;
+    height: 37px;
+  }
 }

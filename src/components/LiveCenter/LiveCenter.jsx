@@ -238,7 +238,9 @@ function LiveMatchCard({
         </span>
       </div>
 
-      {stream && !finished && (
+      {/* ::::: Se comenta temporalmente ::::: */}
+
+      {/* {stream && !finished && (
         <button
           type="button"
           className="live-match-card__watch"
@@ -253,7 +255,7 @@ function LiveMatchCard({
             {stream.source_count} fuente{stream.source_count === 1 ? "" : "s"}
           </small>
         </button>
-      )}
+      )} */}
     </article>
   );
 }
