@@ -1085,7 +1085,9 @@ function LiveCenter({ onSeleccionarPartido }) {
               </div>
 
               <small>
-                {t("liveCenter.matchesCount", { count: matches.length })}
+                {t("liveCenter.matches.matchesCount", {
+                  count: matches.length,
+                })}
               </small>
             </div>
 
@@ -1096,7 +1098,7 @@ function LiveCenter({ onSeleccionarPartido }) {
                 <span />
 
                 <p>
-                  {t("liveCenter.search", {
+                  {t("liveCenter.matches.search", {
                     competitionName:
                       competition?.name || t("liveCenter.common.competition"),
                   })}
@@ -1163,7 +1165,7 @@ function LiveCenter({ onSeleccionarPartido }) {
 
                 <span />
 
-                <strong>{t("liveCenter.live")}</strong>
+                <strong>{t("liveCenter.matches.live")}</strong>
               </div>
 
               <div>
@@ -1171,7 +1173,7 @@ function LiveCenter({ onSeleccionarPartido }) {
 
                 <h3>{t("liveCenter.matchLab.activatingLiveIntelligence")}</h3>
 
-                <p>{t("liveCenter.linkingMatchWithProvider")}</p>
+                <p>{t("liveCenter.matches.linkingMatchWithProvider")}</p>
               </div>
             </div>
           )}

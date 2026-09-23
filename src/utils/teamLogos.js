@@ -78,15 +78,15 @@ export const getTeamLogo = (teamName) => {
 
   // Elimina minúsculas, acentos/caracteres raros, trim
   const normalized = normalizarTexto(teamName);
-  console.log(normalized);
+  // console.log(normalized);
 
   // Elimina stop-words dinámicamente
   const cleanWords = normalized
     .split(/\s+/)
     .filter((word) => !STOP_WORDS.has(word));
-  console.log(cleanWords);
+  // console.log(cleanWords);
   const teamKey = cleanWords.join(" ");
-  console.log(teamKey);
+  // console.log(teamKey);
 
   // Manejo de alias
   const fileName = TEAM_LOGO_FILES[teamKey];

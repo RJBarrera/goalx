@@ -84,7 +84,6 @@ function Footer() {
 
               <a href="#en-vivo">
                 <FontAwesomeIcon icon={faTowerBroadcast} />
-                <span>{t("footer.live")}</span>
                 <span className="goalx-footer__live-badge">
                   {t("footer.liveBadge")}
                 </span>
