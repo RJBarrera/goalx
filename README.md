@@ -156,3 +156,53 @@ Este archivo:
 Solo debe ejecutarse inicialmente o cuando cambien dependencias importantes.
 
 ---
+
+---
+
+# 6. Solución - Error de Pandas bloqueado por Control de aplicaciones
+
+Si al levantar FastAPI:
+
+```bash
+python -m uvicorn api_server:app --host 127.0.0.1 --port 8000
+```
+
+aparece:
+
+```text
+ImportError: DLL load failed while importing ops:
+Una directiva de Control de aplicaciones bloqueó este archivo.
+```
+
+Con el entorno virtual activado:
+
+```bash
+python -m pip uninstall pandas numpy -y
+```
+
+Instalar las versiones que solucionan el problema:
+
+```bash
+python -m pip install --no-cache-dir numpy==2.2.6 pandas==2.2.3
+```
+
+Validar:
+
+```bash
+python -c "import numpy; print('NumPy OK:', numpy.__version__)"
+python -c "import pandas; print('Pandas OK:', pandas.__version__)"
+```
+
+Resultado esperado:
+
+```text
+NumPy OK: 2.2.6
+Pandas OK: 2.2.3
+```
+
+Levantar nuevamente FastAPI:
+
+```bash
+python -m uvicorn api_server:app --host 127.0.0.1 --port 8000
+```
+

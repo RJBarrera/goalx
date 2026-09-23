@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AdBanner from "../../components/AdBanner/AdBanner";
+import MonetagAd from "../../components/MonetagAd/MonetagAd";
 import Footer from "../../components/Footer/Footer";
 import LiveCenter from "../../components/LiveCenter/LiveCenter";
 import MatchAnalytics from "../../components/MatchAnalytics/MatchAnalytics";
@@ -34,6 +35,9 @@ function Home() {
 
   return (
     <>
+      {/* Monetag - In-Page Push */}
+      <MonetagAd />
+
       <Navbar />
 
       <div className="goalx-layout">
