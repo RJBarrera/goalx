@@ -2,30 +2,45 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import translationES from "../locales/es/translation.json";
-import translationEN from "../locales/en/translation.json";
-import translationPT from "../locales/pt/translation.json";
-import translationDE from "../locales/de/translation.json";
-import translationFR from "../locales/fr/translation.json";
+// Carga de todos los translation.json dentro de la carpeta locales
+const translationFiles = import.meta.glob("../locales/*/translation.json", {
+  eager: true,
+});
 
-const resources = {
-  es: { translation: translationES },
-  en: { translation: translationEN },
-  pt: { translation: translationPT },
-  de: { translation: translationDE },
-  fr: { translation: translationFR },
-};
+const resources = {};
+for (const path in translationFiles) {
+  // Extrae el código de idioma de la ruta (ej: "es", "en", "ar")
+  const match = path.match(/\/locales\/([^/]+)\/translation\.json/);
+  if (match) {
+    const langCode = match[1];
+    resources[langCode] = {
+      translation: translationFiles[path].default || translationFiles[path],
+    };
+  }
+}
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    lng: "es", // Idioma por defecto al cargar
+    // lng: "es", // Idioma por defecto al cargar
     fallbackLng: "en", // Idioma de respaldo si falta alguna clave en otro idioma
+    supportedLngs: Object.keys(resources), // Idiomas soportados
+    load: "languageOnly",
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
+    },
     interpolation: {
       escapeValue: false, // React ya protege contra XSS
     },
   });
+
+// i18n.on("languageChanged", (lng) => {
+//   document.documentElement.lang = lng;
+//   // Si el idioma es arabe, cambia la direccion de derecha a izquierda (rtl)
+//   document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
+// });
 
 export default i18n;
