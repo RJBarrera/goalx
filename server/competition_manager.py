@@ -15,6 +15,11 @@ from prediccion_ligamx import (
     DixonColesModel,
     SpecialMarketsModel,
 )
+from ml_models import (
+    entrenar_xgboost_tarjetas,
+    entrenar_xgboost_tarjetas_probabilidad,
+    entrenar_xgboost_marcadores,
+)
 
 REQUIRED_DATASET_COLUMNS = [
     "home_team",
@@ -73,6 +78,7 @@ class CompetitionRuntime:
             "df": None,
             "dc_model": None,
             "spec_model": None,
+            "xgb_tarjetas": None,
             "equipos": [],
             "arbitros": [],
             "model_ready": False,
@@ -225,7 +231,7 @@ class CompetitionManager:
             dc_model = DixonColesModel()
             dc_model.fit(df.copy())
             print(
-                "✅ Dixon-Coles preparado en " f"{time.time() - started:.2f} segundos."
+                "   ✅ Dixon-Coles preparado en " f"{time.time() - started:.2f} segundos."
             )
 
             print("⚙️ Preparando mercados de córners y tarjetas...")
@@ -233,12 +239,29 @@ class CompetitionManager:
             spec_model = SpecialMarketsModel()
             spec_model.fit(df.copy())
             print(
-                "✅ Mercados especiales preparados en "
+                "   ✅ Mercados especiales preparados en "
                 f"{time.time() - started:.2f} segundos."
+            )
+
+            print("⚙️ Entrenando modelo XGBoost para tarjetas...")
+            started = time.time()
+            xgb_model = entrenar_xgboost_tarjetas(df.copy())
+            xgb_clasificador = entrenar_xgboost_tarjetas_probabilidad(df.copy())
+            print("  ✅ XGBoost de tarjetas preparado en " f"{time.time() - started:.2f} segundos.")
+
+            print("⚙️ Entrenando modelo XGBoost para marcadores...")
+            started = time.time()
+            xgb_marcadores, le_marcadores = entrenar_xgboost_marcadores(df.copy())
+            print(
+                f"  ✅ XGBoost de Marcadores preparado en {time.time() - started:.2f} seg."
             )
 
             runtime.state["dc_model"] = dc_model
             runtime.state["spec_model"] = spec_model
+            runtime.state["xgb_tarjetas"] = xgb_model
+            runtime.state["xgb_tarjetas_clasificador"] = xgb_clasificador
+            runtime.state["xgb_marcadores"] = xgb_marcadores
+            runtime.state["le_marcadores"] = le_marcadores
             runtime.state["model_ready"] = True
             runtime.state["model_message"] = (
                 f"Motor estadístico de {runtime.competition['name']} listo."

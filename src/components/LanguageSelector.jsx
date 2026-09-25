@@ -9,7 +9,6 @@ const LANGUAGES = [
   { code: "fr", label: "Français", country: "fr", short: "FR" },
   { code: "de", label: "Deutsch", country: "de", short: "DE" },
   { code: "ru", label: "Русский", country: "ru", short: "RU" },
-  { code: "ar", label: "العربية", country: "sa", short: "AR" },
 ];
 
 // Si el clic ocurre fuera, cerramos el dropdown

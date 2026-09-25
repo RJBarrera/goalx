@@ -27,7 +27,7 @@ python -m venv .venv
 ## 1.3. Dependencias Python
 
 ```bash
-pip install -r requirements.txt
+python -m pip install --no-cache-dir -r requirements.txt
 ```
 
 ---
@@ -205,4 +205,3 @@ Levantar nuevamente FastAPI:
 ```bash
 python -m uvicorn api_server:app --host 127.0.0.1 --port 8000
 ```
-

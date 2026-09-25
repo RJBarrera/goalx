@@ -231,12 +231,14 @@
           "visitorLabel": "AWAY",
           "predictionLabel": "PREDICTION",
           "vs": "VS",
-          "refereeLabel": "Referee"
+          "refereeLabel": "Referee",
+          "unknownReferee": "Unknown"
         },
         "h2h": {
           "icon": "H2H",
           "title": "Head-to-head",
-          "badge": "Historical"
+          "badge": "Historical",
+          "summary": "They have faced each other {{partidos}} times. H2H Averages -> Goals: {{goles}} | Corners: {{corners}} | Cards: {{tarjetas}}"
         },
         "market1x2": {
           "eyebrow": "Result",
@@ -244,7 +246,8 @@
           "description": "Probabilistic distribution between home win, draw, and away win.",
           "probabilityName": "Probability",
           "dominantScenario": "DOMINANT SCENARIO",
-          "dominantDescription": "Individual result with the highest probability."
+          "dominantDescription": "Individual result with the highest probability.",
+          "draw": "Draw"
         },
         "goals": {
           "eyebrow": "Goals market",
@@ -262,11 +265,18 @@
           "under25": "Under 2.5 goals",
           "bttsTag": "BTTS",
           "bttsTitle": "Both teams to score",
-          "yesBadge": "YES"
+          "yesBadge": "YES",
+          "tags": {
+            "match": "MATCH",
+            "home": "HOME",
+            "away": "AWAY"
+          }
         },
         "scores": {
           "tag": "CORRECT SCORE",
-          "title": "Top 5 most probable scores",
+          "topResultsTitle": "Top 5 Most Likely Scores (Statistical)",
+          "tagAi": "CORRECT SCORE (XGBOOST)",
+          "topResultsTitleAi": "Top 5 Most Likely Scores (AI)",
           "probabilityName": "Probability"
         },
         "corners": {
@@ -291,16 +301,33 @@
           "awayOver35": "Over 3.5 corners",
           "awayUnder35": "Under 3.5 corners",
           "awayOver45": "Over 4.5 corners",
-          "awayUnder45": "Under 4.5 corners"
+          "awayUnder45": "Under 4.5 corners",
+          "tags": {
+            "total": "TOTAL",
+            "firstHalf": "1H",
+            "home": "HOME",
+            "away": "AWAY"
+          }
         },
         "cards": {
           "eyebrow": "Discipline",
-          "title": "Cards market",
-          "description": "Estimation adjusted based on referee {{referee}}.",
-          "expectedCards": "Expected cards",
+          "title": "Cards Market",
+          "description": "Adjusted estimation based on the referee {{referee}}.",
+          "subtitle": "CLASSIC STATISTICS",
+          "model_h": "Historical Model",
+          "expectedCards": "Expected Cards",
           "refereeAdjusted": "Adjusted by {{referee}}",
           "over45": "Over 4.5 cards",
-          "under45": "Under 4.5 cards"
+          "under45": "Under 4.5 cards",
+          "subtitleAi": "ARTIFICIAL INTELLIGENCE",
+          "recentTrend": "Recent Trend (XGBoost)",
+          "expectedCardsAi": "Expected Cards (AI)",
+          "recentDescription": "Based on friction and performance over the last 5 matches.",
+          "aiModelPlaceholder": "AI probabilities coming soon.",
+          "tags": {
+            "match": "MATCH",
+            "xgboost": "XGBOOST"
+          }
         },
         "summary": {
           "eyebrow": "Final summary",
@@ -319,6 +346,43 @@
           "probabilityPercentage": "{{percentage}}% probability",
           "disclaimerTitle": "Statistical interpretation:",
           "disclaimerText": "a high probability indicates that the model considers that scenario more likely, but it does not mean it is a profitable bet nor does it guarantee the result. To calculate expected value, the offered odds must also be known."
+        },
+        "summaryKeys": {
+          "matchResult": "1X2 Match Result",
+          "teamWins": "{{team}} win",
+          "draw": "Draw",
+          "finalMatchResultDesc": "Final match result",
+          "totalGoals15": "Total Goals 1.5",
+          "totalGoals25": "Total Goals 2.5",
+          "overGoals": "Over {{count}} goals",
+          "underGoals": "Under {{count}} goals",
+          "mainGoalsLineDesc": "Main goals line",
+          "btts": "Both Teams to Score",
+          "bttsYes": "Yes, both score",
+          "bttsNo": "No, both don't score",
+          "bttsMarketDesc": "BTTS Market",
+          "corners": "Total Corners",
+          "overCorners": "Over {{count}} corners",
+          "underCorners": "Under {{count}} corners",
+          "cornersMarketDesc": "Total match corners",
+          "corners1T": "1st Half Corners",
+          "cornersMarketDesc1T": "First half",
+          "teamCornersTitle": "{{team}} - Corners",
+          "teamLineTitle": "{{team}} - Line {{count}}",
+          "teamOverCorners": "{{team}} Over {{count}} corners",
+          "teamUnderCorners": "{{team}} Under {{count}} corners",
+          "homeIndividualMarketDesc": "Home team individual market",
+          "awayIndividualMarketDesc": "Away team individual market",
+          "cards": "Cards",
+          "overCards": "Over {{count}} cards",
+          "underCards": "Under {{count}} cards",
+          "refereeAdjustedDesc": "Adjusted by {{referee}}",
+          "trends": {
+            "highOffensiveProduction": "The model projects a match with high offensive production.",
+            "lowOffensiveProduction": "The model projects a low-scoring, low-offensive match.",
+            "highCornersExpectation": "Corner expectations are above the 9.5 line.",
+            "highCardsExpectation": "The disciplinary projection exceeds 4.5 cards."
+          }
         },
         "footerText": "Statistical results based on historical information. Probabilities do not represent guaranteed results."
       }
@@ -359,6 +423,7 @@
   "sportsSelect": {
     "loading": "Loading catalog...",
     "optionsCount": "{{count}} options",
+    "unknownReferee": "Unknown",
     "clear": "Clear",
     "noResults": "No results found",
     "alreadySelected": "Already selected"

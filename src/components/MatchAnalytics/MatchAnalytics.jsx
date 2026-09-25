@@ -390,7 +390,7 @@ function MatchAnalytics({ partidoSeleccionado }) {
       },
 
       {
-        name: "Empate",
+        name: t("matchAnalytics.analytics.results.market1x2.draw"),
         value: porcentaje(goles?.["1X2"]?.Draw),
         color: COLORS.draw,
       },
@@ -402,8 +402,16 @@ function MatchAnalytics({ partidoSeleccionado }) {
       },
     ];
 
-    // Marcadores
+    // Marcadores (Modelo Clasico)
     const topMarcadores = Object.entries(goles?.Top_Scores || {}).map(
+      ([marcador, probabilidad]) => ({
+        marcador,
+        probabilidad: porcentaje(probabilidad),
+      }),
+    );
+
+    // Marcadores (Modelo IA)
+    const topMarcadoresAi = Object.entries(goles?.Top_Scores_AI || {}).map(
       ([marcador, probabilidad]) => ({
         marcador,
         probabilidad: porcentaje(probabilidad),
@@ -413,12 +421,11 @@ function MatchAnalytics({ partidoSeleccionado }) {
     // BTTS
     const ambosAnotan = [
       {
-        name: "Sí",
+        name: t("matchAnalytics.analytics.results.goals.yesBadge"),
         value: porcentaje(goles?.BTTS?.Yes),
       },
-
       {
-        name: "No",
+        name: t("matchAnalytics.analytics.results.goals.noBadge"),
         value: porcentaje(goles?.BTTS?.No),
       },
     ];
@@ -446,11 +453,12 @@ function MatchAnalytics({ partidoSeleccionado }) {
 
       resultado1X2,
       topMarcadores,
+      topMarcadoresAi,
       ambosAnotan,
       cornersEquipos,
       ganador,
     };
-  }, [resultado]);
+  }, [resultado, t]);
 
   // RESUMEN DE MAYORES PROBABILIDADES
   const resumenProbabilidades = useMemo(() => {
@@ -459,269 +467,371 @@ function MatchAnalytics({ partidoSeleccionado }) {
     }
 
     const goles = datosResultado.goles || {};
-
     const corners = datosResultado.corners || {};
-
     const tarjetas = datosResultado.tarjetas || {};
 
     const candidatos = [];
 
+    const local = resultado.partido.local;
+    const visitante = resultado.partido.visitante;
+
     // 1X2
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Resultado 1X2",
-
+        t("matchAnalytics.analytics.results.summaryKeys.matchResult"),
         [
           {
-            seleccion: `${resultado.partido.local} gana`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamWins",
+              {
+                team: local,
+              },
+            ),
             probabilidad: goles?.["1X2"]?.Home,
             tipo: "resultado",
           },
-
           {
-            seleccion: "Empate",
+            seleccion: t("matchAnalytics.analytics.results.summaryKeys.draw"),
             probabilidad: goles?.["1X2"]?.Draw,
             tipo: "resultado",
           },
-
           {
-            seleccion: `${resultado.partido.visitante} gana`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamWins",
+              {
+                team: visitante,
+              },
+            ),
             probabilidad: goles?.["1X2"]?.Away,
             tipo: "resultado",
           },
         ],
-
-        "Resultado final del partido",
+        t("matchAnalytics.analytics.results.summaryKeys.finalMatchResultDesc"),
       ),
     );
 
     // GOLES 1.5
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Total de goles 1.5",
-
+        t("matchAnalytics.analytics.results.summaryKeys.totalGoals15"),
         [
           {
-            seleccion: "Más de 1.5 goles",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overGoals",
+              {
+                count: "1.5",
+              },
+            ),
             probabilidad: goles?.Over_Under?.["Over 1.5"],
             tipo: "goles",
           },
-
           {
-            seleccion: "Menos de 1.5 goles",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underGoals",
+              {
+                count: "1.5",
+              },
+            ),
             probabilidad: goles?.Over_Under?.["Under 1.5"],
             tipo: "goles",
           },
         ],
-
-        "Línea de goles del partido",
+        t("matchAnalytics.analytics.results.summaryKeys.mainGoalsLineDesc"),
       ),
     );
 
     // GOLES 2.5
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Total de goles 2.5",
-
+        t("matchAnalytics.analytics.results.summaryKeys.totalGoals25"),
         [
           {
-            seleccion: "Más de 2.5 goles",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overGoals",
+              {
+                count: "2.5",
+              },
+            ),
             probabilidad: goles?.Over_Under?.["Over 2.5"],
             tipo: "goles",
           },
-
           {
-            seleccion: "Menos de 2.5 goles",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underGoals",
+              {
+                count: "2.5",
+              },
+            ),
             probabilidad: goles?.Over_Under?.["Under 2.5"],
             tipo: "goles",
           },
         ],
-
-        "Línea principal de goles",
+        t("matchAnalytics.analytics.results.summaryKeys.mainGoalsLineDesc"),
       ),
     );
 
     // BTTS
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Ambos equipos anotan",
-
+        t("matchAnalytics.analytics.results.summaryKeys.btts"),
         [
           {
-            seleccion: "Sí anotan ambos",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.bttsYes",
+            ),
             probabilidad: goles?.BTTS?.Yes,
             tipo: "goles",
           },
-
           {
-            seleccion: "No anotan ambos",
+            seleccion: t("matchAnalytics.analytics.results.summaryKeys.bttsNo"),
             probabilidad: goles?.BTTS?.No,
             tipo: "goles",
           },
         ],
-
-        "Mercado BTTS",
+        t("matchAnalytics.analytics.results.summaryKeys.bttsMarketDesc"),
       ),
     );
 
     // CÓRNERS TOTALES
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Córners totales",
-
+        t("matchAnalytics.analytics.results.summaryKeys.corners"),
         [
           {
-            seleccion: "Más de 9.5 córners",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overCorners",
+              {
+                count: "9.5",
+              },
+            ),
             probabilidad: corners?.["Over 9.5"],
             tipo: "corners",
           },
-
           {
-            seleccion: "Menos de 9.5 córners",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underCorners",
+              {
+                count: "9.5",
+              },
+            ),
             probabilidad: corners?.["Under 9.5"],
             tipo: "corners",
           },
         ],
-
-        "Total de córners del partido",
+        t("matchAnalytics.analytics.results.summaryKeys.cornersMarketDesc"),
       ),
     );
 
     // CÓRNERS PRIMERA MITAD
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Córners 1T",
-
+        t("matchAnalytics.analytics.results.summaryKeys.corners1T"),
         [
           {
-            seleccion: "Más de 4.5 córners 1T",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overCorners",
+              {
+                count: "4.5",
+              },
+            ),
             probabilidad: corners?.["Over 4.5 1H"],
             tipo: "corners",
           },
-
           {
-            seleccion: "Menos de 4.5 córners 1T",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underCorners",
+              {
+                count: "4.5",
+              },
+            ),
             probabilidad: corners?.["Under 4.5 1H"],
             tipo: "corners",
           },
         ],
-
-        "Primera mitad",
+        t("matchAnalytics.analytics.results.summaryKeys.cornersMarketDesc1T"),
       ),
     );
 
     // CÓRNERS LOCAL 4.5
     candidatos.push(
       obtenerMayorProbabilidad(
-        `${resultado.partido.local} - córners`,
-
+        t("matchAnalytics.analytics.results.summaryKeys.teamCornersTitle", {
+          team: local,
+        }),
         [
           {
-            seleccion: `${resultado.partido.local} +4.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              {
+                team: local,
+                count: "4.5",
+              },
+            ),
             probabilidad: corners?.["Home_Over_4.5"],
             tipo: "corners",
           },
-
           {
-            seleccion: `${resultado.partido.local} -4.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              {
+                team: local,
+                count: "4.5",
+              },
+            ),
             probabilidad: corners?.["Home_Under_4.5"],
             tipo: "corners",
           },
         ],
-
-        "Mercado individual local",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.homeIndividualMarketDesc",
+        ),
       ),
     );
 
     // CÓRNERS LOCAL 5.5
     candidatos.push(
       obtenerMayorProbabilidad(
-        `${resultado.partido.local} - línea 5.5`,
-
+        t("matchAnalytics.analytics.results.summaryKeys.teamLineTitle", {
+          team: local,
+          count: "5.5",
+        }),
         [
           {
-            seleccion: `${resultado.partido.local} +5.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              {
+                team: local,
+                count: "5.5",
+              },
+            ),
             probabilidad: corners?.["Home_Over_5.5"],
             tipo: "corners",
           },
-
           {
-            seleccion: `${resultado.partido.local} -5.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              {
+                team: local,
+                count: "5.5",
+              },
+            ),
             probabilidad: corners?.["Home_Under_5.5"],
             tipo: "corners",
           },
         ],
-
-        "Mercado individual local",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.homeIndividualMarketDesc",
+        ),
       ),
     );
 
     // CÓRNERS VISITANTE 3.5
     candidatos.push(
       obtenerMayorProbabilidad(
-        `${resultado.partido.visitante} - córners`,
-
+        t("matchAnalytics.analytics.results.summaryKeys.teamCornersTitle", {
+          team: visitante,
+        }),
         [
           {
-            seleccion: `${resultado.partido.visitante} +3.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              {
+                team: visitante,
+                count: "3.5",
+              },
+            ),
             probabilidad: corners?.["Away_Over_3.5"],
             tipo: "corners",
           },
-
           {
-            seleccion: `${resultado.partido.visitante} -3.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              {
+                team: visitante,
+                count: "3.5",
+              },
+            ),
             probabilidad: corners?.["Away_Under_3.5"],
             tipo: "corners",
           },
         ],
-
-        "Mercado individual visitante",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.awayIndividualMarketDesc",
+        ),
       ),
     );
 
     // CÓRNERS VISITANTE 4.5
     candidatos.push(
       obtenerMayorProbabilidad(
-        `${resultado.partido.visitante} - línea 4.5`,
-
+        t("matchAnalytics.analytics.results.summaryKeys.teamLineTitle", {
+          team: visitante,
+          count: "4.5",
+        }),
         [
           {
-            seleccion: `${resultado.partido.visitante} +4.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              {
+                team: visitante,
+                count: "4.5",
+              },
+            ),
             probabilidad: corners?.["Away_Over_4.5"],
             tipo: "corners",
           },
-
           {
-            seleccion: `${resultado.partido.visitante} -4.5 córners`,
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              {
+                team: visitante,
+                count: "4.5",
+              },
+            ),
             probabilidad: corners?.["Away_Under_4.5"],
             tipo: "corners",
           },
         ],
-
-        "Mercado individual visitante",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.awayIndividualMarketDesc",
+        ),
       ),
     );
 
     // TARJETAS
+    const refereeName =
+      resultado.partido?.arbitro?.toLowerCase() === "desconocido"
+        ? t("sportsSelect.unknownReferee")
+        : resultado.partido.arbitro;
+
     candidatos.push(
       obtenerMayorProbabilidad(
-        "Tarjetas",
-
+        t("matchAnalytics.analytics.results.summaryKeys.cards"),
         [
           {
-            seleccion: "Más de 4.5 tarjetas",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overCards",
+              {
+                count: "4.5",
+              },
+            ),
             probabilidad: tarjetas?.["Over 4.5"],
             tipo: "tarjetas",
           },
-
           {
-            seleccion: "Menos de 4.5 tarjetas",
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underCards",
+              {
+                count: "4.5",
+              },
+            ),
             probabilidad: tarjetas?.["Under 4.5"],
             tipo: "tarjetas",
           },
         ],
-
-        `Ajustado por ${resultado.partido.arbitro}`,
+        t("matchAnalytics.analytics.results.summaryKeys.refereeAdjustedDesc", {
+          referee: refereeName,
+        }),
       ),
     );
 
@@ -756,24 +866,38 @@ function MatchAnalytics({ partidoSeleccionado }) {
 
     if (totalXg >= 2.8) {
       tendencias.push(
-        "El modelo proyecta un partido con producción ofensiva elevada.",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.highOffensiveProduction",
+          { value: "2.8" },
+        ),
       );
     }
 
     if (totalXg <= 2.1) {
       tendencias.push(
-        "El modelo proyecta un partido de baja producción ofensiva.",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.lowOffensiveProduction",
+          { value: "2.1" },
+        ),
       );
     }
 
     if (Number(corners?.expected_total || 0) >= 9.5) {
       tendencias.push(
-        "La expectativa de córners se encuentra por encima de la línea de 9.5.",
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.highCornersExpectation",
+          { value: "9.5" },
+        ),
       );
     }
 
     if (Number(tarjetas?.expected_total || 0) >= 4.5) {
-      tendencias.push("La proyección disciplinaria supera las 4.5 tarjetas.");
+      tendencias.push(
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.highCardsExpectation",
+          { value: "4.5" },
+        ),
+      );
     }
 
     return {
@@ -782,7 +906,7 @@ function MatchAnalytics({ partidoSeleccionado }) {
       marcador,
       tendencias,
     };
-  }, [resultado, datosResultado]);
+  }, [resultado, datosResultado, t]);
 
   // Logos de los equipos del resultado
   const logoLocal = useMemo(() => {
@@ -943,7 +1067,7 @@ function MatchAnalytics({ partidoSeleccionado }) {
                       {t("matchAnalytics.form.connectionErrorTitle")}
                     </strong>
 
-                    <span>{errorCatalogos}</span>
+                    {/* <span>{errorCatalogos}</span> */}
                   </div>
                 </div>
               )}
@@ -958,7 +1082,7 @@ function MatchAnalytics({ partidoSeleccionado }) {
                       {t("matchAnalytics.form.analysisErrorTitle")}
                     </strong>
 
-                    <span>{error}</span>
+                    {/* <span>{error}</span> */}
                   </div>
                 </div>
               )}
@@ -1139,7 +1263,14 @@ function MatchAnalytics({ partidoSeleccionado }) {
                             )}
                           </span>
 
-                          <b>{resultado.partido.arbitro}</b>
+                          <b>
+                            {resultado.partido?.arbitro?.toLowerCase() ===
+                            "desconocido"
+                              ? t(
+                                  "matchAnalytics.analytics.results.fixture.unknownReferee",
+                                )
+                              : resultado.partido.arbitro}
+                          </b>
                         </div>
                       </div>
 
@@ -1173,23 +1304,32 @@ function MatchAnalytics({ partidoSeleccionado }) {
                   </section>
 
                   {/* H2H */}
-                  <section className="match-h2h-card">
-                    <div className="match-h2h-icon">
-                      {t("matchAnalytics.analytics.results.h2h.icon")}
-                    </div>
+                  {resultado?.h2h?.resumen && (
+                    <section className="match-h2h-card">
+                      <div className="match-h2h-icon">
+                        {t("matchAnalytics.analytics.results.h2h.icon")}
+                      </div>
 
-                    <div className="match-h2h-card__content">
-                      <span>
-                        {t("matchAnalytics.analytics.results.h2h.title")}
-                      </span>
+                      <div className="match-h2h-card__content">
+                        <span>
+                          {t("matchAnalytics.analytics.results.h2h.title")}
+                        </span>
 
-                      <p>{resultado.h2h?.resumen}</p>
-                    </div>
+                        <p>
+                          {t("matchAnalytics.analytics.results.h2h.summary", {
+                            partidos: resultado.h2h.resumen.partidos,
+                            goles: resultado.h2h.resumen.goles,
+                            corners: resultado.h2h.resumen.corners,
+                            tarjetas: resultado.h2h.resumen.tarjetas,
+                          })}
+                        </p>
+                      </div>
 
-                    <div className="match-h2h-card__badge">
-                      {t("matchAnalytics.analytics.results.h2h.badge")}
-                    </div>
-                  </section>
+                      <div className="match-h2h-card__badge">
+                        {t("matchAnalytics.analytics.results.h2h.badge")}
+                      </div>
+                    </section>
+                  )}
 
                   {/* RESULTADO 1X2 */}
                   <section className="match-dashboard-section">
@@ -1304,7 +1444,9 @@ function MatchAnalytics({ partidoSeleccionado }) {
                           "matchAnalytics.analytics.results.goals.expectedHomeDesc",
                         )}
                         variant="local"
-                        tag="HOME"
+                        tag={t(
+                          "matchAnalytics.analytics.results.goals.tags.home",
+                        )}
                       />
 
                       <MetricCard
@@ -1314,7 +1456,9 @@ function MatchAnalytics({ partidoSeleccionado }) {
                           "matchAnalytics.analytics.results.goals.expectedAwayDesc",
                         )}
                         variant="away"
-                        tag="AWAY"
+                        tag={t(
+                          "matchAnalytics.analytics.results.goals.tags.away",
+                        )}
                       />
 
                       <MetricCard
@@ -1328,7 +1472,9 @@ function MatchAnalytics({ partidoSeleccionado }) {
                         description={t(
                           "matchAnalytics.analytics.results.goals.jointExpectation",
                         )}
-                        tag="MATCH"
+                        tag={t(
+                          "matchAnalytics.analytics.results.goals.tags.match",
+                        )}
                       />
                     </div>
 
@@ -1445,53 +1591,104 @@ function MatchAnalytics({ partidoSeleccionado }) {
                       </div>
                     </div>
 
-                    {/* MARCADOR EXACTO */}
-                    <div className="match-panel match-panel--scores">
-                      <div className="match-panel-title">
-                        <div>
-                          <span>
-                            {t("matchAnalytics.analytics.results.scores.tag")}
-                          </span>
-
-                          <h3>
-                            {t("matchAnalytics.analytics.results.scores.title")}
-                          </h3>
+                    {/* MARCADOR EXACTO - COMPARATIVA */}
+                    <div className="match-two-columns">
+                      {/* MARCADOR CLASICO (POISSON) */}
+                      <div className="match-panel match-panel--scores">
+                        <div className="match-panel-title">
+                          <div>
+                            <span>
+                              {t("matchAnalytics.analytics.results.scores.tag")}
+                            </span>
+                            <h3>
+                              {t(
+                                "matchAnalytics.analytics.results.scores.topResultsTitle",
+                              )}
+                            </h3>
+                          </div>
                         </div>
+
+                        <ResponsiveContainer width="100%" height={300}>
+                          <BarChart data={datosResultado.topMarcadores}>
+                            <CartesianGrid
+                              strokeDasharray="4 4"
+                              vertical={false}
+                              stroke="#e7ebf2"
+                            />
+                            <XAxis
+                              dataKey="marcador"
+                              axisLine={false}
+                              tickLine={false}
+                            />
+                            <YAxis
+                              axisLine={false}
+                              tickLine={false}
+                              tickFormatter={(value) => `${value}%`}
+                            />
+                            <Tooltip content={<CustomTooltip />} />
+                            <Bar
+                              dataKey="probabilidad"
+                              name={t(
+                                "matchAnalytics.analytics.results.scores.probabilityName",
+                              )}
+                              fill={COLORS.local}
+                              radius={[8, 8, 0, 0]}
+                              barSize={48}
+                            />
+                          </BarChart>
+                        </ResponsiveContainer>
                       </div>
 
-                      <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={datosResultado.topMarcadores}>
-                          <CartesianGrid
-                            strokeDasharray="4 4"
-                            vertical={false}
-                            stroke="#e7ebf2"
-                          />
+                      {/* MARCADOR EXACTO IA */}
+                      {datosResultado.topMarcadoresAi &&
+                        datosResultado.topMarcadoresAi.length > 0 && (
+                          <div className="match-panel match-panel--scores">
+                            <div className="match-panel-title">
+                              <div>
+                                <span>
+                                  {t(
+                                    "matchAnalytics.analytics.results.scores.tagAi",
+                                  )}
+                                </span>
+                                <h3>
+                                  {t(
+                                    "matchAnalytics.analytics.results.scores.topResultsTitleAi",
+                                  )}
+                                </h3>
+                              </div>
+                            </div>
 
-                          <XAxis
-                            dataKey="marcador"
-                            axisLine={false}
-                            tickLine={false}
-                          />
-
-                          <YAxis
-                            axisLine={false}
-                            tickLine={false}
-                            tickFormatter={(value) => `${value}%`}
-                          />
-
-                          <Tooltip content={<CustomTooltip />} />
-
-                          <Bar
-                            dataKey="probabilidad"
-                            name={t(
-                              "matchAnalytics.analytics.results.scores.probabilityName",
-                            )}
-                            fill={COLORS.local}
-                            radius={[8, 8, 0, 0]}
-                            barSize={48}
-                          />
-                        </BarChart>
-                      </ResponsiveContainer>
+                            <ResponsiveContainer width="100%" height={300}>
+                              <BarChart data={datosResultado.topMarcadoresAi}>
+                                <CartesianGrid
+                                  strokeDasharray="4 4"
+                                  vertical={false}
+                                  stroke="#e7ebf2"
+                                />
+                                <XAxis
+                                  dataKey="marcador"
+                                  axisLine={false}
+                                  tickLine={false}
+                                />
+                                <YAxis
+                                  axisLine={false}
+                                  tickLine={false}
+                                  tickFormatter={(value) => `${value}%`}
+                                />
+                                <Tooltip content={<CustomTooltip />} />
+                                <Bar
+                                  dataKey="probabilidad"
+                                  name={t(
+                                    "matchAnalytics.analytics.results.scores.probabilityName",
+                                  )}
+                                  fill={COLORS.away}
+                                  radius={[8, 8, 0, 0]}
+                                  barSize={48}
+                                />
+                              </BarChart>
+                            </ResponsiveContainer>
+                          </div>
+                        )}
                     </div>
                   </section>
 
@@ -1520,7 +1717,9 @@ function MatchAnalytics({ partidoSeleccionado }) {
                           "matchAnalytics.analytics.results.corners.fullMatch",
                         )}
                         variant="corner"
-                        tag="TOTAL"
+                        tag={t(
+                          "matchAnalytics.analytics.results.corners.tags.total",
+                        )}
                       />
 
                       <MetricCard
@@ -1531,7 +1730,10 @@ function MatchAnalytics({ partidoSeleccionado }) {
                         description={t(
                           "matchAnalytics.analytics.results.corners.firstHalfDesc",
                         )}
-                        tag="1H"
+                        variant="corner"
+                        tag={t(
+                          "matchAnalytics.analytics.results.corners.tags.firstHalf",
+                        )}
                       />
 
                       <MetricCard
@@ -1541,7 +1743,9 @@ function MatchAnalytics({ partidoSeleccionado }) {
                           "matchAnalytics.analytics.results.corners.expectedHomeDesc",
                         )}
                         variant="local"
-                        tag="HOME"
+                        tag={t(
+                          "matchAnalytics.analytics.results.corners.tags.home",
+                        )}
                       />
 
                       <MetricCard
@@ -1551,7 +1755,9 @@ function MatchAnalytics({ partidoSeleccionado }) {
                           "matchAnalytics.analytics.results.corners.expectedAwayDesc",
                         )}
                         variant="away"
-                        tag="AWAY"
+                        tag={t(
+                          "matchAnalytics.analytics.results.corners.tags.away",
+                        )}
                       />
                     </div>
 
@@ -1730,40 +1936,125 @@ function MatchAnalytics({ partidoSeleccionado }) {
                       )}
                     />
 
-                    <div className="match-card-market-layout">
-                      <MetricCard
-                        label={t(
-                          "matchAnalytics.analytics.results.cards.expectedCards",
-                        )}
-                        value={numero(
-                          datosResultado.tarjetas.expected_total,
-                          1,
-                        )}
-                        description={t(
-                          "matchAnalytics.analytics.results.cards.refereeAdjusted",
-                          { referee: resultado.partido.arbitro },
-                        )}
-                        variant="card"
-                        tag="MATCH"
-                      />
-
+                    <div className="match-two-columns">
+                      {/* MODELO CLASICO */}
                       <div className="match-panel">
-                        <ProbabilityBar
-                          label={t(
-                            "matchAnalytics.analytics.results.cards.over45",
-                          )}
-                          value={datosResultado.tarjetas?.["Over 4.5"]}
-                          accent="orange"
-                        />
+                        <div className="match-panel-title">
+                          <div>
+                            <span>
+                              {t(
+                                "matchAnalytics.analytics.results.cards.subtitle",
+                              )}
+                            </span>
+                            <h3>
+                              {t(
+                                "matchAnalytics.analytics.results.cards.model_h",
+                              )}
+                            </h3>
+                          </div>
+                        </div>
 
-                        <ProbabilityBar
-                          label={t(
-                            "matchAnalytics.analytics.results.cards.under45",
-                          )}
-                          value={datosResultado.tarjetas?.["Under 4.5"]}
-                          accent="slate"
-                        />
+                        <div style={{ marginTop: "1.5rem" }}>
+                          <MetricCard
+                            label={t(
+                              "matchAnalytics.analytics.results.cards.expectedCards",
+                            )}
+                            value={numero(
+                              datosResultado.tarjetas.expected_total,
+                              1,
+                            )}
+                            description={t(
+                              "matchAnalytics.analytics.results.cards.refereeAdjusted",
+                              { referee: resultado.partido.arbitro },
+                            )}
+                            variant="card"
+                            tag={t(
+                              "matchAnalytics.analytics.results.cards.tags.match",
+                            )}
+                          />
+
+                          <div style={{ marginTop: "1.5rem" }}>
+                            <ProbabilityBar
+                              label={t(
+                                "matchAnalytics.analytics.results.cards.over45",
+                              )}
+                              value={datosResultado.tarjetas?.["Over 4.5"]}
+                              accent="orange"
+                            />
+                            <ProbabilityBar
+                              label={t(
+                                "matchAnalytics.analytics.results.cards.under45",
+                              )}
+                              value={datosResultado.tarjetas?.["Under 4.5"]}
+                              accent="slate"
+                            />
+                          </div>
+                        </div>
                       </div>
+
+                      {/* MODELO XGBOOST (IA) */}
+                      {datosResultado.tarjetas.xgboost_expected_total && (
+                        <div className="match-panel">
+                          <div className="match-panel-title">
+                            <div>
+                              <span>
+                                {t(
+                                  "matchAnalytics.analytics.results.cards.subtitleAi",
+                                )}
+                              </span>
+                              <h3>
+                                {t(
+                                  "matchAnalytics.analytics.results.cards.recentTrend",
+                                )}
+                              </h3>
+                            </div>
+                          </div>
+
+                          <div style={{ marginTop: "1.5rem" }}>
+                            <MetricCard
+                              label={t(
+                                "matchAnalytics.analytics.results.cards.expectedCardsAi",
+                              )}
+                              value={numero(
+                                datosResultado.tarjetas.xgboost_expected_total,
+                                1,
+                              )}
+                              description={t(
+                                "matchAnalytics.analytics.results.cards.recentDescription",
+                              )}
+                              variant="cyan"
+                              tag={t(
+                                "matchAnalytics.analytics.results.cards.tags.xgboost",
+                              )}
+                            />
+
+                            {/* Modelo de probabilidades */}
+                            {datosResultado.tarjetas.xgboost_over_4_5 !==
+                              undefined && (
+                              <div style={{ marginTop: "1.5rem" }}>
+                                <ProbabilityBar
+                                  label={t(
+                                    "matchAnalytics.analytics.results.cards.over45",
+                                  )}
+                                  value={
+                                    datosResultado.tarjetas.xgboost_over_4_5
+                                  }
+                                  accent="orange"
+                                />
+                                <ProbabilityBar
+                                  label={t(
+                                    "matchAnalytics.analytics.results.cards.under45",
+                                  )}
+                                  value={
+                                    datosResultado.tarjetas.xgboost_under_4_5
+                                  }
+                                  accent="slate"
+                                />
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </section>
 
@@ -1795,7 +2086,7 @@ function MatchAnalytics({ partidoSeleccionado }) {
 
                             <h3>{resumenProbabilidades.principal.seleccion}</h3>
 
-                            <p>{resumenProbabilidades.principal.categoria}</p>
+                            {/* <p>{resumenProbabilidades.principal.categoria}</p> */}
                           </div>
 
                           <div className="match-summary-highlight__probability">

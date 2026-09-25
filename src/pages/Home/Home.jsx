@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import AdBanner from "../../components/AdBanner/AdBanner";
-import MonetagAd from "../../components/MonetagAd/MonetagAd";
 import Footer from "../../components/Footer/Footer";
 import LiveCenter from "../../components/LiveCenter/LiveCenter";
 import MatchAnalytics from "../../components/MatchAnalytics/MatchAnalytics";
+import MonetagAd from "../../components/MonetagAd/MonetagAd";
 import Navbar from "../../components/Navbar/Navbar";
 import SeasonHighlights from "../../components/SeasonHighlights/SeasonHighlights";
 import { useCompetition } from "../../context/CompetitionContext";

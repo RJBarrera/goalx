@@ -231,12 +231,14 @@
           "visitorLabel": "AUSWÄRTS",
           "predictionLabel": "PROGNOSE",
           "vs": "VS",
-          "refereeLabel": "Schiedsrichter"
+          "refereeLabel": "Schiedsrichter",
+          "unknownReferee": "Unbekannt"
         },
         "h2h": {
           "icon": "H2H",
-          "title": "Direktvergleich",
-          "badge": "Historisch"
+          "title": "Direkter Vergleich",
+          "badge": "Historisch",
+          "summary": "Sie trafen {{partidos}} Mal aufeinander. H2H-Durchschnitt -> Tore: {{goles}} | Ecken: {{corners}} | Karten: {{tarjetas}}"
         },
         "market1x2": {
           "eyebrow": "Ergebnis",
@@ -244,7 +246,8 @@
           "description": "Wahrscheinlichkeitsverteilung zwischen Heimsieg, Unentschieden und Auswärtssieg.",
           "probabilityName": "Wahrscheinlichkeit",
           "dominantScenario": "DOMINANTES SZENARIO",
-          "dominantDescription": "Einzelergebnis mit der höchsten Wahrscheinlichkeit."
+          "dominantDescription": "Einzelergebnis mit der höchsten Wahrscheinlichkeit.",
+          "draw":"Unentschieden"
         },
         "goals": {
           "eyebrow": "Tormarkt",
@@ -262,11 +265,19 @@
           "under25": "Unter 2.5 Tore",
           "bttsTag": "BTTS",
           "bttsTitle": "Beide Teams treffen",
-          "yesBadge": "JA"
+          "yesBadge": "JA",
+          "noBadge": "NEIN",
+          "tags": {
+            "match": "SPIEL",
+            "home": "HEIM",
+            "away": "AUSWÄRTS"
+          }
         },
         "scores": {
           "tag": "GENAUES ERGEBNIS",
-          "title": "Top 5 wahrscheinlichste Ergebnisse",
+          "topResultsTitle": "Top 5 Wahrscheinlichste Ergebnisse (Statistisch)",
+          "tagAi": "GENAUES ERGEBNIS (XGBOOST)",
+          "topResultsTitleAi": "Top 5 Wahrscheinlichste Ergebnisse (KI)",
           "probabilityName": "Wahrscheinlichkeit"
         },
         "corners": {
@@ -291,16 +302,33 @@
           "awayOver35": "Über 3.5 Ecken",
           "awayUnder35": "Unter 3.5 Ecken",
           "awayOver45": "Über 4.5 Ecken",
-          "awayUnder45": "Unter 4.5 Ecken"
+          "awayUnder45": "Unter 4.5 Ecken",
+          "tags": {
+            "total": "GESAMT",
+            "firstHalf": "1. HZ",
+            "home": "HEIM",
+            "away": "AUSWÄRTS"
+          }
         },
         "cards": {
           "eyebrow": "Disziplin",
           "title": "Kartenmarkt",
-          "description": "Angepasste Schätzung gemäß Schiedsrichter {{referee}}.",
+          "description": "Angepasste Schätzung basierend auf Schiedsrichter {{referee}}.",
+          "subtitle": "KLASSISCHE STATISTIKEN",
+          "model_h": "Historisches Modell",
           "expectedCards": "Erwartete Karten",
           "refereeAdjusted": "Angepasst durch {{referee}}",
-          "over45": "Über 4.5 Karten",
-          "under45": "Unter 4.5 Karten"
+          "over45": "Über 4,5 Karten",
+          "under45": "Unter 4,5 Karten",
+          "subtitleAi": "KÜNSTLICHE INTELLIGENZ",
+          "recentTrend": "Aktueller Trend (XGBoost)",
+          "expectedCardsAi": "Erwartete Karten (KI)",
+          "recentDescription": "Basierend auf Härte und Leistung der letzten 5 Spiele.",
+          "aiModelPlaceholder": "KI-Wahrscheinlichkeiten folgen in Kürze.",
+          "tags": {
+            "match": "SPIEL",
+            "xgboost": "XGBOOST"
+          }
         },
         "summary": {
           "eyebrow": "Abschließende Zusammenfassung",
@@ -319,6 +347,43 @@
           "probabilityPercentage": "{{percentage}}% Wahrscheinlichkeit",
           "disclaimerTitle": "Statistische Interpretation:",
           "disclaimerText": "Eine hohe Wahrscheinlichkeit bedeutet, dass das Modell dieses Szenario für wahrscheinlicher hält, garantiert jedoch weder das Ergebnis noch eine profitable Wette. Zur Berechnung des Erwartungswerts muss auch die angebotene Quote bekannt sein."
+        },
+        "summaryKeys": {
+          "matchResult": "1X2 Spielergebnis",
+          "teamWins": "{{team}} gewinnt",
+          "draw": "Unentschieden",
+          "finalMatchResultDesc": "Endergebnis des Spiels",
+          "totalGoals15": "Gesamttore 1,5",
+          "totalGoals25": "Gesamttore 2,5",
+          "overGoals": "Über {{count}} Tore",
+          "underGoals": "Unter {{count}} Tore",
+          "mainGoalsLineDesc": "Haupttorlinie",
+          "btts": "Beide Teams treffen",
+          "bttsYes": "Ja, beide treffen",
+          "bttsNo": "Nein, nicht beide",
+          "bttsMarketDesc": "BTTS-Markt",
+          "corners": "Eckbälle Gesamt",
+          "overCorners": "Über {{count}} Eckbälle",
+          "underCorners": "Unter {{count}} Eckbälle",
+          "cornersMarketDesc": "Eckbälle im gesamten Spiel",
+          "corners1T": "Eckbälle 1. Halbzeit",
+          "cornersMarketDesc1T": "Erste Halbzeit",
+          "teamCornersTitle": "{{team}} - Eckbälle",
+          "teamLineTitle": "{{team}} - Linie {{count}}",
+          "teamOverCorners": "{{team}} Über {{count}} Eckbälle",
+          "teamUnderCorners": "{{team}} Unter {{count}} Eckbälle",
+          "homeIndividualMarketDesc": "Heimteam-Einzelmarkt",
+          "awayIndividualMarketDesc": "Auswärtsteam-Einzelmarkt",
+          "cards": "Karten",
+          "overCards": "Über {{count}} Karten",
+          "underCards": "Unter {{count}} Karten",
+          "refereeAdjustedDesc": "Angepasst durch {{referee}}",
+          "trends": {
+            "highOffensiveProduction": "Das Modell prognostiziert ein Spiel mit hoher Offensivproduktion.",
+            "lowOffensiveProduction": "Das Modell prognostiziert ein Spiel mit geringer Offensivleistung.",
+            "highCornersExpectation": "Die Eckball-Erwartung liegt über der Linie von 9,5.",
+            "highCardsExpectation": "Die Disziplinarprognose überschreitet 4,5 Karten."
+          }
         },
         "footerText": "Statistische Ergebnisse basieren auf historischen Informationen. Wahrscheinlichkeiten stellen keine garantierten Ergebnisse dar."
       }
@@ -359,7 +424,8 @@
   "sportsSelect": {
     "loading": "Katalog wird geladen...",
     "optionsCount": "{{count}} Optionen",
-    "clear": "Leeren",
+    "unknownReferee": "Unbekannt",
+    "clear": "Löschen",
     "noResults": "Keine Ergebnisse gefunden",
     "alreadySelected": "Bereits ausgewählt"
   },

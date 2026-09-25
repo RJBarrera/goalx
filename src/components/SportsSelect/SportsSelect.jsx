@@ -181,7 +181,9 @@ function SportsSelect({
           {loading
             ? t("sportsSelect.loading")
             : value
-              ? getDisplayName(value)
+              ? value.toLowerCase() === "desconocido"
+                ? t("sportsSelect.unknownReferee")
+                : getDisplayName(value)
               : placeholder}
         </span>
 
@@ -287,7 +289,9 @@ function SportsSelect({
 
                     {/* NAME */}
                     <span className="sports-select__option-name">
-                      {getDisplayName(option)}
+                      {optionKey.toLowerCase() === "desconocido"
+                        ? t("sportsSelect.unknownReferee")
+                        : getDisplayName(option)}
                     </span>
 
                     {/* SELECTED */}

@@ -223,12 +223,14 @@
           "visitorLabel": "ГОСТИ",
           "predictionLabel": "ПРОГНОЗ",
           "vs": "ПРОТИВ",
-          "refereeLabel": "Судья"
+          "refereeLabel": "Судья",
+          "unknownReferee": "Неизвестно"
         },
         "h2h": {
           "icon": "H2H",
           "title": "Личные встречи",
-          "badge": "История"
+          "badge": "Исторические",
+          "summary": "Команды встречались {{partidos}} раз. В среднем H2H -> Голы: {{goles}} | Угловые: {{corners}} | Карточки: {{tarjetas}}"
         },
         "market1x2": {
           "eyebrow": "Результат",
@@ -236,7 +238,8 @@
           "description": "Вероятностное распределение между победой хозяев, ничьей и победой гостей.",
           "probabilityName": "Вероятность",
           "dominantScenario": "ДОМИНИРУЮЩИЙ СЦЕНАРИЙ",
-          "dominantDescription": "Индивидуальный результат с наибольшей вероятностью."
+          "dominantDescription": "Индивидуальный результат с наибольшей вероятностью.",
+          "draw":"Ничья"
         },
         "goals": {
           "eyebrow": "Рынок голов",
@@ -254,11 +257,19 @@
           "under25": "Меньше 2.5 голов",
           "bttsTag": "ОЗ",
           "bttsTitle": "Обе забьют",
-          "yesBadge": "ДА"
+          "yesBadge": "ДА",
+          "noBadge": "НЕТ",
+          "tags": {
+            "match": "МАТЧ",
+            "home": "ХОЗЯЕВА",
+            "away": "ГОСТИ"
+          }
         },
         "scores": {
-          "tag": "ТОЧНЫЙ СЧЕТ",
-          "title": "Топ 5 наиболее вероятных счетов",
+          "tag": "ТОЧНЫЙ СЧЁТ",
+          "topResultsTitle": "Топ-5 наиболее вероятных счетов (Статистика)",
+          "tagAi": "ТОЧНЫЙ СЧЁТ (XGBOOST)",
+          "topResultsTitleAi": "Топ-5 наиболее вероятных счетов (ИИ)",
           "probabilityName": "Вероятность"
         },
         "corners": {
@@ -283,16 +294,33 @@
           "awayOver35": "Больше 3.5 угловых",
           "awayUnder35": "Меньше 3.5 угловых",
           "awayOver45": "Больше 4.5 угловых",
-          "awayUnder45": "Меньше 4.5 угловых"
+          "awayUnder45": "Меньше 4.5 угловых",
+          "tags": {
+            "total": "ТОТАЛ",
+            "firstHalf": "1-Й ТАЙМ",
+            "home": "ХОЗЯЕВА",
+            "away": "ГОСТИ"
+          }
         },
         "cards": {
           "eyebrow": "Дисциплина",
           "title": "Рынок карточек",
           "description": "Оценка скорректирована с учетом судьи {{referee}}.",
+          "subtitle": "КЛАССИЧЕСКАЯ СТАТИСТИКА",
+          "model_h": "Историческая модель",
           "expectedCards": "Ожидаемые карточки",
-          "refereeAdjusted": "Скорректировано {{referee}}",
+          "refereeAdjusted": "Корректировка по {{referee}}",
           "over45": "Больше 4.5 карточек",
-          "under45": "Меньше 4.5 карточек"
+          "under45": "Меньше 4.5 карточек",
+          "subtitleAi": "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ",
+          "recentTrend": "Последний тренд (XGBoost)",
+          "expectedCardsAi": "Ожидаемые карточки (ИИ)",
+          "recentDescription": "На основе жесткости и результатов последних 5 матчей.",
+          "aiModelPlaceholder": "Вероятности ИИ появятся в ближайшее время.",
+          "tags": {
+            "match": "МАТЧ",
+            "xgboost": "XGBOOST"
+          }
         },
         "summary": {
           "eyebrow": "Итоговая сводка",
@@ -311,6 +339,43 @@
           "probabilityPercentage": "Вероятность {{percentage}}%",
           "disclaimerTitle": "Статистическая интерпретация:",
           "disclaimerText": "высокая вероятность указывает на то, что модель считает этот сценарий более вероятным, но это не означает, что это выгодная ставка, и не гарантирует результат. Для расчета математического ожидания также необходимо знать предлагаемые коэффициенты."
+        },
+        "summaryKeys": {
+          "matchResult": "Результат 1X2",
+          "teamWins": "Победа {{team}}",
+          "draw": "Ничья",
+          "finalMatchResultDesc": "Итоговый результат матча",
+          "totalGoals15": "Тотал голов 1.5",
+          "totalGoals25": "Тотал голов 2.5",
+          "overGoals": "Больше {{count}} голов",
+          "underGoals": "Меньше {{count}} голов",
+          "mainGoalsLineDesc": "Основная линия голов",
+          "btts": "Обе забьют",
+          "bttsYes": "Да, обе забьют",
+          "bttsNo": "Нет, обе не забьют",
+          "bttsMarketDesc": "Рынок ОЗ",
+          "corners": "Угловые тотал",
+          "overCorners": "Больше {{count}} угловых",
+          "underCorners": "Меньше {{count}} угловых",
+          "cornersMarketDesc": "Общее количество угловых в матче",
+          "corners1T": "Угловые 1-й тайм",
+          "cornersMarketDesc1T": "Первый тайм",
+          "teamCornersTitle": "{{team}} - Угловые",
+          "teamLineTitle": "{{team}} - Линия {{count}}",
+          "teamOverCorners": "{{team}} ТБ {{count}} угловых",
+          "teamUnderCorners": "{{team}} ТМ {{count}} угловых",
+          "homeIndividualMarketDesc": "Индивидуальный рынок хозяев",
+          "awayIndividualMarketDesc": "Индивидуальный рынок гостей",
+          "cards": "Желтые карточки",
+          "overCards": "Больше {{count}} карточек",
+          "underCards": "Меньше {{count}} карточек",
+          "refereeAdjustedDesc": "Скорректировано с учетом судьи: {{referee}}",
+          "trends": {
+            "highOffensiveProduction": "Модель прогнозирует матч с высокой результативностью и активной атакой.",
+            "lowOffensiveProduction": "Модель прогнозирует малорезультативный матч.",
+            "highCornersExpectation": "Ожидания по угловым выше линии 9.5.",
+            "highCardsExpectation": "Дисциплинарный прогноз превышает 4.5 карточки."
+          }
         },
         "footerText": "Статистические результаты основаны на исторической информации. Вероятности не являются гарантированными результатами."
       }
@@ -349,6 +414,7 @@
   "sportsSelect": {
     "loading": "Загрузка каталога...",
     "optionsCount": "{{count}} вариантов",
+    "unknownReferee": "Неизвестно",
     "clear": "Очистить",
     "noResults": "Результатов не найдено",
     "alreadySelected": "Уже выбрано"

@@ -34,6 +34,7 @@ from live_service import get_quota_status
 from live_intelligence import build_live_intelligence
 from live_ai import answer_live_question
 from prediccion_ligamx import analizar_h2h
+from ml_models import preparar_features_al_vuelo
 
 ## Configuración
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -762,6 +763,63 @@ def calcular_prediccion(request: PrediccionRequest):
             visitante,
             referee=arbitro,
         )
+
+        # INTEGRACION DE XGBOOST
+        xgb_model = state.get("xgb_tarjetas")
+        xgb_clasificador = state.get("xgb_tarjetas_clasificador")
+        xgb_marcadores = state.get("xgb_marcadores")
+        le_marcadores = state.get("le_marcadores")
+
+        if xgb_model or xgb_clasificador or xgb_marcadores:
+            df_features = preparar_features_al_vuelo(df)
+            try:
+                home_stats = df_features[df_features["home_team"] == local].iloc[-1]
+                away_stats = df_features[df_features["away_team"] == visitante].iloc[-1]
+
+                X_pred = pd.DataFrame(
+                    [
+                        {
+                            "home_avg_gf_5": home_stats["home_avg_gf_5"],
+                            "home_avg_gc_5": home_stats["home_avg_gc_5"],
+                            "home_avg_tarjetas_5": home_stats["home_avg_tarjetas_5"],
+                            "away_avg_gf_5": away_stats["away_avg_gf_5"],
+                            "away_avg_gc_5": away_stats["away_avg_gc_5"],
+                            "away_avg_tarjetas_5": away_stats["away_avg_tarjetas_5"],
+                        }
+                    ]
+                )
+
+                # Prediccion Tarjetas
+                if xgb_model:
+                    cards["xgboost_expected_total"] = float(
+                        xgb_model.predict(X_pred)[0]
+                    )
+
+                if xgb_clasificador:
+                    probabilidades = xgb_clasificador.predict_proba(X_pred)[0]
+                    cards["xgboost_under_4_5"] = float(probabilidades[0])
+                    cards["xgboost_over_4_5"] = float(probabilidades[1])
+
+                # Prediccion Marcadores
+                if xgb_marcadores and le_marcadores:
+                    probs_marcadores = xgb_marcadores.predict_proba(X_pred)[0]
+
+                    # Ordenamos de menor a mayor. Lo invertimos y tomamos los primeros 5
+                    top_5_indices = np.argsort(probs_marcadores)[::-1][:5]
+
+                    top_scores_ai = {}
+                    for idx in top_5_indices:
+                        # Convierte el indice a texto
+                        marcador_str = le_marcadores.inverse_transform([idx])[0]
+                        top_scores_ai[marcador_str] = float(probs_marcadores[idx])
+
+                    # Diccionario general de goles para mandarlo al frontend
+                    goles["Top_Scores_AI"] = top_scores_ai
+
+            except IndexError:
+                cards["xgboost_expected_total"] = None
+                cards["xgboost_under_4_5"] = None
+                cards["xgboost_over_4_5"] = None
 
         resultado = {
             "success": True,

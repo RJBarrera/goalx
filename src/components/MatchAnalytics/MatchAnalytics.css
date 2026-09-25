@@ -1279,6 +1279,11 @@
   background: linear-gradient(145deg, #fffef7, #fff9dc);
 }
 
+.match-metric-card--cyan {
+  border-color: #bce4f0;
+  background: linear-gradient(145deg, #f4fbfe, #e1f5fa);
+}
+
 .match-metric-card__top {
   display: flex;
   align-items: center;
@@ -1497,6 +1502,28 @@
     minmax(240px, 0.62fr)
     minmax(0, 1.38fr);
   gap: 18px;
+}
+
+.match-panel-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 24px 20px;
+  background: #f8fafc;
+  border: 1px dashed #dbe2eb;
+  border-radius: 12px;
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.match-panel-placeholder span {
+  color: #7a8798;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 /* =========================================================

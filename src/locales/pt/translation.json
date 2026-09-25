@@ -231,12 +231,14 @@
           "visitorLabel": "FORA",
           "predictionLabel": "PREVISÃO",
           "vs": "VS",
-          "refereeLabel": "Árbitro"
+          "refereeLabel": "Árbitro",
+          "unknownReferee": "Desconhecido"
         },
         "h2h": {
           "icon": "H2H",
           "title": "Histórico direto",
-          "badge": "Histórico"
+          "badge": "Histórico",
+          "summary": "Eles se enfrentaram {{partidos}} vezes. Médias H2H -> Gols: {{goles}} | Escanteios: {{corners}} | Cartões: {{tarjetas}}"
         },
         "market1x2": {
           "eyebrow": "Resultado",
@@ -244,7 +246,8 @@
           "description": "Distribuição probabilística entre vitória da casa, empate e vitória fora.",
           "probabilityName": "Probabilidade",
           "dominantScenario": "CENÁRIO DOMINANTE",
-          "dominantDescription": "Resultado individual com maior probabilidade."
+          "dominantDescription": "Resultado individual com maior probabilidade.",
+          "draw":"Empate"
         },
         "goals": {
           "eyebrow": "Mercado de gols",
@@ -262,11 +265,19 @@
           "under25": "Menos de 2.5 gols",
           "bttsTag": "BTTS",
           "bttsTitle": "Ambas as equipes marcam",
-          "yesBadge": "SIM"
+          "yesBadge": "SIM",
+          "noBadge": "NÃO",
+          "tags": {
+            "match": "PARTIDA",
+            "home": "CASA",
+            "away": "FORA"
+          }
         },
         "scores": {
-          "tag": "PLACAR EXATO",
-          "title": "Top 5 resultados mais prováveis",
+          "tag": "RESULTADO EXATO",
+          "topResultsTitle": "Top 5 Resultados Mais Prováveis (Estatístico)",
+          "tagAi": "RESULTADO EXATO (XGBOOST)",
+          "topResultsTitleAi": "Top 5 Resultados Mais Prováveis (IA)",
           "probabilityName": "Probabilidade"
         },
         "corners": {
@@ -291,16 +302,33 @@
           "awayOver35": "Mais de 3.5 escanteios",
           "awayUnder35": "Menos de 3.5 escanteios",
           "awayOver45": "Mais de 4.5 escanteios",
-          "awayUnder45": "Menos de 4.5 escanteios"
+          "awayUnder45": "Menos de 4.5 escanteios",
+          "tags": {
+            "total": "TOTAL",
+            "firstHalf": "1ºT",
+            "home": "CASA",
+            "away": "FORA"
+          }
         },
         "cards": {
           "eyebrow": "Disciplina",
           "title": "Mercado de cartões",
-          "description": "Estimativa ajustada segundo o árbitro {{referee}}.",
-          "expectedCards": "Cartões esperados",
-          "refereeAdjusted": "Ajustados por {{referee}}",
+          "description": "Estimativa ajustada com base no árbitro {{referee}}.",
+          "subtitle": "ESTATÍSTICAS CLÁSSICAS",
+          "model_h": "Modelo Histórico",
+          "expectedCards": "Cartões Esperados",
+          "refereeAdjusted": "Ajustado por {{referee}}",
           "over45": "Mais de 4.5 cartões",
-          "under45": "Menos de 4.5 cartões"
+          "under45": "Menos de 4.5 cartões",
+          "subtitleAi": "INTELIGÊNCIA ARTIFICIAL",
+          "recentTrend": "Tendência Recente (XGBoost)",
+          "expectedCardsAi": "Cartões Esperados (IA)",
+          "recentDescription": "Com base no atrito e desempenho dos últimos 5 jogos.",
+          "aiModelPlaceholder": "Probabilidades de IA em breve.",
+          "tags": {
+            "match": "PARTIDA",
+            "xgboost": "XGBOOST"
+          }
         },
         "summary": {
           "eyebrow": "Resumo final",
@@ -319,6 +347,43 @@
           "probabilityPercentage": "{{percentage}}% de probabilidade",
           "disclaimerTitle": "Interpretação estatística:",
           "disclaimerText": "uma probabilidade alta indica que o modelo considera esse cenário mais provável, mas não significa que seja uma aposta lucrativa nem garante o resultado. Para calcular o valor esperado, também é necessário conhecer a odd oferecida."
+        },
+        "summaryKeys": {
+          "matchResult": "Resultado 1X2",
+          "teamWins": "{{team}} vence",
+          "draw": "Empate",
+          "finalMatchResultDesc": "Resultado final da partida",
+          "totalGoals15": "Total de gols 1.5",
+          "totalGoals25": "Total de gols 2.5",
+          "overGoals": "Mais de {{count}} gols",
+          "underGoals": "Menos de {{count}} gols",
+          "mainGoalsLineDesc": "Linha principal de gols",
+          "btts": "Ambas as equipes marcam",
+          "bttsYes": "Sim, ambas marcam",
+          "bttsNo": "Não, ambas não marcam",
+          "bttsMarketDesc": "Mercado BTTS",
+          "corners": "Escanteios Totais",
+          "overCorners": "Mais de {{count}} escanteios",
+          "underCorners": "Menos de {{count}} escanteios",
+          "cornersMarketDesc": "Total de escanteios da partida",
+          "corners1T": "Escanteios 1ºT",
+          "cornersMarketDesc1T": "Primeiro tempo",
+          "teamCornersTitle": "{{team}} - Escanteios",
+          "teamLineTitle": "{{team}} - Linha {{count}}",
+          "teamOverCorners": "{{team}} +{{count}} escanteios",
+          "teamUnderCorners": "{{team}} -{{count}} escanteios",
+          "homeIndividualMarketDesc": "Mercado individual mandante",
+          "awayIndividualMarketDesc": "Mercado individual visitante",
+          "cards": "Cartões",
+          "overCards": "Mais de {{count}} cartões",
+          "underCards": "Menos de {{count}} cartões",
+          "refereeAdjustedDesc": "Ajustado por {{referee}}",
+          "trends": {
+            "highOffensiveProduction": "O modelo projeta uma partida com alta produção ofensiva.",
+            "lowOffensiveProduction": "O modelo projeta uma partida de baixa produção ofensiva.",
+            "highCornersExpectation": "A expectativa de escanteios está acima da linha de 9.5.",
+            "highCardsExpectation": "A projeção disciplinar supera 4.5 cartões."
+          }
         },
         "footerText": "Resultados estatísticos baseados em informações históricas. As probabilidades não representam resultados garantidos."
       }
@@ -359,6 +424,7 @@
   "sportsSelect": {
     "loading": "Carregando catálogo...",
     "optionsCount": "{{count}} opções",
+    "unknownReferee": "Desconhecido",
     "clear": "Limpar",
     "noResults": "Nenhum resultado encontrado",
     "alreadySelected": "Já selecionado"

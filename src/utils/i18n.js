@@ -29,18 +29,12 @@ i18n
     supportedLngs: Object.keys(resources), // Idiomas soportados
     load: "languageOnly",
     detection: {
-      order: ["localStorage", "navigator"],
-      caches: ["localStorage"],
+      order: ["sessionStorage", "navigator"],
+      caches: ["sessionStorage"],
     },
     interpolation: {
       escapeValue: false, // React ya protege contra XSS
     },
   });
-
-// i18n.on("languageChanged", (lng) => {
-//   document.documentElement.lang = lng;
-//   // Si el idioma es arabe, cambia la direccion de derecha a izquierda (rtl)
-//   document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
-// });
 
 export default i18n;

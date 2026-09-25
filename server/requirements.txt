@@ -1,8 +1,10 @@
 fastapi
 uvicorn[standard]
-numpy
-pandas
+numpy==2.2.6
+pandas==2.2.3
 scipy
 requests
 python-dotenv
 openai
+xgboost
+scikit-learn

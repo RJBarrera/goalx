@@ -235,7 +235,14 @@ def analizar_h2h(df, equipo_a, equipo_b):
     corners_promedio = h2h_df["total_corners"].sum() / partidos
     tarjetas_promedio = h2h_df["total_cards"].sum() / partidos
 
-    return f"Se han enfrentado {partidos} veces. Promedios H2H -> Goles: {goles_promedio:.1f} | Corners: {corners_promedio:.1f} | Tarjetas: {tarjetas_promedio:.1f}"
+    # return f"Se han enfrentado {partidos} veces. Promedios H2H -> Goles: {goles_promedio:.1f} | Corners: {corners_promedio:.1f} | Tarjetas: {tarjetas_promedio:.1f}"
+    h2h_data = {
+        "partidos": partidos,
+        "goles": round(goles_promedio, 1),
+        "corners": round(corners_promedio, 1),
+        "tarjetas": round(tarjetas_promedio, 1),
+    }
+    return h2h_data
 
 
 # ==========================================
