@@ -216,6 +216,62 @@
           "assists": 1
         }
       }
+    },
+    "1550975": {
+      "fixture_id": 1550975,
+      "date": "2026-09-26T01:00:00+00:00",
+      "home": "Atlante FC",
+      "away": "Monterrey",
+      "players": {
+        "atlante fc|luis puente": {
+          "name": "Luis Puente",
+          "team": "Atlante FC",
+          "goals": 1,
+          "assists": 0
+        },
+        "atlante fc|walter portales": {
+          "name": "Walter Portales",
+          "team": "Atlante FC",
+          "goals": 0,
+          "assists": 1
+        },
+        "monterrey|hugo cuypers": {
+          "name": "Hugo Cuypers",
+          "team": "Monterrey",
+          "goals": 1,
+          "assists": 0
+        },
+        "monterrey|óliver torres": {
+          "name": "Óliver Torres",
+          "team": "Monterrey",
+          "goals": 0,
+          "assists": 1
+        },
+        "atlante fc|luis calzadilla": {
+          "name": "Luis Calzadilla",
+          "team": "Atlante FC",
+          "goals": 1,
+          "assists": 0
+        },
+        "atlante fc|eduardo tercero": {
+          "name": "Eduardo Tercero",
+          "team": "Atlante FC",
+          "goals": 1,
+          "assists": 0
+        },
+        "atlante fc|jhojan julio": {
+          "name": "Jhojan Julio",
+          "team": "Atlante FC",
+          "goals": 1,
+          "assists": 1
+        },
+        "monterrey|roberto de la rosa": {
+          "name": "Roberto de la Rosa",
+          "team": "Monterrey",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
