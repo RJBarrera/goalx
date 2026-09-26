@@ -769,8 +769,19 @@ def calcular_prediccion(request: PrediccionRequest):
         xgb_clasificador = state.get("xgb_tarjetas_clasificador")
         xgb_marcadores = state.get("xgb_marcadores")
         le_marcadores = state.get("le_marcadores")
+        xgb_goles_home = state.get("xgb_goles_home")
+        xgb_goles_away = state.get("xgb_goles_away")
+        xgb_ou15 = state.get("xgb_ou15")
+        xgb_ou25 = state.get("xgb_ou25")
+        xgb_btts = state.get("xgb_btts")
 
-        if xgb_model or xgb_clasificador or xgb_marcadores:
+        if (
+            xgb_model
+            or xgb_clasificador
+            or xgb_marcadores
+            or xgb_goles_home
+            or xgb_ou25
+        ):
             df_features = preparar_features_al_vuelo(df)
             try:
                 home_stats = df_features[df_features["home_team"] == local].iloc[-1]
@@ -815,6 +826,30 @@ def calcular_prediccion(request: PrediccionRequest):
 
                     # Diccionario general de goles para mandarlo al frontend
                     goles["Top_Scores_AI"] = top_scores_ai
+
+                # Predicción Goles (xG)
+                if xgb_goles_home and xgb_goles_away:
+                    goles["xgboost_expected_goals_home"] = max(
+                        0, float(xgb_goles_home.predict(X_pred)[0])
+                    )
+                    goles["xgboost_expected_goals_away"] = max(
+                        0, float(xgb_goles_away.predict(X_pred)[0])
+                    )
+
+                # Predicciones de O/U y BTTS (IA)
+                if xgb_ou15 and xgb_ou25 and xgb_btts:
+                    prob_ou15 = xgb_ou15.predict_proba(X_pred)[0]
+                    prob_ou25 = xgb_ou25.predict_proba(X_pred)[0]
+                    prob_btts = xgb_btts.predict_proba(X_pred)[0]
+
+                    goles["xgboost_mercados"] = {
+                        "Over 1.5": float(prob_ou15[1]),
+                        "Under 1.5": float(prob_ou15[0]),
+                        "Over 2.5": float(prob_ou25[1]),
+                        "Under 2.5": float(prob_ou25[0]),
+                        "BTTS_Yes": float(prob_btts[1]),
+                        "BTTS_No": float(prob_btts[0]),
+                    }
 
             except IndexError:
                 cards["xgboost_expected_total"] = None

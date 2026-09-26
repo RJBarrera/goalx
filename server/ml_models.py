@@ -201,3 +201,60 @@ def entrenar_xgboost_marcadores(df_crudo):
 
     # Retornamos modelo y LabelEncoder
     return modelo_xgb_marcadores, le
+
+
+def entrenar_xgboost_goles(df_crudo):
+    """
+    Entrena dos modelos XGBRegressor para predecir los goles esperados (xG)
+    del equipo local y del equipo visitante.
+    """
+
+    df_features = preparar_features_al_vuelo(df_crudo)
+
+    # Variables predictoras
+    X = df_features[FEATURES_MODELO]
+    y_home = df_features["home_goals"]
+    y_away = df_features["away_goals"]
+
+    modelo_xgb_goles_home = xgb.XGBRegressor(
+        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+    )
+    modelo_xgb_goles_home.fit(X, y_home)
+
+    modelo_xgb_goles_away = xgb.XGBRegressor(
+        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+    )
+    modelo_xgb_goles_away.fit(X, y_away)
+
+    return modelo_xgb_goles_home, modelo_xgb_goles_away
+
+
+def entrenar_xgboost_goles_mercados(df_crudo):
+    """
+    Entrena modelos XGBClassifier para predecir probabilidades de Over/Under y BTTS.
+    """
+
+    df_features = preparar_features_al_vuelo(df_crudo)
+
+    X = df_features[FEATURES_MODELO]
+
+    # Objetivos binarios (1 si se cumple, 0 si no)
+    y_ou15 = (df_features["home_goals"] + df_features["away_goals"] > 1.5).astype(int)
+    y_ou25 = (df_features["home_goals"] + df_features["away_goals"] > 2.5).astype(int)
+    y_btts = ((df_features["home_goals"] > 0) & (df_features["away_goals"] > 0)).astype(
+        int
+    )
+
+    clf_params = {
+        "objective": "binary:logistic",
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 4,
+        "eval_metric": "logloss",
+    }
+
+    modelo_ou15 = xgb.XGBClassifier(**clf_params).fit(X, y_ou15)
+    modelo_ou25 = xgb.XGBClassifier(**clf_params).fit(X, y_ou25)
+    modelo_btts = xgb.XGBClassifier(**clf_params).fit(X, y_btts)
+
+    return modelo_ou15, modelo_ou25, modelo_btts

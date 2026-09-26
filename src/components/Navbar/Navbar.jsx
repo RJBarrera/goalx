@@ -149,20 +149,37 @@ function Navbar() {
 
                 {competitions.map((item) => {
                   const active = item.id === competitionId;
+                  const disabled = item.id === "champions";
 
                   return (
                     <button
                       key={item.id}
                       type="button"
-                      className={active ? "active" : ""}
-                      onClick={() => seleccionarCompeticion(item.id)}
+                      className={`${active ? "active" : ""} ${
+                        disabled ? "disabled" : ""
+                      }`}
+                      onClick={() => {
+                        if (disabled) {
+                          return;
+                        }
+
+                        seleccionarCompeticion(item.id);
+                      }}
+                      disabled={disabled}
                     >
                       <div>
                         <strong>{item.name}</strong>
+
                         {item.country && <small>{item.country}</small>}
+
+                        {disabled && (
+                          <small className="sports-navbar__competition-coming-soon">
+                            Próximamente
+                          </small>
+                        )}
                       </div>
 
-                      <b>{active ? "✓" : "→"}</b>
+                      <b>{active ? "✓" : disabled ? "🔒" : "→"}</b>
                     </button>
                   );
                 })}
@@ -170,11 +187,11 @@ function Navbar() {
             )}
           </div>
           {NAV_ITEMS.map((item) => (
-            <a key={item.translationKey} href={`/${item.href}`}>
+            <a key={item.translationKey} href={item.href} onClick={cerrarMenu}>
               {t(item.translationKey)}
             </a>
           ))}
-          <a href="/#en-vivo" className="navbar-live-link">
+          <a href="#en-vivo" className="navbar-live-link" onClick={cerrarMenu}>
             <span className="navbar-live-dot" /> {t("navbar.live")}{" "}
             <small>{t("navbar.live")}</small>
           </a>

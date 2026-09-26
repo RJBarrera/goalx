@@ -247,17 +247,20 @@
           "probabilityName": "Probabilité",
           "dominantScenario": "SCÉNARIO DOMINANT",
           "dominantDescription": "Résultat individuel avec la plus forte probabilité.",
-          "draw":"Match nul"
+          "draw": "Match nul"
         },
         "goals": {
           "eyebrow": "Marché des buts",
           "title": "Prédiction offensive attendue",
           "description": "Attentes et probabilités dérivées du modèle de buts.",
+          "classicTitle": "Modèle Statistique",
+          "xgboost": "XGBOOST",
+          "iaTitle": "Intelligence Artificielle",
           "expectedHomeDesc": "Buts attendus domicile",
           "expectedAwayDesc": "Buts attendus extérieur",
-          "totalXgLabel": "Total xG",
+          "totalXgLabel": "xG Total",
           "jointExpectation": "Attente conjointe",
-          "overUnderTag": "PLUS DE / MOINS DE",
+          "overUnderTag": "PLUS / MOINS",
           "overUnderTitle": "Lignes de buts",
           "over15": "Plus de 1.5 buts",
           "under15": "Moins de 1.5 buts",

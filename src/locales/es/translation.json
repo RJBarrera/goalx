@@ -247,12 +247,15 @@
           "probabilityName": "Probabilidad",
           "dominantScenario": "ESCENARIO DOMINANTE",
           "dominantDescription": "Resultado individual con mayor probabilidad.",
-          "draw":"Empate"
+          "draw": "Empate"
         },
         "goals": {
           "eyebrow": "Mercado de goles",
           "title": "Predicción ofensiva esperada",
           "description": "Expectativas y probabilidades derivadas del modelo de goles.",
+          "classicTitle": "Modelo Estadístico",
+          "xgboost": "XGBOOST",
+          "iaTitle": "Inteligencia Artificial",
           "expectedHomeDesc": "Goles esperados local",
           "expectedAwayDesc": "Goles esperados visitante",
           "totalXgLabel": "Total xG",

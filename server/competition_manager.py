@@ -19,6 +19,8 @@ from ml_models import (
     entrenar_xgboost_tarjetas,
     entrenar_xgboost_tarjetas_probabilidad,
     entrenar_xgboost_marcadores,
+    entrenar_xgboost_goles,
+    entrenar_xgboost_goles_mercados,
 )
 
 REQUIRED_DATASET_COLUMNS = [
@@ -231,7 +233,8 @@ class CompetitionManager:
             dc_model = DixonColesModel()
             dc_model.fit(df.copy())
             print(
-                "   ✅ Dixon-Coles preparado en " f"{time.time() - started:.2f} segundos."
+                "   ✅ Dixon-Coles preparado en "
+                f"{time.time() - started:.2f} segundos."
             )
 
             print("⚙️ Preparando mercados de córners y tarjetas...")
@@ -247,13 +250,29 @@ class CompetitionManager:
             started = time.time()
             xgb_model = entrenar_xgboost_tarjetas(df.copy())
             xgb_clasificador = entrenar_xgboost_tarjetas_probabilidad(df.copy())
-            print("  ✅ XGBoost de tarjetas preparado en " f"{time.time() - started:.2f} segundos.")
+            print(
+                "   ✅ XGBoost de tarjetas preparado en "
+                f"{time.time() - started:.2f} segundos."
+            )
 
             print("⚙️ Entrenando modelo XGBoost para marcadores...")
             started = time.time()
             xgb_marcadores, le_marcadores = entrenar_xgboost_marcadores(df.copy())
             print(
-                f"  ✅ XGBoost de Marcadores preparado en {time.time() - started:.2f} seg."
+                f"   ✅ XGBoost de Marcadores preparado en {time.time() - started:.2f} seg."
+            )
+
+            print("⚙️ Entrenando modelos XGBoost para goles (xG)...")
+            started = time.time()
+            xgb_goles_home, xgb_goles_away = entrenar_xgboost_goles(df.copy())
+            print(
+                f"   ✅ XGBoost de Goles preparado en {time.time() - started:.2f} seg."
+            )
+
+            print("⚙️ Entrenando modelos XGBoost para mercados de goles...")
+            xgb_ou15, xgb_ou25, xgb_btts = entrenar_xgboost_goles_mercados(df.copy())
+            print(
+                f"   ✅ XGBoost para mercados de goles preparado en {time.time() - started:.2f} seg."
             )
 
             runtime.state["dc_model"] = dc_model
@@ -262,6 +281,11 @@ class CompetitionManager:
             runtime.state["xgb_tarjetas_clasificador"] = xgb_clasificador
             runtime.state["xgb_marcadores"] = xgb_marcadores
             runtime.state["le_marcadores"] = le_marcadores
+            runtime.state["xgb_goles_home"] = xgb_goles_home
+            runtime.state["xgb_goles_away"] = xgb_goles_away
+            runtime.state["xgb_ou15"] = xgb_ou15
+            runtime.state["xgb_ou25"] = xgb_ou25
+            runtime.state["xgb_btts"] = xgb_btts
             runtime.state["model_ready"] = True
             runtime.state["model_message"] = (
                 f"Motor estadístico de {runtime.competition['name']} listo."

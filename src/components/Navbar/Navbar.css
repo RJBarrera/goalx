@@ -1046,3 +1046,17 @@
     height: 37px;
   }
 }
+
+/* Deshabilitamos la opción de la Champions, se habilitara hasta que tengamos completo el CSV */
+.sports-navbar__competition-menu button.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sports-navbar__competition-coming-soon {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
