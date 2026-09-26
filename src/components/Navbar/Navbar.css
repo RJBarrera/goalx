@@ -1060,3 +1060,16 @@
   font-size: 0.65rem;
   font-weight: 700;
 }
+
+.sports-navbar__mobile-competition button.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sports-navbar__mobile-coming-soon {
+  display: block;
+  margin-top: 2px;
+  color: #94a3b8;
+  font-size: 0.65rem;
+  font-weight: 700;
+}

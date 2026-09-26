@@ -284,17 +284,40 @@ function Navbar() {
           <span>{t("navbar.mobile-competition")}</span>
 
           <div>
-            {competitions.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className={item.id === competitionId ? "active" : ""}
-                onClick={() => seleccionarCompeticion(item.id)}
-              >
-                <span>{item.name}</span>
-                <strong>{item.id === competitionId ? "✓" : "→"}</strong>
-              </button>
-            ))}
+            {competitions.map((item) => {
+              const active = item.id === competitionId;
+              const disabled = item.id === "champions";
+
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`${active ? "active" : ""} ${
+                    disabled ? "disabled" : ""
+                  }`}
+                  onClick={() => {
+                    if (disabled) {
+                      return;
+                    }
+
+                    seleccionarCompeticion(item.id);
+                  }}
+                  disabled={disabled}
+                >
+                  <span>
+                    {item.name}
+
+                    {disabled && (
+                      <small className="sports-navbar__mobile-coming-soon">
+                        Próximamente
+                      </small>
+                    )}
+                  </span>
+
+                  <strong>{active ? "✓" : disabled ? "🔒" : "→"}</strong>
+                </button>
+              );
+            })}
           </div>
         </div>
 
