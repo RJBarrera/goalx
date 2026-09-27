@@ -272,6 +272,110 @@
           "assists": 0
         }
       }
+    },
+    "1550980": {
+      "fixture_id": 1550980,
+      "date": "2026-09-26T22:50:00+00:00",
+      "home": "Cruz Azul",
+      "away": "Toluca",
+      "players": {
+        "cruz azul|nicolás ibañez": {
+          "name": "Nicolás Ibañez",
+          "team": "Cruz Azul",
+          "goals": 1,
+          "assists": 1
+        },
+        "cruz azul|josé paradela": {
+          "name": "José Paradela",
+          "team": "Cruz Azul",
+          "goals": 0,
+          "assists": 1
+        },
+        "cruz azul|gabriel fernández": {
+          "name": "Gabriel Fernández",
+          "team": "Cruz Azul",
+          "goals": 2,
+          "assists": 0
+        },
+        "toluca|hélio júnio nunes de castro": {
+          "name": "Hélio Júnio Nunes de Castro",
+          "team": "Toluca",
+          "goals": 1,
+          "assists": 1
+        },
+        "toluca|alexis vega": {
+          "name": "Alexis Vega",
+          "team": "Toluca",
+          "goals": 2,
+          "assists": 0
+        },
+        "toluca|nicolás castro": {
+          "name": "Nicolás Castro",
+          "team": "Toluca",
+          "goals": 0,
+          "assists": 1
+        },
+        "cruz azul|andrés montaño": {
+          "name": "Andrés Montaño",
+          "team": "Cruz Azul",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1550977": {
+      "fixture_id": 1550977,
+      "date": "2026-09-26T23:07:00+00:00",
+      "home": "Guadalajara Chivas",
+      "away": "Club Queretaro",
+      "players": {
+        "club queretaro|ali ávila": {
+          "name": "Ali Ávila",
+          "team": "Club Queretaro",
+          "goals": 1,
+          "assists": 0
+        },
+        "club queretaro|enzo giménez": {
+          "name": "Enzo Giménez",
+          "team": "Club Queretaro",
+          "goals": 0,
+          "assists": 2
+        },
+        "club queretaro|mateo coronel": {
+          "name": "Mateo Coronel",
+          "team": "Club Queretaro",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1550978": {
+      "fixture_id": 1550978,
+      "date": "2026-09-27T03:05:00+00:00",
+      "home": "Santos Laguna",
+      "away": "CF Pachuca",
+      "players": {
+        "santos laguna|francisco villalba": {
+          "name": "Francisco Villalba",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1550979": {
+      "fixture_id": 1550979,
+      "date": "2026-09-27T03:10:00+00:00",
+      "home": "Tigres UANL",
+      "away": "Puebla",
+      "players": {
+        "tigres uanl|juan brunetta": {
+          "name": "Juan Brunetta",
+          "team": "Tigres UANL",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
