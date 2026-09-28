@@ -376,6 +376,96 @@
           "assists": 0
         }
       }
+    },
+    "1550981": {
+      "fixture_id": 1550981,
+      "date": "2026-09-27T18:00:00+00:00",
+      "home": "U.N.A.M. - Pumas",
+      "away": "Atletico San Luis",
+      "players": {
+        "atletico san luis|sebastien salles-lamonge": {
+          "name": "Sebastien Salles-lamonge",
+          "team": "Atletico San Luis",
+          "goals": 2,
+          "assists": 1
+        },
+        "u.n.a.m. - pumas|rodrigo lópez": {
+          "name": "Rodrigo López",
+          "team": "U.N.A.M. - Pumas",
+          "goals": 1,
+          "assists": 0
+        },
+        "atletico san luis|david rodriguez": {
+          "name": "David Rodriguez",
+          "team": "Atletico San Luis",
+          "goals": 1,
+          "assists": 0
+        },
+        "u.n.a.m. - pumas|olávio vieira dos santos júnio": {
+          "name": "Olávio Vieira dos Santos Júnio",
+          "team": "U.N.A.M. - Pumas",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1550982": {
+      "fixture_id": 1550982,
+      "date": "2026-09-28T01:00:00+00:00",
+      "home": "Leon",
+      "away": "FC Juarez",
+      "players": {
+        "fc juarez|oscar estupiñan": {
+          "name": "Oscar Estupiñan",
+          "team": "FC Juarez",
+          "goals": 1,
+          "assists": 0
+        },
+        "leon|jose alvarado": {
+          "name": "Jose Alvarado",
+          "team": "Leon",
+          "goals": 1,
+          "assists": 0
+        },
+        "leon|edgar guerra": {
+          "name": "Edgar Guerra",
+          "team": "Leon",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1550983": {
+      "fixture_id": 1550983,
+      "date": "2026-09-28T03:10:00+00:00",
+      "home": "Necaxa",
+      "away": "Club America",
+      "players": {
+        "necaxa|owen gonzález": {
+          "name": "Owen González",
+          "team": "Necaxa",
+          "goals": 1,
+          "assists": 0
+        },
+        "necaxa|julián carranza": {
+          "name": "Julián Carranza",
+          "team": "Necaxa",
+          "goals": 1,
+          "assists": 1
+        },
+        "club america|henry martin": {
+          "name": "Henry Martin",
+          "team": "Club America",
+          "goals": 3,
+          "assists": 0
+        },
+        "club america|miguel borja": {
+          "name": "Miguel Borja",
+          "team": "Club America",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
