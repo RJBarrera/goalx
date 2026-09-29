@@ -21,6 +21,9 @@ from ml_models import (
     entrenar_xgboost_marcadores,
     entrenar_xgboost_goles,
     entrenar_xgboost_goles_mercados,
+    entrenar_xgboost_corners,
+    entrenar_xgboost_corners_mercados,
+    entrenar_xgboost_1x2,
 )
 
 REQUIRED_DATASET_COLUMNS = [
@@ -275,17 +278,44 @@ class CompetitionManager:
                 f"   ✅ XGBoost para mercados de goles preparado en {time.time() - started:.2f} seg."
             )
 
+            print("⚙️ Entrenando modelos XGBoost para Córners...")
+            xgb_corn_h, xgb_corn_a, xgb_corn_ou95 = entrenar_xgboost_corners(df.copy())
+            xgb_c_h45, xgb_c_h55, xgb_c_a35, xgb_c_a45 = (
+                entrenar_xgboost_corners_mercados(df.copy())
+            )
+            print(
+                f"   ✅ XGBoost para Córners listo en {time.time() - started:.2f} seg."
+            )
+
+            print("⚙️ Entrenando modelo XGBoost para 1X2...")
+            runtime.state["xgb_1x2"] = entrenar_xgboost_1x2(df.copy())
+            print(
+                f"   ✅ XGBoost para 1X2 preparado en {time.time() - started:.2f} seg."
+            )
+
             runtime.state["dc_model"] = dc_model
             runtime.state["spec_model"] = spec_model
+            # Tarjetas (IA)
             runtime.state["xgb_tarjetas"] = xgb_model
             runtime.state["xgb_tarjetas_clasificador"] = xgb_clasificador
+            # Marcadores (IA)
             runtime.state["xgb_marcadores"] = xgb_marcadores
             runtime.state["le_marcadores"] = le_marcadores
+            # Goles (IA)
             runtime.state["xgb_goles_home"] = xgb_goles_home
             runtime.state["xgb_goles_away"] = xgb_goles_away
             runtime.state["xgb_ou15"] = xgb_ou15
             runtime.state["xgb_ou25"] = xgb_ou25
             runtime.state["xgb_btts"] = xgb_btts
+            # Corners (IA)
+            runtime.state["xgb_corners_home"] = xgb_corn_h
+            runtime.state["xgb_corners_away"] = xgb_corn_a
+            runtime.state["xgb_corners_ou95"] = xgb_corn_ou95
+            runtime.state["xgb_c_h45"] = xgb_c_h45
+            runtime.state["xgb_c_h55"] = xgb_c_h55
+            runtime.state["xgb_c_a35"] = xgb_c_a35
+            runtime.state["xgb_c_a45"] = xgb_c_a45
+
             runtime.state["model_ready"] = True
             runtime.state["model_message"] = (
                 f"Motor estadístico de {runtime.competition['name']} listo."

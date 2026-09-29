@@ -247,7 +247,11 @@
           "probabilityName": "Probability",
           "dominantScenario": "DOMINANT SCENARIO",
           "dominantDescription": "Individual result with the highest probability.",
-          "draw": "Draw"
+          "draw": "Draw",
+          "classicLabel": "Statistical Model",
+          "aiLabel": "Artificial Intelligence (XGBoost)",
+          "trendAi": "AI Trend",
+          "descAi": "Most likely scenario based on the form of the last 5 matches."
         },
         "goals": {
           "eyebrow": "Goals Market",
@@ -286,8 +290,7 @@
         "corners": {
           "eyebrow": "Corner kicks",
           "title": "Corners market",
-          "description": "General expectation and distribution per team.",
-          "totalExpected": "Total expected",
+          "description": "Comparison of corner kick trends between overall history and recent performance.",
           "fullMatch": "Full match",
           "firstHalf": "First half",
           "firstHalfDesc": "Expected corners 1H",
@@ -306,6 +309,15 @@
           "awayUnder35": "Under 3.5 corners",
           "awayOver45": "Over 4.5 corners",
           "awayUnder45": "Under 4.5 corners",
+          "marketTeam": {
+            "eyebrow": "INDIVIDUAL ANALYSIS",
+            "title": "Markets by Team",
+            "description": "Comparison of specific lines for the home and away team.",
+            "classicTitle": "Statistical Model",
+            "aiTitle": "Artificial Intelligence",
+            "statisticSub": "STATISTIC",
+            "xgboostSub": "XGBOOST - AI"
+          },
           "tags": {
             "total": "TOTAL",
             "firstHalf": "1H",
@@ -347,6 +359,7 @@
           "readingTitle": "Match reading",
           "noTrends": "No additional extreme trend detected among the analyzed markets.",
           "mostProbableScoreTag": "MOST PROBABLE SCORE",
+          "mostProbableScoreTagAi": "MOST PROBABLE SCORE (AI)",
           "probabilityPercentage": "{{percentage}}% probability",
           "disclaimerTitle": "Statistical interpretation:",
           "disclaimerText": "a high probability indicates that the model considers that scenario more likely, but it does not mean it is a profitable bet nor does it guarantee the result. To calculate expected value, the offered odds must also be known."
@@ -383,9 +396,13 @@
           "refereeAdjustedDesc": "Adjusted by {{referee}}",
           "trends": {
             "highOffensiveProduction": "The model projects a match with high offensive production.",
-            "lowOffensiveProduction": "The model projects a low-scoring, low-offensive match.",
-            "highCornersExpectation": "Corner expectations are above the 9.5 line.",
-            "highCardsExpectation": "The disciplinary projection exceeds 4.5 cards."
+            "lowOffensiveProduction": "The model projects a match with low offensive production.",
+            "highCornersExpectation": "The corner kick expectation is above the 9.5 line.",
+            "highCardsExpectation": "The disciplinary projection exceeds 4.5 cards.",
+            "highOffensiveProductionAi": "The XGBoost (AI) model projects high goal production based on the last 5 matches streaks.",
+            "lowOffensiveProductionAi": "The XGBoost (AI) model forecasts a tight, low-scoring match due to the recent form of both teams.",
+            "highBttsAi": "Strong AI-detected probability for Both Teams to Score (BTTS).",
+            "highCornersExpectationAi": "Artificial Intelligence favors the over 9.5 corners line considering current offensive pressure."
           }
         },
         "footerText": "Statistical results based on historical information. Probabilities do not represent guaranteed results."

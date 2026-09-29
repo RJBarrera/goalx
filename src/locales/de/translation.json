@@ -247,7 +247,11 @@
           "probabilityName": "Wahrscheinlichkeit",
           "dominantScenario": "DOMINANTES SZENARIO",
           "dominantDescription": "Einzelergebnis mit der höchsten Wahrscheinlichkeit.",
-          "draw": "Unentschieden"
+          "draw": "Unentschieden",
+          "classicLabel": "Statistisches Modell",
+          "aiLabel": "Künstliche Intelligenz (XGBoost)",
+          "trendAi": "KI-Trend",
+          "descAi": "Wahrscheinlichstes Szenario basierend auf der Form der letzten 5 Spiele."
         },
         "goals": {
           "eyebrow": "Tormarkt",
@@ -286,8 +290,7 @@
         "corners": {
           "eyebrow": "Eckbälle",
           "title": "Eckenmarkt",
-          "description": "Allgemeine Erwartung und Verteilung pro Team.",
-          "totalExpected": "Gesamt erwartet",
+          "description": "Gegenüberstellung von Eckball-Trends zwischen der Gesamthistorie und der jüngsten Leistung.",
           "fullMatch": "Ganzes Spiel",
           "firstHalf": "Erste Halbzeit",
           "firstHalfDesc": "Erwartete Ecken 1. HZ",
@@ -306,6 +309,15 @@
           "awayUnder35": "Unter 3.5 Ecken",
           "awayOver45": "Über 4.5 Ecken",
           "awayUnder45": "Unter 4.5 Ecken",
+          "marketTeam": {
+            "eyebrow": "EINZELANALYSE",
+            "title": "Märkte nach Team",
+            "description": "Gegenüberstellung spezifischer Linien für Heim- und Auswärtsteam.",
+            "classicTitle": "Statistisches Modell",
+            "aiTitle": "Künstliche Intelligenz",
+            "statisticSub": "STATISTIK",
+            "xgboostSub": "XGBOOST - KI"
+          },
           "tags": {
             "total": "GESAMT",
             "firstHalf": "1. HZ",
@@ -347,6 +359,7 @@
           "readingTitle": "Spielanalyse",
           "noTrends": "Keine zusätzlichen extremen Trends in den analysierten Märkten festgestellt.",
           "mostProbableScoreTag": "WAHRSCHEINLICHSTES ERGEBNIS",
+          "mostProbableScoreTagAi": "WAHRSCHEINLICHSTES ERGEBNIS (KI)",
           "probabilityPercentage": "{{percentage}}% Wahrscheinlichkeit",
           "disclaimerTitle": "Statistische Interpretation:",
           "disclaimerText": "Eine hohe Wahrscheinlichkeit bedeutet, dass das Modell dieses Szenario für wahrscheinlicher hält, garantiert jedoch weder das Ergebnis noch eine profitable Wette. Zur Berechnung des Erwartungswerts muss auch die angebotene Quote bekannt sein."
@@ -383,9 +396,13 @@
           "refereeAdjustedDesc": "Angepasst durch {{referee}}",
           "trends": {
             "highOffensiveProduction": "Das Modell prognostiziert ein Spiel mit hoher Offensivproduktion.",
-            "lowOffensiveProduction": "Das Modell prognostiziert ein Spiel mit geringer Offensivleistung.",
-            "highCornersExpectation": "Die Eckball-Erwartung liegt über der Linie von 9,5.",
-            "highCardsExpectation": "Die Disziplinarprognose überschreitet 4,5 Karten."
+            "lowOffensiveProduction": "Das Modell prognostiziert ein Spiel mit geringer Offensivproduktion.",
+            "highCornersExpectation": "Die Eckball-Erwartung liegt über der 9.5-Linie.",
+            "highCardsExpectation": "Die Disziplinar-Prognose übersteigt 4.5 Karten.",
+            "highOffensiveProductionAi": "Das XGBoost-Modell (KI) prognostiziert basierend auf den Serien der letzten 5 Spiele eine hohe Torproduktion.",
+            "lowOffensiveProductionAi": "Das XGBoost-Modell (KI) prognostiziert aufgrund der jüngsten Form beider Teams ein enges Spiel mit wenigen Toren.",
+            "highBttsAi": "Von der KI erkannte starke Wahrscheinlichkeit, dass Beide Teams Treffen (BTTS).",
+            "highCornersExpectationAi": "Die Künstliche Intelligenz favorisiert unter Berücksichtigung des aktuellen Offensivdrucks die +9.5-Eckball-Linie."
           }
         },
         "footerText": "Statistische Ergebnisse basieren auf historischen Informationen. Wahrscheinlichkeiten stellen keine garantierten Ergebnisse dar."

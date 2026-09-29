@@ -5,10 +5,10 @@ const COLORS = {
   local: "#21cfa1",
   draw: "#94a3b8",
   away: "#38bdf8",
-  positive: "#22c55e",
-  negative: "#dce3eb",
   corner: "#f59e0b",
-  card: "#eab308",
+  localAi: "#0284c7",
+  drawAi: "#7dd3fc",
+  awayAi: "#0ea5e9",
 };
 
 // Utilidades
@@ -46,6 +46,25 @@ export default function useMatchData(resultado) {
         name: resultado.partido?.visitante || "Visitante",
         value: porcentaje(goles?.["1X2"]?.Away),
         color: COLORS.away,
+      },
+    ];
+
+    // 1x2 IA
+    const resultado1X2Ai = [
+      {
+        name: resultado.partido?.local || "Local",
+        value: porcentaje(goles?.xgboost_1X2?.Home),
+        color: COLORS.localAi,
+      },
+      {
+        name: t("matchAnalytics.analytics.results.market1x2.draw"),
+        value: porcentaje(goles?.xgboost_1X2?.Draw),
+        color: COLORS.drawAi,
+      },
+      {
+        name: resultado.partido?.visitante || "Visitante",
+        value: porcentaje(goles?.xgboost_1X2?.Away),
+        color: COLORS.awayAi,
       },
     ];
 
@@ -102,8 +121,21 @@ export default function useMatchData(resultado) {
       },
     ];
 
+    // Córner Equipos (Modelo IA)
+    const cornersEquiposAi = [
+      {
+        name: resultado.partido?.local || "Local",
+        esperado: Number(corners?.xgboost?.expected_home || 0),
+      },
+      {
+        name: resultado.partido?.visitante || "Visitante",
+        esperado: Number(corners?.xgboost?.expected_away || 0),
+      },
+    ];
+
     // Escenario Dominante
     const ganador = [...resultado1X2].sort((a, b) => b.value - a.value)[0];
+    const ganadorAi = [...resultado1X2Ai].sort((a, b) => b.value - a.value)[0];
 
     return {
       goles,
@@ -111,12 +143,15 @@ export default function useMatchData(resultado) {
       tarjetas,
 
       resultado1X2,
+      resultado1X2Ai,
       topMarcadores,
       topMarcadoresAi,
       ambosAnotan,
       ambosAnotanAi,
       cornersEquipos,
+      cornersEquiposAi,
       ganador,
+      ganadorAi,
     };
   }, [resultado, t]);
 }

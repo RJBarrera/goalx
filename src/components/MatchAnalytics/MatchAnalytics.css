@@ -1224,6 +1224,63 @@
   line-height: 1.6;
 }
 
+.match-insight-card-ai {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 25px;
+  overflow: hidden;
+  border: 1px solid #bce4f0;
+  border-radius: 15px;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(45, 216, 158, 0.15),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #f4fbfe, #e1f5fa);
+}
+
+.match-insight-card-ai__label {
+  color: #0369a1;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.match-insight-card-ai > strong {
+  margin-top: 15px;
+  color: #0284c7;
+  font-size: 3.5rem;
+  font-weight: 950;
+  letter-spacing: -0.07em;
+}
+
+.match-insight-card-ai h3 {
+  margin: 0 0 12px;
+  color: #0f172a;
+  font-size: 1.2rem;
+}
+
+.match-insight-card-ai p {
+  max-width: 230px;
+  margin: 0;
+  color: #0284c7;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.match-insight-divider-ai {
+  width: 45px;
+  height: 2px;
+  margin-bottom: 12px;
+  border-radius: 99px;
+  background: #38bdf8;
+}
+
 /* =========================================================
    METRICS
    ========================================================= */
@@ -2312,6 +2369,44 @@
 
 .match-summary-score small {
   color: #80968e;
+  font-size: 0.8rem;
+}
+
+.match-summary-scores-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.match-summary-score-ia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid #bce4f0;
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(145deg, #f4fbfe, #e1f5fa);
+}
+
+.match-summary-score-ia > span {
+  color: #0369a1;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.match-summary-score-ia strong {
+  margin: 8px 0 4px;
+  color: #0284c7;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.match-summary-score-ia small {
+  color: #0ea5e9;
   font-size: 0.8rem;
 }
 

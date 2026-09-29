@@ -116,40 +116,64 @@ export default function MatchSummary({ resumenProbabilidades, porcentaje }) {
                 className="match-summary-insight"
               >
                 <span />
-
                 <p>{tendencia}</p>
               </div>
             ))
           ) : (
             <div className="match-summary-insight">
               <span />
-
               <p>{t("matchAnalytics.analytics.results.summary.noTrends")}</p>
             </div>
           )}
         </div>
 
         {/* MARCADOR */}
-        {resumenProbabilidades.marcador && (
-          <div className="match-summary-score">
-            <span>
-              {t(
-                "matchAnalytics.analytics.results.summary.mostProbableScoreTag",
-              )}
-            </span>
+        {(resumenProbabilidades.marcador ||
+          resumenProbabilidades.marcadorAi) && (
+          <div className="match-summary-scores-container">
+            {/* Marcador Clasico */}
+            {resumenProbabilidades.marcador && (
+              <div className="match-summary-score">
+                <span>
+                  {t(
+                    "matchAnalytics.analytics.results.summary.mostProbableScoreTag",
+                  )}
+                </span>
+                <strong>{resumenProbabilidades.marcador.marcador}</strong>
+                <small>
+                  {t(
+                    "matchAnalytics.analytics.results.summary.probabilityPercentage",
+                    {
+                      percentage: porcentaje(
+                        resumenProbabilidades.marcador.probabilidad,
+                      ).toFixed(1),
+                    },
+                  )}
+                </small>
+              </div>
+            )}
 
-            <strong>{resumenProbabilidades.marcador.marcador}</strong>
-
-            <small>
-              {t(
-                "matchAnalytics.analytics.results.summary.probabilityPercentage",
-                {
-                  percentage: porcentaje(
-                    resumenProbabilidades.marcador.probabilidad,
-                  ).toFixed(1),
-                },
-              )}
-            </small>
+            {/* Marcador IA (XGBoost) */}
+            {resumenProbabilidades.marcadorAi && (
+              <div className="match-summary-score-ia">
+                <span>
+                  {t(
+                    "matchAnalytics.analytics.results.summary.mostProbableScoreTagAi",
+                  )}
+                </span>
+                <strong>{resumenProbabilidades.marcadorAi.marcador}</strong>
+                <small>
+                  {t(
+                    "matchAnalytics.analytics.results.summary.probabilityPercentage",
+                    {
+                      percentage: porcentaje(
+                        resumenProbabilidades.marcadorAi.probabilidad,
+                      ).toFixed(1),
+                    },
+                  )}
+                </small>
+              </div>
+            )}
           </div>
         )}
       </div>

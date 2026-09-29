@@ -8,9 +8,17 @@ FEATURES_MODELO = [
     "home_avg_gf_5",
     "home_avg_gc_5",
     "home_avg_tarjetas_5",
+    "home_avg_corners_5",
+    "home_avg_corners_contra_5",
+    "home_puntos_5",
+    "home_dias_descanso",
     "away_avg_gf_5",
     "away_avg_gc_5",
     "away_avg_tarjetas_5",
+    "away_avg_corners_5",
+    "away_avg_corners_contra_5",
+    "away_puntos_5",
+    "away_dias_descanso",
 ]
 
 
@@ -37,7 +45,7 @@ def preparar_features_al_vuelo(df):
             (df_ml["home_team"] == equipo) | (df_ml["away_team"] == equipo)
         ].copy()
 
-        # Calcular goles a favor y en contra en cada partido para este equipo
+        # Calcular Goles y Tarjetas
         partidos_equipo["goles_favor"] = np.where(
             partidos_equipo["home_team"] == equipo,
             partidos_equipo["home_goals"],
@@ -54,7 +62,32 @@ def preparar_features_al_vuelo(df):
             partidos_equipo["away_cards"],
         )
 
-        # Promedio de los ultimos 5 partidos
+        # CORNERS
+        partidos_equipo["corners_favor"] = np.where(
+            partidos_equipo["home_team"] == equipo,
+            partidos_equipo["home_corners"],
+            partidos_equipo["away_corners"],
+        )
+        partidos_equipo["corners_contra"] = np.where(
+            partidos_equipo["home_team"] == equipo,
+            partidos_equipo["away_corners"],
+            partidos_equipo["home_corners"],
+        )
+
+        # DESCANSO Y PUNTOS
+        partidos_equipo["dias_descanso"] = (
+            partidos_equipo["date"].diff().dt.days.fillna(7)
+        )  # Asumimos 7 dias por defecto al inicio
+        partidos_equipo["puntos_obtenidos"] = np.select(
+            [
+                partidos_equipo["goles_favor"] > partidos_equipo["goles_contra"],
+                partidos_equipo["goles_favor"] == partidos_equipo["goles_contra"],
+            ],
+            [3, 1],
+            default=0,
+        )
+
+        # PROMEDIOS Y ACUMULADOS
         partidos_equipo["avg_gf_5"] = (
             partidos_equipo["goles_favor"].shift(1).rolling(5, min_periods=1).mean()
         )
@@ -67,6 +100,15 @@ def preparar_features_al_vuelo(df):
             .rolling(5, min_periods=1)
             .mean()
         )
+        partidos_equipo["avg_corners_5"] = (
+            partidos_equipo["corners_favor"].shift(1).rolling(5, min_periods=1).mean()
+        )
+        partidos_equipo["avg_corners_contra_5"] = (
+            partidos_equipo["corners_contra"].shift(1).rolling(5, min_periods=1).mean()
+        )
+        partidos_equipo["puntos_5"] = (
+            partidos_equipo["puntos_obtenidos"].shift(1).rolling(5, min_periods=1).sum()
+        )  # Suma de puntos, no promedio
 
         partidos_equipo["equipo_objetivo"] = equipo
         equipos_stats.append(
@@ -77,6 +119,10 @@ def preparar_features_al_vuelo(df):
                     "avg_gf_5",
                     "avg_gc_5",
                     "avg_tarjetas_5",
+                    "avg_corners_5",
+                    "avg_corners_contra_5",
+                    "puntos_5",
+                    "dias_descanso",
                 ]
             ]
         )
@@ -92,6 +138,10 @@ def preparar_features_al_vuelo(df):
                 "avg_gf_5": "home_avg_gf_5",
                 "avg_gc_5": "home_avg_gc_5",
                 "avg_tarjetas_5": "home_avg_tarjetas_5",
+                "avg_corners_5": "home_avg_corners_5",
+                "avg_corners_contra_5": "home_avg_corners_contra_5",
+                "puntos_5": "home_puntos_5",
+                "dias_descanso": "home_dias_descanso",
             }
         ),
         on=["fixture_id", "home_team"],
@@ -106,6 +156,10 @@ def preparar_features_al_vuelo(df):
                 "avg_gf_5": "away_avg_gf_5",
                 "avg_gc_5": "away_avg_gc_5",
                 "avg_tarjetas_5": "away_avg_tarjetas_5",
+                "avg_corners_5": "away_avg_corners_5",
+                "avg_corners_contra_5": "away_avg_corners_contra_5",
+                "puntos_5": "away_puntos_5",
+                "dias_descanso": "away_dias_descanso",
             }
         ),
         on=["fixture_id", "away_team"],
@@ -135,7 +189,6 @@ def entrenar_xgboost_tarjetas(df_crudo):
     )
 
     modelo_xgb.fit(X, y)
-    # print(" ✅ Modelo XGBoost entrenado y listo en memoria.")
 
     return modelo_xgb
 
@@ -152,7 +205,6 @@ def entrenar_xgboost_tarjetas_probabilidad(df_crudo):
     # Ahora es binario: 1 si total_cards > 4.5, 0 si no
     y = (df_features["total_cards"] > 4.5).astype(int)
 
-    # print("🧠 Entrenando modelo XGBoost Classifier (Over/Under 4.5)...")
     modelo_xgb_clasificador = xgb.XGBClassifier(
         objective="binary:logistic",
         n_estimators=100,
@@ -162,7 +214,6 @@ def entrenar_xgboost_tarjetas_probabilidad(df_crudo):
     )
 
     modelo_xgb_clasificador.fit(X, y)
-    # print(" ✅ Modelo XGBoost de tarjetas entrenado.")
 
     return modelo_xgb_clasificador
 
@@ -197,7 +248,6 @@ def entrenar_xgboost_marcadores(df_crudo):
     )
 
     modelo_xgb_marcadores.fit(X, y)
-    # print(" ✅ Modelo XGBoost de Marcadores entrenado.")
 
     # Retornamos modelo y LabelEncoder
     return modelo_xgb_marcadores, le
@@ -258,3 +308,90 @@ def entrenar_xgboost_goles_mercados(df_crudo):
     modelo_btts = xgb.XGBClassifier(**clf_params).fit(X, y_btts)
 
     return modelo_ou15, modelo_ou25, modelo_btts
+
+
+def entrenar_xgboost_corners(df_crudo):
+    """
+    Entrena modelos XGBoost para córners esperados y el mercado Over 9.5
+    """
+
+    df_features = preparar_features_al_vuelo(df_crudo)
+    X = df_features[FEATURES_MODELO]
+
+    # Objetivos
+    y_home = df_features["home_corners"]
+    y_away = df_features["away_corners"]
+    y_ou95 = (df_features["total_corners"] > 9.5).astype(int)
+
+    modelo_xgb_corners_home = xgb.XGBRegressor(
+        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+    ).fit(X, y_home)
+    modelo_xgb_corners_away = xgb.XGBRegressor(
+        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+    ).fit(X, y_away)
+
+    modelo_xgb_corners_ou95 = xgb.XGBClassifier(
+        objective="binary:logistic",
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+        eval_metric="logloss",
+    ).fit(X, y_ou95)
+
+    return modelo_xgb_corners_home, modelo_xgb_corners_away, modelo_xgb_corners_ou95
+
+
+def entrenar_xgboost_corners_mercados(df_crudo):
+    """
+    Entrena modelos XGBClassifier para las líneas individuales de córners de cada equipo.
+    """
+
+    df_features = preparar_features_al_vuelo(df_crudo)
+    X = df_features[FEATURES_MODELO]
+
+    # Objetivos binarios para las 4 lineas principales
+    y_h45 = (df_features["home_corners"] > 4.5).astype(int)
+    y_h55 = (df_features["home_corners"] > 5.5).astype(int)
+    y_a35 = (df_features["away_corners"] > 3.5).astype(int)
+    y_a45 = (df_features["away_corners"] > 4.5).astype(int)
+
+    clf_params = {
+        "objective": "binary:logistic",
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 4,
+    }
+
+    mod_h45 = xgb.XGBClassifier(**clf_params).fit(X, y_h45)
+    mod_h55 = xgb.XGBClassifier(**clf_params).fit(X, y_h55)
+    mod_a35 = xgb.XGBClassifier(**clf_params).fit(X, y_a35)
+    mod_a45 = xgb.XGBClassifier(**clf_params).fit(X, y_a45)
+
+    return mod_h45, mod_h55, mod_a35, mod_a45
+
+
+def entrenar_xgboost_1x2(df_crudo):
+    """
+    Entrena modelos XGBoost para 1x2
+    """
+
+    df_features = preparar_features_al_vuelo(df_crudo)
+
+    X = df_features[FEATURES_MODELO]
+
+    # 0 = Local, 1 = Empate, 2 = Visitante
+    condiciones = [
+        df_features["home_goals"] > df_features["away_goals"],
+        df_features["home_goals"] == df_features["away_goals"],
+    ]
+    y = np.select(condiciones, [0, 1], default=2)
+
+    modelo_1x2 = xgb.XGBClassifier(
+        objective="multi:softprob",
+        num_class=3,
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+    ).fit(X, y)
+
+    return modelo_1x2

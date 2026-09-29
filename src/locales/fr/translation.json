@@ -247,7 +247,11 @@
           "probabilityName": "Probabilité",
           "dominantScenario": "SCÉNARIO DOMINANT",
           "dominantDescription": "Résultat individuel avec la plus forte probabilité.",
-          "draw": "Match nul"
+          "draw": "Match nul",
+          "classicLabel": "Modèle Statistique",
+          "aiLabel": "Intelligence Artificielle (XGBoost)",
+          "trendAi": "Tendance IA",
+          "descAi": "Scénario le plus probable selon la forme des 5 derniers matchs."
         },
         "goals": {
           "eyebrow": "Marché des buts",
@@ -286,8 +290,7 @@
         "corners": {
           "eyebrow": "Coups de pied de coin",
           "title": "Marché des corners",
-          "description": "Attente générale et distribution par équipe.",
-          "totalExpected": "Total attendu",
+          "description": "Comparaison des tendances de corners entre l'historique général et la performance récente.",
           "fullMatch": "Match complet",
           "firstHalf": "Première mi-temps",
           "firstHalfDesc": "Corners attendus 1MT",
@@ -306,6 +309,15 @@
           "awayUnder35": "Moins de 3.5 corners",
           "awayOver45": "Plus de 4.5 corners",
           "awayUnder45": "Moins de 4.5 corners",
+          "marketTeam": {
+            "eyebrow": "ANALYSE INDIVIDUELLE",
+            "title": "Marchés par Équipe",
+            "description": "Comparaison de lignes spécifiques pour l'équipe à domicile et à l'extérieur.",
+            "classicTitle": "Modèle Statistique",
+            "aiTitle": "Intelligence Artificielle",
+            "statisticSub": "STATISTIQUE",
+            "xgboostSub": "XGBOOST - IA"
+          },
           "tags": {
             "total": "TOTAL",
             "firstHalf": "1MT",
@@ -347,6 +359,7 @@
           "readingTitle": "Lecture du match",
           "noTrends": "Aucune tendance extrême supplémentaire détectée parmi les marchés analysés.",
           "mostProbableScoreTag": "SCORE LE PLUS PROBABLE",
+          "mostProbableScoreTagAi": "SCORE LE PLUS PROBABLE (IA)",
           "probabilityPercentage": "{{percentage}}% de probabilité",
           "disclaimerTitle": "Interprétation statistique :",
           "disclaimerText": "une probabilité élevée indique que le modèle considère ce scénario comme plus probable, mais cela ne signifie pas qu'il s'agit d'un pari rentable ni ne garantit le résultat. Pour calculer la valeur attendue, la cote proposée doit également être connue."
@@ -382,10 +395,14 @@
           "underCards": "Moins de {{count}} cartons",
           "refereeAdjustedDesc": "Ajusté par {{referee}}",
           "trends": {
-            "highOffensiveProduction": "Le modèle projette un match avec une forte production offensive.",
+            "highOffensiveProduction": "Le modèle projette un match avec une production offensive élevée.",
             "lowOffensiveProduction": "Le modèle projette un match à faible production offensive.",
             "highCornersExpectation": "L'attente de corners se situe au-dessus de la ligne de 9.5.",
-            "highCardsExpectation": "La projection disciplinaire dépasse les 4.5 cartons."
+            "highCardsExpectation": "La projection disciplinaire dépasse 4.5 cartons.",
+            "highOffensiveProductionAi": "Le modèle XGBoost (IA) projette une forte production de buts basée sur les séries des 5 derniers matchs.",
+            "lowOffensiveProductionAi": "Le modèle XGBoost (IA) prévoit un match fermé et peu prolifique en buts en raison de la forme récente des deux équipes.",
+            "highBttsAi": "Forte probabilité détectée par l'IA que les Deux Équipes Marquent (BTTS).",
+            "highCornersExpectationAi": "L'Intelligence Artificielle favorise la ligne de +9.5 corners en tenant compte de la pression offensive actuelle."
           }
         },
         "footerText": "Résultats statistiques basés sur des informations historiques. Les probabilités ne représentent pas des résultats garantis."

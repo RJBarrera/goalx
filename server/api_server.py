@@ -23,6 +23,7 @@ from fastapi.responses import (
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from scipy.stats import poisson
 
 from competition_config import (
     DEFAULT_COMPETITION_ID,
@@ -765,23 +766,43 @@ def calcular_prediccion(request: PrediccionRequest):
         )
 
         # INTEGRACION DE XGBOOST
+        # Tarjetas
         xgb_model = state.get("xgb_tarjetas")
         xgb_clasificador = state.get("xgb_tarjetas_clasificador")
+        # Marcadores
         xgb_marcadores = state.get("xgb_marcadores")
         le_marcadores = state.get("le_marcadores")
+        # Goles
         xgb_goles_home = state.get("xgb_goles_home")
         xgb_goles_away = state.get("xgb_goles_away")
         xgb_ou15 = state.get("xgb_ou15")
         xgb_ou25 = state.get("xgb_ou25")
         xgb_btts = state.get("xgb_btts")
+        # Corners
+        xgb_corners_home = state.get("xgb_corners_home")
+        xgb_corners_away = state.get("xgb_corners_away")
+        xgb_corners_ou95 = state.get("xgb_corners_ou95")
+        xgb_c_h45 = state.get("xgb_c_h45")
+        xgb_c_h55 = state.get("xgb_c_h55")
+        xgb_c_a35 = state.get("xgb_c_a35")
+        xgb_c_a45 = state.get("xgb_c_a45")
+        # 1X2
+        xgb_1x2 = state.get("xgb_1x2")
 
-        if (
-            xgb_model
-            or xgb_clasificador
-            or xgb_marcadores
-            or xgb_goles_home
-            or xgb_ou25
-        ):
+        # Agrupamos los modelos disponibles
+        modelos_disponibles = [
+            xgb_model,
+            xgb_clasificador,
+            xgb_marcadores,
+            xgb_goles_home,
+            xgb_ou15,
+            xgb_ou25,
+            xgb_corners_home,
+            xgb_c_h45,
+            xgb_1x2,
+        ]
+
+        if any(modelos_disponibles):
             df_features = preparar_features_al_vuelo(df)
             try:
                 home_stats = df_features[df_features["home_team"] == local].iloc[-1]
@@ -793,9 +814,21 @@ def calcular_prediccion(request: PrediccionRequest):
                             "home_avg_gf_5": home_stats["home_avg_gf_5"],
                             "home_avg_gc_5": home_stats["home_avg_gc_5"],
                             "home_avg_tarjetas_5": home_stats["home_avg_tarjetas_5"],
+                            "home_avg_corners_5": home_stats["home_avg_corners_5"],
+                            "home_avg_corners_contra_5": home_stats[
+                                "home_avg_corners_contra_5"
+                            ],
+                            "home_puntos_5": home_stats["home_puntos_5"],
+                            "home_dias_descanso": 7.0,  # Valor estándar para partidos futuros
                             "away_avg_gf_5": away_stats["away_avg_gf_5"],
                             "away_avg_gc_5": away_stats["away_avg_gc_5"],
                             "away_avg_tarjetas_5": away_stats["away_avg_tarjetas_5"],
+                            "away_avg_corners_5": away_stats["away_avg_corners_5"],
+                            "away_avg_corners_contra_5": away_stats[
+                                "away_avg_corners_contra_5"
+                            ],
+                            "away_puntos_5": away_stats["away_puntos_5"],
+                            "away_dias_descanso": 7.0,  # Valor estándar para partidos futuros
                         }
                     ]
                 )
@@ -851,10 +884,65 @@ def calcular_prediccion(request: PrediccionRequest):
                         "BTTS_No": float(prob_btts[0]),
                     }
 
+                # Predicción Corners IA
+                if xgb_corners_home and xgb_corners_away and xgb_corners_ou95:
+                    exp_c_home = max(0, float(xgb_corners_home.predict(X_pred)[0]))
+                    exp_c_away = max(0, float(xgb_corners_away.predict(X_pred)[0]))
+                    prob_ou95 = xgb_corners_ou95.predict_proba(X_pred)[0]
+
+                    corners["xgboost"] = {
+                        "expected_home": exp_c_home,
+                        "expected_away": exp_c_away,
+                        "expected_total": exp_c_home + exp_c_away,
+                        "Over 9.5": float(prob_ou95[1]),
+                        "Under 9.5": float(prob_ou95[0]),
+                    }
+
+                # Verificamos que los modelos individuales
+                if all([xgb_c_h45, xgb_c_h55, xgb_c_a35, xgb_c_a45]):
+                    prob_h45 = xgb_c_h45.predict_proba(X_pred)[0]
+                    prob_h55 = xgb_c_h55.predict_proba(X_pred)[0]
+                    prob_a35 = xgb_c_a35.predict_proba(X_pred)[0]
+                    prob_a45 = xgb_c_a45.predict_proba(X_pred)[0]
+
+                    # Primera Mitad (1T) - Via Matematica sobre el resultado de la IA
+                    # Calculamos el 47% de los corners esperados por XGBoost
+                    exp_1h_xgb = (exp_c_home + exp_c_away) * 0.47
+                    prob_over_45_1h_xgb = 1 - poisson.cdf(4, exp_1h_xgb)
+                    prob_under_45_1h_xgb = poisson.cdf(4, exp_1h_xgb)
+
+                    corners["xgboost"].update(
+                        {
+                            "Over 4.5 1H": float(prob_over_45_1h_xgb),
+                            "Under 4.5 1H": float(prob_under_45_1h_xgb),
+                            "Home_Over_4.5": float(prob_h45[1]),
+                            "Home_Under_4.5": float(prob_h45[0]),
+                            "Home_Over_5.5": float(prob_h55[1]),
+                            "Home_Under_5.5": float(prob_h55[0]),
+                            "Away_Over_3.5": float(prob_a35[1]),
+                            "Away_Under_3.5": float(prob_a35[0]),
+                            "Away_Over_4.5": float(prob_a45[1]),
+                            "Away_Under_4.5": float(prob_a45[0]),
+                        }
+                    )
+
+                # Prediccion 1X2
+                if xgb_1x2:
+                    probs_1x2 = xgb_1x2.predict_proba(X_pred)[0]
+                    goles["xgboost_1X2"] = {
+                        "Home": float(probs_1x2[0]),
+                        "Draw": float(probs_1x2[1]),
+                        "Away": float(probs_1x2[2]),
+                    }
+
             except IndexError:
-                cards["xgboost_expected_total"] = None
-                cards["xgboost_under_4_5"] = None
-                cards["xgboost_over_4_5"] = None
+                # cards["xgboost_expected_total"] = None
+                # cards["xgboost_under_4_5"] = None
+                # cards["xgboost_over_4_5"] = None
+
+                # Si un equipo es nuevo o no tiene historial de 5 partidos,
+                # detenemos el calculo IA y dejamos la respuesta clasica.
+                pass
 
         resultado = {
             "success": True,

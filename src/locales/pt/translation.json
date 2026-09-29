@@ -247,7 +247,11 @@
           "probabilityName": "Probabilidade",
           "dominantScenario": "CENÁRIO DOMINANTE",
           "dominantDescription": "Resultado individual com maior probabilidade.",
-          "draw": "Empate"
+          "draw": "Empate",
+          "classicLabel": "Modelo Estatístico",
+          "aiLabel": "Inteligência Artificial (XGBoost)",
+          "trendAi": "Tendência IA",
+          "descAi": "Cenário mais provável com base na forma dos últimos 5 jogos."
         },
         "goals": {
           "eyebrow": "Mercado de gols",
@@ -286,8 +290,7 @@
         "corners": {
           "eyebrow": "Escanteios",
           "title": "Mercado de escanteios",
-          "description": "Expectativa geral e distribuição por equipe.",
-          "totalExpected": "Total esperado",
+          "description": "Contraste de tendências de escanteios entre o histórico geral e o desempenho recente.",
           "fullMatch": "Partida completa",
           "firstHalf": "Primeiro tempo",
           "firstHalfDesc": "Escanteios esperados 1T",
@@ -306,6 +309,15 @@
           "awayUnder35": "Menos de 3.5 escanteios",
           "awayOver45": "Mais de 4.5 escanteios",
           "awayUnder45": "Menos de 4.5 escanteios",
+          "marketTeam": {
+            "eyebrow": "ANÁLISE INDIVIDUAL",
+            "title": "Mercados por Equipe",
+            "description": "Contraste de linhas específicas para a equipe da casa e visitante.",
+            "classicTitle": "Modelo Estatístico",
+            "aiTitle": "Inteligência Artificial",
+            "statisticSub": "ESTATÍSTICO",
+            "xgboostSub": "XGBOOST - IA"
+          },
           "tags": {
             "total": "TOTAL",
             "firstHalf": "1ºT",
@@ -347,6 +359,7 @@
           "readingTitle": "Leitura da partida",
           "noTrends": "Não foi detectada uma tendência extrema adicional entre os mercados analisados.",
           "mostProbableScoreTag": "PLACAR MAIS PROVÁVEL",
+          "mostProbableScoreTagAi": "RESULTADO MAIS PROVÁVEL (IA)",
           "probabilityPercentage": "{{percentage}}% de probabilidade",
           "disclaimerTitle": "Interpretação estatística:",
           "disclaimerText": "uma probabilidade alta indica que o modelo considera esse cenário mais provável, mas não significa que seja uma aposta lucrativa nem garante o resultado. Para calcular o valor esperado, também é necessário conhecer a odd oferecida."
@@ -384,8 +397,12 @@
           "trends": {
             "highOffensiveProduction": "O modelo projeta uma partida com alta produção ofensiva.",
             "lowOffensiveProduction": "O modelo projeta uma partida de baixa produção ofensiva.",
-            "highCornersExpectation": "A expectativa de escanteios está acima da linha de 9.5.",
-            "highCardsExpectation": "A projeção disciplinar supera 4.5 cartões."
+            "highCornersExpectation": "A expectativa de cantos encontra-se acima da linha de 9.5.",
+            "highCardsExpectation": "A projeção disciplinar supera os 4.5 cartões.",
+            "highOffensiveProductionAi": "O modelo XGBoost (IA) projeta alta produção de gols com base nas sequências dos últimos 5 jogos.",
+            "lowOffensiveProductionAi": "O modelo XGBoost (IA) prevê um jogo renhido e de poucos gols devido à forma recente de ambas as equipes.",
+            "highBttsAi": "Forte probabilidade detectada por IA de que Ambas as Equipes Marcam (BTTS).",
+            "highCornersExpectationAi": "A Inteligência Artificial favorece a linha de +9.5 cantos considerando a pressão ofensiva atual."
           }
         },
         "footerText": "Resultados estatísticos baseados em informações históricas. As probabilidades não representam resultados garantidos."

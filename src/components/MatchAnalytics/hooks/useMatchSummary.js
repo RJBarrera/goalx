@@ -336,7 +336,7 @@ export default function useMatchSummary(resultado, datosResultado) {
     const top = ordenados.slice(0, 5);
     const principal = top[0] || null;
 
-    // MARCADOR EXACTO MÁS PROBABLE
+    // MARCADOR EXACTO MÁS PROBABLE (Clasico)
     const marcador =
       Object.entries(goles?.Top_Scores || {})
         .map(([score, probability]) => ({
@@ -345,15 +345,32 @@ export default function useMatchSummary(resultado, datosResultado) {
         }))
         .sort((a, b) => b.probabilidad - a.probabilidad)[0] || null;
 
-    // TENDENCIA GENERAL
+    // MARCADOR EXACTO MAS PROBABLE (XGBOOST IA)
+    const marcadorAi =
+      Object.entries(goles?.Top_Scores_AI || {})
+        .map(([score, probability]) => ({
+          marcador: score,
+          probabilidad: Number(probability),
+        }))
+        .sort((a, b) => b.probabilidad - a.probabilidad)[0] || null;
+
+    // TENDENCIAS (Mantenemos las clasicas y sumamos las de IA)
     const totalXg =
       Number(goles?.expected_goals_home || 0) +
       Number(goles?.expected_goals_away || 0);
     const totalCorners = Number(corners?.expected_total || 0);
     const totalCards = Number(tarjetas?.expected_total || 0);
 
+    // Variables de IA
+    const totalXgAi =
+      Number(goles?.xgboost_expected_goals_home || 0) +
+      Number(goles?.xgboost_expected_goals_away || 0);
+    const probBttsAi = Number(goles?.xgboost_mercados?.BTTS_Yes || 0);
+    const probOver95CornersAi = Number(corners?.xgboost?.["Over 9.5"] || 0);
+
     const tendencias = [];
 
+    // Tendencias Clasicas
     if (totalXg >= 2.8)
       tendencias.push(
         t(
@@ -383,11 +400,35 @@ export default function useMatchSummary(resultado, datosResultado) {
         ),
       );
 
-    return {
-      top,
-      principal,
-      marcador,
-      tendencias,
-    };
+    // Tendencias (IA)
+    if (totalXgAi >= 2.8) {
+      tendencias.push(
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.highOffensiveProductionAi",
+        ),
+      );
+    } else if (totalXgAi <= 2.0) {
+      tendencias.push(
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.lowOffensiveProductionAi",
+        ),
+      );
+    }
+
+    if (probBttsAi >= 0.6) {
+      tendencias.push(
+        t("matchAnalytics.analytics.results.summaryKeys.trends.highBttsAi"),
+      );
+    }
+
+    if (probOver95CornersAi >= 0.6) {
+      tendencias.push(
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.trends.highCornersExpectationAi",
+        ),
+      );
+    }
+
+    return { top, principal, marcador, marcadorAi, tendencias };
   }, [resultado, datosResultado, t]);
 }
