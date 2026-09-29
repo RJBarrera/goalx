@@ -3,7 +3,7 @@ import AdBanner from "../../components/AdBanner/AdBanner";
 import Footer from "../../components/Footer/Footer";
 import LiveCenter from "../../components/LiveCenter/LiveCenter";
 import MatchAnalytics from "../../components/MatchAnalytics/MatchAnalytics";
-import MonetagAd from "../../components/MonetagAd/MonetagAd";
+// import MonetagAd from "../../components/MonetagAd/MonetagAd";
 import Navbar from "../../components/Navbar/Navbar";
 import SeasonHighlights from "../../components/SeasonHighlights/SeasonHighlights";
 import { useCompetition } from "../../context/CompetitionContext";
@@ -36,7 +36,7 @@ function Home() {
   return (
     <>
       {/* Monetag - In-Page Push */}
-      <MonetagAd />
+      {/* <MonetagAd /> */}
 
       <Navbar />
 
