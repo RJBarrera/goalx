@@ -14,6 +14,7 @@ import pandas as pd
 
 from competition_config import (
     TEAM_EQUIVALENCES as EQUIVALENCIAS,
+    LIGA_MX_F_EQUIVALENCIAS,
     DEFAULT_COMPETITION_ID,
     get_competition,
 )
@@ -182,11 +183,13 @@ class MatchHistoryService:
         self,
         value,
     ):
-
         value = str(value or "").strip()
 
         if self.competition_id == "liga-mx":
             return EQUIVALENCIAS.get(value, value)
+
+        if self.competition_id == "liga-mx-f":
+            return LIGA_MX_F_EQUIVALENCIAS.get(value, value)
 
         return value
 

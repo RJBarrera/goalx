@@ -25,6 +25,30 @@ COMPETITIONS = {
         "seed_streams_filename": "match_streams.json",
         "streams_filename": "match_streams.json",
     },
+    "liga-mx-f": {
+        "id": "liga-mx-f",
+        "name": "Liga MX Femenil",
+        "short_name": "Liga MX Femenil",
+        "country": "México",
+        "type": "league",
+        "enabled": True,
+        "default": True,
+        "sportsdb_league_id": 5206,
+        "api_football_league_id": 673,
+        "timezone": "America/Mazatlan",
+        "round_label": "Jornada",
+        "next_scope_label": "Próxima jornada",
+        "upcoming_scope_label": "Próximos partidos",
+        "season_mode": "split_calendar",
+        "dataset_sync_enabled": True,
+        "model_min_matches": 20,
+        "seed_history_filename": "historial_ligamx_F.csv",
+        "history_filename": "historial_F.csv",
+        "seed_highlights_filename": "season_highlights_F.json",
+        "highlights_filename": "season_highlights.json",
+        "seed_streams_filename": "match_streams_F.json",
+        "streams_filename": "match_streams.json",
+    },
     "champions": {
         "id": "champions",
         "name": "UEFA Champions League",
@@ -75,6 +99,29 @@ TEAM_EQUIVALENCES = {
     "León": "Leon",
 }
 
+LIGA_MX_F_EQUIVALENCIAS = {
+    "América W": "America",
+    "Cruz Azul W": "Cruz Azul",
+    "Atlas W": "Atlas",
+    "Tijuana W": "Tijuana",
+    "Necaxa W": "Necaxa",
+    "Puebla W": "Puebla",
+    "Santos Laguna W": "Santos Laguna",
+    "Tigres UANL W": "Tigres UANL",
+    "Atlético San Luis W": "Atletico San Luis",
+    "Pachuca W": "Pachuca",
+    "León W": "Leon",
+    "Mazatlán W": "Atlante",
+    "Atlante W": "Atlante",
+    "Juárez W": "Juarez",
+    # "Guadalajara W": "Guadalajara",
+    "Guadalajara W": "Chivas",
+    "Monterrey W": "Monterrey",
+    "Pumas UNAM W": "Pumas UNAM",
+    "Querétaro W": "Querétaro",
+    "Toluca W": "Toluca",
+}
+
 # ALIAS
 TEAM_ALIASES = {
     "club america": "america",
@@ -118,6 +165,29 @@ TEAM_ALIASES = {
     "mazatlan": "atlante",
     "mazatlan fc": "atlante",
     "atlante": "atlante",
+}
+
+LIGA_MX_F_TEAM_ALIASES = {
+    "América W": "America",
+    "Cruz Azul W": "Cruz Azul",
+    "Atlas W": "Atlas",
+    "Tijuana W": "Tijuana",
+    "Necaxa W": "Necaxa",
+    "Puebla W": "Puebla",
+    "Santos Laguna W": "Santos Laguna",
+    "Tigres UANL W": "Tigres UANL",
+    "Atlético San Luis W": "Atletico San Luis",
+    "Pachuca W": "Pachuca",
+    "León W": "Leon",
+    "Mazatlán W": "Atlante",
+    "Atlante W": "Atlante",
+    "Juárez W": "Juarez",
+    # "Guadalajara W": "Guadalajara",
+    "Guadalajara W": "Chivas",
+    "Monterrey W": "Monterrey",
+    "Pumas UNAM W": "Pumas UNAM",
+    "Querétaro W": "Querétaro",
+    "Toluca W": "Toluca",
 }
 
 EUROPE_TEAM_ALIASES = {
