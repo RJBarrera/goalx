@@ -49,4 +49,5 @@ ehthumbs.db
 
 # MatchLab runtime state
 server/dataset_state.json
+server/data/liga-mx-f/dataset_state.json
 server/*.tmp

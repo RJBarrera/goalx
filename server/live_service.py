@@ -15,6 +15,7 @@ from competition_config import (
     TEAM_ALIASES,
     EUROPE_TEAM_ALIASES,
     TEAM_EQUIVALENCES as EQUIVALENCIAS,
+    LIGA_MX_F_EQUIVALENCIAS,
 )
 
 from sportsdb_service import (
@@ -116,6 +117,9 @@ def _canonical_team(
 
     if competition_id == "liga-mx":
         value = EQUIVALENCIAS.get(value, value)
+        
+    if competition_id == "liga-mx-f":
+        value = LIGA_MX_F_EQUIVALENCIAS.get(value, value)
 
     normalized = _normalize_text(value)
 
@@ -228,6 +232,9 @@ class LiveFootballService:
 
         if self.competition_id == "liga-mx":
             return EQUIVALENCIAS.get(value, value)
+        
+        if self.competition_id == "liga-mx-f":
+            return LIGA_MX_F_EQUIVALENCIAS.get(value, value)
 
         return value
 
