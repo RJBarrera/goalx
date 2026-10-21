@@ -358,11 +358,11 @@ function StreamAdmin() {
         <div className="stream-admin-shell">
           <section className="stream-admin-heading">
             <div>
-              <span>GOALX - PANEL DE ADMINISTRACIÓN</span>
+              <span>GOALPICKS - PANEL DE ADMINISTRACIÓN</span>
               <h1>Transmisiones</h1>
               <p>
                 Selecciona un partido del calendario y administra las fuentes
-                que aparecerán en GoalX.
+                que aparecerán en GOALPICKS.
               </p>
             </div>
 
@@ -470,7 +470,7 @@ function StreamAdmin() {
             <section className="stream-admin-editor">
               {!form ? (
                 <div className="stream-admin-editor-empty">
-                  <span>GOALX EN VIVO</span>
+                  <span>GOALPICKS EN VIVO</span>
                   <h2>Selecciona un partido</h2>
                   <p>
                     Aquí podrás agregar, editar, activar o eliminar sus fuentes

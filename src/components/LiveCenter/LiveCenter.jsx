@@ -371,7 +371,7 @@ function LiveCenter({ onSeleccionarPartido }) {
 
   const [aiLoading, setAiLoading] = useState(false);
 
-  // Transmisiones configuradas en GoalX
+  // Transmisiones configuradas en GoalPicks
   const loadStreams = useCallback(async () => {
     try {
       if (!competitionId) {
@@ -385,7 +385,7 @@ function LiveCenter({ onSeleccionarPartido }) {
 
       setStreams(Array.isArray(data?.streams) ? data.streams : []);
     } catch (requestError) {
-      console.error("GoalX streams:", requestError);
+      console.error("GoalPicks streams:", requestError);
       setStreams([]);
     }
   }, [competitionId]);

@@ -1,5 +1,6 @@
 """api_server"""
 
+import sqlite3
 import traceback
 import asyncio
 import base64
@@ -625,6 +626,88 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# CONTADOR PÚBLICO DE VISITANTES
+PRESENCE_DB = Path(
+    os.getenv(
+        "GOALX_PRESENCE_DB_PATH",
+        "/data/goalx_presence.sqlite3",
+    )
+)
+
+PRESENCE_TTL_SECONDS = 90
+
+
+class PresenceHeartbeat(BaseModel):
+    visitor_id: uuid.UUID
+
+
+def _presence_count(visitor_id=None):
+    PRESENCE_DB.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    now = int(time.time())
+    connection = sqlite3.connect(
+        str(PRESENCE_DB),
+        timeout=5,
+    )
+
+    try:
+        connection.execute("""
+            CREATE TABLE IF NOT EXISTS goalx_presence (
+                visitor_id TEXT PRIMARY KEY,
+                last_seen INTEGER NOT NULL
+            )
+            """)
+
+        connection.execute("""
+            CREATE INDEX IF NOT EXISTS
+            idx_goalx_presence_last_seen
+            ON goalx_presence(last_seen)
+            """)
+
+        connection.execute(
+            "DELETE FROM goalx_presence WHERE last_seen <= ?",
+            (now - PRESENCE_TTL_SECONDS,),
+        )
+
+        if visitor_id is not None:
+            connection.execute(
+                """
+                INSERT INTO goalx_presence
+                    (visitor_id, last_seen)
+                VALUES (?, ?)
+                ON CONFLICT(visitor_id)
+                DO UPDATE SET last_seen = excluded.last_seen
+                """,
+                (str(visitor_id), now),
+            )
+
+        count = connection.execute("SELECT COUNT(*) FROM goalx_presence").fetchone()[0]
+        connection.commit()
+        return count
+
+    finally:
+        connection.close()
+
+
+@app.post("/api/presence/heartbeat")
+def registrar_visitante(payload: PresenceHeartbeat):
+    return {
+        "success": True,
+        "online": _presence_count(payload.visitor_id),
+    }
+
+
+@app.get("/api/presence")
+def consultar_visitantes():
+    return {
+        "success": True,
+        "online": _presence_count(),
+    }
 
 
 ## Health

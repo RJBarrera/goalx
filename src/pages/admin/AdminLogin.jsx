@@ -91,12 +91,12 @@ function AdminLogin() {
     <main className="goalx-admin-login-page">
       <div className="goalx-admin-login-shell">
         <Link className="goalx-admin-back" to="/">
-          ← Volver a GoalX
+          ← Volver a GOALPICKS
         </Link>
 
         <section className="goalx-admin-login-card">
           <div className="goalx-admin-brand">
-            <span>GOALX</span>
+            <span>GOALPICKS</span>
             <strong>ADMIN</strong>
           </div>
 
@@ -105,7 +105,7 @@ function AdminLogin() {
             <h1>Panel administrativo</h1>
             <p>
               Inicia sesión para administrar las transmisiones disponibles en
-              GoalX.
+              GOALPICKS.
             </p>
           </div>
 

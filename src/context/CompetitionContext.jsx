@@ -78,7 +78,7 @@ export function CompetitionProvider({ children }) {
         updateCompetitionInUrl(nextCompetitionId);
       }
     } catch (requestError) {
-      console.error("GoalX competitions:", requestError);
+      console.error("GoalPicks competitions:", requestError);
       setCompetitions([]);
       setCompetitionId("");
       setError(

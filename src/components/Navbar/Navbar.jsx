@@ -13,6 +13,7 @@ import { LanguageSelector } from "../LanguageSelector";
 
 import { useAuth } from "../../context/AuthContext";
 import { useCompetition } from "../../context/CompetitionContext";
+import OnlineUsers from "../OnlineUsers/OnlineUsers";
 import { getTeamLogo } from "../../utils/teamLogos";
 import "./Navbar.css";
 
@@ -99,14 +100,14 @@ function Navbar() {
           <div className="sports-navbar__logo">
             <img
               src={getTeamLogo("logo")}
-              alt="GoalX"
+              alt="GoalPicks"
               className="sports-select__team-logo"
             />
           </div>
 
           <div className="sports-navbar__brand-text">
             <strong>
-              Goal<span>X</span>
+              GOAL<span>PICKS</span>
             </strong>
 
             <div className="glob-sports-navbar__engine-dot">
@@ -199,6 +200,7 @@ function Navbar() {
 
         {/* RIGHT */}
         <div className="sports-navbar__actions">
+          <OnlineUsers />
           {/* Botón para cambiar idioma */}
           <div className="sports-navbar__lang-desktop">
             <LanguageSelector />
@@ -208,7 +210,7 @@ function Navbar() {
             {t("navbar.new_prediction")} <span>→</span>
           </a>
 
-          {authenticated ? (
+          {/* {authenticated ? (
             <div className="sports-navbar__account">
               {user?.role === "ADMIN" && (
                 <Link
@@ -220,7 +222,7 @@ function Navbar() {
                 </Link>
               )}
 
-              {/* <div className="sports-navbar__user">
+              <div className="sports-navbar__user">
                 <span>
                   {String(user?.username || "U")
                     .slice(0, 1)
@@ -234,7 +236,7 @@ function Navbar() {
                       : t("navbar.user")}
                   </small>
                 </div>
-              </div> */}
+              </div>
 
               <button
                 type="button"
@@ -252,7 +254,7 @@ function Navbar() {
             >
               <FontAwesomeIcon icon={faRightToBracket} />
             </Link>
-          )}
+          )} */}
 
           <button
             type="button"
@@ -338,7 +340,7 @@ function Navbar() {
             <strong>→</strong>
           </a>
 
-          {authenticated ? (
+          {/* {authenticated ? (
             <>
               {user?.role === "ADMIN" && (
                 <Link to="/admin/transmisiones" onClick={cerrarMenu}>
@@ -363,7 +365,7 @@ function Navbar() {
               <span>{t("navbar.login")}</span>
               <strong>→</strong>
             </Link>
-          )}
+          )} */}
         </nav>
 
         <div className="sports-navbar__mobile-engine">

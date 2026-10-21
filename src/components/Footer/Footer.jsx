@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 import { getTeamLogo } from "../../utils/teamLogos";
 import "./Footer.css";
 
-const CONTACT_EMAIL = "contacto@goalx.com";
+const CONTACT_EMAIL = "contacto@goalpicks.com";
 
 function Footer() {
   // Hook de traduccion
@@ -31,14 +31,14 @@ function Footer() {
               <div className="goalx-footer__logo-wrapper">
                 <img
                   src={getTeamLogo("logo")}
-                  alt="GoalX"
+                  alt="GoalPicks"
                   className="goalx-footer__logo"
                 />
               </div>
 
               <div className="goalx-footer__brand-text">
                 <div className="goalx-footer__name">
-                  Goal<span>X</span>
+                  GOAL<span>PICKS</span>
                 </div>
 
                 <div className="goalx-footer__tagline">

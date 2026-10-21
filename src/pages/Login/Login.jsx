@@ -79,7 +79,7 @@ function Login() {
           <section className="goalx-login-panel">
             <div className="goalx-login-brand">
               <div className="goalx-login-logo">
-                <img src={getTeamLogo("logo")} alt="GoalX" />
+                <img src={getTeamLogo("logo")} alt="GOALPICKS" />
               </div>
 
               <div>

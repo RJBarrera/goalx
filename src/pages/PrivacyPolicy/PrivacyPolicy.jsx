@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 import "./PrivacyPolicy.css";
 
-const CONTACT_EMAIL = "contacto@goalx.com";
+const CONTACT_EMAIL = "contacto@goalpicks.com";
 
 function PrivacyPolicy() {
   // Hook de traduccion

@@ -1,0 +1,35 @@
+.goalx-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 999px;
+  white-space: nowrap;
+  color: #ffff;
+  font-size: 12px;
+}
+
+.goalx-online__dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.45);
+}
+
+.goalx-online__count {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .goalx-online {
+    padding: 7px 9px;
+  }
+
+  .goalx-online__label {
+    display: none;
+  }
+}

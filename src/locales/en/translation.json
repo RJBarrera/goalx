@@ -34,7 +34,7 @@
     "contact": "Contact",
 
     "bottom": {
-      "rights": "© {{year}} GoalX. All rights reserved.",
+      "rights": "© {{year}} GOALPICKS. All rights reserved.",
       "message": "Data · Analysis · Football"
     }
   },
@@ -67,7 +67,7 @@
     "emptyStates": {
       "liveBadge": "LIVE",
       "liveTitle": "No live {{competition}} matches",
-      "liveDescription": "GoalX will continue checking automatically. You can also review today's scheduled matches.",
+      "liveDescription": "GOALPICKS will continue checking automatically. You can also review today's scheduled matches.",
 
       "todayBadge": "TODAY",
       "todayTitle": "No {{competition}} matches scheduled for today",
@@ -106,7 +106,7 @@
       "processingLiveIntelligence": "Processing Live Intelligence..."
     },
     "scoreboard": {
-      "titleLive": "GoalX live",
+      "titleLive": "GOALPICKS live",
       "halfTime": "Half-time",
       "home": "HOME",
       "away": "AWAY",
@@ -151,7 +151,7 @@
       "emptyState": "There are no events recorded for this match yet."
     },
     "ai": {
-      "title": "GoalX AI",
+      "title": "GOALPICKS AI",
       "heading": "Live match analyst",
       "description": "Ask about what is happening in the match.",
       "status": "DATA-DRIVEN",
@@ -166,7 +166,7 @@
       "userRole": "YOU",
       "thinking": "Analyzing match...",
       "placeholder": "Ask MatchLab AI...",
-      "disclaimer": "GoalX AI interprets available statistical data and does not invent events or guarantee results.",
+      "disclaimer": "GOALPICKS AI interprets available statistical data and does not invent events or guarantee results.",
       "providerOpenAI": "MatchLab AI",
       "providerLocal": "MatchLab Local Analyst"
     },
@@ -194,7 +194,7 @@
       "refereePlaceholder": "Select referee",
       "searchRefereePlaceholder": "Search referee...",
       "modelPreparingTitle": "Historical data in preparation",
-      "modelPreparingMessage": "GoalX is preparing the {{competition}} statistical engine.",
+      "modelPreparingMessage": "GOALPICKS is preparing the {{competition}} statistical engine.",
       "thisCompetition": "this competition",
       "recordsProgress": "{{records}} of {{minimum}} minimum matches loaded",
       "connectionErrorTitle": "Unable to establish connection",
@@ -467,9 +467,9 @@
       "failedLogin": "Unable to log in. Please check your details."
     },
     "brand": {
-      "subtitle": "GOALX ACCOUNT",
+      "subtitle": "GOALPICKS ACCOUNT",
       "title": "Welcome back",
-      "description": "Log in to access your account and enjoy a personalized experience on GoalX."
+      "description": "Log in to access your account and enjoy a personalized experience on GOALPICKS."
     },
     "form": {
       "usernameLabel": "Username",
@@ -481,44 +481,44 @@
     },
     "footer": {
       "visitorLink": "← Continue as guest",
-      "visitorNote": "GoalX remains available without logging in."
+      "visitorNote": "GOALPICKS remains available without logging in."
     },
     "side": {
-      "brand": "GOALX",
+      "brand": "GOALPICKS",
       "title": "Football-Data-Experience",
       "description": "Analyze every match, follow the live action and take your football experience to another level.",
-      "statusTitle": "GoalX is ready",
+      "statusTitle": "GOALPICKS is ready",
       "statusSubtitle": "Predictions, analytics and Live Center available for everyone."
     }
   },
 
   "privacyPolicy": {
-    "backLink": "Back to GoalX",
+    "backLink": "Back to GOALPICKS",
     "eyebrow": "LEGAL",
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: September 16, 2026",
-    "intro": "At GoalX, we respect the privacy of our users. This Privacy Policy explains in general terms what information may be collected when using the site, how it may be used, and what third-party technologies may be involved during navigation.",
+    "intro": "At GOALPICKS, we respect the privacy of our users. This Privacy Policy explains in general terms what information may be collected when using the site, how it may be used, and what third-party technologies may be involved during navigation.",
     "sections": {
       "collection": {
         "title": "Information that may be collected",
-        "p1": "GoalX may process technical information generated during the use of the site, such as IP address, browser type, device, operating system, pages visited, date and time of access, and other technical data related to navigation.",
-        "p2": "GoalX does not directly request financial information, bank passwords, or credit card data to use the public features of the site."
+        "p1": "GOALPICKS may process technical information generated during the use of the site, such as IP address, browser type, device, operating system, pages visited, date and time of access, and other technical data related to navigation.",
+        "p2": "GOALPICKS does not directly request financial information, bank passwords, or credit card data to use the public features of the site."
       },
       "cookies": {
         "title": "Cookies and similar technologies",
-        "p1": "GoalX and certain external providers may use cookies, identifiers, web beacons, or other similar technologies to operate the site, measure its performance, and display advertising.",
+        "p1": "GOALPICKS and certain external providers may use cookies, identifiers, web beacons, or other similar technologies to operate the site, measure its performance, and display advertising.",
         "p2": "Users can configure their browser to block or delete cookies. However, some site features or certain third-party services could be affected."
       },
       "ads": {
         "title": "Google AdSense and advertising",
-        "p1": "GoalX uses Google AdSense to display ads. Google and other third-party vendors may use cookies to serve ads based on a user's prior visits to GoalX or other websites.",
+        "p1": "GOALPICKS uses Google AdSense to display ads. Google and other third-party vendors may use cookies to serve ads based on a user's prior visits to GOALPICKS or other websites.",
         "p2": "The use of advertising cookies enables Google and its partners to serve ads that may be related to the user's interests and previous internet activity.",
         "p3": "Users may manage or opt out of personalized advertising by visiting Google's Ads Settings.",
         "externalLink": "Manage Google Ads preferences"
       },
       "consent": {
         "title": "Consent and privacy management",
-        "p1": "When required by applicable law, GoalX may display a consent message managed through a Google-certified consent management platform.",
+        "p1": "When required by applicable law, GOALPICKS may display a consent message managed through a Google-certified consent management platform.",
         "p2": "Such mechanism allows the user to accept, reject, or manage certain purposes related to cookies and advertising, depending on their location and applicable regulations."
       },
       "thirdParty": {
@@ -531,7 +531,7 @@
         "subtitle": "The technical information collected may be used to:",
         "list": [
           "operate and maintain the functioning of the site;",
-          "analyze the performance and usage of GoalX;",
+          "analyze the performance and usage of GOALPICKS;",
           "improve user experience;",
           "detect errors or anomalous behaviors;",
           "display and measure advertising;",
@@ -540,18 +540,18 @@
       },
       "externalLinks": {
         "title": "Links to external sites",
-        "p1": "GoalX may contain links to external sites. GoalX does not control the privacy policies, content, or practices of those sites. It is recommended to review their respective policies before providing information."
+        "p1": "GOALPICKS may contain links to external sites. GOALPICKS does not control the privacy policies, content, or practices of those sites. It is recommended to review their respective policies before providing information."
       },
       "changes": {
         "title": "Changes to this policy",
-        "p1": "This Privacy Policy may be updated when GoalX's features, the providers used, or applicable legal obligations change. The update date will be shown at the top of the document."
+        "p1": "This Privacy Policy may be updated when GOALPICKS's features, the providers used, or applicable legal obligations change. The update date will be shown at the top of the document."
       },
       "contact": {
         "title": "Contact",
         "p1": "If you have any questions related to this Privacy Policy, you can contact us at:"
       }
     },
-    "footerNote": "GoalX is an informational platform for sports analysis, statistics, and predictions. The information presented does not constitute financial advice nor does it guarantee future results."
+    "footerNote": "GOALPICKS is an informational platform for sports analysis, statistics, and predictions. The information presented does not constitute financial advice nor does it guarantee future results."
   },
 
   "watchMatch": {
@@ -579,16 +579,16 @@
       "hint": "If a source doesn't load or the provider disables it, try another available stream."
     },
     "topbar": {
-      "back": "← Back to GoalX"
+      "back": "← Back to GOALPICKS"
     },
     "status": {
       "live": "LIVE",
       "available": "STREAM AVAILABLE"
     },
     "heading": {
-      "eyebrow": "GOALX LIVE",
+      "eyebrow": "GOALPICKS LIVE",
       "defaultCompetition": "Competition"
     },
-    "notice": "GoalX only displays external sources configured and authorized for embedding. Playback depends on each stream's provider."
+    "notice": "GOALPICKS only displays external sources configured and authorized for embedding. Playback depends on each stream's provider."
   }
 }
