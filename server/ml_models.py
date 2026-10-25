@@ -3,6 +3,8 @@ import numpy as np
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from scipy.stats import poisson
+import math
 
 FEATURES_MODELO = [
     "home_avg_gf_5",
@@ -19,6 +21,10 @@ FEATURES_MODELO = [
     "away_avg_corners_contra_5",
     "away_puntos_5",
     "away_dias_descanso",
+    "home_avg_sot_5",
+    "home_avg_shots_total_5",
+    "away_avg_sot_5",
+    "away_avg_shots_total_5",
 ]
 
 
@@ -74,6 +80,31 @@ def preparar_features_al_vuelo(df):
             partidos_equipo["home_corners"],
         )
 
+        # TIROS A PUERTA (SOT)
+        partidos_equipo["sot_favor"] = np.where(
+            partidos_equipo["home_team"] == equipo,
+            partidos_equipo["home_sont"],
+            partidos_equipo["away_sont"],
+        )
+
+        partidos_equipo["avg_sot_5"] = (
+            partidos_equipo["sot_favor"].shift(1).rolling(5, min_periods=1).mean()
+        )
+
+        # TIROS TOTALES
+        partidos_equipo["shots_total_favor"] = np.where(
+            partidos_equipo["home_team"] == equipo,
+            partidos_equipo["home_shots_total"],
+            partidos_equipo["away_shots_total"],
+        )
+
+        partidos_equipo["avg_shots_total_5"] = (
+            partidos_equipo["shots_total_favor"]
+            .shift(1)
+            .rolling(5, min_periods=1)
+            .mean()
+        )
+
         # DESCANSO Y PUNTOS
         partidos_equipo["dias_descanso"] = (
             partidos_equipo["date"].diff().dt.days.fillna(7)
@@ -121,6 +152,8 @@ def preparar_features_al_vuelo(df):
                     "avg_tarjetas_5",
                     "avg_corners_5",
                     "avg_corners_contra_5",
+                    "avg_sot_5",
+                    "avg_shots_total_5",
                     "puntos_5",
                     "dias_descanso",
                 ]
@@ -140,6 +173,8 @@ def preparar_features_al_vuelo(df):
                 "avg_tarjetas_5": "home_avg_tarjetas_5",
                 "avg_corners_5": "home_avg_corners_5",
                 "avg_corners_contra_5": "home_avg_corners_contra_5",
+                "avg_sot_5": "home_avg_sot_5",
+                "avg_shots_total_5": "home_avg_shots_total_5",
                 "puntos_5": "home_puntos_5",
                 "dias_descanso": "home_dias_descanso",
             }
@@ -158,6 +193,8 @@ def preparar_features_al_vuelo(df):
                 "avg_tarjetas_5": "away_avg_tarjetas_5",
                 "avg_corners_5": "away_avg_corners_5",
                 "avg_corners_contra_5": "away_avg_corners_contra_5",
+                "avg_sot_5": "away_avg_sot_5",
+                "avg_shots_total_5": "away_avg_shots_total_5",
                 "puntos_5": "away_puntos_5",
                 "dias_descanso": "away_dias_descanso",
             }
@@ -395,3 +432,50 @@ def entrenar_xgboost_1x2(df_crudo):
     ).fit(X, y)
 
     return modelo_1x2
+
+
+def entrenar_xgboost_tiros(df_crudo):
+    """Entrena regresores para predecir el valor esperado de Tiros a Puerta (SOT) y Tiros Totales"""
+
+    df_features = preparar_features_al_vuelo(df_crudo)
+    X = df_features[FEATURES_MODELO]
+
+    reg_params = {
+        "objective": "reg:squarederror",
+        "n_estimators": 100,
+        "learning_rate": 0.1,
+        "max_depth": 4,
+    }
+
+    modelo_sot_home = xgb.XGBRegressor(**reg_params).fit(X, df_features["home_sont"])
+    modelo_sot_away = xgb.XGBRegressor(**reg_params).fit(X, df_features["away_sont"])
+    modelo_shots_home = xgb.XGBRegressor(**reg_params).fit(
+        X, df_features["home_shots_total"]
+    )
+    modelo_shots_away = xgb.XGBRegressor(**reg_params).fit(
+        X, df_features["away_shots_total"]
+    )
+
+    return modelo_sot_home, modelo_sot_away, modelo_shots_home, modelo_shots_away
+
+
+def calcular_distribucion_tiros(valor_esperado):
+    media = max(float(valor_esperado), 0.1)
+    centro = max(round(media), 1)
+
+    # Generamos 3 líneas Over relevantes alrededor del valor esperado
+    # Ej. si el esperado es 4.1 -> líneas en 2.5, 3.5, 4.5
+    # Ej. si el esperado es 13.7 -> líneas en 12.5, 13.5, 14.5
+    lineas = [centro - 2 + 0.5, centro - 1 + 0.5, centro + 0.5]
+    lineas = [l for l in lineas if l > 0]
+
+    mercados_over = {}
+    for linea in lineas:
+        k = int(linea)  # ej. 2.5 -> k=2
+        prob_over = 1 - poisson.cdf(k, media)
+        mercados_over[f"over_{linea}"] = round(prob_over * 100, 1)
+
+    return {
+        "valor_esperado": round(media, 2),
+        "mercados_over": mercados_over,
+    }

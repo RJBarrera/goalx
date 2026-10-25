@@ -24,6 +24,7 @@ from ml_models import (
     entrenar_xgboost_corners,
     entrenar_xgboost_corners_mercados,
     entrenar_xgboost_1x2,
+    entrenar_xgboost_tiros,
 )
 
 REQUIRED_DATASET_COLUMNS = [
@@ -293,6 +294,11 @@ class CompetitionManager:
                 f"   ✅ XGBoost para 1X2 preparado en {time.time() - started:.2f} seg."
             )
 
+            print("⚙️ Entrenando modelos XGBoost para Tiros (SOT y Totales)...")
+            started = time.time()
+            xgb_sot_home, xgb_sot_away, xgb_shots_home, xgb_shots_away = entrenar_xgboost_tiros(df.copy())
+            print(f"   ✅ XGBoost de Tiros listo en {time.time() - started:.2f} seg.")
+
             runtime.state["dc_model"] = dc_model
             runtime.state["spec_model"] = spec_model
             # Tarjetas (IA)
@@ -315,6 +321,13 @@ class CompetitionManager:
             runtime.state["xgb_c_h55"] = xgb_c_h55
             runtime.state["xgb_c_a35"] = xgb_c_a35
             runtime.state["xgb_c_a45"] = xgb_c_a45
+
+            # Tiros a Puerta (IA)
+            runtime.state["xgb_sot_home"] = xgb_sot_home
+            runtime.state["xgb_sot_away"] = xgb_sot_away
+            # Tiros Totales (IA)
+            runtime.state["xgb_shots_home"] = xgb_shots_home
+            runtime.state["xgb_shots_away"] = xgb_shots_away
 
             runtime.state["model_ready"] = True
             runtime.state["model_message"] = (

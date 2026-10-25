@@ -16,6 +16,7 @@ import MatchFixture from "./sections/MatchFixture";
 import MatchForm from "./sections/MatchForm";
 import MatchGoals from "./sections/MatchGoals";
 import MatchScores from "./sections/MatchScores";
+import MatchShots from "./sections/MatchShots";
 import MatchSummary from "./sections/MatchSummary";
 
 const API_URL = "";
@@ -368,6 +369,15 @@ function MatchAnalytics({ partidoSeleccionado }) {
                     <MatchScores
                       resultado={resultado}
                       datosResultado={datosResultado}
+                    />
+                  </section>
+
+                  {/* TIROS */}
+                  <section className="match-dashboard-section">
+                    <MatchShots
+                      resultado={resultado}
+                      datosResultado={datosResultado}
+                      numero={numero}
                     />
                   </section>
 

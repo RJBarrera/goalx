@@ -136,39 +136,55 @@ export default function MatchGoals({
           </div>
 
           {/* BTTS Clasico */}
-          <div className="match-panel-title">
-            <div>
-              <span>{t("matchAnalytics.analytics.results.goals.bttsTag")}</span>
-              <h3>{t("matchAnalytics.analytics.results.goals.bttsTitle")}</h3>
-            </div>
-          </div>
-          <div className="match-pie-wrapper" style={{ height: "240px" }}>
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={datosResultado.ambosAnotan}
-                  dataKey="value"
-                  nameKey="name"
-                  innerRadius={60}
-                  outerRadius={85}
-                  paddingAngle={4}
-                >
-                  <Cell fill={COLORS.positive} />
-                  <Cell fill={COLORS.negative} />
-                </Pie>
-                <Tooltip content={<CustomTooltip />} />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-            <div className="match-pie-center">
-              <strong>
-                {porcentaje(datosResultado.goles?.BTTS?.Yes).toFixed(1)}%
-              </strong>
-              <span>
-                {t("matchAnalytics.analytics.results.goals.yesBadge")}
-              </span>
-            </div>
-          </div>
+          {(() => {
+            const bttsYes = datosResultado.goles?.BTTS?.Yes || 0;
+            const bttsNo = datosResultado.goles?.BTTS?.No || 0;
+
+            // Determinamos cuál es mayor
+            const isYesHigher = bttsYes >= bttsNo;
+            const dominantValue = isYesHigher ? bttsYes : bttsNo;
+            const dominantBadge = isYesHigher
+              ? t("matchAnalytics.analytics.results.goals.yesBadge")
+              : t("matchAnalytics.analytics.results.goals.noBadge");
+
+            return (
+              <>
+                <div className="match-panel-title">
+                  <div>
+                    <span>
+                      {t("matchAnalytics.analytics.results.goals.bttsTag")}
+                    </span>
+                    <h3>
+                      {t("matchAnalytics.analytics.results.goals.bttsTitle")}
+                    </h3>
+                  </div>
+                </div>
+                <div className="match-pie-wrapper" style={{ height: "240px" }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={datosResultado.ambosAnotan}
+                        dataKey="value"
+                        nameKey="name"
+                        innerRadius={60}
+                        outerRadius={85}
+                        paddingAngle={4}
+                      >
+                        <Cell fill={COLORS.positive} />
+                        <Cell fill={COLORS.negative} />
+                      </Pie>
+                      <Tooltip content={<CustomTooltip />} />
+                      <Legend />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="match-pie-center">
+                    <strong>{porcentaje(dominantValue).toFixed(1)}%</strong>
+                    <span>{dominantBadge}</span>
+                  </div>
+                </div>
+              </>
+            );
+          })()}
         </div>
 
         {/* MODELO IA XGBOOST */}
@@ -267,45 +283,61 @@ export default function MatchGoals({
               />
             </div>
 
-            {/* BTTS IA */}
-            <div className="match-panel-title">
-              <div>
-                <span>
-                  {t("matchAnalytics.analytics.results.goals.bttsTag")}
-                </span>
-                <h3>{t("matchAnalytics.analytics.results.goals.bttsTitle")}</h3>
-              </div>
-            </div>
-            <div className="match-pie-wrapper" style={{ height: "240px" }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={datosResultado.ambosAnotanAi}
-                    dataKey="value"
-                    nameKey="name"
-                    innerRadius={60}
-                    outerRadius={85}
-                    paddingAngle={4}
+            {/* BTTS IA Dinámico */}
+            {(() => {
+              const bttsYes =
+                datosResultado.goles?.xgboost_mercados?.BTTS_Yes || 0;
+              const bttsNo =
+                datosResultado.goles?.xgboost_mercados?.BTTS_No || 0;
+
+              // Determinamos cuál es mayor
+              const isYesHigher = bttsYes >= bttsNo;
+              const dominantValue = isYesHigher ? bttsYes : bttsNo;
+              const dominantBadge = isYesHigher
+                ? t("matchAnalytics.analytics.results.goals.yesBadge")
+                : t("matchAnalytics.analytics.results.goals.noBadge");
+
+              return (
+                <>
+                  <div className="match-panel-title">
+                    <div>
+                      <span>
+                        {t("matchAnalytics.analytics.results.goals.bttsTag")}
+                      </span>
+                      <h3>
+                        {t("matchAnalytics.analytics.results.goals.bttsTitle")}
+                      </h3>
+                    </div>
+                  </div>
+                  <div
+                    className="match-pie-wrapper"
+                    style={{ height: "240px" }}
                   >
-                    <Cell fill={COLORS.positive} />
-                    <Cell fill={COLORS.negative} />
-                  </Pie>
-                  <Tooltip content={<CustomTooltip />} />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
-              <div className="match-pie-center">
-                <strong>
-                  {porcentaje(
-                    datosResultado.goles.xgboost_mercados.BTTS_Yes,
-                  ).toFixed(1)}
-                  %
-                </strong>
-                <span>
-                  {t("matchAnalytics.analytics.results.goals.yesBadge")}
-                </span>
-              </div>
-            </div>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={datosResultado.ambosAnotanAi}
+                          dataKey="value"
+                          nameKey="name"
+                          innerRadius={60}
+                          outerRadius={85}
+                          paddingAngle={4}
+                        >
+                          <Cell fill={COLORS.positive} />
+                          <Cell fill={COLORS.negative} />
+                        </Pie>
+                        <Tooltip content={<CustomTooltip />} />
+                        <Legend />
+                      </PieChart>
+                    </ResponsiveContainer>
+                    <div className="match-pie-center">
+                      <strong>{porcentaje(dominantValue).toFixed(1)}%</strong>
+                      <span>{dominantBadge}</span>
+                    </div>
+                  </div>
+                </>
+              );
+            })()}
           </div>
         )}
       </div>

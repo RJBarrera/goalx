@@ -36,7 +36,7 @@ from live_service import get_quota_status
 from live_intelligence import build_live_intelligence
 from live_ai import answer_live_question
 from prediccion_ligamx import analizar_h2h
-from ml_models import preparar_features_al_vuelo
+from ml_models import preparar_features_al_vuelo, calcular_distribucion_tiros
 
 ## Configuración
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -869,6 +869,12 @@ def calcular_prediccion(request: PrediccionRequest):
         xgb_c_h55 = state.get("xgb_c_h55")
         xgb_c_a35 = state.get("xgb_c_a35")
         xgb_c_a45 = state.get("xgb_c_a45")
+        # Tiros a Puerta (SOT)
+        xgb_sot_home = state.get("xgb_sot_home")
+        xgb_sot_away = state.get("xgb_sot_away")
+        # Tiros Totales
+        xgb_shots_home = state.get("xgb_shots_home")
+        xgb_shots_away = state.get("xgb_shots_away")
         # 1X2
         xgb_1x2 = state.get("xgb_1x2")
 
@@ -882,6 +888,8 @@ def calcular_prediccion(request: PrediccionRequest):
             xgb_ou25,
             xgb_corners_home,
             xgb_c_h45,
+            xgb_sot_home,
+            xgb_shots_home,
             xgb_1x2,
         ]
 
@@ -912,6 +920,14 @@ def calcular_prediccion(request: PrediccionRequest):
                             ],
                             "away_puntos_5": away_stats["away_puntos_5"],
                             "away_dias_descanso": 7.0,  # Valor estándar para partidos futuros
+                            "home_avg_sot_5": home_stats["home_avg_sot_5"],
+                            "home_avg_shots_total_5": home_stats[
+                                "home_avg_shots_total_5"
+                            ],
+                            "away_avg_sot_5": away_stats["away_avg_sot_5"],
+                            "away_avg_shots_total_5": away_stats[
+                                "away_avg_shots_total_5"
+                            ],
                         }
                     ]
                 )
@@ -1008,6 +1024,24 @@ def calcular_prediccion(request: PrediccionRequest):
                             "Away_Under_4.5": float(prob_a45[0]),
                         }
                     )
+                # Predicción de Tiros a Puerta (SOT)
+                resultado_tiros = {}
+
+                if xgb_sot_home and xgb_sot_away:
+                    sot_home_val = max(0, float(xgb_sot_home.predict(X_pred)[0]))
+                    sot_away_val = max(0, float(xgb_sot_away.predict(X_pred)[0]))
+                    resultado_tiros["sot"] = {
+                        "local": calcular_distribucion_tiros(sot_home_val),
+                        "visitante": calcular_distribucion_tiros(sot_away_val),
+                    }
+
+                if xgb_shots_home and xgb_shots_away:
+                    shots_home_val = max(0, float(xgb_shots_home.predict(X_pred)[0]))
+                    shots_away_val = max(0, float(xgb_shots_away.predict(X_pred)[0]))
+                    resultado_tiros["total"] = {
+                        "local": calcular_distribucion_tiros(shots_home_val),
+                        "visitante": calcular_distribucion_tiros(shots_away_val),
+                    }
 
                 # Prediccion 1X2
                 if xgb_1x2:
@@ -1048,6 +1082,7 @@ def calcular_prediccion(request: PrediccionRequest):
             "goles": goles,
             "corners": corners,
             "tarjetas": cards,
+            "tiros": resultado_tiros,
         }
 
         return convertir_json(resultado)

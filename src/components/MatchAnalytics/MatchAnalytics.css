@@ -541,6 +541,104 @@
   font-weight: 950;
 }
 
+/* Transición Horizontal y Microinteracción */
+
+/* Suavizamos los campos de los equipos */
+.match-form-grid > *:nth-child(1),
+.match-form-grid > *:nth-child(3) {
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+/* Efecto de desplazamiento horizontal y fundido al intercambiar */
+.match-form-grid.is-swapping > *:nth-child(1) {
+  transform: translateX(20px);
+  opacity: 0.4;
+}
+
+.match-form-grid.is-swapping > *:nth-child(3) {
+  transform: translateX(-20px);
+  opacity: 0.4;
+}
+
+/* Microinteracción del botón central */
+.match-form-grid.is-swapping .match-swap-btn {
+  transform: translate(-50%, -50%) scale(1.15) rotate(180deg);
+  background: linear-gradient(
+    135deg,
+    var(--sports-green, #37e3a6),
+    var(--sports-cyan, #38bdf8)
+  );
+  color: #051814;
+  box-shadow: 0 4px 15px rgba(55, 227, 166, 0.4);
+  border-color: #ffffff;
+}
+
+.match-form-grid.is-swapping .match-versus {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* VERSUS & SWAP INTERACTION */
+
+.match-versus-container {
+  display: grid;
+  place-items: center;
+  height: 56px;
+  position: relative;
+}
+
+.match-versus-container .match-versus {
+  transition: opacity 0.2s ease;
+}
+
+.match-swap-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 34px;
+  height: 34px;
+  border: 1px solid #bce4f0;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #f4fbfe);
+  color: var(--sports-green-dark, #12b981);
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(18, 185, 129, 0.18);
+  z-index: 10;
+}
+
+.match-versus-container:hover .match-swap-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.match-versus-container:hover .match-versus {
+  opacity: 0.1;
+}
+
+.match-swap-btn:hover {
+  background: linear-gradient(
+    145deg,
+    var(--sports-green, #37e3a6),
+    var(--sports-green-dark, #12b981)
+  );
+  color: #051814;
+  border-color: var(--sports-green-dark, #12b981);
+  transform: translate(-50%, -50%) scale(1.1) rotate(180deg);
+  box-shadow: 0 6px 20px rgba(55, 227, 166, 0.35);
+}
+
 /* =========================================================
    FORM ACTIONS
    ========================================================= */
@@ -1414,6 +1512,11 @@
   margin: 3px 0 0;
   color: #283547;
   font-size: 0.95rem;
+}
+
+.match-panel-title--center {
+  justify-content: center;
+  text-align: center;
 }
 
 .match-panel--scores {
@@ -2525,4 +2628,342 @@
 .match-model-notice small {
   font-size: 0.7rem;
   font-weight: 700;
+}
+
+/* SIMULADOR DE TIROS (TOGGLES + STEPPER) */
+
+.match-shot-simulator-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 18px;
+}
+
+.match-shot-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.match-shot-field > span {
+  color: #4a586e;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* Sombra en tono cyan cuando esta en modo visitante */
+.match-shot-toggle-group.is-away::before {
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.22);
+}
+
+/* Color del texto activo en modo visitante (cambia de verde a cyan) */
+.match-shot-toggle-group.is-away .match-shot-toggle.is-active {
+  color: #0284c7;
+}
+
+/* Segmented toggle (Equipo / Tipo de tiro) */
+.match-shot-toggle-group {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #e2e7ef;
+  border-radius: 12px;
+  background: #f4f7fb;
+  gap: 4px;
+  overflow: hidden;
+}
+
+/* Fondo deslizante automatizado */
+.match-shot-toggle-group::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 2px);
+  background: #ffffff;
+  border-radius: 9px;
+  box-shadow: 0 4px 12px rgba(18, 185, 129, 0.18);
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s ease;
+  z-index: 1;
+}
+
+/* Si el segundo botón (visitante o totales) tiene la clase is-active, la pastilla se desliza */
+.match-shot-toggle-group:has(
+    .match-shot-toggle:nth-child(2).is-active
+  )::before {
+  transform: translateX(calc(100% + 4px));
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+}
+
+.match-shot-toggle {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 9px;
+  overflow: hidden;
+  color: #67768a;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.25s ease;
+}
+
+.match-shot-toggle:hover {
+  color: #172235;
+}
+
+/* Colores de texto activos según la opción */
+.match-shot-toggle.is-active {
+  color: #0d9e74;
+  font-weight: 900;
+}
+
+.match-shot-toggle.is-active.is-active--away {
+  color: #0284c7;
+  font-weight: 900;
+}
+/* Stepper (Línea numérica) */
+.match-shot-stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid #dbe2eb;
+  border-radius: 12px;
+  background: #f9fbfd;
+  overflow: hidden;
+}
+
+.match-shot-stepper button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  border: 0;
+  background: transparent;
+  color: #0d9e74;
+  font-size: 1.15rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.match-shot-stepper button:hover {
+  background: rgba(18, 185, 129, 0.1);
+}
+
+.match-shot-stepper button:disabled {
+  color: #c3cbd6;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.match-shot-stepper__value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 0 10px;
+  border-right: 1px solid #e2e7ef;
+  border-left: 1px solid #e2e7ef;
+  color: #172235;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 0 !important;
+}
+
+.match-shot-stepper__input-editable {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  color: #172235;
+  font-size: 1rem;
+  font-weight: 900;
+  outline: none;
+  padding: 8px 4px;
+}
+
+/* Ocultar flechas nativas del input number en todos los navegadores */
+.match-shot-stepper__input-editable::-webkit-outer-spin-button,
+.match-shot-stepper__input-editable::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.match-shot-stepper__input-editable {
+  -moz-appearance: textfield;
+}
+
+/* Efecto focus sutil en el contenedor cuando editas el número */
+.match-shot-stepper:focus-within {
+  border-color: #0d9e74;
+  box-shadow: 0 0 0 3px rgba(13, 158, 116, 0.1);
+}
+
+/* Resultado destacado */
+.match-shot-result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px solid #bee9db;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f7fffc, #eefbf7);
+}
+
+.match-shot-result__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #dff7ef;
+  font-size: 1.15rem;
+}
+
+.match-shot-result__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.match-shot-result__content span {
+  display: block;
+  color: #138361;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.match-shot-result__content p {
+  margin: 4px 0 0;
+  color: #283548;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.match-shot-result__content small {
+  display: block;
+  margin-top: 3px;
+  color: #8793a3;
+  font-size: 0.74rem;
+}
+
+.match-shot-result > strong {
+  flex-shrink: 0;
+  color: #0b8a65;
+  font-size: 2.1rem;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+}
+
+/* =========================================================
+   MATCH SHOT RESULT: VARIANTE VISITANTE (CYAN/AZUL)
+   ========================================================= */
+
+.match-shot-result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px solid #bee9db;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f7fffc, #eefbf7);
+  transition: all 0.3s ease; /* Transición fluida al cambiar de equipo */
+}
+
+.match-shot-result__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #dff7ef;
+  font-size: 1.15rem;
+  transition: background 0.3s ease;
+}
+
+.match-shot-result__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.match-shot-result__content span {
+  display: block;
+  color: #138361;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.match-shot-result__content p {
+  margin: 4px 0 0;
+  color: #283548;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.match-shot-result__content small {
+  display: block;
+  margin-top: 3px;
+  color: #8793a3;
+  font-size: 0.74rem;
+}
+
+.match-shot-result > strong {
+  flex-shrink: 0;
+  color: #0b8a65;
+  font-size: 2.1rem;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  transition: color 0.3s ease;
+}
+
+/* --- ESTILOS CUANDO ESTÁ SELECCIONADO EL VISITANTE --- */
+.match-shot-result.match-shot-result--away {
+  border-color: #bce4f0;
+  background: linear-gradient(135deg, #f4fbfe, #e1f5fa);
+}
+
+.match-shot-result.match-shot-result--away .match-shot-result__icon {
+  background: #bae6fd;
+}
+
+.match-shot-result.match-shot-result--away .match-shot-result__content span {
+  color: #0369a1;
+}
+
+.match-shot-result.match-shot-result--away > strong {
+  color: #0284c7;
+}
+
+@media (max-width: 700px) {
+  .match-shot-simulator-grid {
+    grid-template-columns: 1fr;
+  }
+  .match-shot-stepper {
+    width: 100%;
+  }
+  .match-shot-result {
+    flex-wrap: wrap;
+  }
 }

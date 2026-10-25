@@ -1,4 +1,5 @@
 // sections/MatchForm.jsx
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import SportsSelect from "../../SportsSelect/SportsSelect";
 export default function MatchForm({
@@ -14,6 +15,24 @@ export default function MatchForm({
   error,
 }) {
   const { t } = useTranslation();
+  const [isSwapping, setIsSwapping] = useState(false);
+
+  const handleSwapTeams = () => {
+    if (isSwapping) return;
+    setIsSwapping(true);
+
+    // Cambiamos los valores a mitad de la transicion
+    setTimeout(() => {
+      const tempLocal = form.local;
+      actualizarCampo("local", form.visitante);
+      actualizarCampo("visitante", tempLocal);
+    }, 100);
+
+    // Terminamos animacion
+    setTimeout(() => {
+      setIsSwapping(false);
+    }, 200);
+  };
 
   // Si los datos aún no existen, no renderizamos nada
   if (!form) return null;
@@ -32,7 +51,7 @@ export default function MatchForm({
         </div>
       </div>
       <form onSubmit={analizarPartido}>
-        <div className="match-form-grid">
+        <div className={`match-form-grid ${isSwapping ? "is-swapping" : ""}`}>
           {/* EQUIPO LOCAL */}
           <SportsSelect
             label={t("matchAnalytics.form.localLabel")}
@@ -48,9 +67,19 @@ export default function MatchForm({
             onChange={(value) => actualizarCampo("local", value)}
           />
 
-          {/* VS */}
-          <div className="match-versus">
-            <span>{t("matchAnalytics.form.vs")}</span>
+          {/* VS & BOTÓN DE INTERCAMBIO */}
+          <div className="match-versus-container">
+            <div className="match-versus">
+              <span>{t("matchAnalytics.form.vs")}</span>
+            </div>
+            <button
+              type="button"
+              className="match-swap-btn"
+              onClick={handleSwapTeams}
+              title="Intercambiar equipos"
+            >
+              ⇄
+            </button>
           </div>
 
           {/* EQUIPO VISITANTE */}
