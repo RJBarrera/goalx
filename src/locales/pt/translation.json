@@ -303,6 +303,7 @@
           "shotTypeLabel": "Tipo de chute",
           "onTargetLabel": "No gol",
           "totalLabel": "Totais",
+          "lineLabel": "Linha",
           "decrementButton": "Subtrair 1",
           "incrementButton": "Adicionar 1",
           "estimatedProbability": "Probabilidade estimada",

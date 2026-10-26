@@ -303,6 +303,7 @@
           "shotTypeLabel": "Schusstyp",
           "onTargetLabel": "Auf das Tor",
           "totalLabel": "Gesamt",
+          "lineLabel": "Linie",
           "decrementButton": "1 abziehen",
           "incrementButton": "1 hinzufügen",
           "estimatedProbability": "Geschätzte Wahrscheinlichkeit",

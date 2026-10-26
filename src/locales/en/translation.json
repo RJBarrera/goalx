@@ -303,6 +303,7 @@
           "shotTypeLabel": "Shot type",
           "onTargetLabel": "On target",
           "totalLabel": "Total",
+          "lineLabel": "Line",
           "decrementButton": "Decrease 1",
           "incrementButton": "Increase 1",
           "estimatedProbability": "Estimated probability",

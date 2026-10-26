@@ -295,6 +295,7 @@
           "shotTypeLabel": "Тип удара",
           "onTargetLabel": "В створ",
           "totalLabel": "Всего",
+          "lineLabel": "Линия",
           "decrementButton": "Уменьшить на 1",
           "incrementButton": "Увеличить на 1",
           "estimatedProbability": "Оценочная вероятность",

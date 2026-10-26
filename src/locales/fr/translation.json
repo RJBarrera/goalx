@@ -303,6 +303,7 @@
           "shotTypeLabel": "Type de tir",
           "onTargetLabel": "Cadrés",
           "totalLabel": "Totaux",
+          "lineLabel": "Ligne",
           "decrementButton": "Retirer 1",
           "incrementButton": "Ajouter 1",
           "estimatedProbability": "Probabilité estimée",
