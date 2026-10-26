@@ -30,6 +30,7 @@ function poissonOverUnder(lambda, linea) {
 }
 
 function DistribucionTiros({ titulo, datos }) {
+  const { t } = useTranslation();
   if (!datos?.mercados_over) return null;
 
   const entradas = Object.entries(datos.mercados_over);
@@ -44,7 +45,9 @@ function DistribucionTiros({ titulo, datos }) {
         return (
           <ProbabilityBar
             key={clave}
-            label={`Más de ${linea} tiros`}
+            label={t("matchAnalytics.analytics.results.shots.moreThanShots", {
+              line: linea,
+            })}
             value={prob / 100}
             accent="cyan"
           />
@@ -104,9 +107,9 @@ export default function MatchShots({ resultado, numero }) {
     <>
       <SectionHeader
         code="SH"
-        eyebrow="MODELO DE TIROS"
-        title="Tiros al Arco y Tiros Totales"
-        description="Estimación basada en el rendimiento reciente de cada equipo (IA)."
+        eyebrow={t("matchAnalytics.analytics.results.shots.eyebrow")}
+        title={t("matchAnalytics.analytics.results.shots.title")}
+        description={t("matchAnalytics.analytics.results.shots.description")}
       />
 
       <div className="match-two-columns">
@@ -114,7 +117,9 @@ export default function MatchShots({ resultado, numero }) {
         <div className="match-panel">
           <div className="match-panel-title">
             <div>
-              <span>TIROS A PUERTA (SOnT)</span>
+              <span>
+                {t("matchAnalytics.analytics.results.shots.sontHeader")}
+              </span>
             </div>
           </div>
 
@@ -122,13 +127,17 @@ export default function MatchShots({ resultado, numero }) {
             <MetricCard
               label={resultado.partido.local}
               value={numero(sot?.local?.valor_esperado, 1)}
-              description="Tiros a puerta esperados"
+              description={t(
+                "matchAnalytics.analytics.results.shots.sontDescription",
+              )}
               variant="local"
             />
             <MetricCard
               label={resultado.partido.visitante}
               value={numero(sot?.visitante?.valor_esperado, 1)}
-              description="Tiros a puerta esperados"
+              description={t(
+                "matchAnalytics.analytics.results.shots.sontDescription",
+              )}
               variant="away"
             />
           </div>
@@ -146,6 +155,9 @@ export default function MatchShots({ resultado, numero }) {
                 <Tooltip />
                 <Bar
                   dataKey="esperado"
+                  name={t(
+                    "matchAnalytics.analytics.results.shots.expectedBarName",
+                  )}
                   fill={COLORS.home}
                   radius={[8, 8, 0, 0]}
                 />
@@ -169,7 +181,9 @@ export default function MatchShots({ resultado, numero }) {
         <div className="match-panel">
           <div className="match-panel-title">
             <div>
-              <span>TIROS TOTALES</span>
+              <span>
+                {t("matchAnalytics.analytics.results.shots.totalShotsHeader")}
+              </span>
             </div>
           </div>
 
@@ -177,13 +191,17 @@ export default function MatchShots({ resultado, numero }) {
             <MetricCard
               label={resultado.partido.local}
               value={numero(total?.local?.valor_esperado, 1)}
-              description="Tiros totales esperados"
+              description={t(
+                "matchAnalytics.analytics.results.shots.totalShotsDescription",
+              )}
               variant="local"
             />
             <MetricCard
               label={resultado.partido.visitante}
               value={numero(total?.visitante?.valor_esperado, 1)}
-              description="Tiros totales esperados"
+              description={t(
+                "matchAnalytics.analytics.results.shots.totalShotsDescription",
+              )}
               variant="away"
             />
           </div>
@@ -201,6 +219,9 @@ export default function MatchShots({ resultado, numero }) {
                 <Tooltip />
                 <Bar
                   dataKey="esperado"
+                  name={t(
+                    "matchAnalytics.analytics.results.shots.expectedBarName",
+                  )}
                   fill={COLORS.away}
                   radius={[8, 8, 0, 0]}
                 />
@@ -225,15 +246,21 @@ export default function MatchShots({ resultado, numero }) {
       <div className="match-panel" style={{ marginTop: "2rem" }}>
         <div className="match-panel-title match-panel-title--center">
           <div>
-            <span>SIMULADOR DE LÍNEA</span>
-            <h3>Calcula tu propia línea de tiros</h3>
+            <span>
+              {t("matchAnalytics.analytics.results.shots.lineSimulatorHeader")}
+            </span>
+            <h3>
+              {t(
+                "matchAnalytics.analytics.results.shots.lineSimulatorSubtitle",
+              )}
+            </h3>
           </div>
         </div>
 
         <div className="match-shot-simulator-grid">
           {/* EQUIPO */}
           <div className="match-shot-field">
-            <span>Equipo</span>
+            <span>{t("matchAnalytics.analytics.results.shots.teamLabel")}</span>
             <div className="match-shot-toggle-group">
               <button
                 type="button"
@@ -254,28 +281,32 @@ export default function MatchShots({ resultado, numero }) {
 
           {/* TIPO DE TIRO */}
           <div className="match-shot-field">
-            <span>Tipo de tiro</span>
-            <div className={`match-shot-toggle-group ${equipoLinea === "visitante" ? "is-away" : ""}`}>
+            <span>
+              {t("matchAnalytics.analytics.results.shots.shotTypeLabel")}
+            </span>
+            <div
+              className={`match-shot-toggle-group ${equipoLinea === "visitante" ? "is-away" : ""}`}
+            >
               <button
                 type="button"
                 className={`match-shot-toggle ${tipoLinea === "sot" ? "is-active" : ""}`}
                 onClick={() => setTipoLinea("sot")}
               >
-                A puerta
+                {t("matchAnalytics.analytics.results.shots.onTargetLabel")}
               </button>
               <button
                 type="button"
                 className={`match-shot-toggle ${tipoLinea === "total" ? "is-active" : ""}`}
                 onClick={() => setTipoLinea("total")}
               >
-                Totales
+                {t("matchAnalytics.analytics.results.shots.totalLabel")}
               </button>
             </div>
           </div>
 
           {/* LÍNEA (STEPPER) */}
           <div className="match-shot-field">
-            <span>Línea</span>
+            <span>{t("matchAnalytics.analytics.results.shots.lineLabel")}</span>
             <div className="match-shot-stepper">
               <button
                 type="button"
@@ -287,12 +318,13 @@ export default function MatchShots({ resultado, numero }) {
                   });
                 }}
                 disabled={Number(lineaValor) <= 0.5}
-                title="Restar 1"
+                title={t(
+                  "matchAnalytics.analytics.results.shots.decrementButton",
+                )}
               >
                 -
               </button>
 
-              {/* Input integrado respetando tu estructura original */}
               <div className="match-shot-stepper__value">
                 <input
                   type="text"
@@ -301,19 +333,18 @@ export default function MatchShots({ resultado, numero }) {
                   value={lineaValor}
                   onChange={(e) => {
                     const val = e.target.value;
-                    // Permite escribir números y puntos libremente mientras tecleas
+                    // Permite escribir números y puntos libremente
                     if (val === "" || /^\d*\.?\d*$/.test(val)) {
                       setLineaValor(val);
                     }
                   }}
                   onBlur={() => {
-                    // AL SALIR DEL CAMPO (Blur):
-                    // Limpiamos cualquier número raro o entero y lo convertimos al formato .5 exacto.
+                    // Limpiamos cualquier número entero y lo convertimos al formato .5
                     const num = parseFloat(lineaValor);
                     if (isNaN(num) || num < 0.5) {
                       setLineaValor(0.5);
                     } else {
-                      // Redondea inteligentemente al .5 más cercano (ej: 5 -> 5.5, 5.875 -> 5.5 o 6.5)
+                      // Redondea al .5 más cercano
                       const normalized = Math.round(num - 0.5) + 0.5;
                       setLineaValor(normalized);
                     }
@@ -330,7 +361,9 @@ export default function MatchShots({ resultado, numero }) {
                     return current + 1;
                   });
                 }}
-                title="Sumar 1"
+                title={t(
+                  "matchAnalytics.analytics.results.shots.incrementButton",
+                )}
               >
                 +
               </button>
@@ -343,16 +376,30 @@ export default function MatchShots({ resultado, numero }) {
         >
           <div className="match-shot-result__icon">🎯</div>
           <div className="match-shot-result__content">
-            <span>Probabilidad estimada</span>
+            <span>
+              {t("matchAnalytics.analytics.results.shots.estimatedProbability")}
+            </span>
             <p>
-              {equipoLinea === "local"
-                ? resultado.partido.local
-                : resultado.partido.visitante}
-              {" - "}Más de {Number(lineaValor).toFixed(1)}{" "}
-              {tipoLinea === "sot" ? "tiros a puerta" : "tiros totales"}
+              {t(
+                "matchAnalytics.analytics.results.shots.predictionResultFormat",
+                {
+                  team:
+                    equipoLinea === "local"
+                      ? resultado.partido.local
+                      : resultado.partido.visitante,
+                  line: Number(lineaValor).toFixed(1),
+                  shotType:
+                    tipoLinea === "sot"
+                      ? t("matchAnalytics.analytics.results.shots.shotTypeSot")
+                      : t(
+                          "matchAnalytics.analytics.results.shots.shotTypeTotal",
+                        ),
+                },
+              )}
             </p>
             <small>
-              Valor esperado (IA): {numero(valorEsperadoSeleccionado, 2)}
+              {t("matchAnalytics.analytics.results.shots.expectedValueAi")}{" "}
+              {numero(valorEsperadoSeleccionado, 2)}
             </small>
           </div>
           <strong>{(probabilidadLinea.over * 100).toFixed(1)}%</strong>
