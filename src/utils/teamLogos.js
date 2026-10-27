@@ -1,6 +1,6 @@
 // Logo de equipos
 const logoModules = import.meta.glob(
-  "../assets/imagenes/*.{png,jpg,jpeg,webp,svg}",
+  "../assets/imagenes/**/*.{png,jpg,jpeg,webp,svg}",
   {
     eager: true,
     import: "default",
@@ -18,39 +18,58 @@ const normalizarTexto = (texto = "") => {
     .trim();
 };
 
-// Obtener nombre del archivo
-const obtenerNombreArchivo = (ruta = "") => {
-  return ruta.split("/").pop()?.toLowerCase();
+// Normalizar identificador de liga
+const normalizarLiga = (liga = "") => {
+  return String(liga)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[\s_]+/g, "-");
 };
 
-// Mapa de archivos
-const archivosPorNombre = Object.entries(logoModules).reduce(
-  (accumulator, [ruta, url]) => {
-    const nombreArchivo = obtenerNombreArchivo(ruta);
+const archivosPorLiga = {};
+const archivosGenerales = {};
 
-    if (nombreArchivo) {
-      accumulator[nombreArchivo] = url;
+// Procesamiento unificado de módulos
+Object.entries(logoModules).forEach(([ruta, url]) => {
+  const partes = ruta.split("/");
+  const nombreArchivo = partes[partes.length - 1]?.toLowerCase();
+  const carpetaContenedora = partes[partes.length - 2];
+
+  if (!nombreArchivo) return;
+
+  // Si está en la raíz de "imagenes", va a generales
+  if (carpetaContenedora === "imagenes") {
+    archivosGenerales[nombreArchivo] = url;
+  } else {
+    // Si está dentro de una carpeta de liga (ej. liga-mx)
+    const liga = normalizarLiga(carpetaContenedora);
+    if (!archivosPorLiga[liga]) {
+      archivosPorLiga[liga] = {};
     }
+    archivosPorLiga[liga][nombreArchivo] = url;
+  }
+});
 
-    return accumulator;
-  },
-  {},
-);
-
-// Prefijos de clubes que ensucian las llaves
+// Prefijos/palabras comunes que ensucian las llaves
 const STOP_WORDS = new Set([
+  "w",
   "club",
   "fc",
   "cf",
   "deportivo",
   "unam",
   "guadalajara",
+  "la",
+  "las",
+  "vigo",
 ]);
 
-// Mapeo
-const TEAM_LOGO_FILES = Object.freeze({
+// Mapeo de equipos por liga (las claves deben coincidir con normalizarLiga)
+const equiposLigaMX = {
   atlas: "atlas.svg",
-  "atletico san luis": "atletico-san-luis.png",
+  "atletico san luis": "atletico-san-luis.svg",
   pachuca: "pachuca.svg",
   america: "america.svg",
   queretaro: "queretaro.svg",
@@ -69,28 +88,95 @@ const TEAM_LOGO_FILES = Object.freeze({
   toluca: "toluca.svg",
   monterrey: "monterrey.svg",
   atlante: "atlante.svg",
+};
+
+const TEAM_LOGO_FILES = {
+  "liga-mx": equiposLigaMX,
+  "liga-mx-f": equiposLigaMX,
+  "la-liga": {
+    barcelona: "barcelona.svg",
+    "real madrid": "rma.svg",
+    "real sociedad": "rso.svg",
+    "real betis": "betis.svg",
+    osasuna: "osasuna.svg",
+    malaga: "malaga.svg",
+    "racing santander": "racing.svg",
+    "atletico madrid": "atm.svg",
+    athletic: "atc.svg",
+    almeria: "almeria.svg",
+    alaves: "alaves.svg",
+    cadiz: "cadiz.svg",
+    celta: "celta.svg",
+    coruna: "coruña.svg",
+    elche: "elche.svg",
+    espanyol: "espanyol.svg",
+    getafe: "getafe.svg",
+    girona: "girona.svg",
+    granada: "granada.svg",
+    palmas: "palmas.svg",
+    leganes: "leganes.svg",
+    levante: "levante.svg",
+    mallorca: "mallorca.svg",
+    oviedo: "oviedo.svg",
+    "rayo vallecano": "rayo.svg",
+    sevilla: "sevilla.svg",
+    valencia: "valencia.svg",
+    valladolid: "valladolid.svg",
+    villarreal: "villarreal.svg",
+  },
+};
+
+// Mapeo para imágenes generales
+const GENERAL_FILES = {
   logo: "pelota2.png",
-});
+  "liga-mx": "liga-mx.svg",
+  "liga-mx-f": "liga-mx-f.png",
+  laliga: "la-liga.svg",
+  "premier-league": "premier-league.svg",
+  "ligue-1": "ligue-1.svg",
+  champions: "uefa-champions.svg",
+};
 
 // Obtiene logos
-export const getTeamLogo = (teamName) => {
+export const getTeamLogo = (teamName, league = null) => {
   if (!teamName || typeof teamName !== "string") return null;
+
+  const directKey = teamName.toLowerCase().trim();
+  if (GENERAL_FILES[directKey]) {
+    const fileName = GENERAL_FILES[directKey];
+    return archivosGenerales[fileName.toLowerCase()] || null;
+  }
 
   // Elimina minúsculas, acentos/caracteres raros, trim
   const normalized = normalizarTexto(teamName);
-  // console.log(normalized);
 
-  // Elimina stop-words dinámicamente
-  const cleanWords = normalized
-    .split(/\s+/)
-    .filter((word) => !STOP_WORDS.has(word));
-  // console.log(cleanWords);
-  const teamKey = cleanWords.join(" ");
-  // console.log(teamKey);
+  // Elimina stop-words sin vaciar el término si coincide exactamente
+  const words = normalized.split(/\s+/);
+  const cleanWords = words.filter((word) => !STOP_WORDS.has(word));
+  const teamKey = cleanWords.length > 0 ? cleanWords.join(" ") : normalized;
 
-  // Manejo de alias
-  const fileName = TEAM_LOGO_FILES[teamKey];
-  if (!fileName) return null;
+  // Si coincide con elemento general en la raíz
+  if (GENERAL_FILES[teamKey]) {
+    const fileName = GENERAL_FILES[teamKey];
+    return archivosGenerales[fileName.toLowerCase()] || null;
+  }
 
-  return archivosPorNombre[fileName.toLowerCase()] || null;
+  // Si se envió una liga específica, buscar directamente ahí
+  if (league) {
+    const ligaKey = normalizarLiga(league);
+    const fileName = TEAM_LOGO_FILES[ligaKey]?.[teamKey];
+    if (fileName && archivosPorLiga[ligaKey]?.[fileName.toLowerCase()]) {
+      return archivosPorLiga[ligaKey][fileName.toLowerCase()];
+    }
+  }
+
+  // Búsqueda automática en todas las ligas disponibles
+  for (const [ligaKey, equipos] of Object.entries(TEAM_LOGO_FILES)) {
+    const fileName = equipos[teamKey];
+    if (fileName && archivosPorLiga[ligaKey]?.[fileName.toLowerCase()]) {
+      return archivosPorLiga[ligaKey][fileName.toLowerCase()];
+    }
+  }
+
+  return null;
 };

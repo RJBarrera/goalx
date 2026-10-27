@@ -1073,3 +1073,20 @@
   font-size: 0.65rem;
   font-weight: 700;
 }
+
+/* El contenedor define el espacio máximo */
+.sports-navbar__competition-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+/* La imagen se adapta estrictamente al contenedor */
+.sports-navbar__competition-item-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

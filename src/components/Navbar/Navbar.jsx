@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
-import {
-  faDisplay,
-  faPowerOff,
-  faRightToBracket,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LanguageSelector } from "../LanguageSelector";
 
 import { useAuth } from "../../context/AuthContext";
 import { useCompetition } from "../../context/CompetitionContext";
-import OnlineUsers from "../OnlineUsers/OnlineUsers";
 import { getTeamLogo } from "../../utils/teamLogos";
+import OnlineUsers from "../OnlineUsers/OnlineUsers";
 import "./Navbar.css";
 
 const NAV_ITEMS = [
@@ -130,7 +123,17 @@ function Navbar() {
               disabled={competitionLoading || competitions.length === 0}
               aria-expanded={competitionOpen}
             >
-              <span className="sports-navbar__competition-icon">⚽</span>
+              {/* ICONO DEL BOTÓN PRINCIPAL */}
+              <span className="sports-navbar__competition-item-icon">
+                {getTeamLogo(competition?.id) ? (
+                  <img
+                    src={getTeamLogo(competition?.id)}
+                    alt={competition?.name || "Competition logo"}
+                  />
+                ) : (
+                  "⚽"
+                )}
+              </span>
 
               <span className="sports-navbar__competition-copy">
                 <small>{t("navbar.competition")}</small>
@@ -150,7 +153,13 @@ function Navbar() {
 
                 {competitions.map((item) => {
                   const active = item.id === competitionId;
-                  const disabled = item.id === "champions";
+                  const disabledIds = [
+                    "champions",
+                    "ligue-1",
+                    "premier-league",
+                  ];
+                  const disabled = disabledIds.includes(item.id);
+                  const itemLogo = getTeamLogo(item.id);
 
                   return (
                     <button
@@ -168,6 +177,14 @@ function Navbar() {
                       }}
                       disabled={disabled}
                     >
+                      {/* LOGO INDIVIDUAL DE CADA REGISTRO */}
+                      <span className="sports-navbar__competition-item-icon">
+                        {itemLogo ? (
+                          <img src={itemLogo} alt={item.name} />
+                        ) : (
+                          "⚽"
+                        )}
+                      </span>
                       <div>
                         <strong>{item.name}</strong>
 
@@ -288,7 +305,13 @@ function Navbar() {
           <div>
             {competitions.map((item) => {
               const active = item.id === competitionId;
-              const disabled = item.id === "champions";
+              const disabledIds = [
+                "champions",
+                "ligue-1",
+                "premier-league",
+              ];
+              const disabled = disabledIds.includes(item.id);
+              const itemLogo = getTeamLogo(item.id);
 
               return (
                 <button
@@ -306,6 +329,10 @@ function Navbar() {
                   }}
                   disabled={disabled}
                 >
+                  {/* LOGO INDIVIDUAL DE CADA REGISTRO */}
+                  <span className="sports-navbar__competition-item-icon">
+                    {itemLogo ? <img src={itemLogo} alt={item.name} /> : "⚽"}
+                  </span>
                   <span>
                     {item.name}
 
