@@ -64,6 +64,14 @@
   font-weight: 700;
 }
 
+.season-highlights__season-desktop {
+  display: inline;
+}
+
+.season-highlights__season-mobile {
+  display: none;
+}
+
 .season-highlights__viewport {
   overflow: hidden;
 }
@@ -387,8 +395,22 @@
   .season-highlights__season {
     gap: 2px;
     padding: 2px 5px;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
+  .season-highlights__season-desktop {
+    display: none;
+  }
+
+  .season-highlights__season-mobile {
+    display: inline;
+  }
+
+  .season-highlights__season {
+    gap: 6px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
   .season-highlight-slide {
     min-height: 390px;
   }
@@ -424,5 +446,108 @@
   }
   .season-highlights__footer > span {
     display: none;
+  }
+}
+
+/* NAVEGACION MANUAL DEL CARRUSEL */
+
+.season-highlights__viewport {
+  position: relative;
+}
+
+/* Botones de navegacion */
+.season-highlights__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(9, 13, 22, 0.75);
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(8px);
+  transition:
+    background 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease;
+}
+
+/* Flecha izquierda */
+.season-highlights__arrow--previous {
+  left: 12px;
+}
+
+/* Flecha derecha */
+.season-highlights__arrow--next {
+  right: 12px;
+}
+
+/* Hover */
+.season-highlights__arrow:hover {
+  background: rgba(33, 216, 157, 0.2);
+  border-color: #21d89d;
+  color: #21d89d;
+}
+
+/* Accesibilidad por teclado */
+.season-highlights__arrow:focus-visible {
+  outline: 2px solid #21d89d;
+  outline-offset: 3px;
+}
+
+/* Adaptacion para tablets */
+@media (max-width: 900px) {
+  .season-highlights__arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .season-highlights__arrow--previous {
+    left: 8px;
+  }
+
+  .season-highlights__arrow--next {
+    right: 8px;
+  }
+}
+
+/* Adaptacion para celulares */
+@media (max-width: 600px) {
+  .season-highlights__arrow {
+    top: auto;
+    bottom: 14px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    transform: none;
+  }
+
+  .season-highlights__arrow--previous {
+    left: 15px;
+  }
+
+  .season-highlights__arrow--next {
+    right: 15px;
+  }
+
+  /* Centrar indicadores para dejar espacio
+     a las flechas laterales */
+  .season-highlights__footer {
+    justify-content: center;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .season-highlights__track {
+    transition: none;
   }
 }

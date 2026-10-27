@@ -923,20 +923,20 @@ function LiveCenter({ onSeleccionarPartido }) {
                 {t("liveCenter.todaysMatches")}
               </button>
 
-              <button
+              {/* <button
                 type="button"
                 className={scope === "upcoming" ? "active" : ""}
                 onClick={() => changeScope("upcoming")}
               >
                 {t("liveCenter.nextMatches")}
-              </button>
+              </button> */}
 
               <button
                 type="button"
                 className={scope === "next" ? "active" : ""}
                 onClick={() => changeScope("next")}
               >
-                {t("liveCenter.nextMatchday")}
+                {t("liveCenter.nextMatches")}
               </button>
             </div>
 

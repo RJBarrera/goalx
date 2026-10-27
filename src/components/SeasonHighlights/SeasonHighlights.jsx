@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-
 import axios from "axios";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -9,6 +7,8 @@ import {
   faFutbol,
   faStar,
   faTrophy,
+  faChevronLeft,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useTranslation } from "react-i18next";
@@ -199,6 +199,15 @@ function SeasonHighlights() {
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  // Navegacion manual del carrusel
+  const previousSlide = () => {
+    setActive((current) => (current === 0 ? slides.length - 1 : current - 1));
+  };
+
+  const nextSlide = () => {
+    setActive((current) => (current === slides.length - 1 ? 0 : current + 1));
+  };
+
   useEffect(() => {
     if (!competitionId) {
       return undefined;
@@ -247,12 +256,12 @@ function SeasonHighlights() {
       return undefined;
     }
 
-    const interval = window.setInterval(() => {
-      setActive((current) => (current + 1 >= slides.length ? 0 : current + 1));
+    const timeout = window.setTimeout(() => {
+      setActive((current) => (current + 1) % slides.length);
     }, SLIDE_SECONDS * 1000);
 
-    return () => window.clearInterval(interval);
-  }, [slides.length]);
+    return () => window.clearTimeout(timeout);
+  }, [slides.length, active]);
 
   if (loading || slides.length === 0) {
     return null;
@@ -271,16 +280,47 @@ function SeasonHighlights() {
           <div className="season-highlights__season">
             <FontAwesomeIcon icon={faTrophy} />
 
-            {seasonInfo.type === "apertura" || seasonInfo.type === "clausura"
-              ? t(`seasonHighlights.seasons.${seasonInfo.type}`, {
-                  year: seasonInfo.year,
-                })
-              : seasonInfo.name ||
-                t("seasonHighlights.container.defaultSeason")}
+            {/* Texto para escritorio */}
+            <span className="season-highlights__season-desktop">
+              {seasonInfo.type === "apertura" || seasonInfo.type === "clausura"
+                ? t(`seasonHighlights.seasons.${seasonInfo.type}`, {
+                    year: seasonInfo.year,
+                  })
+                : seasonInfo.name ||
+                  t("seasonHighlights.container.defaultSeason")}
+            </span>
+
+            {/* Solo año para móvil */}
+            <span className="season-highlights__season-mobile">
+              {seasonInfo.year}
+            </span>
           </div>
         </div>
 
         <div className="season-highlights__viewport">
+          {/* Flechas de navegacion manual */}
+          {slides.length > 1 && (
+            <>
+              <button
+                type="button"
+                className="season-highlights__arrow season-highlights__arrow--previous"
+                onClick={previousSlide}
+                aria-label="Ver destacado anterior"
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+
+              <button
+                type="button"
+                className="season-highlights__arrow season-highlights__arrow--next"
+                onClick={nextSlide}
+                aria-label="Ver siguiente destacado"
+              >
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </>
+          )}
+
           <div
             className="season-highlights__track"
             style={{
