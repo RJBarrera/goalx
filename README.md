@@ -1,6 +1,4 @@
-# MatchLab - Liga MX Analytics
-
----
+# GOAL PICKS
 
 # 1. Crear entorno virtual
 
