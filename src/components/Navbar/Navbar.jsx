@@ -211,7 +211,7 @@ function Navbar() {
           ))}
           <a href="#en-vivo" className="navbar-live-link" onClick={cerrarMenu}>
             <span className="navbar-live-dot" /> {t("navbar.live")}{" "}
-            <small>{t("navbar.live")}</small>
+            {/* <small>{t("navbar.live")}</small> */}
           </a>
         </nav>
 
@@ -354,7 +354,7 @@ function Navbar() {
           {NAV_ITEMS.map((item) => (
             <a
               key={item.translationKey}
-              href={`/${item.href}`}
+              href={`${item.href}`}
               onClick={cerrarMenu}
             >
               <span>{t(item.translationKey)}</span>
@@ -362,7 +362,7 @@ function Navbar() {
             </a>
           ))}
 
-          <a href="/#en-vivo" onClick={cerrarMenu}>
+          <a href="#en-vivo" onClick={cerrarMenu}>
             <span>{t("navbar.live")}</span>
             <strong>→</strong>
           </a>
