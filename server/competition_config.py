@@ -147,6 +147,7 @@ COMPETITIONS = {
     },
 }
 
+# Aqui se agregan para el buscador y seccion live
 TEAM_EQUIVALENCES = {
     "Mazatlán": "Atlante",
     "Mazatlan": "Atlante",
@@ -173,44 +174,65 @@ TEAM_EQUIVALENCES = {
 }
 
 LIGA_MX_F_EQUIVALENCIAS = {
-    "América W": "America",
-    "América Femenil": "America",
-    "Cruz Azul W": "Cruz Azul",
-    "Cruz Azul Femenil": "Cruz Azul",
-    "Atlas W": "Atlas",
-    "Atlas Femenil": "Atlas",
-    "Tijuana W": "Tijuana",
-    "Tijuana Femenil": "Tijuana",
-    "Necaxa W": "Necaxa",
-    "Necaxa Femenil": "Necaxa",
-    "Puebla W": "Puebla",
-    "Puebla Femenil": "Puebla",
-    "Santos Laguna W": "Santos Laguna",
-    "Santos Laguna Femenil": "Santos Laguna",
-    "Tigres UANL W": "Tigres UANL",
-    "Tigres UANL Femenil": "Tigres UANL",
-    "Atlético San Luis W": "Atletico San Luis",
-    "Atlético San Luis Femenil": "Atletico San Luis",
-    "Pachuca W": "Pachuca",
-    "Pachuca Femenil": "Pachuca",
-    "León W": "Leon",
-    "León Femenil": "Leon",
-    "Mazatlán W": "Atlante",
-    "Mazatlán Femenil": "Atlante",
-    "Atlante W": "Atlante",
-    "Atlante Femenil": "Atlante",
-    "Juárez W": "Juarez",
-    "Juárez Femenil": "Juarez",
-    "Guadalajara W": "Chivas",
-    "Guadalajara Femenil": "Chivas",
-    "Monterrey W": "Monterrey",
-    "Monterrey Femenil": "Monterrey",
-    "Pumas UNAM W": "Pumas UNAM",
-    "Pumas UNAM Femenil": "Pumas UNAM",
-    "Querétaro W": "Querétaro",
-    "Querétaro Femenil": "Querétaro",
-    "Toluca W": "Toluca",
-    "Toluca Femenil": "Toluca",
+    # "América W": "America",
+    "América Femenil": "América W",
+    # "Cruz Azul W": "Cruz Azul",
+    "Cruz Azul Femenil": "Cruz Azul W",
+    # "Atlas W": "Atlas",
+    "Atlas Femenil": "Atlas W",
+    # "Tijuana W": "Tijuana",
+    "Tijuana Femenil": "Tijuana W",
+    # "Necaxa W": "Necaxa",
+    "Necaxa Femenil": "Necaxa W",
+    # "Puebla W": "Puebla",
+    "Puebla Femenil": "Puebla W",
+    # "Santos Laguna W": "Santos Laguna",
+    "Santos Laguna Femenil": "Santos Laguna W",
+    # "Tigres UANL W": "Tigres UANL",
+    "Tigres UANL Femenil": "Tigres UANL W",
+    # "Atlético San Luis W": "Atlético San Luis",
+    "Atlético San Luis Femenil": "Atlético San Luis W",
+    "Atlético de San Luis Femenil": "Atlético San Luis W",
+    # "Pachuca W": "Pachuca",
+    "Pachuca Femenil": "Pachuca W",
+    # "León W": "Leon W",
+    "León Femenil": "León W",
+    "Mazatlán W": "Atlante W",
+    "Mazatlán Femenil": "Atlante W",
+    # "Atlante W": "Atlante",
+    "Atlante Femenil": "Atlante W",
+    # "Juárez W": "Juarez",
+    "Juárez Femenil": "Juárez W",
+    # "Guadalajara W": "Chivas",
+    # "Guadalajara Femenil": "Chivas",
+    "CD Guadalajara Femenil": "Guadalajara W",
+    # "Monterrey W": "Monterrey",
+    "Monterrey Femenil": "Monterrey W",
+    # "Pumas UNAM W": "Pumas UNAM",
+    "Pumas UNAM Femenil": "Pumas UNAM W",
+    # "Querétaro W": "Querétaro",
+    "Querétaro Femenil": "Querétaro W",
+    # "Toluca W": "Toluca",
+    "Toluca Femenil": "Toluca W",
+}
+
+LALIGA_EQUIVALENCIAS = {
+    "Atlético Madrid": "Atletico Madrid",
+    "Athletic Bilbao": "Athletic Club",
+    "Athletic Club Bilbao": "Athletic Club",
+    "Deportivo Alavés": "Alaves",
+    "Málaga": "Malaga",
+    "Deportivo La Coruna": "Deportivo La Coruña",
+    "Deportivo de A Coruña": "Deportivo La Coruña",
+}
+
+# Equivalencias (Para busquedas rapidas)
+COMPETITION_EQUIVALENCES = {
+    "liga-mx": TEAM_EQUIVALENCES,
+    "liga-mx-f": LIGA_MX_F_EQUIVALENCIAS,
+    "laliga": LALIGA_EQUIVALENCIAS,
+    # "ligue-1": LIGUE1_EQUIVALENCIAS,
+    # "premier-league": PREMIER_LEAGUE_EQUIVALENCIAS,
 }
 
 # ALIAS
@@ -340,6 +362,13 @@ EUROPE_TEAM_ALIASES = {
     "tottenham hotspur": "tottenham",
     "villarreal": "villarreal",
     "villarreal cf": "villarreal",
+}
+
+# Alias (Para busquedas rapidas)
+COMPETITION_ALIASES = {
+    "liga-mx": TEAM_ALIASES,
+    "liga-mx-f": LIGA_MX_F_TEAM_ALIASES,
+    "champions": EUROPE_TEAM_ALIASES,
 }
 
 

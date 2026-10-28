@@ -240,6 +240,10 @@
           "badge": "Histórico",
           "summary": "Se han enfrentado {{partidos}} veces. Promedios H2H -> Goles: {{goles}} | Corners: {{corners}} | Tarjetas: {{tarjetas}}"
         },
+        "quickNav": {
+          "expandAll": "Expandir todo",
+          "collapseAll": "Colapsar todo"
+        },
         "market1x2": {
           "eyebrow": "Resultado",
           "title": "Probabilidad del partido",
@@ -254,7 +258,7 @@
           "descAi": "Escenario más probable según el estado de forma de los últimos 5 partidos."
         },
         "goals": {
-          "eyebrow": "Mercado de goles",
+          "eyebrow": "Mercado de Goles",
           "title": "Predicción ofensiva esperada",
           "description": "Expectativas y probabilidades derivadas del modelo de goles.",
           "classicTitle": "Modelo Estadístico",
@@ -288,12 +292,12 @@
           "probabilityName": "Probabilidad"
         },
         "shots": {
-          "eyebrow": "MODELO DE TIROS",
+          "eyebrow": "Modelo de Tiros",
           "title": "Tiros al Arco y Tiros Totales",
           "description": "Estimación basada en el rendimiento reciente de cada equipo (IA).",
           "sontHeader": "TIROS A PUERTA (SOnT)",
           "sontDescription": "Tiros a puerta esperados",
-          "expectedBarName":"Esperados",
+          "expectedBarName": "Esperados",
           "totalShotsHeader": "TIROS TOTALES",
           "totalShotsDescription": "Tiros totales esperados",
           "moreThanShots": "Más de {{line}} tiros",
@@ -313,8 +317,8 @@
           "shotTypeTotal": "tiros totales"
         },
         "corners": {
-          "eyebrow": "Tiros de esquina",
-          "title": "Mercado de córners",
+          "eyebrow": "Tiros de Esquina",
+          "title": "Mercado de Córners",
           "description": "Contraste de tendencias de tiros de esquina entre el histórico general y el rendimiento reciente.",
           "fullMatch": "Partido completo",
           "firstHalf": "Primera mitad",
@@ -352,7 +356,7 @@
         },
         "cards": {
           "eyebrow": "Disciplina",
-          "title": "Mercado de tarjetas",
+          "title": "Mercado de Tarjetas",
           "description": "Estimación ajustada según el árbitro {{referee}}.",
           "subtitle": "ESTADÍSTICA CLÁSICA",
           "model_h": "Modelo Histórico",
@@ -371,7 +375,7 @@
           }
         },
         "summary": {
-          "eyebrow": "Resumen final",
+          "eyebrow": "Resumen Final",
           "title": "Señales de mayor probabilidad",
           "description": "Lectura consolidada de los mercados con mayor probabilidad calculada por el modelo.",
           "highestProbabilityTag": "MAYOR PROBABILIDAD DEL MODELO",

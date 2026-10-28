@@ -240,6 +240,10 @@
           "badge": "Historique",
           "summary": "Ils se sont affrontés {{partidos}} fois. Moyennes H2H -> Buts : {{goles}} | Corners : {{corners}} | Cartons : {{tarjetas}}"
         },
+        "quickNav": {
+          "expandAll": "Tout développer",
+          "collapseAll": "Tout réduire"
+        },
         "market1x2": {
           "eyebrow": "Résultat",
           "title": "Probabilité du match",
@@ -288,7 +292,7 @@
           "probabilityName": "Probabilité"
         },
         "shots": {
-          "eyebrow": "MODÈLE DE TIRS",
+          "eyebrow": "Modèle de Tirs",
           "title": "Tirs cadrés et Tirs totaux",
           "description": "Estimation basée sur les performances récentes de chaque équipe (IA).",
           "sontHeader": "TIRS CADRÉS (SoT)",
@@ -314,7 +318,7 @@
         },
         "corners": {
           "eyebrow": "Coups de pied de coin",
-          "title": "Marché des corners",
+          "title": "Marché des Corners",
           "description": "Comparaison des tendances de corners entre l'historique général et la performance récente.",
           "fullMatch": "Match complet",
           "firstHalf": "Première mi-temps",
@@ -352,7 +356,7 @@
         },
         "cards": {
           "eyebrow": "Discipline",
-          "title": "Marché des cartons",
+          "title": "Marché des Cartons",
           "description": "Estimation ajustée selon l'arbitre {{referee}}.",
           "subtitle": "STATISTIQUES CLASSIQUES",
           "model_h": "Modèle historique",
@@ -371,7 +375,7 @@
           }
         },
         "summary": {
-          "eyebrow": "Résumé final",
+          "eyebrow": "Résumé Final",
           "title": "Signaux de plus forte probabilité",
           "description": "Lecture consolidée des marchés ayant la plus forte probabilité calculée par le modèle.",
           "highestProbabilityTag": "PLUS FORTE PROBABILITÉ DU MODÈLE",

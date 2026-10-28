@@ -26,7 +26,8 @@
 .match-page {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  overflow-x: clip;
   overflow-y: visible;
   /* background: var(--sports-bg); */
 }
@@ -2872,9 +2873,7 @@
   letter-spacing: -0.04em;
 }
 
-/* =========================================================
-   MATCH SHOT RESULT: VARIANTE VISITANTE (CYAN/AZUL)
-   ========================================================= */
+/* MATCH SHOT RESULT: VARIANTE VISITANTE (CYAN/AZUL) */
 
 .match-shot-result {
   display: flex;
@@ -2938,7 +2937,7 @@
   transition: color 0.3s ease;
 }
 
-/* --- ESTILOS CUANDO ESTÁ SELECCIONADO EL VISITANTE --- */
+/* ESTILOS CUANDO ESTÁ SELECCIONADO EL VISITANTE */
 .match-shot-result.match-shot-result--away {
   border-color: #bce4f0;
   background: linear-gradient(135deg, #f4fbfe, #e1f5fa);
@@ -2965,5 +2964,321 @@
   }
   .match-shot-result {
     flex-wrap: wrap;
+  }
+}
+
+/* ENCABEZADO COLAPSABLE INTEGRADO CON SECTIONHEADER */
+.match-collapsible {
+  scroll-margin-top: 95px;
+}
+
+.match-collapsible__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+  transition: opacity 0.15s ease;
+}
+
+.match-collapsible__header:hover {
+  opacity: 0.9;
+}
+
+.match-collapsible__header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Evita margenes sobrantes que rompan la alineacion */
+.match-collapsible__header-content > * {
+  margin-bottom: 0 !important;
+}
+
+/* Boton circular con flecha */
+.match-collapsible__trigger {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-top: 0.25rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  color: #475569;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.15s ease;
+}
+
+.match-collapsible__header:hover .match-collapsible__trigger {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.match-collapsible__trigger.is-open {
+  transform: rotate(180deg);
+}
+
+.match-collapsible__body {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* STICKY FLOATING DOCK (QUICK NAV) */
+
+.match-quick-nav-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 75px;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0 24px 0;
+  pointer-events: none;
+}
+
+.match-quick-nav {
+  position: relative;
+  display: inline-flex;
+  max-width: min(100%, calc(1540px - 48px));
+  padding: 5px;
+  border: 1px solid rgba(225, 231, 239, 0.9);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 12px 32px -4px rgba(7, 17, 31, 0.12),
+    0 4px 12px -2px rgba(7, 17, 31, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  pointer-events: auto;
+}
+
+.match-quick-nav__track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  border-radius: 12px;
+}
+
+.match-quick-nav__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pastilla Deslizante Apple */
+.match-quick-nav__indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(55, 227, 166, 0.35);
+  box-shadow:
+    0 3px 10px rgba(18, 185, 129, 0.12),
+    0 1px 3px rgba(7, 17, 31, 0.06);
+  pointer-events: none;
+  z-index: 1;
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    width 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.2s ease;
+  will-change: transform, width;
+}
+
+/* Botón individual */
+.match-quick-nav__item {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--sports-muted, #748095);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.match-quick-nav__item:hover {
+  color: var(--sports-dark, #07111f);
+}
+
+.match-quick-nav__item:active {
+  transform: scale(0.96);
+}
+
+.match-quick-nav__item.is-active {
+  color: var(--sports-dark, #07111f);
+  font-weight: 900;
+}
+
+/* Insignia / Badge dentro del botón */
+.match-quick-nav__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 6px;
+  border: 1px solid #dce8e4;
+  background: #f1f7f5;
+  color: #0b8a65;
+  font-size: 0.65rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+}
+
+.match-quick-nav__item:hover .match-quick-nav__code {
+  background: #e2f4ed;
+  border-color: #bee8da;
+}
+
+.match-quick-nav__item.is-active .match-quick-nav__code {
+  background: linear-gradient(145deg, #42e7ac, #12b981);
+  border-color: #12b981;
+  color: #051814;
+  box-shadow: 0 2px 6px rgba(18, 185, 129, 0.25);
+}
+
+/* Variante especial para Señales / IA */
+.match-quick-nav__code--cyan {
+  border-color: #cbe6f3;
+  background: #edf8fd;
+  color: #0284c7;
+}
+
+.match-quick-nav__item.is-active .match-quick-nav__code--cyan {
+  background: linear-gradient(145deg, #67d6ff, #0284c7);
+  border-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+}
+
+/* RESPONSIVE EN MÓVILES */
+
+@media (max-width: 768px) {
+  .match-quick-nav-wrapper {
+    /* Altura del navbar en móvil + margen pequeño */
+    top: 65px;
+    padding: 0 10px;
+    margin-bottom: 16px;
+  }
+
+  .match-quick-nav {
+    width: 100%;
+    /* Máscara de desvanecimiento lateral que sugiere scroll horizontal */
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 14px,
+      rgba(0, 0, 0, 1) calc(100% - 14px),
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 14px,
+      rgba(0, 0, 0, 1) calc(100% - 14px),
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .match-quick-nav__track {
+    padding: 0 10px;
+  }
+
+  .match-quick-nav__item {
+    padding: 7px 11px;
+    font-size: 0.77rem;
+  }
+
+  .match-quick-nav__code {
+    min-width: 20px;
+    height: 18px;
+    font-size: 0.58rem;
+  }
+}
+
+/* DIVISOR Y BOTÓN ACCIÓN (TOGGLE ALL) */
+
+.match-quick-nav__divider {
+  width: 1px;
+  height: 22px;
+  margin: 0 4px;
+  flex-shrink: 0;
+  background: var(--sports-border, #e1e7ef);
+}
+
+.match-quick-nav__toggle-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--sports-muted, #748095);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.match-quick-nav__toggle-all:hover {
+  background: #f1f5f9;
+  color: var(--sports-dark, #07111f);
+  border-color: #e2e8f0;
+}
+
+.match-quick-nav__toggle-all:active {
+  transform: scale(0.92);
+}
+
+/* Estado activo cuando todo está colapsado */
+.match-quick-nav__toggle-all.is-collapsed {
+  background: rgba(55, 227, 166, 0.12);
+  color: var(--sports-green-dark, #12b981);
+  border-color: rgba(55, 227, 166, 0.35);
+}
+
+@media (max-width: 768px) {
+  .match-quick-nav__toggle-all {
+    width: 30px;
+    height: 30px;
   }
 }

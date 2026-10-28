@@ -1,23 +1,21 @@
 // sections/MatchCards.jsx
 import { useTranslation } from "react-i18next";
-import { MetricCard, ProbabilityBar, SectionHeader } from "./utils";
+import { MetricCard, ProbabilityBar } from "./utils";
 
 export default function MatchCards({ resultado, datosResultado, numero }) {
   const { t } = useTranslation();
 
-  // Si los datos aún no existen, no renderizamos nada
-  if (!resultado || !datosResultado?.goles) return null;
+  const tarjetas = datosResultado?.tarjetas;
+  const totalClasico = Number(tarjetas?.expected_total) || 0;
+  const totalAi = Number(tarjetas?.xgboost_expected_total) || 0;
+
+  // Si no hay datos o ambos totales son 0, no renderizamos nada
+  if (!resultado || !tarjetas || (totalClasico <= 0 && totalAi <= 0)) {
+    return null;
+  }
 
   return (
     <>
-      <SectionHeader
-        code="YC"
-        eyebrow={t("matchAnalytics.analytics.results.cards.eyebrow")}
-        title={t("matchAnalytics.analytics.results.cards.title")}
-        description={t("matchAnalytics.analytics.results.cards.description", {
-          referee: resultado.partido.arbitro,
-        })}
-      />
       <div className="match-two-columns">
         {/* MODELO CLASICO */}
         <div className="match-panel">

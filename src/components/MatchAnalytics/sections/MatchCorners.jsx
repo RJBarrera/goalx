@@ -19,19 +19,17 @@ const COLORS = {
 export default function MatchCorners({ resultado, datosResultado, numero }) {
   const { t } = useTranslation();
 
-  // Si los datos aún no existen, no renderizamos nada
-  if (!resultado || !datosResultado?.goles) return null;
+  const corners = datosResultado?.corners;
+  const totalClasico = Number(corners?.expected_total) || 0;
+  const totalAi = Number(corners?.xgboost?.expected_total) || 0;
+
+  // Si no hay datos o el total es 0 en ambos modelos, no renderizamos nada
+  if (!resultado || !corners || (totalClasico <= 0 && totalAi <= 0)) {
+    return null;
+  }
 
   return (
     <>
-      {/* HEADER PRINCIPAL */}
-      <SectionHeader
-        code="CK"
-        eyebrow={t("matchAnalytics.analytics.results.corners.eyebrow")}
-        title={t("matchAnalytics.analytics.results.corners.title")}
-        description={t("matchAnalytics.analytics.results.corners.description")}
-      />
-
       <div className="match-two-columns">
         {/* MODELO CLASICO */}
         <div className="match-panel">

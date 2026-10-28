@@ -13,8 +13,7 @@ from pathlib import Path
 import pandas as pd
 
 from competition_config import (
-    TEAM_EQUIVALENCES as EQUIVALENCIAS,
-    LIGA_MX_F_EQUIVALENCIAS,
+    COMPETITION_EQUIVALENCES,
     DEFAULT_COMPETITION_ID,
     get_competition,
 )
@@ -183,15 +182,9 @@ class MatchHistoryService:
         self,
         value,
     ):
-        value = str(value or "").strip()
-
-        if self.competition_id == "liga-mx":
-            return EQUIVALENCIAS.get(value, value)
-
-        if self.competition_id == "liga-mx-f":
-            return LIGA_MX_F_EQUIVALENCIAS.get(value, value)
-
-        return value
+        cleaned = str(value or "").strip()
+        mapping = COMPETITION_EQUIVALENCES.get(self.competition_id, {})
+        return mapping.get(cleaned, cleaned)
 
     # INICIALIZAR STORAGE
     def _initialize_storage(

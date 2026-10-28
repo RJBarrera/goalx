@@ -240,6 +240,10 @@
           "badge": "Histórico",
           "summary": "Eles se enfrentaram {{partidos}} vezes. Médias H2H -> Gols: {{goles}} | Escanteios: {{corners}} | Cartões: {{tarjetas}}"
         },
+        "quickNav": {
+          "expandAll": "Expandir tudo",
+          "collapseAll": "Recolher tudo"
+        },
         "market1x2": {
           "eyebrow": "Resultado",
           "title": "Probabilidade da partida",
@@ -254,7 +258,7 @@
           "descAi": "Cenário mais provável com base na forma dos últimos 5 jogos."
         },
         "goals": {
-          "eyebrow": "Mercado de gols",
+          "eyebrow": "Mercado de Gols",
           "title": "Previsão ofensiva esperada",
           "description": "Expectativas e probabilidades derivadas do modelo de gols.",
           "classicTitle": "Modelo Estatístico",
@@ -288,7 +292,7 @@
           "probabilityName": "Probabilidade"
         },
         "shots": {
-          "eyebrow": "MODELO DE CHUTES",
+          "eyebrow": "Modelo De Chutes",
           "title": "Chutes ao Gol e Chutes Totais",
           "description": "Estimativa baseada no desempenho recente de cada equipe (IA).",
           "sontHeader": "CHUTES AO GOL (SoT)",
@@ -352,7 +356,7 @@
         },
         "cards": {
           "eyebrow": "Disciplina",
-          "title": "Mercado de cartões",
+          "title": "Mercado de Cartões",
           "description": "Estimativa ajustada com base no árbitro {{referee}}.",
           "subtitle": "ESTATÍSTICAS CLÁSSICAS",
           "model_h": "Modelo Histórico",
@@ -371,7 +375,7 @@
           }
         },
         "summary": {
-          "eyebrow": "Resumo final",
+          "eyebrow": "Resumo Final",
           "title": "Sinais de maior probabilidade",
           "description": "Leitura consolidada dos mercados com maior probabilidade calculada pelo modelo.",
           "highestProbabilityTag": "MAIOR PROBABILIDADE DO MODELO",

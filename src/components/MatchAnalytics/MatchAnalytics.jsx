@@ -9,12 +9,14 @@ import useMatchData from "./hooks/useMatchData";
 import useMatchPrediction from "./hooks/useMatchPrediction";
 import useMatchSummary from "./hooks/useMatchSummary";
 import "./MatchAnalytics.css";
+import CollapsibleSection from "./sections/CollapsibleSection";
 import Match1x2 from "./sections/Match1x2";
 import MatchCards from "./sections/MatchCards";
 import MatchCorners from "./sections/MatchCorners";
 import MatchFixture from "./sections/MatchFixture";
 import MatchForm from "./sections/MatchForm";
 import MatchGoals from "./sections/MatchGoals";
+import MatchQuickNav from "./sections/MatchQuickNav";
 import MatchScores from "./sections/MatchScores";
 import MatchShots from "./sections/MatchShots";
 import MatchSummary from "./sections/MatchSummary";
@@ -206,6 +208,162 @@ function MatchAnalytics({ partidoSeleccionado }) {
     }
   };
 
+  // Validacion de Tiros
+  const tieneDatosTiros = useMemo(() => {
+    const tiros = resultado?.tiros;
+    if (!tiros) return false;
+
+    const totalSot =
+      (Number(tiros.sot?.local?.valor_esperado) || 0) +
+      (Number(tiros.sot?.visitante?.valor_esperado) || 0);
+
+    const totalTiros =
+      (Number(tiros.total?.local?.valor_esperado) || 0) +
+      (Number(tiros.total?.visitante?.valor_esperado) || 0);
+
+    const sumaTotal = totalSot + totalTiros;
+
+    // Si el backend devuelve 0 usa `> 0`.
+    // Si devuelve 0.1 por defecto para cada equipo, entonces 0.4
+    return sumaTotal > 0.4;
+  }, [resultado]);
+
+  // Validacion de Corners
+  const tieneDatosCorners = useMemo(() => {
+    const corners = datosResultado?.corners;
+    if (!corners) return false;
+    const clasico = Number(corners.expected_total) || 0;
+    const ai = Number(corners.xgboost?.expected_total) || 0;
+    return clasico > 0 || ai > 0;
+  }, [datosResultado]);
+
+  // Validacion de Tarjetas
+  const tieneDatosTarjetas = useMemo(() => {
+    const tarjetas = datosResultado?.tarjetas;
+    if (!tarjetas) return false;
+    const clasico = Number(tarjetas.expected_total) || 0;
+    const ai = Number(tarjetas.xgboost_expected_total) || 0;
+    return clasico > 0 || ai > 0;
+  }, [datosResultado]);
+
+  // Control de estado de apertura de secciones
+  const [seccionesAbiertas, setSeccionesAbiertas] = useState({
+    "1x2": true,
+    goals: true,
+    shots: true,
+    corners: true,
+    cards: true,
+    summary: true,
+  });
+
+  const toggleSeccion = (clave, estado) => {
+    setSeccionesAbiertas((prev) => ({
+      ...prev,
+      [clave]: estado !== undefined ? estado : !prev[clave],
+    }));
+  };
+
+  // Índice dinámico: solo incluye secciones que tienen datos válidos
+  const itemsIndice = useMemo(() => {
+    const items = [
+      {
+        id: "sec-1x2",
+        key: "1x2",
+        label: t("matchAnalytics.analytics.results.market1x2.eyebrow"),
+        code: "1X2",
+      },
+      {
+        id: "sec-goals",
+        key: "goals",
+        label: t("matchAnalytics.analytics.results.goals.eyebrow"),
+        code: "xG",
+      },
+    ];
+
+    if (tieneDatosTiros) {
+      items.push({
+        id: "sec-shots",
+        key: "shots",
+        label: t("matchAnalytics.analytics.results.shots.eyebrow"),
+        code: "SH",
+      });
+    }
+    if (tieneDatosCorners) {
+      items.push({
+        id: "sec-corners",
+        key: "corners",
+        label: t("matchAnalytics.analytics.results.corners.eyebrow"),
+        code: "CK",
+      });
+    }
+    if (tieneDatosTarjetas) {
+      items.push({
+        id: "sec-cards",
+        key: "cards",
+        label: t("matchAnalytics.analytics.results.cards.title"),
+        code: "YC",
+      });
+    }
+    if (resumenProbabilidades) {
+      items.push({
+        id: "sec-summary",
+        key: "summary",
+        label: t("matchAnalytics.analytics.results.summary.eyebrow"),
+        code: "TOP",
+        codeClass: "match-quick-nav__code--cyan",
+      });
+    }
+
+    return items;
+  }, [
+    tieneDatosTiros,
+    tieneDatosCorners,
+    tieneDatosTarjetas,
+    resumenProbabilidades,
+    t,
+  ]);
+
+  // Scroll suave hacia la sección y apertura automatica si estaba minimizada
+  const irASeccion = (item) => {
+    // Asegurar que la seccion se expanda si estaba cerrada
+    toggleSeccion(item.key, true);
+
+    // Esperar a que React monte/despliegue el DOM antes de medir su posicion
+    setTimeout(() => {
+      const elemento = document.getElementById(item.id);
+      if (!elemento) return;
+
+      // Altura del dock flotante + margen superior
+      const headerOffset = 90;
+      const elementPosition = elemento.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }, 80);
+  };
+
+  // Verifica si las secciones visibles estan colapsadas
+  const todasColapsadas = useMemo(() => {
+    return Object.values(seccionesAbiertas).every((abierto) => !abierto);
+  }, [seccionesAbiertas]);
+
+  // Alterna entre colapsar todas o restaurar todas abiertas
+  const alternarTodasLasSecciones = () => {
+    const nuevoEstado = todasColapsadas; // Si están todas cerradas, las abre; si hay alguna abierta, las cierra todas
+    setSeccionesAbiertas({
+      "1x2": nuevoEstado,
+      goals: nuevoEstado,
+      shots: nuevoEstado,
+      corners: nuevoEstado,
+      cards: nuevoEstado,
+      summary: nuevoEstado,
+    });
+  };
+
   // Render
   return (
     <main className="match-page">
@@ -323,6 +481,14 @@ function MatchAnalytics({ partidoSeleccionado }) {
                     />
                   </section>
 
+                  {/* DOCK FLOTANTE */}
+                  <MatchQuickNav
+                    items={itemsIndice}
+                    onSelect={irASeccion}
+                    onToggleAll={alternarTodasLasSecciones}
+                    isAllCollapsed={todasColapsadas}
+                  />
+
                   {/* H2H */}
                   {resultado?.h2h?.resumen && (
                     <section className="match-h2h-card">
@@ -352,12 +518,40 @@ function MatchAnalytics({ partidoSeleccionado }) {
                   )}
 
                   {/* RESULTADO 1X2 */}
-                  <section className="match-dashboard-section">
+                  <CollapsibleSection
+                    id="sec-1x2"
+                    code="1X2"
+                    eyebrow={t(
+                      "matchAnalytics.analytics.results.market1x2.eyebrow",
+                    )}
+                    title={t(
+                      "matchAnalytics.analytics.results.market1x2.title",
+                    )}
+                    description={t(
+                      "matchAnalytics.analytics.results.market1x2.description",
+                    )}
+                    isOpen={seccionesAbiertas["1x2"]}
+                    isForcedOpen={exportingPdf}
+                    onToggle={(abierto) => toggleSeccion("1x2", abierto)}
+                  >
                     <Match1x2 datosResultado={datosResultado} />
-                  </section>
+                  </CollapsibleSection>
 
                   {/* GOLES */}
-                  <section className="match-dashboard-section">
+                  <CollapsibleSection
+                    id="sec-goals"
+                    code="xG"
+                    eyebrow={t(
+                      "matchAnalytics.analytics.results.goals.eyebrow",
+                    )}
+                    title={t("matchAnalytics.analytics.results.goals.title")}
+                    description={t(
+                      "matchAnalytics.analytics.results.goals.description",
+                    )}
+                    isOpen={seccionesAbiertas.goals}
+                    isForcedOpen={exportingPdf}
+                    onToggle={(abierto) => toggleSeccion("goals", abierto)}
+                  >
                     <MatchGoals
                       resultado={resultado}
                       datosResultado={datosResultado}
@@ -370,43 +564,108 @@ function MatchAnalytics({ partidoSeleccionado }) {
                       resultado={resultado}
                       datosResultado={datosResultado}
                     />
-                  </section>
+                  </CollapsibleSection>
 
                   {/* TIROS */}
-                  <section className="match-dashboard-section">
-                    <MatchShots
-                      resultado={resultado}
-                      datosResultado={datosResultado}
-                      numero={numero}
-                    />
-                  </section>
+                  {tieneDatosTiros && (
+                    <CollapsibleSection
+                      id="sec-shots"
+                      code="SH"
+                      eyebrow={t(
+                        "matchAnalytics.analytics.results.shots.eyebrow",
+                      )}
+                      title={t("matchAnalytics.analytics.results.shots.title")}
+                      description={t(
+                        "matchAnalytics.analytics.results.shots.description",
+                      )}
+                      isOpen={seccionesAbiertas.shots}
+                      isForcedOpen={exportingPdf}
+                      onToggle={(abierto) => toggleSeccion("shots", abierto)}
+                    >
+                      <MatchShots
+                        resultado={resultado}
+                        datosResultado={datosResultado}
+                        numero={numero}
+                      />
+                    </CollapsibleSection>
+                  )}
 
                   {/* CÓRNERS */}
-                  <section className="match-dashboard-section">
-                    <MatchCorners
-                      resultado={resultado}
-                      datosResultado={datosResultado}
-                      numero={numero}
-                    />
-                  </section>
+                  {tieneDatosCorners && (
+                    <CollapsibleSection
+                      id="sec-corners"
+                      code="CK"
+                      eyebrow={t(
+                        "matchAnalytics.analytics.results.corners.eyebrow",
+                      )}
+                      title={t(
+                        "matchAnalytics.analytics.results.corners.title",
+                      )}
+                      description={t(
+                        "matchAnalytics.analytics.results.corners.description",
+                      )}
+                      isOpen={seccionesAbiertas.corners}
+                      isForcedOpen={exportingPdf}
+                      onToggle={(abierto) => toggleSeccion("corners", abierto)}
+                    >
+                      <MatchCorners
+                        resultado={resultado}
+                        datosResultado={datosResultado}
+                        numero={numero}
+                      />
+                    </CollapsibleSection>
+                  )}
 
                   {/* TARJETAS */}
-                  <section className="match-dashboard-section">
-                    <MatchCards
-                      resultado={resultado}
-                      datosResultado={datosResultado}
-                      numero={numero}
-                    />
-                  </section>
+                  {tieneDatosTarjetas && (
+                    <CollapsibleSection
+                      id="sec-cards"
+                      code="YC"
+                      eyebrow={t(
+                        "matchAnalytics.analytics.results.cards.eyebrow",
+                      )}
+                      title={t("matchAnalytics.analytics.results.cards.title")}
+                      description={t(
+                        "matchAnalytics.analytics.results.cards.description",
+                        {
+                          referee: resultado.partido.arbitro,
+                        },
+                      )}
+                      isOpen={seccionesAbiertas.cards}
+                      isForcedOpen={exportingPdf}
+                      onToggle={(abierto) => toggleSeccion("cards", abierto)}
+                    >
+                      <MatchCards
+                        resultado={resultado}
+                        datosResultado={datosResultado}
+                        numero={numero}
+                      />
+                    </CollapsibleSection>
+                  )}
 
                   {/* RESUMEN FINAL */}
                   {resumenProbabilidades && (
-                    <section className="match-dashboard-section match-summary-section">
+                    <CollapsibleSection
+                      id="sec-summary"
+                      code="TOP"
+                      eyebrow={t(
+                        "matchAnalytics.analytics.results.summary.eyebrow",
+                      )}
+                      title={t(
+                        "matchAnalytics.analytics.results.summary.title",
+                      )}
+                      description={t(
+                        "matchAnalytics.analytics.results.summary.description",
+                      )}
+                      isOpen={seccionesAbiertas.summary}
+                      isForcedOpen={exportingPdf}
+                      onToggle={(abierto) => toggleSeccion("summary", abierto)}
+                    >
                       <MatchSummary
                         resumenProbabilidades={resumenProbabilidades}
                         porcentaje={porcentaje}
                       />
-                    </section>
+                    </CollapsibleSection>
                   )}
 
                   {/* FOOTER */}

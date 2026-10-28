@@ -240,6 +240,10 @@
           "badge": "Historical",
           "summary": "They have faced each other {{partidos}} times. H2H Averages -> Goals: {{goles}} | Corners: {{corners}} | Cards: {{tarjetas}}"
         },
+        "quickNav": {
+          "expandAll": "Expand all",
+          "collapseAll": "Collapse all"
+        },
         "market1x2": {
           "eyebrow": "Result",
           "title": "Match probability",
@@ -288,7 +292,7 @@
           "probabilityName": "Probability"
         },
         "shots": {
-          "eyebrow": "SHOTS MODEL",
+          "eyebrow": "Shots Model",
           "title": "Shots on Target and Total Shots",
           "description": "Estimation based on each team's recent performance (AI).",
           "sontHeader": "SHOTS ON TARGET (SoT)",
@@ -313,8 +317,8 @@
           "shotTypeTotal": "total shots"
         },
         "corners": {
-          "eyebrow": "Corner kicks",
-          "title": "Corners market",
+          "eyebrow": "Corner Kicks",
+          "title": "Corners Market",
           "description": "Comparison of corner kick trends between overall history and recent performance.",
           "fullMatch": "Full match",
           "firstHalf": "First half",
@@ -371,7 +375,7 @@
           }
         },
         "summary": {
-          "eyebrow": "Final summary",
+          "eyebrow": "Final Summary",
           "title": "Highest probability signals",
           "description": "Consolidated reading of the markets with the highest probability calculated by the model.",
           "highestProbabilityTag": "HIGHEST MODEL PROBABILITY",

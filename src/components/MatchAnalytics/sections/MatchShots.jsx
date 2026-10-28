@@ -2,15 +2,15 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
-    Bar,
-    BarChart,
-    CartesianGrid,
-    ResponsiveContainer,
-    Tooltip,
-    XAxis,
-    YAxis,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from "recharts";
-import { MetricCard, ProbabilityBar, SectionHeader } from "./utils";
+import { MetricCard, ProbabilityBar } from "./utils";
 const COLORS = { home: "#37e3a6", away: "#38bdf8" };
 
 function factorial(n) {
@@ -68,6 +68,18 @@ export default function MatchShots({ resultado, numero }) {
 
   const { sot, total } = tiros;
 
+  // Suma de verificación
+  const sumaEsperada =
+    (Number(sot?.local?.valor_esperado) || 0) +
+    (Number(sot?.visitante?.valor_esperado) || 0) +
+    (Number(total?.local?.valor_esperado) || 0) +
+    (Number(total?.visitante?.valor_esperado) || 0);
+
+  // Si no hay datos suficientes, no renderiza nada
+  if (sumaEsperada <= 0.4) {
+    return null;
+  }
+
   const chartSot = [
     {
       name: resultado.partido.local,
@@ -105,13 +117,6 @@ export default function MatchShots({ resultado, numero }) {
 
   return (
     <>
-      <SectionHeader
-        code="SH"
-        eyebrow={t("matchAnalytics.analytics.results.shots.eyebrow")}
-        title={t("matchAnalytics.analytics.results.shots.title")}
-        description={t("matchAnalytics.analytics.results.shots.description")}
-      />
-
       <div className="match-two-columns">
         {/* TIROS A PUERTA */}
         <div className="match-panel">

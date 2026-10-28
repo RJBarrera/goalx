@@ -240,6 +240,10 @@
           "badge": "Historisch",
           "summary": "Sie trafen {{partidos}} Mal aufeinander. H2H-Durchschnitt -> Tore: {{goles}} | Ecken: {{corners}} | Karten: {{tarjetas}}"
         },
+        "quickNav": {
+          "expandAll": "Alle erweitern",
+          "collapseAll": "Alle einklappen"
+        },
         "market1x2": {
           "eyebrow": "Ergebnis",
           "title": "Spielwahrscheinlichkeit",
@@ -288,7 +292,7 @@
           "probabilityName": "Wahrscheinlichkeit"
         },
         "shots": {
-          "eyebrow": "SCHUSSMODELL",
+          "eyebrow": "Schussmodell",
           "title": "Torschüsse und Gesamtschüsse",
           "description": "Schätzung basierend auf der jüngsten Leistung jedes Teams (KI).",
           "sontHeader": "TORSCHÜSSE (SoT)",

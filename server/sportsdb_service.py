@@ -14,11 +14,7 @@ from zoneinfo import ZoneInfo
 import requests
 from dotenv import load_dotenv
 
-from competition_config import (
-    get_competition,
-    TEAM_EQUIVALENCES as EQUIVALENCIAS,
-    LIGA_MX_F_EQUIVALENCIAS,
-)
+from competition_config import get_competition, COMPETITION_EQUIVALENCES
 
 # RUTAS
 SERVER_DIR = Path(__file__).resolve().parent
@@ -281,13 +277,9 @@ class SportsDBService:
         self,
         value,
     ):
-        if self.competition_id == "liga-mx":
-            return EQUIVALENCIAS.get(value, value)
-
-        if self.competition_id == "liga-mx-f":
-            return LIGA_MX_F_EQUIVALENCIAS.get(value, value)
-
-        return value
+        # Busca el diccionario de la liga y luego la traducción
+        mapping = COMPETITION_EQUIVALENCES.get(self.competition_id, {})
+        return mapping.get(value, value)
 
     # REQUEST
     def _get(

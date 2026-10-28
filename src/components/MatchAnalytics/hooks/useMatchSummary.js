@@ -32,6 +32,15 @@ export default function useMatchSummary(resultado, datosResultado) {
     const { goles = {}, corners = {}, tarjetas = {} } = datosResultado;
     const { local, visitante, arbitro } = resultado.partido;
 
+    // Validacion de registros
+    const tieneCorners =
+      (Number(corners?.expected_total) || 0) > 0 ||
+      (Number(corners?.xgboost?.expected_total) || 0) > 0;
+
+    const tieneTarjetas =
+      (Number(tarjetas?.expected_total) || 0) > 0 ||
+      (Number(tarjetas?.xgboost_expected_total) || 0) > 0;
+
     const candidatos = [];
 
     // Funcion auxiliar para eliminar el codigo repetitivo
@@ -136,197 +145,201 @@ export default function useMatchSummary(resultado, datosResultado) {
     );
 
     // CÓRNERS TOTALES
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.corners"),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.overCorners",
-            { count: "9.5" },
-          ),
-          probabilidad: corners?.["Over 9.5"],
-          tipo: "corners",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.underCorners",
-            { count: "9.5" },
-          ),
-          probabilidad: corners?.["Under 9.5"],
-          tipo: "corners",
-        },
-      ],
-      t("matchAnalytics.analytics.results.summaryKeys.cornersMarketDesc"),
-    );
+    if (tieneCorners) {
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.corners"),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overCorners",
+              { count: "9.5" },
+            ),
+            probabilidad: corners?.["Over 9.5"],
+            tipo: "corners",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underCorners",
+              { count: "9.5" },
+            ),
+            probabilidad: corners?.["Under 9.5"],
+            tipo: "corners",
+          },
+        ],
+        t("matchAnalytics.analytics.results.summaryKeys.cornersMarketDesc"),
+      );
 
-    // CÓRNERS PRIMERA MITAD
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.corners1T"),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.overCorners",
-            { count: "4.5" },
-          ),
-          probabilidad: corners?.["Over 4.5 1H"],
-          tipo: "corners",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.underCorners",
-            { count: "4.5" },
-          ),
-          probabilidad: corners?.["Under 4.5 1H"],
-          tipo: "corners",
-        },
-      ],
-      t("matchAnalytics.analytics.results.summaryKeys.cornersMarketDesc1T"),
-    );
+      // CÓRNERS PRIMERA MITAD
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.corners1T"),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overCorners",
+              { count: "4.5" },
+            ),
+            probabilidad: corners?.["Over 4.5 1H"],
+            tipo: "corners",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underCorners",
+              { count: "4.5" },
+            ),
+            probabilidad: corners?.["Under 4.5 1H"],
+            tipo: "corners",
+          },
+        ],
+        t("matchAnalytics.analytics.results.summaryKeys.cornersMarketDesc1T"),
+      );
 
-    // CÓRNERS LOCAL 4.5
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.teamCornersTitle", {
-        team: local,
-      }),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
-            { team: local, count: "4.5" },
-          ),
-          probabilidad: corners?.["Home_Over_4.5"],
-          tipo: "corners",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
-            { team: local, count: "4.5" },
-          ),
-          probabilidad: corners?.["Home_Under_4.5"],
-          tipo: "corners",
-        },
-      ],
-      t(
-        "matchAnalytics.analytics.results.summaryKeys.homeIndividualMarketDesc",
-      ),
-    );
+      // CÓRNERS LOCAL 4.5
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.teamCornersTitle", {
+          team: local,
+        }),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              { team: local, count: "4.5" },
+            ),
+            probabilidad: corners?.["Home_Over_4.5"],
+            tipo: "corners",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              { team: local, count: "4.5" },
+            ),
+            probabilidad: corners?.["Home_Under_4.5"],
+            tipo: "corners",
+          },
+        ],
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.homeIndividualMarketDesc",
+        ),
+      );
 
-    // CÓRNERS LOCAL 5.5
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.teamLineTitle", {
-        team: local,
-        count: "5.5",
-      }),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
-            { team: local, count: "5.5" },
-          ),
-          probabilidad: corners?.["Home_Over_5.5"],
-          tipo: "corners",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
-            { team: local, count: "5.5" },
-          ),
-          probabilidad: corners?.["Home_Under_5.5"],
-          tipo: "corners",
-        },
-      ],
-      t(
-        "matchAnalytics.analytics.results.summaryKeys.homeIndividualMarketDesc",
-      ),
-    );
+      // CÓRNERS LOCAL 5.5
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.teamLineTitle", {
+          team: local,
+          count: "5.5",
+        }),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              { team: local, count: "5.5" },
+            ),
+            probabilidad: corners?.["Home_Over_5.5"],
+            tipo: "corners",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              { team: local, count: "5.5" },
+            ),
+            probabilidad: corners?.["Home_Under_5.5"],
+            tipo: "corners",
+          },
+        ],
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.homeIndividualMarketDesc",
+        ),
+      );
 
-    // CÓRNERS VISITANTE 3.5
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.teamCornersTitle", {
-        team: visitante,
-      }),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
-            { team: visitante, count: "3.5" },
-          ),
-          probabilidad: corners?.["Away_Over_3.5"],
-          tipo: "corners",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
-            { team: visitante, count: "3.5" },
-          ),
-          probabilidad: corners?.["Away_Under_3.5"],
-          tipo: "corners",
-        },
-      ],
-      t(
-        "matchAnalytics.analytics.results.summaryKeys.awayIndividualMarketDesc",
-      ),
-    );
+      // CÓRNERS VISITANTE 3.5
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.teamCornersTitle", {
+          team: visitante,
+        }),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              { team: visitante, count: "3.5" },
+            ),
+            probabilidad: corners?.["Away_Over_3.5"],
+            tipo: "corners",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              { team: visitante, count: "3.5" },
+            ),
+            probabilidad: corners?.["Away_Under_3.5"],
+            tipo: "corners",
+          },
+        ],
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.awayIndividualMarketDesc",
+        ),
+      );
 
-    // CÓRNERS VISITANTE 4.5
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.teamLineTitle", {
-        team: visitante,
-        count: "4.5",
-      }),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
-            { team: visitante, count: "4.5" },
-          ),
-          probabilidad: corners?.["Away_Over_4.5"],
-          tipo: "corners",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
-            { team: visitante, count: "4.5" },
-          ),
-          probabilidad: corners?.["Away_Under_4.5"],
-          tipo: "corners",
-        },
-      ],
-      t(
-        "matchAnalytics.analytics.results.summaryKeys.awayIndividualMarketDesc",
-      ),
-    );
+      // CÓRNERS VISITANTE 4.5
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.teamLineTitle", {
+          team: visitante,
+          count: "4.5",
+        }),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamOverCorners",
+              { team: visitante, count: "4.5" },
+            ),
+            probabilidad: corners?.["Away_Over_4.5"],
+            tipo: "corners",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.teamUnderCorners",
+              { team: visitante, count: "4.5" },
+            ),
+            probabilidad: corners?.["Away_Under_4.5"],
+            tipo: "corners",
+          },
+        ],
+        t(
+          "matchAnalytics.analytics.results.summaryKeys.awayIndividualMarketDesc",
+        ),
+      );
+    }
 
     // TARJETAS
-    const refereeName =
-      arbitro?.toLowerCase() === "desconocido"
-        ? t("sportsSelect.unknownReferee")
-        : arbitro;
+    if (tieneTarjetas) {
+      const refereeName =
+        arbitro?.toLowerCase() === "desconocido"
+          ? t("sportsSelect.unknownReferee")
+          : arbitro;
 
-    evaluarMercado(
-      t("matchAnalytics.analytics.results.summaryKeys.cards"),
-      [
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.overCards",
-            { count: "4.5" },
-          ),
-          probabilidad: tarjetas?.["Over 4.5"],
-          tipo: "tarjetas",
-        },
-        {
-          seleccion: t(
-            "matchAnalytics.analytics.results.summaryKeys.underCards",
-            { count: "4.5" },
-          ),
-          probabilidad: tarjetas?.["Under 4.5"],
-          tipo: "tarjetas",
-        },
-      ],
-      t("matchAnalytics.analytics.results.summaryKeys.refereeAdjustedDesc", {
-        referee: refereeName,
-      }),
-    );
+      evaluarMercado(
+        t("matchAnalytics.analytics.results.summaryKeys.cards"),
+        [
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.overCards",
+              { count: "4.5" },
+            ),
+            probabilidad: tarjetas?.["Over 4.5"],
+            tipo: "tarjetas",
+          },
+          {
+            seleccion: t(
+              "matchAnalytics.analytics.results.summaryKeys.underCards",
+              { count: "4.5" },
+            ),
+            probabilidad: tarjetas?.["Under 4.5"],
+            tipo: "tarjetas",
+          },
+        ],
+        t("matchAnalytics.analytics.results.summaryKeys.refereeAdjustedDesc", {
+          referee: refereeName,
+        }),
+      );
+    }
 
     // LIMPIAR
     const ordenados = candidatos
@@ -385,14 +398,14 @@ export default function useMatchSummary(resultado, datosResultado) {
           { value: "2.1" },
         ),
       );
-    if (totalCorners >= 9.5)
+    if (tieneCorners && totalCorners >= 9.5)
       tendencias.push(
         t(
           "matchAnalytics.analytics.results.summaryKeys.trends.highCornersExpectation",
           { value: "9.5" },
         ),
       );
-    if (totalCards >= 4.5)
+    if (tieneTarjetas && totalCards >= 4.5)
       tendencias.push(
         t(
           "matchAnalytics.analytics.results.summaryKeys.trends.highCardsExpectation",
@@ -407,7 +420,7 @@ export default function useMatchSummary(resultado, datosResultado) {
           "matchAnalytics.analytics.results.summaryKeys.trends.highOffensiveProductionAi",
         ),
       );
-    } else if (totalXgAi <= 2.0) {
+    } else if (totalXgAi <= 2.0 && totalXgAi > 0) {
       tendencias.push(
         t(
           "matchAnalytics.analytics.results.summaryKeys.trends.lowOffensiveProductionAi",
@@ -421,7 +434,7 @@ export default function useMatchSummary(resultado, datosResultado) {
       );
     }
 
-    if (probOver95CornersAi >= 0.6) {
+    if (tieneCorners && probOver95CornersAi >= 0.6) {
       tendencias.push(
         t(
           "matchAnalytics.analytics.results.summaryKeys.trends.highCornersExpectationAi",

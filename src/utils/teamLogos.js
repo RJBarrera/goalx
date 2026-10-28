@@ -77,6 +77,7 @@ const equiposLigaMX = {
   "cruz azul": "cruz-azul.svg",
   juarez: "juarez.svg",
   chivas: "chivas.svg",
+  "guadalajara w": "chivas.svg",
   leon: "leon.svg",
   necaxa: "necaxa.svg",
   puebla: "puebla.svg",

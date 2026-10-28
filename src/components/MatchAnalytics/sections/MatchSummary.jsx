@@ -1,6 +1,5 @@
 // sections/MatchSummary.jsx
 import { useTranslation } from "react-i18next";
-import { SectionHeader } from "./utils";
 
 export default function MatchSummary({ resumenProbabilidades, porcentaje }) {
   const { t } = useTranslation();
@@ -10,12 +9,6 @@ export default function MatchSummary({ resumenProbabilidades, porcentaje }) {
 
   return (
     <>
-      <SectionHeader
-        code="TOP"
-        eyebrow={t("matchAnalytics.analytics.results.summary.eyebrow")}
-        title={t("matchAnalytics.analytics.results.summary.title")}
-        description={t("matchAnalytics.analytics.results.summary.description")}
-      />
       {/* PRINCIPAL */}
       {resumenProbabilidades.principal && (
         <div className="match-summary-highlight">

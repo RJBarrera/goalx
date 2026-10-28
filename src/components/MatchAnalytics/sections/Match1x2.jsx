@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { CustomTooltip, SectionHeader } from "./utils";
+import { CustomTooltip } from "./utils";
 
 export default function Match1x2({ datosResultado }) {
   const { t } = useTranslation();
@@ -20,15 +20,6 @@ export default function Match1x2({ datosResultado }) {
 
   return (
     <>
-      <SectionHeader
-        code="1X2"
-        eyebrow={t("matchAnalytics.analytics.results.market1x2.eyebrow")}
-        title={t("matchAnalytics.analytics.results.market1x2.title")}
-        description={t(
-          "matchAnalytics.analytics.results.market1x2.description",
-        )}
-      />
-
       {/* MODELO CLASICO */}
       <div>
         <span className="match-team-label">

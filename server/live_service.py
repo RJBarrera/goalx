@@ -12,10 +12,9 @@ from dotenv import load_dotenv
 
 from competition_config import (
     get_competition,
+    COMPETITION_EQUIVALENCES,
+    COMPETITION_ALIASES,
     TEAM_ALIASES,
-    EUROPE_TEAM_ALIASES,
-    TEAM_EQUIVALENCES as EQUIVALENCIAS,
-    LIGA_MX_F_EQUIVALENCIAS,
 )
 
 from sportsdb_service import (
@@ -115,24 +114,16 @@ def _canonical_team(
     competition_id="liga-mx",
 ):
 
-    if competition_id == "liga-mx":
-        value = EQUIVALENCIAS.get(value, value)
-        
-    if competition_id == "liga-mx-f":
-        value = LIGA_MX_F_EQUIVALENCIAS.get(value, value)
+    # Equivalencia inicial segun la competición
+    equiv_map = COMPETITION_EQUIVALENCES.get(competition_id, {})
+    translated = equiv_map.get(value, value)
 
-    normalized = _normalize_text(value)
+    # Limpieza
+    normalized = _normalize_text(translated)
 
-    if competition_id != "liga-mx":
-        return EUROPE_TEAM_ALIASES.get(
-            normalized,
-            normalized,
-        )
-
-    return TEAM_ALIASES.get(
-        normalized,
-        normalized,
-    )
+    # Alias especifico (con TEAM_ALIASES como fallback por defecto)
+    alias_map = COMPETITION_ALIASES.get(competition_id, TEAM_ALIASES)
+    return alias_map.get(normalized, normalized)
 
 
 # CACHE KEY
@@ -230,13 +221,8 @@ class LiveFootballService:
         value,
     ):
 
-        if self.competition_id == "liga-mx":
-            return EQUIVALENCIAS.get(value, value)
-        
-        if self.competition_id == "liga-mx-f":
-            return LIGA_MX_F_EQUIVALENCIAS.get(value, value)
-
-        return value
+        mapping = COMPETITION_EQUIVALENCES.get(self.competition_id, {})
+        return mapping.get(value, value)
 
     def _canonical_team_name(
         self,

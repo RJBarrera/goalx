@@ -8,12 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import {
-  CustomTooltip,
-  MetricCard,
-  ProbabilityBar,
-  SectionHeader,
-} from "./utils";
+import { CustomTooltip, MetricCard, ProbabilityBar } from "./utils";
 
 const COLORS = {
   local: "#21cfa1",
@@ -38,12 +33,6 @@ export default function MatchGoals({
 
   return (
     <>
-      <SectionHeader
-        code="xG"
-        eyebrow={t("matchAnalytics.analytics.results.goals.eyebrow")}
-        title={t("matchAnalytics.analytics.results.goals.title")}
-        description={t("matchAnalytics.analytics.results.goals.description")}
-      />
       <div className="match-two-columns">
         {/*  MODELO CLASICO */}
         <div className="match-panel">
