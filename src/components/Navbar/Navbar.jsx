@@ -155,7 +155,6 @@ function Navbar() {
                   const active = item.id === competitionId;
                   const disabledIds = [
                     "champions",
-                    "ligue-1",
                     "premier-league",
                   ];
                   const disabled = disabledIds.includes(item.id);
@@ -307,7 +306,6 @@ function Navbar() {
               const active = item.id === competitionId;
               const disabledIds = [
                 "champions",
-                "ligue-1",
                 "premier-league",
               ];
               const disabled = disabledIds.includes(item.id);

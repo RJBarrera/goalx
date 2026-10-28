@@ -61,9 +61,14 @@ const STOP_WORDS = new Set([
   "deportivo",
   "unam",
   "guadalajara",
+  // La liga
   "la",
   "las",
   "vigo",
+  // Ligue1
+  "foot",
+  "estac",
+  "le",
 ]);
 
 // Mapeo de equipos por liga (las claves deben coincidir con normalizarLiga)
@@ -124,6 +129,33 @@ const TEAM_LOGO_FILES = {
     valencia: "valencia.svg",
     valladolid: "valladolid.svg",
     villarreal: "villarreal.svg",
+  },
+  "ligue-1": {
+    ajaccio: "ajaccio.svg",
+    angers: "angers.svg",
+    auxerre: "auxerre.svg",
+    clermont: "clermont.svg",
+    troyes: "troyes.svg",
+    havre: "havre.svg",
+    mans: "mans.svg",
+    lens: "lens.svg",
+    lille: "lille.svg",
+    lorient: "lorient.svg",
+    lyon: "lyon.svg",
+    marseille: "marseille.svg",
+    metz: "metz.svg",
+    monaco: "monaco.svg",
+    montpellier: "montpellier.svg",
+    nantes: "nantes.svg",
+    nice: "nice.svg",
+    paris: "paris.svg",
+    psg: "psg.svg",
+    reims:"reims.svg",
+    rennes: "rennes.svg",
+    etienne: "etienne.svg",
+    brest: "brest.svg",
+    strasbourg: "strasbourg.svg",
+    toulouse: "toulouse.svg",
   },
 };
 

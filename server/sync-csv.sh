@@ -96,33 +96,33 @@ fi
 
 
 # --- 4. LIGUE 1 ---
-# echo ""
-# echo "[ 4 / 5 ] LIGUE 1"
-# SRC_LIGUE1="/app/server/data/ligue-1/historial_ligue1.csv"
-# DEST_LIGUE1="/data/ligue-1/historial_ligue1.csv"
+echo ""
+echo "[ 4 / 5 ] LIGUE 1"
+SRC_LIGUE1="/app/server/data/ligue-1/historial_ligue1.csv"
+DEST_LIGUE1="/data/ligue-1/historial_ligue1.csv"
 
-# echo -n "  -> Versión App (GitHub): "
-# if [ -f "$SRC_LIGUE1" ]; then
-#     wc -l < "$SRC_LIGUE1" | xargs echo "líneas"
-# else
-#     echo "No encontrado ($SRC_LIGUE1)"
-# fi
+echo -n "  -> Versión App (GitHub): "
+if [ -f "$SRC_LIGUE1" ]; then
+    wc -l < "$SRC_LIGUE1" | xargs echo "líneas"
+else
+    echo "No encontrado ($SRC_LIGUE1)"
+fi
 
-# echo -n "  -> Versión Railway (/data): "
-# if [ -f "$DEST_LIGUE1" ]; then
-#     wc -l < "$DEST_LIGUE1" | xargs echo "líneas"
-# else
-#     echo "No existe aún en /data"
-# fi
+echo -n "  -> Versión Railway (/data): "
+if [ -f "$DEST_LIGUE1" ]; then
+    wc -l < "$DEST_LIGUE1" | xargs echo "líneas"
+else
+    echo "No existe aún en /data"
+fi
 
-# read -p "¿Deseas copiar/homologar el archivo Ligue 1 de GitHub a Railway? (s/n): " resp_ligue1
-# if [[ "$resp_ligue1" =~ ^[sS]$ ]]; then
-#     mkdir -p "$(dirname "$DEST_LIGUE1")"
-#     cp "$SRC_LIGUE1" "$DEST_LIGUE1"
-#     echo "Archivo Ligue 1 copiado con éxito."
-# else
-#     echo "Omitido."
-# fi
+read -p "¿Deseas copiar/homologar el archivo Ligue 1 de GitHub a Railway? (s/n): " resp_ligue1
+if [[ "$resp_ligue1" =~ ^[sS]$ ]]; then
+    mkdir -p "$(dirname "$DEST_LIGUE1")"
+    cp "$SRC_LIGUE1" "$DEST_LIGUE1"
+    echo "Archivo Ligue 1 copiado con éxito."
+else
+    echo "Omitido."
+fi
 
 
 # # --- 5. PREMIER LEAGUE ---
