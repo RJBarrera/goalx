@@ -40,6 +40,12 @@ REQUIRED_DATASET_COLUMNS = [
     "away_cards",
     "total_cards",
     "date",
+    "home_sont",
+    "away_sont",
+    "home_shots_off",
+    "away_shots_off",
+    "home_shots_total",
+    "away_shots_total",
 ]
 
 
@@ -296,7 +302,9 @@ class CompetitionManager:
 
             print("⚙️ Entrenando modelos XGBoost para Tiros (SOT y Totales)...")
             started = time.time()
-            xgb_sot_home, xgb_sot_away, xgb_shots_home, xgb_shots_away = entrenar_xgboost_tiros(df.copy())
+            xgb_sot_home, xgb_sot_away, xgb_shots_home, xgb_shots_away = (
+                entrenar_xgboost_tiros(df.copy())
+            )
             print(f"   ✅ XGBoost de Tiros listo en {time.time() - started:.2f} seg.")
 
             runtime.state["dc_model"] = dc_model

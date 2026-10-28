@@ -226,12 +226,20 @@ LALIGA_EQUIVALENCIAS = {
     "Deportivo de A Coruña": "Deportivo La Coruña",
 }
 
+LIGUE1_EQUIVALENCIAS = {
+    "Paris Saint Germain": "PSG",
+    "Paris Saint-Germain": "PSG",
+    "Estac Troyes": "Troyes",
+    "Saint Etienne": "Etienne",
+    "Stade Brestois 29": "Brest",
+}
+
 # Equivalencias (Para busquedas rapidas)
 COMPETITION_EQUIVALENCES = {
     "liga-mx": TEAM_EQUIVALENCES,
     "liga-mx-f": LIGA_MX_F_EQUIVALENCIAS,
     "laliga": LALIGA_EQUIVALENCIAS,
-    # "ligue-1": LIGUE1_EQUIVALENCIAS,
+    "ligue-1": LIGUE1_EQUIVALENCIAS,
     # "premier-league": PREMIER_LEAGUE_EQUIVALENCIAS,
 }
 
