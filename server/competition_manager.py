@@ -7,6 +7,7 @@ from competition_config import (
     DEFAULT_COMPETITION_ID,
     get_competition,
     list_competitions,
+    INACTIVE_TEAMS_BY_COMPETITION,
 )
 from dataset_sync_service import DatasetSyncService
 from live_service import LiveFootballService
@@ -192,6 +193,16 @@ class CompetitionManager:
                         ignore_index=True,
                     )
                 )
+
+                # --- Filtrado dinamico desde el backend ---
+                # Buscamos la lista de exclusión correspondiente
+                equipos_a_excluir = INACTIVE_TEAMS_BY_COMPETITION.get(
+                    competition_id, set()
+                )
+
+                # Excluimos los equipos para que no lleguen al front
+                equipos = [eq for eq in equipos if eq not in equipos_a_excluir]
+                # ------------------------------------------
 
                 arbitros = _unique_values(df["referee"])
                 arbitros = [

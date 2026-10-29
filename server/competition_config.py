@@ -139,7 +139,7 @@ COMPETITIONS = {
         "dataset_sync_enabled": True,
         "model_min_matches": 30,
         "seed_history_filename": "historial_champions.csv",
-        "history_filename": "historial.csv",
+        "history_filename": "historial_champions.csv",
         "seed_highlights_filename": "season_highlights_champions.json",
         "highlights_filename": "season_highlights.json",
         "seed_streams_filename": "match_streams_champions.json",
@@ -226,13 +226,45 @@ LALIGA_EQUIVALENCIAS = {
     "Deportivo de A Coruña": "Deportivo La Coruña",
 }
 
-LIGUE1_EQUIVALENCIAS = {
+# Equipos que pueden aparecer en múltiples competiciones
+EQUIVALENCIAS_GENERALES = {
     "Paris Saint Germain": "PSG",
     "Paris Saint-Germain": "PSG",
-    "Estac Troyes": "Troyes",
-    "Saint Etienne": "Etienne",
     "Stade Brestois 29": "Brest",
 }
+
+# Equivalencias específicas de Ligue 1
+LIGUE1_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
+    "Estac Troyes": "Troyes",
+    "Saint Etienne": "Etienne",
+}
+
+# Equivalencias específicas de Champions
+CHAMPIONS_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
+    # "AC Milan": "Milan",
+    "AEK Athens FC": "AEK Athens",
+    "Roma": "AS Roma",
+    "BSC Young Boys": "Young Boys",
+    "Bayern Munich": "Bayern München",
+    "Bodø/Glimt": "Bodo/Glimt",
+    "Club Brugge KV": "Club Brugge",
+    "FC Basel 1893": "Basel",
+    "FC Copenhagen": "Copenhagen",
+    "FC Midtjylland": "Midtjylland",
+    "FC Porto": "Porto",
+    "FK Crvena Zvezda": "Crvena Zvezda",
+    "Fenerbahçe": "Fenerbahce",
+    "Ferencvarosi TC": "Ferencvaros",
+    "Inter Milan": "Inter",
+    "Kairat Almaty": "Kairat",
+    "Lask Linz": "LASK",
+    "Olympiakos Piraeus": "Olympiacos",
+    "Raków Częstochowa": "Rakow Czestochowa",
+    "Sabah FA": "Sabah",
+    "SC Braga": "Braga",
+    "Union St. Gilloise": "Union Saint-Gilloise",
+}
+
 
 # Equivalencias (Para busquedas rapidas)
 COMPETITION_EQUIVALENCES = {
@@ -241,6 +273,9 @@ COMPETITION_EQUIVALENCES = {
     "laliga": LALIGA_EQUIVALENCIAS,
     "ligue-1": LIGUE1_EQUIVALENCIAS,
     # "premier-league": PREMIER_LEAGUE_EQUIVALENCIAS,
+    # "bundesliga": BUNDESLIGA_EQUIVALENCIAS,
+    # "serie-a": SERIE_A_EQUIVALENCIAS,
+    "champions": CHAMPIONS_EQUIVALENCIAS,
 }
 
 # ALIAS
@@ -377,6 +412,98 @@ COMPETITION_ALIASES = {
     "liga-mx": TEAM_ALIASES,
     "liga-mx-f": LIGA_MX_F_TEAM_ALIASES,
     "champions": EUROPE_TEAM_ALIASES,
+}
+
+
+# Exclusiones (Equipos fuera de liga)
+# LIGA_MX_INACTIVE_TEAMS = {"Mazatlán"}
+
+LALIGA_INACTIVE_TEAMS = {
+    "Almeria",
+    "Cadiz",
+    "Girona",
+    "Granada CF",
+    "Las Palmas",
+    "Leganes",
+    "Mallorca",
+    "Oviedo",
+    "Valladolid",
+}
+
+LIGUE1_INACTIVE_TEAMS = {
+    "Ajaccio",
+    "Clermont Foot",
+    "Etienne",
+    "Metz",
+    "Montpellier",
+    "Nantes",
+    "Reims",
+}
+
+CHAMPIONS_INACTIVE_TEAMS = {
+    "AC Milan",
+    "Ajax",
+    "Antwerp",
+    "Atalanta",
+    "Athletic Club",
+    "Basel",
+    "Bayer Leverkusen",
+    "Benfica",
+    "Bologna",
+    "Braga",
+    "Brest",
+    "Celje",
+    "Celtic",
+    "Chelsea",
+    "Copenhagen",
+    "Crvena Zvezda",
+    "Dinamo Zagreb",
+    "Dynamo Kyiv",
+    "Eintracht Frankfurt",
+    "Ferencvaros",
+    "Girona",
+    "Hapoel Beer Sheva",
+    "Juventus",
+    "Kairat",
+    "Lazio",
+    "Levski Sofia",
+    "Lyon",
+    "Maccabi Haifa",
+    "Malmo FF",
+    "Marseille",
+    "Midtjylland",
+    "Molde",
+    "Monaco",
+    "NEC Nijmegen",
+    "Newcastle",
+    "Olympiacos",
+    "Pafos",
+    "Panathinaikos",
+    "Plzen",
+    "Qarabag",
+    "Rakow Czestochowa",
+    "Rangers",
+    "Real Sociedad",
+    "Red Bull Salzburg",
+    "Sevilla",
+    "Sparta Praha",
+    "Sturm Graz",
+    "Tottenham",
+    "Trabzonspor",
+    "Union Berlin",
+    "Union Saint-Gilloise",
+    "Young Boys",
+}
+
+INACTIVE_TEAMS_BY_COMPETITION = {
+    # "liga-mx": LIGA_MX_INACTIVE_TEAMS,
+    # "liga-mx-f": LIGA_MX_F_INACTIVE_TEAMS,
+    "laliga": LALIGA_INACTIVE_TEAMS,
+    "ligue-1": LIGUE1_INACTIVE_TEAMS,
+    # "premier-league": PREMIER_LEAGUE_INACTIVE_TEAMS,
+    # "bundesliga": BUNDESLIGA_INACTIVE_TEAMS,
+    # "serie-a": SERIE_A_INACTIVE_TEAMS,
+    "champions": CHAMPIONS_INACTIVE_TEAMS,
 }
 
 
