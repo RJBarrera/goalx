@@ -7,7 +7,7 @@ echo "=========================================="
 
 # --- 1. LIGA MX ---
 echo ""
-echo "[ 1 / 5 ] LIGA MX"
+echo "[ 1 / 6 ] LIGA MX"
 SRC_LIGA="/app/server/historial_ligamx_2023.csv"
 DEST_LIGA="/data/historial_ligamx_2023.csv"
 
@@ -37,7 +37,7 @@ fi
 
 # --- 2. LIGA MX FEMENIL ---
 echo ""
-echo "[ 2 / 5 ] LIGA MX FEMENIL"
+echo "[ 2 / 6 ] LIGA MX FEMENIL"
 SRC_FEM="/app/server/data/liga-mx-f/historial_F.csv"
 DEST_FEM="/data/liga-mx-f/historial_F.csv"
 
@@ -67,7 +67,7 @@ fi
 
 # --- 3. LA LIGA ---
 echo ""
-echo "[ 3 / 5 ] LA LIGA"
+echo "[ 3 / 6 ] LA LIGA"
 SRC_LALIGA="/app/server/data/laliga/historial_laliga.csv"
 DEST_LALIGA="/data/laliga/historial_laliga.csv"
 
@@ -97,7 +97,7 @@ fi
 
 # --- 4. LIGUE 1 ---
 echo ""
-echo "[ 4 / 5 ] LIGUE 1"
+echo "[ 4 / 6 ] LIGUE 1"
 SRC_LIGUE1="/app/server/data/ligue-1/historial_ligue1.csv"
 DEST_LIGUE1="/data/ligue-1/historial_ligue1.csv"
 
@@ -127,7 +127,7 @@ fi
 
 # # --- 5. PREMIER LEAGUE ---
 # echo ""
-# echo "[ 5 / 5 ] PREMIER LEAGUE"
+# echo "[ 5 / 6 ] PREMIER LEAGUE"
 # SRC_PREMIER="/app/server/data/premier-league/historial_premier.csv"
 # DEST_PREMIER="/data/premier-league/historial_premier.csv"
 
@@ -154,6 +154,34 @@ fi
 #     echo "Omitido."
 # fi
 
+# --- 6. UEFA CHAMPIONS ---
+echo ""
+echo "[ 6 / 6 ] UEFA CHAMPIONS"
+SRC_CHAMPIONS="/app/server/data/champions/historial_champions.csv"
+DEST_CHAMPIONS="/data/champions/historial_champions.csv"
+
+echo -n "  -> Versión App (GitHub): "
+if [ -f "$SRC_CHAMPIONS" ]; then
+    wc -l < "$SRC_CHAMPIONS" | xargs echo "líneas"
+else
+    echo "No encontrado ($SRC_CHAMPIONS)"
+fi
+
+echo -n "  -> Versión Railway (/data): "
+if [ -f "$DEST_CHAMPIONS" ]; then
+    wc -l < "$DEST_CHAMPIONS" | xargs echo "líneas"
+else
+    echo "No existe aún en /data"
+fi
+
+read -p "¿Deseas copiar/homologar el archivo UEFA Champions de GitHub a Railway? (s/n): " resp_premier
+if [[ "$resp_premier" =~ ^[sS]$ ]]; then
+    mkdir -p "$(dirname "$DEST_CHAMPIONS")"
+    cp "$SRC_CHAMPIONS" "$DEST_CHAMPIONS"
+    echo "Archivo UEFA Champions copiado con éxito."
+else
+    echo "Omitido."
+fi
 
 echo ""
 echo "Proceso finalizado."

@@ -154,8 +154,9 @@ function Navbar() {
                 {competitions.map((item) => {
                   const active = item.id === competitionId;
                   const disabledIds = [
-                    "champions",
+                    "bundesliga",
                     "premier-league",
+                    "serie-a",
                   ];
                   const disabled = disabledIds.includes(item.id);
                   const itemLogo = getTeamLogo(item.id);
@@ -304,10 +305,7 @@ function Navbar() {
           <div>
             {competitions.map((item) => {
               const active = item.id === competitionId;
-              const disabledIds = [
-                "champions",
-                "premier-league",
-              ];
+              const disabledIds = ["bundesliga", "premier-league", "serie-a"];
               const disabled = disabledIds.includes(item.id);
               const itemLogo = getTeamLogo(item.id);
 
