@@ -551,3 +551,741 @@
     transition: none;
   }
 }
+
+/* EQUIPOS SLIDE MEJORADO */
+
+.season-highlight-slide--match {
+  min-height: 425px;
+  padding: 96px 76px 65px;
+  isolation: isolate;
+}
+
+/* Iluminación de fondo */
+.season-highlight-slide--match::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 75%,
+      rgba(33, 216, 157, 0.09),
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 82% 35%,
+      rgba(56, 189, 248, 0.055),
+      transparent 38%
+    );
+}
+
+/* Contenido central */
+.season-highlight-slide--match .season-highlight-slide__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Etiqueta del destacado */
+.season-highlight-slide--match .season-highlight-badge {
+  margin-bottom: 7px;
+  font-size: 0.78rem;
+}
+
+/* Nombre de competencia */
+.season-highlight-slide--match .season-highlight-kicker {
+  margin-bottom: 0;
+  font-size: 0.69rem;
+}
+
+/* Panel principal del partido */
+.season-highlight-slide--match .season-highlight-scoreboard {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  align-items: center;
+  width: 100%;
+  max-width: 940px;
+  min-height: 175px;
+  gap: clamp(12px, 3vw, 40px);
+
+  margin-top: 19px;
+  padding: 18px 30px;
+
+  border: 1px solid rgba(33, 216, 157, 0.14);
+  border-radius: 24px;
+
+  background: linear-gradient(
+    115deg,
+    rgba(33, 216, 157, 0.065),
+    rgba(255, 255, 255, 0.025) 48%,
+    rgba(56, 189, 248, 0.06)
+  );
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.04),
+    0 15px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* Equipos */
+.season-highlight-slide--match .season-highlight-club,
+.season-highlight-slide--match .season-highlight-club:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+
+  min-width: 0;
+  text-align: center;
+}
+
+/* Escudos */
+.season-highlight-slide--match .season-highlight-club__logo {
+  display: grid;
+  place-items: center;
+
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(33, 216, 157, 0.11),
+      transparent 80%
+    ),
+    rgba(255, 255, 255, 0.035);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.season-highlight-slide--match .season-highlight-club__logo img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 9px rgba(0, 0, 0, 0.18));
+}
+
+.season-highlight-slide--match .season-highlight-club__logo svg {
+  color: rgba(33, 216, 157, 0.55);
+  font-size: 2rem;
+}
+
+/* Nombres de equipos */
+.season-highlight-slide--match .season-highlight-club strong {
+  max-width: 100%;
+  color: #f7fafc;
+
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  font-weight: 800;
+  line-height: 1.2;
+
+  overflow-wrap: anywhere;
+}
+
+/* Marcador central */
+.season-highlight-slide--match .season-highlight-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 165px;
+  gap: 7px;
+  padding: 20px 16px;
+
+  border: 1px solid rgba(33, 216, 157, 0.22);
+  border-radius: 22px;
+
+  background: rgba(7, 20, 28, 0.85);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.2),
+    inset 0 0 32px rgba(33, 216, 157, 0.035);
+}
+
+.season-highlight-score__numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+
+.season-highlight-slide--match .season-highlight-score__numbers span {
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.season-highlight-slide--match .season-highlight-score__numbers small {
+  color: #21d89d;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.season-highlight-slide--match .season-highlight-score__label {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+/* Estadísticas */
+.season-highlight-slide--match .season-highlight-match-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+  width: 100%;
+  margin-top: 17px;
+}
+
+.season-highlight-match-meta__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.77);
+
+  font-size: 0.77rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.season-highlight-match-meta__chip svg,
+.season-highlight-match-meta__card-icon {
+  color: #21d89d;
+}
+
+.season-highlight-match-meta__chip strong {
+  color: #e9fff7;
+}
+
+/* Decoración de fondo */
+.season-highlight-slide--match .season-highlight-match-decoration {
+  z-index: 0;
+  right: 2%;
+  bottom: -90px;
+
+  color: rgba(33, 216, 157, 0.04);
+  font-size: 310px;
+
+  pointer-events: none;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .season-highlight-slide--match {
+    min-height: 445px;
+    padding: 105px 54px 72px;
+  }
+
+  .season-highlight-slide--match .season-highlight-scoreboard {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__logo {
+    width: 74px;
+    height: 74px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__logo img {
+    width: 57px;
+    height: 57px;
+  }
+
+  .season-highlight-slide--match .season-highlight-score {
+    min-width: 125px;
+    padding: 17px 12px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .season-highlight-slide--match {
+    min-height: 465px;
+    padding: 98px 14px 72px;
+  }
+
+  .season-highlight-slide--match .season-highlight-badge {
+    font-size: 0.66rem;
+  }
+
+  .season-highlight-slide--match .season-highlight-kicker {
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+  }
+
+  .season-highlight-slide--match .season-highlight-scoreboard {
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto
+      minmax(0, 1fr);
+
+    min-height: 168px;
+    gap: 7px;
+    margin-top: 16px;
+    padding: 12px 8px;
+    border-radius: 18px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club,
+  .season-highlight-slide--match .season-highlight-club:last-child {
+    gap: 9px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__logo {
+    width: 57px;
+    height: 57px;
+    border-radius: 15px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__logo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club strong {
+    font-size: 0.67rem;
+    line-height: 1.25;
+  }
+
+  .season-highlight-slide--match .season-highlight-score {
+    min-width: 85px;
+    gap: 5px;
+    padding: 13px 7px;
+    border-radius: 16px;
+  }
+
+  .season-highlight-score__numbers {
+    gap: 5px;
+  }
+
+  .season-highlight-slide--match .season-highlight-score__numbers span {
+    font-size: 2rem;
+  }
+
+  .season-highlight-slide--match .season-highlight-score__numbers small {
+    font-size: 1rem;
+  }
+
+  .season-highlight-slide--match .season-highlight-score__label {
+    font-size: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .season-highlight-slide--match .season-highlight-match-meta {
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .season-highlight-match-meta__chip {
+    gap: 5px;
+    padding: 8px 10px;
+    font-size: 0.65rem;
+  }
+}
+
+/* PLAYER SLIDE MEJORADO */
+
+.season-highlight-slide--player {
+  min-height: 425px;
+  padding: 96px 76px 65px;
+  isolation: isolate;
+}
+
+/* Iluminación de fondo */
+.season-highlight-slide--player::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 75%,
+      rgba(33, 216, 157, 0.09),
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(56, 189, 248, 0.055),
+      transparent 40%
+    );
+}
+
+/* Escudo de fondo */
+.season-highlight-slide--player .season-highlight-slide__visual {
+  pointer-events: none;
+}
+
+/* Contenido central */
+.season-highlight-slide--player .season-highlight-slide__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+/* Etiqueta destacada */
+.season-highlight-slide--player .season-highlight-badge {
+  margin-bottom: 7px;
+  font-size: 0.78rem;
+}
+
+/* Nombre de competición */
+.season-highlight-slide--player .season-highlight-kicker {
+  margin-bottom: 0;
+  font-size: 0.69rem;
+}
+
+/* TARJETA PRINCIPAL DEL JUGADOR */
+
+.season-highlight-player-card {
+  display: grid;
+  grid-template-columns: 135px minmax(0, 1fr) 110px;
+  align-items: center;
+
+  width: 100%;
+  max-width: 940px;
+  min-height: 175px;
+  gap: 25px;
+
+  margin-top: 19px;
+  padding: 22px 32px;
+
+  border: 1px solid rgba(33, 216, 157, 0.14);
+  border-radius: 24px;
+
+  background: linear-gradient(
+    115deg,
+    rgba(33, 216, 157, 0.065),
+    rgba(255, 255, 255, 0.025) 48%,
+    rgba(56, 189, 248, 0.06)
+  );
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.04),
+    0 15px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* AVATAR DEL JUGADOR */
+
+.season-highlight-player-card__avatar {
+  display: grid;
+  place-items: center;
+
+  width: 125px;
+  height: 125px;
+
+  border: 1px solid rgba(33, 216, 157, 0.24);
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(33, 216, 157, 0.22),
+      transparent 70%
+    ),
+    rgba(255, 255, 255, 0.04);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 0 30px rgba(33, 216, 157, 0.05);
+}
+
+.season-highlight-player-card__avatar span {
+  color: #21d89d;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+/* INFORMACIÓN DEL JUGADOR */
+
+.season-highlight-player-card__identity {
+  min-width: 0;
+  text-align: left;
+}
+
+.season-highlight-slide--player .season-highlight-player-card__identity h2 {
+  max-width: 100%;
+  margin: 0;
+
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+
+  overflow-wrap: anywhere;
+}
+
+/* Equipo */
+.season-highlight-slide--player .season-highlight-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 17px;
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.season-highlight-slide--player .season-highlight-team img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+
+/* Escudo del equipo a la derecha */
+.season-highlight-player-card__team-logo {
+  display: grid;
+  place-items: center;
+
+  width: 100px;
+  height: 100px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 23px;
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.season-highlight-player-card__team-logo img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* ESTADÍSTICAS DEL JUGADOR */
+
+.season-highlight-slide--player .season-highlight-player-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  width: 100%;
+  max-width: 940px;
+  gap: 12px;
+
+  margin-top: 17px;
+}
+
+.season-highlight-player-stats__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 85px;
+  padding: 14px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  transition:
+    background 250ms ease,
+    border-color 250ms ease;
+}
+
+.season-highlight-player-stats__card:hover {
+  background: rgba(33, 216, 157, 0.075);
+  border-color: rgba(33, 216, 157, 0.22);
+}
+
+/* Valores */
+.season-highlight-slide--player .season-highlight-player-stats__card strong {
+  color: #ffffff;
+  font-size: 1.85rem;
+  font-weight: 900;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.season-highlight-slide--player
+  .season-highlight-player-stats__card:first-child
+  strong {
+  color: #21d89d;
+}
+
+/* Etiquetas */
+.season-highlight-slide--player .season-highlight-player-stats__card span {
+  margin-top: 7px;
+
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.07em;
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .season-highlight-slide--player {
+    min-height: 445px;
+    padding: 105px 54px 72px;
+  }
+
+  .season-highlight-player-card {
+    grid-template-columns: 105px minmax(0, 1fr) 75px;
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .season-highlight-player-card__avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .season-highlight-player-card__avatar span {
+    font-size: 2.4rem;
+  }
+
+  .season-highlight-player-card__team-logo {
+    width: 74px;
+    height: 74px;
+  }
+
+  .season-highlight-player-card__team-logo img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .season-highlight-slide--player {
+    min-height: 465px;
+    padding: 98px 14px 72px;
+  }
+
+  .season-highlight-slide--player .season-highlight-badge {
+    font-size: 0.66rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-kicker {
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Información compacta */
+  .season-highlight-player-card {
+    grid-template-columns: 74px minmax(0, 1fr);
+
+    min-height: 130px;
+    gap: 12px;
+
+    margin-top: 16px;
+    padding: 14px 12px;
+
+    border-radius: 18px;
+  }
+
+  .season-highlight-player-card__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 17px;
+  }
+
+  .season-highlight-player-card__avatar span {
+    font-size: 1.8rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-card__identity h2 {
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+    line-height: 1.15;
+  }
+
+  .season-highlight-slide--player .season-highlight-team {
+    gap: 6px;
+    max-width: 100%;
+    margin-top: 10px;
+    padding: 6px 9px;
+
+    font-size: 0.68rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-team img {
+    width: 21px;
+    height: 21px;
+  }
+
+  /* En móvil el escudo ya aparece
+     junto al nombre del equipo */
+  .season-highlight-player-card__team-logo {
+    display: none;
+  }
+
+  /* Estadísticas */
+  .season-highlight-slide--player .season-highlight-player-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .season-highlight-player-stats__card {
+    min-height: 79px;
+    padding: 10px 5px;
+    border-radius: 14px;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-stats__card strong {
+    font-size: 1.45rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-stats__card span {
+    margin-top: 6px;
+    font-size: 0.55rem;
+    letter-spacing: 0.02em;
+  }
+}
