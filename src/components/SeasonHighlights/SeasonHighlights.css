@@ -1289,3 +1289,289 @@
     letter-spacing: 0.02em;
   }
 }
+
+/* LOGOS GRANDES DE FONDO EN MATCH SLIDE */
+
+.season-highlight-slide--match .season-highlight-scoreboard {
+  position: relative;
+  overflow: hidden;
+}
+
+.season-highlight-slide--match .season-highlight-club {
+  position: relative;
+  z-index: 1;
+  min-height: 190px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.season-highlight-slide--match .season-highlight-club__bg-logo {
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  opacity: 0.08;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+}
+
+/* Logo de fondo del local */
+.season-highlight-slide--match
+  .season-highlight-club--home
+  .season-highlight-club__bg-logo {
+  left: -10px;
+  transform: translateY(-50%) rotate(-10deg);
+}
+
+/* Logo de fondo del visitante */
+.season-highlight-slide--match
+  .season-highlight-club--away
+  .season-highlight-club__bg-logo {
+  right: -10px;
+  transform: translateY(-50%) rotate(10deg);
+}
+
+/* Asegurar que el contenido quede por encima */
+.season-highlight-slide--match .season-highlight-club__logo,
+.season-highlight-slide--match .season-highlight-club strong {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hacer el logo principal un poco más dominante */
+.season-highlight-slide--match .season-highlight-club__logo {
+  backdrop-filter: blur(4px);
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .season-highlight-slide--match .season-highlight-club {
+    min-height: 150px;
+    padding: 8px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__bg-logo {
+    width: 135px;
+    height: 135px;
+    opacity: 0.08;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .season-highlight-slide--match .season-highlight-club {
+    min-height: 115px;
+    padding: 6px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__bg-logo {
+    width: 95px;
+    height: 95px;
+    opacity: 0.07;
+  }
+
+  .season-highlight-slide--match
+    .season-highlight-club--home
+    .season-highlight-club__bg-logo {
+    left: -6px;
+  }
+
+  .season-highlight-slide--match
+    .season-highlight-club--away
+    .season-highlight-club__bg-logo {
+    right: -6px;
+  }
+}
+
+/* ==========================================
+   GOALPICKS - CARRUSEL MÓVIL REALMENTE COMPACTO
+========================================== */
+
+@media (max-width: 600px) {
+  /* ALTURA REAL DEL RECUADRO */
+  .season-highlights__viewport {
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .season-highlights__track {
+    height: 100%;
+    align-items: stretch;
+  }
+
+  .season-highlights__item {
+    height: 100%;
+    min-width: 0;
+  }
+
+  /* TODOS LOS SLIDES CON LA MISMA ALTURA */
+  .season-highlight-slide--player,
+  .season-highlight-slide--match {
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 0;
+    padding: 65px 12px 38px;
+  }
+
+  /* ENCABEZADO */
+  .season-highlights__header {
+    top: 12px;
+    left: 14px;
+    right: 14px;
+  }
+
+  .season-highlights__header h2 {
+    font-size: 0.9rem;
+    margin-top: 3px;
+  }
+
+  .season-highlights__header > div:first-child > span {
+    font-size: 0.55rem;
+  }
+
+  /* TÍTULOS DE CADA DESTACADO */
+  .season-highlight-slide--player .season-highlight-badge,
+  .season-highlight-slide--match .season-highlight-badge {
+    margin-bottom: 4px;
+    font-size: 0.6rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-kicker,
+  .season-highlight-slide--match .season-highlight-kicker {
+    font-size: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  /* ========================================
+     JUGADORES
+  ======================================== */
+
+  .season-highlight-player-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+    min-height: 65px;
+    gap: 9px;
+    margin-top: 9px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .season-highlight-player-card__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+  }
+
+  .season-highlight-player-card__avatar span {
+    font-size: 1.3rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-card__identity h2 {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  .season-highlight-slide--player .season-highlight-team {
+    margin-top: 5px;
+    padding: 4px 7px;
+    font-size: 0.57rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-team img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .season-highlight-player-card__team-logo {
+    display: none;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-stats {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .season-highlight-player-stats__card {
+    min-height: 50px;
+    padding: 6px 4px;
+    border-radius: 11px;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-stats__card strong {
+    font-size: 1.15rem;
+  }
+
+  .season-highlight-slide--player .season-highlight-player-stats__card span {
+    margin-top: 3px;
+    font-size: 0.46rem;
+  }
+
+  /* ========================================
+     PARTIDOS
+  ======================================== */
+
+  .season-highlight-slide--match .season-highlight-scoreboard {
+    min-height: 95px;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 8px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club,
+  .season-highlight-slide--match .season-highlight-club:last-child {
+    min-height: 0;
+    gap: 5px;
+    padding: 0;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__logo {
+    width: 43px;
+    height: 43px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club__logo img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .season-highlight-slide--match .season-highlight-club strong {
+    font-size: 0.61rem;
+  }
+
+  .season-highlight-slide--match .season-highlight-score {
+    min-width: 70px;
+    padding: 9px 5px;
+  }
+
+  .season-highlight-slide--match .season-highlight-score__numbers span {
+    font-size: 1.5rem;
+  }
+
+  .season-highlight-slide--match .season-highlight-match-meta {
+    margin-top: 7px;
+    gap: 5px;
+  }
+
+  .season-highlight-match-meta__chip {
+    padding: 5px 7px;
+    font-size: 0.53rem;
+  }
+
+  /* NAVEGACIÓN INFERIOR */
+  .season-highlights__arrow {
+    top: auto;
+    bottom: 8px;
+    width: 27px;
+    height: 27px;
+    transform: none;
+  }
+
+  .season-highlights__footer {
+    bottom: 12px;
+    justify-content: center;
+    pointer-events: none;
+  }
+}

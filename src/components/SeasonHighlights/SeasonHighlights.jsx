@@ -245,7 +245,16 @@ function MatchSlide({ slide, competitionName }) {
 
         <div className="season-highlight-scoreboard">
           {/* EQUIPO LOCAL */}
-          <div className="season-highlight-club">
+          <div className="season-highlight-club season-highlight-club--home">
+            {homeLogo && (
+              <img
+                className="season-highlight-club__bg-logo"
+                src={homeLogo}
+                alt=""
+                aria-hidden="true"
+              />
+            )}
+
             <div className="season-highlight-club__logo">
               {homeLogo ? (
                 <img src={homeLogo} alt={match.home?.name} />
@@ -273,7 +282,16 @@ function MatchSlide({ slide, competitionName }) {
           </div>
 
           {/* EQUIPO VISITANTE */}
-          <div className="season-highlight-club">
+          <div className="season-highlight-club season-highlight-club--away">
+            {awayLogo && (
+              <img
+                className="season-highlight-club__bg-logo"
+                src={awayLogo}
+                alt=""
+                aria-hidden="true"
+              />
+            )}
+
             <div className="season-highlight-club__logo">
               {awayLogo ? (
                 <img src={awayLogo} alt={match.away?.name} />
