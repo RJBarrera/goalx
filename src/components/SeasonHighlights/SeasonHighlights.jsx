@@ -471,7 +471,7 @@ function SeasonHighlights() {
     <section className="season-highlights">
       <div className="season-highlights__shell">
         <div className="season-highlights__header">
-          <div>
+          <div className="season-kicker-title">
             <span>{t("seasonHighlights.container.kicker")}</span>
 
             <h2>{t("seasonHighlights.container.title")}</h2>
@@ -496,7 +496,6 @@ function SeasonHighlights() {
             </span>
           </div>
         </div>
-
         <div className="season-highlights__viewport">
           {/* Flechas de navegacion manual */}
           {slides.length > 1 && (
