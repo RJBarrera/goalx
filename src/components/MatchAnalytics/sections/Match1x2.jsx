@@ -1,4 +1,3 @@
-// sections/Match1x2.jsx
 import { useTranslation } from "react-i18next";
 import {
   Bar,
@@ -15,143 +14,139 @@ import { CustomTooltip } from "./utils";
 export default function Match1x2({ datosResultado }) {
   const { t } = useTranslation();
 
-  // Si los datos aún no existen, no renderizamos nada
   if (!datosResultado) return null;
 
-  return (
-    <>
-      {/* MODELO CLASICO */}
-      <div>
-        <span className="match-team-label">
-          {t("matchAnalytics.analytics.results.market1x2.classicLabel")}
-        </span>
-      </div>
+  const outcomes = [
+    {
+      label: t("matchAnalytics.analytics.results.fixture.localLabel"),
+      variant: "home",
+    },
+    {
+      label: t("matchAnalytics.analytics.results.market1x2.draw"),
+      variant: "draw",
+    },
+    {
+      label: t("matchAnalytics.analytics.results.fixture.visitorLabel"),
+      variant: "away",
+    },
+  ];
 
-      <div className="match-result-layout" style={{ marginBottom: "3rem" }}>
-        <div className="match-chart-card">
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart
-              data={datosResultado.resultado1X2}
-              layout="vertical"
-              margin={{ top: 10, right: 30, bottom: 10, left: 20 }}
-            >
-              <CartesianGrid
-                strokeDasharray="4 4"
-                horizontal={false}
-                stroke="#e6ebf1"
-              />
-              <XAxis
-                type="number"
-                domain={[0, 100]}
-                tickFormatter={(value) => `${value}%`}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                dataKey="name"
-                type="category"
-                width={120}
-                axisLine={false}
-                tickLine={false}
-              />
-              <Tooltip content={<CustomTooltip />} />
-              <Bar
-                dataKey="value"
-                name={t(
-                  "matchAnalytics.analytics.results.market1x2.probabilityName",
-                )}
-                radius={[0, 8, 8, 0]}
-                barSize={28}
-              >
-                {datosResultado.resultado1X2.map((entry) => (
-                  <Cell key={entry.name} fill={entry.color} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        <aside className="match-insight-card">
-          <div className="match-insight-card__label">
-            {t("matchAnalytics.analytics.results.market1x2.dominantScenario")}
-          </div>
-          <strong>{datosResultado.ganador.value.toFixed(1)}%</strong>
-          <h3>{datosResultado.ganador.name}</h3>
-          <div className="match-insight-divider" />
-          <p>
-            {t(
-              "matchAnalytics.analytics.results.market1x2.dominantDescription",
+  const renderChart = (data) => (
+    <div className="match-1x2-model__chart">
+      <ResponsiveContainer width="100%" height={190}>
+        <BarChart
+          data={data}
+          layout="vertical"
+          margin={{ top: 4, right: 12, bottom: 2, left: 8 }}
+        >
+          <CartesianGrid
+            strokeDasharray="3 5"
+            horizontal={false}
+            stroke="#e6ebf1"
+          />
+          <XAxis
+            type="number"
+            domain={[0, 100]}
+            tickFormatter={(value) => `${value}%`}
+            axisLine={false}
+            tickLine={false}
+          />
+          <YAxis
+            dataKey="name"
+            type="category"
+            width={100}
+            axisLine={false}
+            tickLine={false}
+          />
+          <Tooltip content={<CustomTooltip />} />
+          <Bar
+            dataKey="value"
+            name={t(
+              "matchAnalytics.analytics.results.market1x2.probabilityName",
             )}
-          </p>
-        </aside>
+            radius={[0, 5, 5, 0]}
+            barSize={20}
+          >
+            {data.map((entry) => (
+              <Cell key={entry.name} fill={entry.color} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+
+  const renderWinner = (winner, description) => (
+    <div
+      className="match-1x2-winner"
+      style={{ "--match-winner-color": winner.color }}
+    >
+      <div>
+        <span className="match-1x2-winner__label">
+          {t("matchAnalytics.analytics.results.market1x2.dominantScenario")}
+        </span>
+        <strong className="match-1x2-winner__name">{winner.name}</strong>
+      </div>
+      <strong className="match-1x2-winner__value">
+        {winner.value.toFixed(1)}%
+      </strong>
+      <p className="match-1x2-winner__description">{description}</p>
+    </div>
+  );
+
+  return (
+    <div className="match-1x2">
+      <div
+        className="match-1x2-legend"
+        role="list"
+        aria-label={t("matchAnalytics.analytics.results.market1x2.description")}
+      >
+        {outcomes.map((outcome) => (
+          <span
+            key={outcome.variant}
+            className={`match-1x2-legend__item match-1x2-legend__item--${outcome.variant}`}
+            role="listitem"
+          >
+            {outcome.label}
+          </span>
+        ))}
       </div>
 
-      {/* MODELO IA (XGBOOST)*/}
-      {datosResultado.resultado1X2Ai &&
-        datosResultado.resultado1X2Ai[0].value > 0 && (
-          <>
-            <div style={{ marginBottom: "1rem" }}>
-              <span className="match-team-label">
+      <div className="match-1x2-models">
+        <section className="match-1x2-model">
+          <header className="match-1x2-model__heading">
+            <h3>
+              {t("matchAnalytics.analytics.results.market1x2.classicLabel")}
+            </h3>
+            <span className="match-1x2-model__type">
+              {t("matchAnalytics.analytics.results.market1x2.probabilityName")}
+            </span>
+          </header>
+          {renderChart(datosResultado.resultado1X2)}
+          {renderWinner(
+            datosResultado.ganador,
+            t("matchAnalytics.analytics.results.market1x2.dominantDescription"),
+          )}
+        </section>
+
+        {datosResultado.resultado1X2Ai?.[0]?.value > 0 && (
+          <section className="match-1x2-model match-1x2-model--ai">
+            <header className="match-1x2-model__heading">
+              <h3>
                 {t("matchAnalytics.analytics.results.market1x2.aiLabel")}
+              </h3>
+              <span className="match-1x2-model__type match-1x2-model__type--ai">
+                XGBoost
               </span>
-            </div>
-
-            <div className="match-result-layout">
-              <div className="match-chart-card">
-                <ResponsiveContainer width="100%" height={260}>
-                  <BarChart
-                    data={datosResultado.resultado1X2Ai}
-                    layout="vertical"
-                    margin={{ top: 10, right: 30, bottom: 10, left: 20 }}
-                  >
-                    <CartesianGrid
-                      strokeDasharray="4 4"
-                      horizontal={false}
-                      stroke="#e6ebf1"
-                    />
-                    <XAxis
-                      type="number"
-                      domain={[0, 100]}
-                      tickFormatter={(value) => `${value}%`}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <YAxis
-                      dataKey="name"
-                      type="category"
-                      width={120}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Bar
-                      dataKey="value"
-                      name={t(
-                        "matchAnalytics.analytics.results.market1x2.probabilityName",
-                      )}
-                      radius={[0, 8, 8, 0]}
-                      barSize={28}
-                    >
-                      {datosResultado.resultado1X2Ai.map((entry) => (
-                        <Cell key={entry.name} fill={entry.color} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-
-              <aside className="match-insight-card-ai">
-                <div className="match-insight-card-ai__label">
-                  {t("matchAnalytics.analytics.results.market1x2.trendAi")}
-                </div>
-                <strong>{datosResultado.ganadorAi.value.toFixed(1)}%</strong>
-                <h3>{datosResultado.ganadorAi.name}</h3>
-                <div className="match-insight-divider-ai" />
-                <p>{t("matchAnalytics.analytics.results.market1x2.descAi")}</p>
-              </aside>
-            </div>
-          </>
+            </header>
+            {renderChart(datosResultado.resultado1X2Ai)}
+            {renderWinner(
+              datosResultado.ganadorAi,
+              t("matchAnalytics.analytics.results.market1x2.descAi"),
+            )}
+          </section>
         )}
-    </>
+      </div>
+    </div>
   );
 }

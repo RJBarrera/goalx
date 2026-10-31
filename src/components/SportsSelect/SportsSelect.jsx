@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 
 import { getTeamLogo } from "../../utils/teamLogos";
 
@@ -31,6 +31,7 @@ function SportsSelect({
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const containerRef = useRef(null);
+  const dropdownId = useId();
 
   // Valores Bloqueados
   const disabledSet = useMemo(() => {
@@ -148,6 +149,9 @@ function SportsSelect({
         className="sports-select__control"
         onClick={toggle}
         disabled={disabled || loading}
+        aria-label={`${label}: ${value || placeholder}`}
+        aria-expanded={open}
+        aria-controls={open ? dropdownId : undefined}
       >
         {/* LOGO / ICONO */}
         {showTeamLogo ? (
@@ -203,7 +207,7 @@ function SportsSelect({
 
       {/* DROPDOWN */}
       {open && (
-        <div className="sports-select__dropdown">
+        <div id={dropdownId} className="sports-select__dropdown">
           {/* SEARCH */}
           <div className="sports-select__search-wrapper">
             <span>⌕</span>
@@ -213,6 +217,7 @@ function SportsSelect({
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder={searchPlaceholder}
+              aria-label={searchPlaceholder}
               autoFocus
             />
           </div>

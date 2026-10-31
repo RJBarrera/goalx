@@ -60,20 +60,33 @@
   cursor: wait;
 }
 
+.sports-select__control:focus-visible {
+  outline: 2px solid var(--color-team-home, #2e7d32);
+  outline-offset: 2px;
+}
+
+.sports-select--cyan .sports-select__control:focus-visible {
+  outline-color: var(--color-team-away, #007a87);
+}
+
+.sports-select--yellow .sports-select__control:focus-visible {
+  outline-color: var(--color-team-referee, #9a7217);
+}
+
 .sports-select--open .sports-select__control {
-  border-color: #29cb98;
+  border-color: var(--color-team-home, #2e7d32);
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(39, 201, 151, 0.08);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
 }
 
 .sports-select--cyan.sports-select--open .sports-select__control {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.09);
+  border-color: var(--color-team-away, #007a87);
+  box-shadow: 0 0 0 3px rgba(0, 122, 135, 0.12);
 }
 
 .sports-select--yellow.sports-select--open .sports-select__control {
-  border-color: #eab308;
-  box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.09);
+  border-color: var(--color-team-referee, #9a7217);
+  box-shadow: 0 0 0 3px rgba(189, 139, 24, 0.13);
 }
 
 .sports-select__accent {
@@ -84,19 +97,19 @@
   flex-shrink: 0;
   border-radius: 8px;
   color: #051914;
-  background: linear-gradient(145deg, #57eab7, #2bd9a0);
+  background: var(--color-brand-accent, #65c58a);
   font-size: 0.75rem;
   font-weight: 950;
 }
 
 .sports-select--cyan .sports-select__accent {
-  color: #06202e;
-  background: linear-gradient(145deg, #68d5ff, #35b9ed);
+  color: #ffffff;
+  background: var(--color-team-away, #007a87);
 }
 
 .sports-select--yellow .sports-select__accent {
-  color: #352500;
-  background: linear-gradient(145deg, #f8d45f, #f4ba1f);
+  color: #705311;
+  background: var(--color-team-referee-subtle, #fbf5e6);
 }
 
 .sports-select__value {
@@ -138,7 +151,7 @@
   height: 25px;
   flex-shrink: 0;
   border: 2px solid #dbe4eb;
-  border-top-color: #22c994;
+  border-top-color: var(--color-brand-accent, #65c58a);
   border-radius: 50%;
   animation: sports-select-spin 0.7s linear infinite;
 }
@@ -257,13 +270,13 @@
 }
 
 .sports-select__option:hover:not(:disabled) {
-  color: #087c5b;
-  background: #edf9f5;
+  color: #245c39;
+  background: #eff7f1;
 }
 
 .sports-select__option--selected {
-  color: #087c5b;
-  background: #eaf9f4;
+  color: #245c39;
+  background: #eff7f1;
 }
 
 .sports-select__option--disabled {
@@ -286,8 +299,8 @@
 }
 
 .sports-select__option--selected .sports-select__option-icon {
-  border-color: #a8e5d2;
-  background: #dff7ef;
+  border-color: #c6dfcc;
+  background: #e8f2e8;
 }
 
 .sports-select__option-name {
@@ -422,8 +435,8 @@
   flex-shrink: 0;
   border-radius: 50%;
   color: #ffffff;
-  background: #16b986;
-  box-shadow: 0 3px 8px rgba(22, 185, 134, 0.22);
+  background: var(--color-team-home, #2e7d32);
+  box-shadow: none;
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -443,4 +456,57 @@
 .sports-select__option--disabled .sports-select__option-logo-wrapper {
   filter: grayscale(0.65);
   opacity: 0.75;
+}
+
+.sports-select--cyan .sports-select__option:hover:not(:disabled),
+.sports-select--cyan .sports-select__option--selected {
+  color: #075e68;
+  background: var(--color-team-away-subtle, #e5f2f3);
+}
+
+.sports-select--cyan .sports-select__option--selected
+  .sports-select__option-logo-wrapper {
+  border-color: rgba(0, 122, 135, 0.28);
+  background: #f4fafa;
+}
+
+.sports-select--cyan
+  .sports-select__option--selected
+  .sports-select__option-icon {
+  border-color: rgba(0, 122, 135, 0.3);
+  color: var(--color-team-away, #007a87);
+  background: var(--color-team-away-subtle, #e5f2f3);
+}
+
+.sports-select--cyan .sports-select__selected-indicator {
+  background: var(--color-team-away, #007a87);
+}
+
+.sports-select--yellow .sports-select__option:hover:not(:disabled),
+.sports-select--yellow .sports-select__option--selected {
+  color: #705311;
+  background: var(--color-team-referee-subtle, #fbf5e6);
+}
+
+.sports-select--yellow .sports-select__option--selected
+  .sports-select__option-logo-wrapper {
+  border-color: rgba(154, 114, 23, 0.28);
+  background: #fffdf8;
+}
+
+.sports-select--yellow
+  .sports-select__option--selected
+  .sports-select__option-icon {
+  border-color: rgba(154, 114, 23, 0.3);
+  color: #806016;
+  background: #f7edcf;
+}
+
+.sports-select--yellow .sports-select__selected-indicator {
+  background: var(--color-team-referee, #9a7217);
+}
+
+.sports-select--yellow .sports-select__option:focus-visible {
+  outline: 2px solid var(--color-team-referee, #9a7217);
+  outline-offset: -2px;
 }

@@ -1,5 +1,5 @@
 // sections/MatchShots.jsx
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Bar,
@@ -10,8 +10,11 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { MetricCard, ProbabilityBar } from "./utils";
-const COLORS = { home: "#37e3a6", away: "#38bdf8" };
+import { ProbabilityBar } from "./utils";
+const COLORS = {
+  home: "var(--color-team-home, #2e7d32)",
+  away: "var(--color-team-away, #007a87)",
+};
 
 function factorial(n) {
   return n <= 1 ? 1 : n * factorial(n - 1);
@@ -29,14 +32,16 @@ function poissonOverUnder(lambda, linea) {
   return { under: acumulado, over: 1 - acumulado };
 }
 
-function DistribucionTiros({ titulo, datos }) {
+function DistribucionTiros({ titulo, datos, variant }) {
   const { t } = useTranslation();
   if (!datos?.mercados_over) return null;
 
   const entradas = Object.entries(datos.mercados_over);
 
   return (
-    <div className="match-team-market-card">
+    <div
+      className={`match-team-market-card match-shots__distribution match-shots__distribution--${variant}`}
+    >
       <div className="match-team-market-card__heading">
         <span>{titulo}</span>
       </div>
@@ -49,7 +54,7 @@ function DistribucionTiros({ titulo, datos }) {
               line: linea,
             })}
             value={prob / 100}
-            accent="cyan"
+            accent={variant === "home" ? "green" : "cyan"}
           />
         );
       })}
@@ -80,187 +85,191 @@ export default function MatchShots({ resultado, numero }) {
     return null;
   }
 
-  const chartSot = [
+  const chartData = [
     {
-      name: resultado.partido.local,
-      esperado: sot?.local?.valor_esperado ?? 0,
+      category: t("matchAnalytics.analytics.results.shots.sontHeader"),
+      local: sot?.local?.valor_esperado ?? 0,
+      visitante: sot?.visitante?.valor_esperado ?? 0,
     },
     {
-      name: resultado.partido.visitante,
-      esperado: sot?.visitante?.valor_esperado ?? 0,
-    },
-  ];
-
-  const chartTotal = [
-    {
-      name: resultado.partido.local,
-      esperado: total?.local?.valor_esperado ?? 0,
-    },
-    {
-      name: resultado.partido.visitante,
-      esperado: total?.visitante?.valor_esperado ?? 0,
+      category: t("matchAnalytics.analytics.results.shots.totalShotsHeader"),
+      local: total?.local?.valor_esperado ?? 0,
+      visitante: total?.visitante?.valor_esperado ?? 0,
     },
   ];
 
-  const valorEsperadoSeleccionado = useMemo(() => {
-    const bloque = tipoLinea === "sot" ? sot : total;
-    if (!bloque) return 0;
-    return equipoLinea === "local"
-      ? (bloque.local?.valor_esperado ?? 0)
-      : (bloque.visitante?.valor_esperado ?? 0);
-  }, [equipoLinea, tipoLinea, sot, total]);
-
-  const probabilidadLinea = useMemo(
-    () => poissonOverUnder(valorEsperadoSeleccionado, Number(lineaValor) || 0),
-    [valorEsperadoSeleccionado, lineaValor],
+  const bloqueSeleccionado = tipoLinea === "sot" ? sot : total;
+  const valorEsperadoSeleccionado =
+    equipoLinea === "local"
+      ? (bloqueSeleccionado?.local?.valor_esperado ?? 0)
+      : (bloqueSeleccionado?.visitante?.valor_esperado ?? 0);
+  const probabilidadLinea = poissonOverUnder(
+    valorEsperadoSeleccionado,
+    Number(lineaValor) || 0,
   );
 
   return (
     <>
-      <div className="match-two-columns">
-        {/* TIROS A PUERTA */}
-        <div className="match-panel">
-          <div className="match-panel-title">
-            <div>
-              <span>
-                {t("matchAnalytics.analytics.results.shots.sontHeader")}
+      <section className="match-panel match-shots__panel">
+        <div className="match-panel-title match-shots__heading">
+          <div>
+            <span>{t("matchAnalytics.analytics.results.shots.title")}</span>
+          </div>
+        </div>
+
+        <div className="match-shots__overview">
+          <table
+            className="match-shots__comparison"
+            aria-label={t("matchAnalytics.analytics.results.shots.title")}
+          >
+            <thead>
+              <tr>
+                <th scope="col">
+                  {t("matchAnalytics.analytics.results.shots.shotTypeLabel")}
+                </th>
+                <th scope="col" className="match-shots__team--home">
+                  {resultado.partido.local}
+                </th>
+                <th scope="col" className="match-shots__team--away">
+                  {resultado.partido.visitante}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  {t("matchAnalytics.analytics.results.shots.sontHeader")}
+                </th>
+                <td className="match-shots__value--home">
+                  {numero(sot?.local?.valor_esperado, 1)}
+                </td>
+                <td className="match-shots__value--away">
+                  {numero(sot?.visitante?.valor_esperado, 1)}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  {t("matchAnalytics.analytics.results.shots.totalShotsHeader")}
+                </th>
+                <td className="match-shots__value--home">
+                  {numero(total?.local?.valor_esperado, 1)}
+                </td>
+                <td className="match-shots__value--away">
+                  {numero(total?.visitante?.valor_esperado, 1)}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="match-shots__chart">
+            <div className="match-shots__legend">
+              <span className="match-shots__legend-item match-shots__legend-item--home">
+                {resultado.partido.local}
+              </span>
+              <span className="match-shots__legend-item match-shots__legend-item--away">
+                {resultado.partido.visitante}
               </span>
             </div>
-          </div>
-
-          <div className="match-metrics-grid">
-            <MetricCard
-              label={resultado.partido.local}
-              value={numero(sot?.local?.valor_esperado, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.shots.sontDescription",
-              )}
-              variant="local"
-            />
-            <MetricCard
-              label={resultado.partido.visitante}
-              value={numero(sot?.visitante?.valor_esperado, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.shots.sontDescription",
-              )}
-              variant="away"
-            />
-          </div>
-
-          <div style={{ height: "180px", margin: "1.5rem 0" }}>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartSot}>
+              <BarChart
+                data={chartData}
+                margin={{ top: 4, right: 8, left: -18, bottom: 0 }}
+                barGap={5}
+              >
                 <CartesianGrid
                   strokeDasharray="4 4"
                   vertical={false}
                   stroke="#e7ebf2"
                 />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                <YAxis axisLine={false} tickLine={false} />
+                <XAxis
+                  dataKey="category"
+                  axisLine={false}
+                  tickLine={false}
+                  interval={0}
+                  tick={{ fill: "#6e6e73", fontSize: 9 }}
+                />
+                <YAxis
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: "#86868b", fontSize: 10 }}
+                />
                 <Tooltip />
                 <Bar
-                  dataKey="esperado"
-                  name={t(
-                    "matchAnalytics.analytics.results.shots.expectedBarName",
-                  )}
+                  dataKey="local"
+                  name={resultado.partido.local}
                   fill={COLORS.home}
-                  radius={[8, 8, 0, 0]}
+                  radius={[4, 4, 0, 0]}
+                  maxBarSize={36}
                 />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="match-two-columns">
-            <DistribucionTiros
-              titulo={resultado.partido.local}
-              datos={sot?.local}
-            />
-            <DistribucionTiros
-              titulo={resultado.partido.visitante}
-              datos={sot?.visitante}
-            />
-          </div>
-        </div>
-
-        {/* TIROS TOTALES */}
-        <div className="match-panel">
-          <div className="match-panel-title">
-            <div>
-              <span>
-                {t("matchAnalytics.analytics.results.shots.totalShotsHeader")}
-              </span>
-            </div>
-          </div>
-
-          <div className="match-metrics-grid">
-            <MetricCard
-              label={resultado.partido.local}
-              value={numero(total?.local?.valor_esperado, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.shots.totalShotsDescription",
-              )}
-              variant="local"
-            />
-            <MetricCard
-              label={resultado.partido.visitante}
-              value={numero(total?.visitante?.valor_esperado, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.shots.totalShotsDescription",
-              )}
-              variant="away"
-            />
-          </div>
-
-          <div style={{ height: "180px", margin: "1.5rem 0" }}>
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartTotal}>
-                <CartesianGrid
-                  strokeDasharray="4 4"
-                  vertical={false}
-                  stroke="#e7ebf2"
-                />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                <YAxis axisLine={false} tickLine={false} />
-                <Tooltip />
                 <Bar
-                  dataKey="esperado"
-                  name={t(
-                    "matchAnalytics.analytics.results.shots.expectedBarName",
-                  )}
+                  dataKey="visitante"
+                  name={resultado.partido.visitante}
                   fill={COLORS.away}
-                  radius={[8, 8, 0, 0]}
+                  radius={[4, 4, 0, 0]}
+                  maxBarSize={36}
                 />
               </BarChart>
             </ResponsiveContainer>
           </div>
-
-          <div className="match-two-columns">
-            <DistribucionTiros
-              titulo={resultado.partido.local}
-              datos={total?.local}
-            />
-            <DistribucionTiros
-              titulo={resultado.partido.visitante}
-              datos={total?.visitante}
-            />
-          </div>
         </div>
-      </div>
+
+        <details className="match-shots__disclosure match-shots__markets">
+          <summary className="match-shots__disclosure-heading">
+            <span>
+              {t("matchAnalytics.analytics.results.shots.lineMarketsHeader")}
+            </span>
+          </summary>
+          <div className="match-shots__market-categories">
+            <section className="match-shots__market-category">
+              <h4>{t("matchAnalytics.analytics.results.shots.sontHeader")}</h4>
+              <div className="match-shots__distributions">
+                <DistribucionTiros
+                  titulo={resultado.partido.local}
+                  datos={sot?.local}
+                  variant="home"
+                />
+                <DistribucionTiros
+                  titulo={resultado.partido.visitante}
+                  datos={sot?.visitante}
+                  variant="away"
+                />
+              </div>
+            </section>
+            <section className="match-shots__market-category">
+              <h4>
+                {t("matchAnalytics.analytics.results.shots.totalShotsHeader")}
+              </h4>
+              <div className="match-shots__distributions">
+                <DistribucionTiros
+                  titulo={resultado.partido.local}
+                  datos={total?.local}
+                  variant="home"
+                />
+                <DistribucionTiros
+                  titulo={resultado.partido.visitante}
+                  datos={total?.visitante}
+                  variant="away"
+                />
+              </div>
+            </section>
+          </div>
+        </details>
+      </section>
 
       {/* SIMULADOR DE LÍNEA PERSONALIZADA */}
-      <div className="match-panel" style={{ marginTop: "2rem" }}>
-        <div className="match-panel-title match-panel-title--center">
-          <div>
+      <details className="match-panel match-shots__simulator">
+        <summary className="match-panel-title match-shots__disclosure-heading match-shots__simulator-heading">
+          <span className="match-shots__simulator-title">
             <span>
               {t("matchAnalytics.analytics.results.shots.lineSimulatorHeader")}
             </span>
-            <h3>
+            <small>
               {t(
                 "matchAnalytics.analytics.results.shots.lineSimulatorSubtitle",
               )}
-            </h3>
-          </div>
-        </div>
+            </small>
+          </span>
+        </summary>
 
         <div className="match-shot-simulator-grid">
           {/* EQUIPO */}
@@ -312,7 +321,9 @@ export default function MatchShots({ resultado, numero }) {
           {/* LÍNEA (STEPPER) */}
           <div className="match-shot-field">
             <span>{t("matchAnalytics.analytics.results.shots.lineLabel")}</span>
-            <div className="match-shot-stepper">
+            <div
+              className={`match-shot-stepper ${equipoLinea === "visitante" ? "is-away" : ""}`}
+            >
               <button
                 type="button"
                 onClick={() => {
@@ -409,7 +420,7 @@ export default function MatchShots({ resultado, numero }) {
           </div>
           <strong>{(probabilidadLinea.over * 100).toFixed(1)}%</strong>
         </div>
-      </div>
+      </details>
     </>
   );
 }

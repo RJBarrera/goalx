@@ -52,65 +52,73 @@ export default function MatchForm({
       </div>
       <form onSubmit={analizarPartido}>
         <div className={`match-form-grid ${isSwapping ? "is-swapping" : ""}`}>
-          {/* EQUIPO LOCAL */}
-          <SportsSelect
-            label={t("matchAnalytics.form.localLabel")}
-            badge={t("matchAnalytics.form.localBadge")}
-            value={form.local}
-            options={catalogos.equipos}
-            placeholder={t("matchAnalytics.form.localPlaceholder")}
-            searchPlaceholder={t("matchAnalytics.form.searchPlaceholder")}
-            loading={loadingCatalogos}
-            disabledValues={[form.visitante]}
-            variant="green"
-            showTeamLogo
-            onChange={(value) => actualizarCampo("local", value)}
-          />
-
-          {/* VS & BOTÓN DE INTERCAMBIO */}
-          <div className="match-versus-container">
-            <div className="match-versus">
-              <span>{t("matchAnalytics.form.vs")}</span>
+          <div className="match-form-teams">
+            {/* EQUIPO LOCAL */}
+            <div className="match-form-team match-form-team--home">
+              <SportsSelect
+                label={t("matchAnalytics.form.localLabel")}
+                badge={t("matchAnalytics.form.localBadge")}
+                value={form.local}
+                options={catalogos.equipos}
+                placeholder={t("matchAnalytics.form.localPlaceholder")}
+                searchPlaceholder={t("matchAnalytics.form.searchPlaceholder")}
+                loading={loadingCatalogos}
+                disabledValues={[form.visitante]}
+                variant="green"
+                showTeamLogo
+                onChange={(value) => actualizarCampo("local", value)}
+              />
             </div>
-            <button
-              type="button"
-              className="match-swap-btn"
-              onClick={handleSwapTeams}
-              title="Intercambiar equipos"
-            >
-              ⇄
-            </button>
+
+            {/* VS & BOTÓN DE INTERCAMBIO */}
+            <div className="match-versus-container">
+              <div className="match-versus">
+                <span>{t("matchAnalytics.form.vs")}</span>
+              </div>
+              <button
+                type="button"
+                className="match-swap-btn"
+                onClick={handleSwapTeams}
+                title={t("matchAnalytics.form.swapTeams")}
+              >
+                ⇄
+              </button>
+            </div>
+
+            {/* EQUIPO VISITANTE */}
+            <div className="match-form-team match-form-team--away">
+              <SportsSelect
+                label={t("matchAnalytics.form.visitorLabel")}
+                badge={t("matchAnalytics.form.visitorBadge")}
+                value={form.visitante}
+                options={catalogos.equipos}
+                placeholder={t("matchAnalytics.form.visitorPlaceholder")}
+                searchPlaceholder={t("matchAnalytics.form.searchPlaceholder")}
+                loading={loadingCatalogos}
+                disabledValues={[form.local]}
+                variant="cyan"
+                showTeamLogo
+                onChange={(value) => actualizarCampo("visitante", value)}
+              />
+            </div>
           </div>
 
-          {/* EQUIPO VISITANTE */}
-          <SportsSelect
-            label={t("matchAnalytics.form.visitorLabel")}
-            badge={t("matchAnalytics.form.visitorBadge")}
-            value={form.visitante}
-            options={catalogos.equipos}
-            placeholder={t("matchAnalytics.form.visitorPlaceholder")}
-            searchPlaceholder={t("matchAnalytics.form.searchPlaceholder")}
-            loading={loadingCatalogos}
-            disabledValues={[form.local]}
-            variant="cyan"
-            showTeamLogo
-            onChange={(value) => actualizarCampo("visitante", value)}
-          />
-
           {/* ÁRBITRO */}
-          <SportsSelect
-            label={t("matchAnalytics.form.refereeLabel")}
-            badge={t("matchAnalytics.form.refereeBadge")}
-            value={form.arbitro}
-            options={catalogos.arbitros}
-            placeholder={t("matchAnalytics.form.refereePlaceholder")}
-            searchPlaceholder={t(
-              "matchAnalytics.form.searchRefereePlaceholder",
-            )}
-            loading={loadingCatalogos}
-            variant="yellow"
-            onChange={(value) => actualizarCampo("arbitro", value)}
-          />
+          <div className="match-form-referee">
+            <SportsSelect
+              label={t("matchAnalytics.form.refereeLabel")}
+              badge={t("matchAnalytics.form.refereeBadge")}
+              value={form.arbitro}
+              options={catalogos.arbitros}
+              placeholder={t("matchAnalytics.form.refereePlaceholder")}
+              searchPlaceholder={t(
+                "matchAnalytics.form.searchRefereePlaceholder",
+              )}
+              loading={loadingCatalogos}
+              variant="yellow"
+              onChange={(value) => actualizarCampo("arbitro", value)}
+            />
+          </div>
         </div>
 
         {!loadingCatalogos && !errorCatalogos && !modelStatus.ready && (

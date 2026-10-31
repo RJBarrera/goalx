@@ -160,11 +160,18 @@ const TEAM_LOGO_FILES = {
   "premier-league": {
     arsenal: "arsenal.svg",
     "aston villa": "aston-villa.svg",
+    brentford:"brentford.svg",
+    brighton:"brighton.svg",
+    bournemouth: "bournemouth.svg",
     chelsea: "chelsea.svg",
+    coventry:"coventry.svg",
+    "crystal palace":"crystal-palace.svg",
+    ipswich:"ipswich.svg",
     liverpool: "liverpool.svg",
     "manchester city": "manchester-city.svg",
     "manchester united": "manchester-united.svg",
     newcastle: "newcastle.svg",
+    sunderland: "sunderland.svg",
     tottenham: "tottenham.svg",
   },
   bundesliga: {
@@ -243,12 +250,14 @@ const TEAM_LOGO_FILES = {
 // Mapeo para imágenes generales
 const GENERAL_FILES = {
   champions: "uefa-champions.svg",
+  bundesliga: "bundesliga.svg",
   laliga: "la-liga.svg",
   "liga-mx": "liga-mx.svg",
   "liga-mx-f": "liga-mx-f.png",
   "ligue-1": "ligue-1.svg",
   logo: "pelota2.png",
   "premier-league": "premier-league.svg",
+  "serie-a": "serie-a.svg",
 };
 
 // Obtiene logos

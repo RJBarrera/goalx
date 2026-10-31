@@ -7,7 +7,20 @@
   "dataset_dirty": false,
   "model_last_refresh": "2026-10-30T21:48:39.012417+00:00",
   "last_sync": null,
-  "last_sync_status": null,
-  "last_sync_message": null,
-  "pending_fixtures": {}
+  "last_sync_status": "pending",
+  "last_sync_message": "Partido finalizado pero faltan datos para incorporarlo.",
+  "pending_fixtures": {
+    "1603408": {
+      "fixture_id": 1603408,
+      "home": "Toluca W",
+      "away": "Guadalajara W",
+      "missing": [
+        "home_corners",
+        "away_corners",
+        "home_cards",
+        "away_cards"
+      ],
+      "updated_at": "2026-10-31T04:50:27.144398+00:00"
+    }
+  }
 }

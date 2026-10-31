@@ -189,6 +189,7 @@
       "visitorPlaceholder": "Select away team",
       "searchPlaceholder": "Search team...",
       "vs": "VS",
+      "swapTeams": "Swap teams",
       "refereeLabel": "Referee",
       "refereeBadge": "REFEREE",
       "refereePlaceholder": "Select referee",
@@ -289,7 +290,11 @@
           "topResultsTitle": "Top 5 Most Likely Scores (Statistical)",
           "tagAi": "CORRECT SCORE (XGBOOST)",
           "topResultsTitleAi": "Top 5 Most Likely Scores (AI)",
-          "probabilityName": "Probability"
+          "probabilityName": "Probability",
+          "comparisonTitle": "Exact score comparison",
+          "classicModel": "Statistical",
+          "aiModel": "AI",
+          "comparisonNote": "Bars appear only when a score is included in that model's Top 5."
         },
         "shots": {
           "eyebrow": "Shots Model",
@@ -301,6 +306,7 @@
           "totalShotsHeader": "TOTAL SHOTS",
           "totalShotsDescription": "Expected total shots",
           "moreThanShots": "Over {{line}} shots",
+          "lineMarketsHeader": "LINE MARKETS",
           "lineSimulatorHeader": "LINE SIMULATOR",
           "lineSimulatorSubtitle": "Calculate your own shot line",
           "teamLabel": "Team",
@@ -318,7 +324,10 @@
         },
         "corners": {
           "eyebrow": "Corner Kicks",
-          "title": "Corners Market",
+          "title": "Total corners",
+          "metricHeader": "Metric",
+          "marketsDisclosure": "Explore corner markets",
+          "matchMarketsTitle": "Match markets",
           "description": "Comparison of corner kick trends between overall history and recent performance.",
           "fullMatch": "Full match",
           "firstHalf": "First half",
@@ -357,6 +366,7 @@
         "cards": {
           "eyebrow": "Discipline",
           "title": "Cards Market",
+          "metricHeader": "Metric",
           "description": "Adjusted estimation based on the referee {{referee}}.",
           "subtitle": "CLASSIC STATISTICS",
           "model_h": "Historical Model",
@@ -445,14 +455,20 @@
       "kicker": "{{competition}} · CURRENT SEASON",
       "goals": "Goals",
       "assists": "Assists",
-      "contributions": "Contributions"
+      "contributions": "Contributions",
+      "seasonTotal": "This season"
     },
     "matchSlide": {
       "defaultCompetition": "Competition",
       "kicker": "{{competition}} · FEATURED MATCH",
+      "scoreLabel": "SCORE",
       "goals": "{{count}} goals",
       "corners": "{{count}} corners",
-      "cards": "{{count}} cards"
+      "cards": "{{count}} cards",
+      "goalsLabel": "Goals",
+      "cornersLabel": "Corners",
+      "cardsLabel": "Cards",
+      "matchTotal": "In this match"
     },
     "container": {
       "kicker": "HIGHLIGHTS",

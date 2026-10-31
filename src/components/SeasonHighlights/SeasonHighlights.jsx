@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
+  faChevronLeft,
+  faChevronRight,
   faFire,
   faFutbol,
   faStar,
   faTrophy,
-  faChevronLeft,
-  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useTranslation } from "react-i18next";
@@ -169,21 +169,33 @@ function PlayerSlide({ slide, competitionName }) {
         {/* ESTADÍSTICAS DEL JUGADOR */}
         <div className="season-highlight-player-stats">
           <div className="season-highlight-player-stats__card">
+            <span className="season-highlight-player-stats__label">
+              {t("seasonHighlights.playerSlide.goals")}
+            </span>
             <strong>{player.goals ?? 0}</strong>
-
-            <span>{t("seasonHighlights.playerSlide.goals")}</span>
+            <span className="season-highlight-player-stats__description">
+              {t("seasonHighlights.playerSlide.seasonTotal")}
+            </span>
           </div>
 
           <div className="season-highlight-player-stats__card">
+            <span className="season-highlight-player-stats__label">
+              {t("seasonHighlights.playerSlide.assists")}
+            </span>
             <strong>{player.assists ?? 0}</strong>
-
-            <span>{t("seasonHighlights.playerSlide.assists")}</span>
+            <span className="season-highlight-player-stats__description">
+              {t("seasonHighlights.playerSlide.seasonTotal")}
+            </span>
           </div>
 
           <div className="season-highlight-player-stats__card">
+            <span className="season-highlight-player-stats__label">
+              {t("seasonHighlights.playerSlide.contributions")}
+            </span>
             <strong>{player.contributions ?? 0}</strong>
-
-            <span>{t("seasonHighlights.playerSlide.contributions")}</span>
+            <span className="season-highlight-player-stats__description">
+              {t("seasonHighlights.playerSlide.seasonTotal")}
+            </span>
           </div>
         </div>
       </div>
@@ -275,9 +287,7 @@ function MatchSlide({ slide, competitionName }) {
             </div>
 
             <span className="season-highlight-score__label">
-              {t("seasonHighlights.matchSlide.scoreLabel", {
-                defaultValue: "MARCADOR",
-              })}
+              {t("seasonHighlights.matchSlide.scoreLabel")}
             </span>
           </div>
 
@@ -341,25 +351,31 @@ function MatchSlide({ slide, competitionName }) {
         <div className="season-highlight-match-meta">
           {/* GOLES */}
           <div className="season-highlight-match-meta__chip">
-            <FontAwesomeIcon icon={faFutbol} />
-
-            <strong>
-              {t("seasonHighlights.matchSlide.goals", {
-                count: match.total_goals,
-              })}
-            </strong>
+            <span className="season-highlight-match-meta__heading">
+              <FontAwesomeIcon icon={faFutbol} />
+              <span className="season-highlight-match-meta__label">
+                {t("seasonHighlights.matchSlide.goalsLabel")}
+              </span>
+            </span>
+            <strong>{match.total_goals ?? "—"}</strong>
+            <span className="season-highlight-match-meta__description">
+              {t("seasonHighlights.matchSlide.matchTotal")}
+            </span>
           </div>
 
           {/* CORNERS */}
           {match.total_corners !== null &&
             match.total_corners !== undefined && (
               <div className="season-highlight-match-meta__chip">
-                <FontAwesomeIcon icon={faStar} />
-
-                <span>
-                  {t("seasonHighlights.matchSlide.corners", {
-                    count: match.total_corners,
-                  })}
+                <span className="season-highlight-match-meta__heading">
+                  <FontAwesomeIcon icon={faStar} />
+                  <span className="season-highlight-match-meta__label">
+                    {t("seasonHighlights.matchSlide.cornersLabel")}
+                  </span>
+                </span>
+                <strong>{match.total_corners}</strong>
+                <span className="season-highlight-match-meta__description">
+                  {t("seasonHighlights.matchSlide.matchTotal")}
                 </span>
               </div>
             )}
@@ -367,12 +383,17 @@ function MatchSlide({ slide, competitionName }) {
           {/* TARJETAS */}
           {match.total_cards !== null && match.total_cards !== undefined && (
             <div className="season-highlight-match-meta__chip">
-              <span className="season-highlight-match-meta__card-icon">▣</span>
-
-              <span>
-                {t("seasonHighlights.matchSlide.cards", {
-                  count: match.total_cards,
-                })}
+              <span className="season-highlight-match-meta__heading">
+                <span className="season-highlight-match-meta__card-icon">
+                  ▣
+                </span>
+                <span className="season-highlight-match-meta__label">
+                  {t("seasonHighlights.matchSlide.cardsLabel")}
+                </span>
+              </span>
+              <strong>{match.total_cards}</strong>
+              <span className="season-highlight-match-meta__description">
+                {t("seasonHighlights.matchSlide.matchTotal")}
               </span>
             </div>
           )}
@@ -398,14 +419,25 @@ function SeasonHighlights() {
   });
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(true);
+  const viewportRef = useRef(null);
 
-  // Navegacion manual del carrusel
+  const scrollToSlide = useCallback((index) => {
+    const viewport = viewportRef.current;
+    const slide = viewport?.querySelectorAll(".season-highlights__item")[index];
+
+    if (!viewport || !slide) {
+      return;
+    }
+
+    viewport.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
+  }, []);
+
   const previousSlide = () => {
-    setActive((current) => (current === 0 ? slides.length - 1 : current - 1));
+    scrollToSlide(active === 0 ? slides.length - 1 : active - 1);
   };
 
   const nextSlide = () => {
-    setActive((current) => (current === slides.length - 1 ? 0 : current + 1));
+    scrollToSlide((active + 1) % slides.length);
   };
 
   useEffect(() => {
@@ -457,11 +489,11 @@ function SeasonHighlights() {
     }
 
     const timeout = window.setTimeout(() => {
-      setActive((current) => (current + 1) % slides.length);
+      scrollToSlide((active + 1) % slides.length);
     }, SLIDE_SECONDS * 1000);
 
     return () => window.clearTimeout(timeout);
-  }, [slides.length, active]);
+  }, [slides.length, active, scrollToSlide]);
 
   if (loading || slides.length === 0) {
     return null;
@@ -496,7 +528,7 @@ function SeasonHighlights() {
             </span>
           </div>
         </div>
-        <div className="season-highlights__viewport">
+        <div className="season-highlights__carousel">
           {/* Flechas de navegacion manual */}
           {slides.length > 1 && (
             <>
@@ -521,29 +553,49 @@ function SeasonHighlights() {
           )}
 
           <div
-            className="season-highlights__track"
-            style={{
-              transform: `translateX(-${active * 100}%)`,
+            className="season-highlights__viewport"
+            ref={viewportRef}
+            onScroll={(event) => {
+              const viewport = event.currentTarget;
+              const items = viewport.querySelectorAll(
+                ".season-highlights__item",
+              );
+              let closestIndex = 0;
+              let closestDistance = Infinity;
+
+              items.forEach((item, index) => {
+                const distance = Math.abs(
+                  item.offsetLeft - viewport.scrollLeft,
+                );
+                if (distance < closestDistance) {
+                  closestDistance = distance;
+                  closestIndex = index;
+                }
+              });
+
+              setActive(closestIndex);
             }}
           >
-            {slides.map((slide, index) => (
-              <div
-                className="season-highlights__item"
-                key={`${slide.type}-${index}`}
-              >
-                {slide.type === "player" ? (
-                  <PlayerSlide
-                    slide={slide}
-                    competitionName={competition?.name}
-                  />
-                ) : (
-                  <MatchSlide
-                    slide={slide}
-                    competitionName={competition?.name}
-                  />
-                )}
-              </div>
-            ))}
+            <div className="season-highlights__track">
+              {slides.map((slide, index) => (
+                <div
+                  className="season-highlights__item"
+                  key={`${slide.type}-${index}`}
+                >
+                  {slide.type === "player" ? (
+                    <PlayerSlide
+                      slide={slide}
+                      competitionName={competition?.name}
+                    />
+                  ) : (
+                    <MatchSlide
+                      slide={slide}
+                      competitionName={competition?.name}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -189,6 +189,7 @@
       "visitorPlaceholder": "Sélectionner l'équipe à l'extérieur",
       "searchPlaceholder": "Rechercher une équipe...",
       "vs": "VS",
+      "swapTeams": "Inverser les équipes",
       "refereeLabel": "Arbitre",
       "refereeBadge": "ARBITRE",
       "refereePlaceholder": "Sélectionner l'arbitre",
@@ -289,7 +290,11 @@
           "topResultsTitle": "Top 5 des Scores les Plus Probables (Statistique)",
           "tagAi": "SCORE EXACT (XGBOOST)",
           "topResultsTitleAi": "Top 5 des Scores les Plus Probables (IA)",
-          "probabilityName": "Probabilité"
+          "probabilityName": "Probabilité",
+          "comparisonTitle": "Comparaison des scores exacts",
+          "classicModel": "Statistique",
+          "aiModel": "IA",
+          "comparisonNote": "Les barres apparaissent uniquement si le score figure dans le Top 5 du modèle correspondant."
         },
         "shots": {
           "eyebrow": "Modèle de Tirs",
@@ -301,6 +306,7 @@
           "totalShotsHeader": "TIRS TOTAUX",
           "totalShotsDescription": "Tirs totaux attendus",
           "moreThanShots": "Plus de {{line}} tirs",
+          "lineMarketsHeader": "MARCHÉS PAR LIGNE",
           "lineSimulatorHeader": "SIMULATEUR DE LIGNE",
           "lineSimulatorSubtitle": "Calculez votre propre ligne de tirs",
           "teamLabel": "Équipe",
@@ -318,7 +324,10 @@
         },
         "corners": {
           "eyebrow": "Coups de pied de coin",
-          "title": "Marché des Corners",
+          "title": "Corners totaux",
+          "metricHeader": "Indicateur",
+          "marketsDisclosure": "Afficher les marchés des corners",
+          "matchMarketsTitle": "Marchés du match",
           "description": "Comparaison des tendances de corners entre l'historique général et la performance récente.",
           "fullMatch": "Match complet",
           "firstHalf": "Première mi-temps",
@@ -357,6 +366,7 @@
         "cards": {
           "eyebrow": "Discipline",
           "title": "Marché des Cartons",
+          "metricHeader": "Indicateur",
           "description": "Estimation ajustée selon l'arbitre {{referee}}.",
           "subtitle": "STATISTIQUES CLASSIQUES",
           "model_h": "Modèle historique",
@@ -445,14 +455,20 @@
       "kicker": "{{competition}} · SAISON ACTUELLE",
       "goals": "Buts",
       "assists": "Passes décisives",
-      "contributions": "Implications"
+      "contributions": "Implications",
+      "seasonTotal": "Cette saison"
     },
     "matchSlide": {
       "defaultCompetition": "Compétition",
       "kicker": "{{competition}} · MATCH EN VEDETTE",
+      "scoreLabel": "SCORE",
       "goals": "{{count}} buts",
       "corners": "{{count}} corners",
-      "cards": "{{count}} cartons"
+      "cards": "{{count}} cartons",
+      "goalsLabel": "Buts",
+      "cornersLabel": "Corners",
+      "cardsLabel": "Cartons",
+      "matchTotal": "Dans ce match"
     },
     "container": {
       "kicker": "FAITS SAILLANTS",

@@ -2,13 +2,10 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 const COLORS = {
-  local: "#21cfa1",
-  draw: "#94a3b8",
-  away: "#38bdf8",
+  local: "var(--color-team-home, #2e7d32)",
+  draw: "#8b929b",
+  away: "var(--color-team-away, #007a87)",
   corner: "#f59e0b",
-  localAi: "#0284c7",
-  drawAi: "#7dd3fc",
-  awayAi: "#0ea5e9",
 };
 
 // Utilidades
@@ -54,17 +51,17 @@ export default function useMatchData(resultado) {
       {
         name: resultado.partido?.local || "Local",
         value: porcentaje(goles?.xgboost_1X2?.Home),
-        color: COLORS.localAi,
+        color: COLORS.local,
       },
       {
         name: t("matchAnalytics.analytics.results.market1x2.draw"),
         value: porcentaje(goles?.xgboost_1X2?.Draw),
-        color: COLORS.drawAi,
+        color: COLORS.draw,
       },
       {
         name: resultado.partido?.visitante || "Visitante",
         value: porcentaje(goles?.xgboost_1X2?.Away),
-        color: COLORS.awayAi,
+        color: COLORS.away,
       },
     ];
 

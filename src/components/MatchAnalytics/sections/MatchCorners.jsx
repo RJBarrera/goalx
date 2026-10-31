@@ -1,422 +1,246 @@
 // sections/MatchCorners.jsx
 import { useTranslation } from "react-i18next";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import { MetricCard, ProbabilityBar, SectionHeader } from "./utils";
+import { ProbabilityBar, SectionHeader } from "./utils";
 
-const COLORS = {
-  away: "#38bdf8",
-  corner: "#f59e0b",
+const AI_FIRST_HALF_FACTOR = 0.47;
+const BAR_ACCENTS = { home: "green", away: "cyan", neutral: "slate" };
+
+const MATCH_MARKETS = [
+  { labelKey: "over95", marketKey: "Over 9.5", accent: "green" },
+  { labelKey: "under95", marketKey: "Under 9.5", accent: "slate" },
+  { labelKey: "over45H1", marketKey: "Over 4.5 1H", accent: "green" },
+  { labelKey: "under45H1", marketKey: "Under 4.5 1H", accent: "slate" },
+];
+
+const TEAM_MARKETS = {
+  home: [
+    { labelKey: "homeOver45", marketKey: "Home_Over_4.5", accent: "home" },
+    { labelKey: "homeUnder45", marketKey: "Home_Under_4.5", accent: "neutral" },
+    { labelKey: "homeOver55", marketKey: "Home_Over_5.5", accent: "home" },
+    { labelKey: "homeUnder55", marketKey: "Home_Under_5.5", accent: "neutral" },
+  ],
+  away: [
+    { labelKey: "awayOver35", marketKey: "Away_Over_3.5", accent: "away" },
+    { labelKey: "awayUnder35", marketKey: "Away_Under_3.5", accent: "neutral" },
+    { labelKey: "awayOver45", marketKey: "Away_Over_4.5", accent: "away" },
+    { labelKey: "awayUnder45", marketKey: "Away_Under_4.5", accent: "neutral" },
+  ],
 };
+
+function ProbabilitySet({ title, data, markets, t }) {
+  return (
+    <div className="match-corners__market-card">
+      <h4>{title}</h4>
+      {markets.map(({ labelKey, marketKey, accent }) => (
+        <ProbabilityBar
+          key={marketKey}
+          label={t(`matchAnalytics.analytics.results.corners.${labelKey}`)}
+          value={data?.[marketKey]}
+          accent={BAR_ACCENTS[accent] || accent}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function MatchCorners({ resultado, datosResultado, numero }) {
   const { t } = useTranslation();
-
   const corners = datosResultado?.corners;
-  const totalClasico = Number(corners?.expected_total) || 0;
-  const totalAi = Number(corners?.xgboost?.expected_total) || 0;
+  const aiCorners = corners?.xgboost;
+  const hasAi = Boolean(aiCorners);
+  const totalClassic = Number(corners?.expected_total) || 0;
+  const totalAi = Number(aiCorners?.expected_total) || 0;
 
-  // Si no hay datos o el total es 0 en ambos modelos, no renderizamos nada
-  if (!resultado || !corners || (totalClasico <= 0 && totalAi <= 0)) {
+  if (!resultado || !corners || (totalClassic <= 0 && totalAi <= 0)) {
     return null;
   }
 
+  const rows = [
+    {
+      key: "total",
+      label: t("matchAnalytics.analytics.results.corners.title"),
+      classic: corners.expected_total,
+      ai: aiCorners?.expected_total,
+    },
+    {
+      key: "first-half",
+      label: t("matchAnalytics.analytics.results.corners.firstHalf"),
+      classic: corners.expected_1H,
+      // The AI payload does not include a first-half estimate; keep the existing approximation.
+      ai: aiCorners
+        ? Number(aiCorners.expected_total) * AI_FIRST_HALF_FACTOR
+        : undefined,
+    },
+    {
+      label: resultado.partido.local,
+      classic: corners.expected_home,
+      ai: aiCorners?.expected_home,
+      variant: "home",
+    },
+    {
+      label: resultado.partido.visitante,
+      classic: corners.expected_away,
+      ai: aiCorners?.expected_away,
+      variant: "away",
+    },
+  ];
+
   return (
-    <>
-      <div className="match-two-columns">
-        {/* MODELO CLASICO */}
-        <div className="match-panel">
-          <div className="match-panel-title">
-            <div>
-              <span>
-                {t(
+    <div className="match-corners">
+      <section className="match-panel match-corners__comparison">
+        <div className="match-corners__table-wrap">
+          <table
+            className="match-corners__table"
+            aria-label={t("matchAnalytics.analytics.results.corners.title")}
+          >
+            <thead>
+              <tr>
+                <th scope="col">
+                  {t("matchAnalytics.analytics.results.corners.metricHeader")}
+                </th>
+                <th scope="col">
+                  {t(
+                    "matchAnalytics.analytics.results.corners.marketTeam.classicTitle",
+                  )}
+                </th>
+                {hasAi && (
+                  <th scope="col">
+                    {t(
+                      "matchAnalytics.analytics.results.corners.marketTeam.aiTitle",
+                    )}
+                  </th>
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr
+                  key={row.key || row.label}
+                  className={
+                    `match-corners__row${row.variant ? ` match-corners__row--${row.variant}` : ""}${row.key ? ` match-corners__row--${row.key}` : ""}`
+                  }
+                >
+                  <th scope="row">{row.label}</th>
+                  <td
+                    className={
+                      row.variant ? `match-corners__value--${row.variant}` : ""
+                    }
+                  >
+                    {row.classic == null ? "—" : numero(row.classic, 1)}
+                  </td>
+                  {hasAi && (
+                    <td
+                      className={
+                        row.variant ? `match-corners__value--${row.variant}` : ""
+                      }
+                    >
+                      {row.ai == null ? "—" : numero(row.ai, 1)}
+                    </td>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <details className="match-corners__disclosure">
+        <summary className="match-corners__disclosure-heading">
+          {t("matchAnalytics.analytics.results.corners.marketsDisclosure")}
+        </summary>
+
+        <div className="match-corners__details">
+          <section className="match-corners__market-section">
+            <h3>
+              {t("matchAnalytics.analytics.results.corners.matchMarketsTitle")}
+            </h3>
+            <div className="match-corners__model-grid">
+              <ProbabilitySet
+                title={t(
                   "matchAnalytics.analytics.results.corners.marketTeam.classicTitle",
                 )}
-              </span>
-            </div>
-          </div>
-
-          <div className="match-metrics-grid match-metrics-grid--four">
-            <MetricCard
-              label={t(
-                "matchAnalytics.analytics.results.corners.expectedBarName",
-              )}
-              value={numero(datosResultado.corners.expected_total, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.corners.fullMatch",
-              )}
-              variant="corner"
-              // tag={t("matchAnalytics.analytics.results.corners.tags.total")}
-            />
-
-            <MetricCard
-              label={t("matchAnalytics.analytics.results.corners.firstHalf")}
-              value={numero(datosResultado.corners.expected_1H, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.corners.firstHalfDesc",
-              )}
-              variant="corner"
-              // tag={t("matchAnalytics.analytics.results.corners.tags.firstHalf")}
-            />
-
-            <MetricCard
-              label={resultado.partido.local}
-              value={numero(datosResultado.corners.expected_home, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.corners.expectedHomeDesc",
-              )}
-              variant="local"
-              // tag={t("matchAnalytics.analytics.results.corners.tags.home")}
-            />
-
-            <MetricCard
-              label={resultado.partido.visitante}
-              value={numero(datosResultado.corners.expected_away, 1)}
-              description={t(
-                "matchAnalytics.analytics.results.corners.expectedAwayDesc",
-              )}
-              variant="away"
-              // tag={t("matchAnalytics.analytics.results.corners.tags.away")}
-            />
-          </div>
-
-          {/* Grafica */}
-          <div style={{ height: "200px", marginBottom: "2rem" }}>
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={datosResultado.cornersEquipos}>
-                <CartesianGrid
-                  strokeDasharray="4 4"
-                  vertical={false}
-                  stroke="#e7ebf2"
-                />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                <YAxis axisLine={false} tickLine={false} />
-                <Tooltip />
-                <Bar
-                  dataKey="esperado"
-                  name={t(
-                    "matchAnalytics.analytics.results.corners.expectedBarName",
-                  )}
-                  fill={COLORS.corner}
-                  radius={[8, 8, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* LÍNEAS CÓRNERS */}
-          <div className="match-panel">
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.over95")}
-              value={datosResultado.corners?.["Over 9.5"]}
-              accent="orange"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.under95")}
-              value={datosResultado.corners?.["Under 9.5"]}
-              accent="slate"
-            />
-
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.over45H1")}
-              value={datosResultado.corners?.["Over 4.5 1H"]}
-              accent="cyan"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.under45H1")}
-              value={datosResultado.corners?.["Under 4.5 1H"]}
-              accent="purple"
-            />
-          </div>
-        </div>
-
-        {/* MODELO IA (XGBOOST) */}
-        {datosResultado.corners?.xgboost && (
-          <div className="match-panel">
-            <div className="match-panel-title">
-              <div>
-                <span>
-                  {t(
+                data={corners}
+                markets={MATCH_MARKETS}
+                t={t}
+              />
+              {hasAi && (
+                <ProbabilitySet
+                  title={t(
                     "matchAnalytics.analytics.results.corners.marketTeam.aiTitle",
                   )}
-                </span>
-              </div>
+                  data={aiCorners}
+                  markets={MATCH_MARKETS}
+                  t={t}
+                />
+              )}
             </div>
+          </section>
 
-            <div className="match-metrics-grid match-metrics-grid--four">
-              <MetricCard
-                label={t(
-                  "matchAnalytics.analytics.results.corners.expectedBarName",
-                )}
-                value={numero(datosResultado.corners.xgboost.expected_total, 1)}
-                description={t(
-                  "matchAnalytics.analytics.results.corners.fullMatch",
-                )}
-                variant="cyan"
-                // tag={t("matchAnalytics.analytics.results.corners.tags.total")}
-              />
+          <section className="match-corners__market-section">
+            <SectionHeader
+              code="TM"
+              eyebrow={t(
+                "matchAnalytics.analytics.results.corners.marketTeam.eyebrow",
+              )}
+              title={t(
+                "matchAnalytics.analytics.results.corners.marketTeam.title",
+              )}
+              description={t(
+                "matchAnalytics.analytics.results.corners.marketTeam.description",
+              )}
+            />
 
-              <MetricCard
-                label={t("matchAnalytics.analytics.results.corners.firstHalf")}
-                value={numero(
-                  datosResultado.corners.xgboost.expected_total * 0.47,
-                  1,
-                )}
-                description={t(
-                  "matchAnalytics.analytics.results.corners.firstHalfDesc",
-                )}
-                variant="cyan"
-                // tag={t("matchAnalytics.analytics.results.corners.tags.firstHalf")}
-              />
-
-              <MetricCard
-                label={resultado.partido.local}
-                value={numero(datosResultado.corners.xgboost.expected_home, 1)}
-                description={t(
-                  "matchAnalytics.analytics.results.corners.expectedHomeDesc",
-                )}
-                variant="cyan"
-                // tag={t("matchAnalytics.analytics.results.corners.tags.home")}
-              />
-
-              <MetricCard
-                label={resultado.partido.visitante}
-                value={numero(datosResultado.corners.xgboost.expected_away, 1)}
-                description={t(
-                  "matchAnalytics.analytics.results.corners.expectedAwayDesc",
-                )}
-                variant="cyan"
-                // tag={t("matchAnalytics.analytics.results.corners.tags.away")}
-              />
-            </div>
-
-            {/* Grafica */}
-            <div style={{ height: "200px", marginBottom: "2rem" }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={datosResultado.cornersEquiposAi}>
-                  <CartesianGrid
-                    strokeDasharray="4 4"
-                    vertical={false}
-                    stroke="#e7ebf2"
-                  />
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                  <YAxis axisLine={false} tickLine={false} />
-                  <Tooltip />
-                  <Bar
-                    dataKey="esperado"
-                    name={t(
-                      "matchAnalytics.analytics.results.corners.expectedBarName",
+            <div className="match-corners__teams">
+              {[
+                {
+                  key: "home",
+                  label: t("matchAnalytics.analytics.results.fixture.localLabel"),
+                  name: resultado.partido.local,
+                  markets: TEAM_MARKETS.home,
+                },
+                {
+                  key: "away",
+                  label: t(
+                    "matchAnalytics.analytics.results.fixture.visitorLabel",
+                  ),
+                  name: resultado.partido.visitante,
+                  markets: TEAM_MARKETS.away,
+                },
+              ].map((team) => (
+                <section
+                  className={`match-corners__team match-corners__team--${team.key}`}
+                  key={team.key}
+                >
+                  <div className="match-corners__team-heading">
+                    <span>{team.label}</span>
+                    <h4>{team.name}</h4>
+                  </div>
+                  <div className="match-corners__model-grid">
+                    <ProbabilitySet
+                      title={t(
+                        "matchAnalytics.analytics.results.corners.marketTeam.statisticSub",
+                      )}
+                      data={corners}
+                      markets={team.markets}
+                      t={t}
+                    />
+                    {hasAi && (
+                      <ProbabilitySet
+                        title={t(
+                          "matchAnalytics.analytics.results.corners.marketTeam.xgboostSub",
+                        )}
+                        data={aiCorners}
+                        markets={team.markets}
+                        t={t}
+                      />
                     )}
-                    fill={COLORS.away}
-                    radius={[8, 8, 0, 0]}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+                  </div>
+                </section>
+              ))}
             </div>
-
-            {/* LÍNEAS CÓRNERS */}
-            <div className="match-panel">
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.over95")}
-                value={datosResultado.corners.xgboost["Over 9.5"]}
-                accent="orange"
-              />
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.under95")}
-                value={datosResultado.corners.xgboost["Under 9.5"]}
-                accent="slate"
-              />
-              <div style={{ margin: "1rem 0" }} />
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.over45H1")}
-                value={datosResultado.corners.xgboost["Over 4.5 1H"]}
-                accent="cyan"
-              />
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.under45H1")}
-                value={datosResultado.corners.xgboost["Under 4.5 1H"]}
-                accent="purple"
-              />
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* COMPARATIVA DE MERCADOS POR EQUIPO */}
-      <div style={{ marginTop: "3rem" }}>
-        <SectionHeader
-          code="TM"
-          eyebrow={t(
-            "matchAnalytics.analytics.results.corners.marketTeam.eyebrow",
-          )}
-          title={t("matchAnalytics.analytics.results.corners.marketTeam.title")}
-          description={t(
-            "matchAnalytics.analytics.results.corners.marketTeam.description",
-          )}
-        />
-
-        {/* COMPARATIVA EQUIPO LOCAL */}
-        <div className="match-team-market-card__heading">
-          <span>
-            {t("matchAnalytics.analytics.results.fixture.localLabel")}
-          </span>
-          <h3>{resultado.partido.local}</h3>
+          </section>
         </div>
-
-        <div className="match-two-columns" style={{ marginBottom: "2.5rem" }}>
-          {/* Local Clasico */}
-          <div className="match-team-market-card">
-            <div className="match-team-market-card__heading">
-              <span>
-                {t(
-                  "matchAnalytics.analytics.results.corners.marketTeam.statisticSub",
-                )}
-              </span>
-            </div>
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.homeOver45")}
-              value={datosResultado.corners?.["Home_Over_4.5"]}
-              accent="cyan"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.homeUnder45")}
-              value={datosResultado.corners?.["Home_Under_4.5"]}
-              accent="slate"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.homeOver55")}
-              value={datosResultado.corners?.["Home_Over_5.5"]}
-              accent="cyan"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.homeUnder55")}
-              value={datosResultado.corners?.["Home_Under_5.5"]}
-              accent="purple"
-            />
-          </div>
-
-          {/* Local XGBoost */}
-          {datosResultado.corners?.xgboost && (
-            <div className="match-team-market-card">
-              <div className="match-team-market-card__heading">
-                <span>
-                  {t(
-                    "matchAnalytics.analytics.results.corners.marketTeam.xgboostSub",
-                  )}
-                </span>
-              </div>
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.homeOver45")}
-                value={datosResultado.corners.xgboost["Home_Over_4.5"]}
-                accent="cyan"
-              />
-              <ProbabilityBar
-                label={t(
-                  "matchAnalytics.analytics.results.corners.homeUnder45",
-                )}
-                value={datosResultado.corners.xgboost["Home_Under_4.5"]}
-                accent="slate"
-              />
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.homeOver55")}
-                value={datosResultado.corners.xgboost["Home_Over_5.5"]}
-                accent="cyan"
-              />
-              <ProbabilityBar
-                label={t(
-                  "matchAnalytics.analytics.results.corners.homeUnder55",
-                )}
-                value={datosResultado.corners.xgboost["Home_Under_5.5"]}
-                accent="purple"
-              />
-            </div>
-          )}
-        </div>
-
-        {/* COMPARATIVA EQUIPO VISITANTE */}
-        <div className="match-team-market-card__heading">
-          <span>
-            {t("matchAnalytics.analytics.results.fixture.visitorLabel")}
-          </span>
-          <h3>{resultado.partido.visitante}</h3>
-        </div>
-        <div className="match-two-columns">
-          {/* Visitante Clasico */}
-          <div className="match-team-market-card">
-            <div className="match-team-market-card__heading">
-              <span>
-                {t(
-                  "matchAnalytics.analytics.results.corners.marketTeam.statisticSub",
-                )}
-              </span>
-            </div>
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.awayOver35")}
-              value={datosResultado.corners?.["Away_Over_3.5"]}
-              accent="cyan"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.awayUnder35")}
-              value={datosResultado.corners?.["Away_Under_3.5"]}
-              accent="slate"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.awayOver45")}
-              value={datosResultado.corners?.["Away_Over_4.5"]}
-              accent="cyan"
-            />
-            <ProbabilityBar
-              label={t("matchAnalytics.analytics.results.corners.awayUnder45")}
-              value={datosResultado.corners?.["Away_Under_4.5"]}
-              accent="purple"
-            />
-          </div>
-
-          {/* Visitante XGBoost */}
-          {datosResultado.corners?.xgboost && (
-            <div className="match-team-market-card">
-              <div className="match-team-market-card__heading">
-                <span>
-                  {t(
-                    "matchAnalytics.analytics.results.corners.marketTeam.xgboostSub",
-                  )}
-                </span>
-              </div>
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.awayOver35")}
-                value={datosResultado.corners.xgboost["Away_Over_3.5"]}
-                accent="cyan"
-              />
-              <ProbabilityBar
-                label={t(
-                  "matchAnalytics.analytics.results.corners.awayUnder35",
-                )}
-                value={datosResultado.corners.xgboost["Away_Under_3.5"]}
-                accent="slate"
-              />
-              <ProbabilityBar
-                label={t("matchAnalytics.analytics.results.corners.awayOver45")}
-                value={datosResultado.corners.xgboost["Away_Over_4.5"]}
-                accent="cyan"
-              />
-              <ProbabilityBar
-                label={t(
-                  "matchAnalytics.analytics.results.corners.awayUnder45",
-                )}
-                value={datosResultado.corners.xgboost["Away_Under_4.5"]}
-                accent="purple"
-              />
-            </div>
-          )}
-        </div>
-      </div>
-    </>
+      </details>
+    </div>
   );
 }

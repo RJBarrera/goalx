@@ -189,6 +189,7 @@
       "visitorPlaceholder": "Seleccionar equipo visitante",
       "searchPlaceholder": "Buscar equipo...",
       "vs": "VS",
+      "swapTeams": "Intercambiar equipos",
       "refereeLabel": "Árbitro",
       "refereeBadge": "ÁRBITRO",
       "refereePlaceholder": "Seleccionar árbitro",
@@ -289,7 +290,11 @@
           "topResultsTitle": "Top 5 resultados más probables (Estadístico)",
           "tagAi": "MARCADOR EXACTO (XGBOOST)",
           "topResultsTitleAi": "Top 5 resultados más probables (IA)",
-          "probabilityName": "Probabilidad"
+          "probabilityName": "Probabilidad",
+          "comparisonTitle": "Comparativa de marcadores exactos",
+          "classicModel": "Estadístico",
+          "aiModel": "IA",
+          "comparisonNote": "Las barras solo aparecen si el marcador está incluido en el Top 5 de ese modelo."
         },
         "shots": {
           "eyebrow": "Modelo de Tiros",
@@ -301,6 +306,7 @@
           "totalShotsHeader": "TIROS TOTALES",
           "totalShotsDescription": "Tiros totales esperados",
           "moreThanShots": "Más de {{line}} tiros",
+          "lineMarketsHeader": "MERCADOS POR LÍNEA",
           "lineSimulatorHeader": "SIMULADOR DE LÍNEA",
           "lineSimulatorSubtitle": "Calcula tu propia línea de tiros",
           "teamLabel": "Equipo",
@@ -318,7 +324,10 @@
         },
         "corners": {
           "eyebrow": "Tiros de Esquina",
-          "title": "Mercado de Córners",
+          "title": "Córners totales",
+          "metricHeader": "Métrica",
+          "marketsDisclosure": "Explorar mercados de córners",
+          "matchMarketsTitle": "Mercados de partido",
           "description": "Contraste de tendencias de tiros de esquina entre el histórico general y el rendimiento reciente.",
           "fullMatch": "Partido completo",
           "firstHalf": "Primera mitad",
@@ -357,6 +366,7 @@
         "cards": {
           "eyebrow": "Disciplina",
           "title": "Mercado de Tarjetas",
+          "metricHeader": "Métrica",
           "description": "Estimación ajustada según el árbitro {{referee}}.",
           "subtitle": "ESTADÍSTICA CLÁSICA",
           "model_h": "Modelo Histórico",
@@ -445,14 +455,20 @@
       "kicker": "{{competition}} · TEMPORADA ACTUAL",
       "goals": "Goles",
       "assists": "Asistencias",
-      "contributions": "Participaciones"
+      "contributions": "Participaciones",
+      "seasonTotal": "Esta temporada"
     },
     "matchSlide": {
       "defaultCompetition": "Competición",
       "kicker": "{{competition}} · PARTIDO DESTACADO",
+      "scoreLabel": "MARCADOR",
       "goals": "{{count}} goles",
       "corners": "{{count}} córners",
-      "cards": "{{count}} tarjetas"
+      "cards": "{{count}} tarjetas",
+      "goalsLabel": "Goles",
+      "cornersLabel": "Córners",
+      "cardsLabel": "Tarjetas",
+      "matchTotal": "En este partido"
     },
     "container": {
       "kicker": "DESTACADOS",

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,20 @@ function Navbar() {
   const competitionRef = useRef(null);
 
   // Hook de traduccion
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const sortedCompetitions = useMemo(() => {
+    const collator = new Intl.Collator(i18n.resolvedLanguage || "es", {
+      sensitivity: "base",
+      numeric: true,
+    });
+
+    return [...competitions].sort((first, second) =>
+      collator.compare(
+        first.short_name || first.name || "",
+        second.short_name || second.name || "",
+      ),
+    );
+  }, [competitions, i18n.resolvedLanguage]);
 
   const cerrarMenu = () => {
     setMenuOpen(false);
@@ -50,8 +63,7 @@ function Navbar() {
 
   const seleccionarCompeticion = (nextCompetitionId) => {
     changeCompetition(nextCompetitionId);
-    setCompetitionOpen(false);
-    setMenuOpen(false);
+    cerrarMenu();
   };
 
   const cerrarSesion = async () => {
@@ -119,16 +131,19 @@ function Navbar() {
               className={`sports-navbar__competition-button ${
                 competitionOpen ? "sports-navbar__competition-button--open" : ""
               }`}
-              onClick={() => setCompetitionOpen((current) => !current)}
+              onClick={() => setCompetitionOpen((open) => !open)}
               disabled={competitionLoading || competitions.length === 0}
               aria-expanded={competitionOpen}
+              aria-haspopup="true"
+              aria-label={t("navbar.competition")}
             >
               {/* ICONO DEL BOTÓN PRINCIPAL */}
               <span className="sports-navbar__competition-item-icon">
                 {getTeamLogo(competition?.id) ? (
                   <img
                     src={getTeamLogo(competition?.id)}
-                    alt={competition?.name || "Competition logo"}
+                    alt=""
+                    aria-hidden="true"
                   />
                 ) : (
                   "⚽"
@@ -148,17 +163,18 @@ function Navbar() {
             </button>
 
             {competitionOpen && (
-              <div className="sports-navbar__competition-menu">
-                <span>{t("navbar.competition-menu")}</span>
-
-                {competitions.map((item) => {
+              <div
+                className="sports-navbar__competition-menu"
+                role="group"
+                aria-label={t("navbar.competition-menu")}
+              >
+                {sortedCompetitions.map((item) => {
                   const active = item.id === competitionId;
-                  const disabledIds = [
+                  const disabled = [
                     "bundesliga",
                     "premier-league",
                     "serie-a",
-                  ];
-                  const disabled = disabledIds.includes(item.id);
+                  ].includes(item.id);
                   const itemLogo = getTeamLogo(item.id);
 
                   return (
@@ -168,36 +184,27 @@ function Navbar() {
                       className={`${active ? "active" : ""} ${
                         disabled ? "disabled" : ""
                       }`}
-                      onClick={() => {
-                        if (disabled) {
-                          return;
-                        }
-
-                        seleccionarCompeticion(item.id);
-                      }}
+                      onClick={() => seleccionarCompeticion(item.id)}
                       disabled={disabled}
+                      aria-pressed={active}
                     >
                       {/* LOGO INDIVIDUAL DE CADA REGISTRO */}
                       <span className="sports-navbar__competition-item-icon">
                         {itemLogo ? (
-                          <img src={itemLogo} alt={item.name} />
+                          <img src={itemLogo} alt="" aria-hidden="true" />
                         ) : (
                           "⚽"
                         )}
                       </span>
-                      <div>
-                        <strong>{item.name}</strong>
-
-                        {item.country && <small>{item.country}</small>}
-
+                      <span className="sports-navbar__competition-option-copy">
+                        <strong>{item.short_name || item.name}</strong>
                         {disabled && (
                           <small className="sports-navbar__competition-coming-soon">
                             Próximamente
                           </small>
                         )}
-                      </div>
-
-                      <b>{active ? "✓" : disabled ? "🔒" : "→"}</b>
+                      </span>
+                      <b>{active ? "✓" : disabled ? "🔒" : ""}</b>
                     </button>
                   );
                 })}
@@ -300,10 +307,16 @@ function Navbar() {
           <LanguageSelector />
         </div>
         <div className="sports-navbar__mobile-competition">
-          <span>{t("navbar.mobile-competition")}</span>
+          <span id="mobile-competition-label">
+            {t("navbar.mobile-competition")}
+          </span>
 
-          <div>
-            {competitions.map((item) => {
+          <div
+            className="sports-navbar__mobile-competition-options"
+            role="group"
+            aria-labelledby="mobile-competition-label"
+          >
+            {sortedCompetitions.map((item) => {
               const active = item.id === competitionId;
               const disabledIds = ["bundesliga", "premier-league", "serie-a"];
               const disabled = disabledIds.includes(item.id);
@@ -313,9 +326,9 @@ function Navbar() {
                 <button
                   key={item.id}
                   type="button"
-                  className={`${active ? "active" : ""} ${
-                    disabled ? "disabled" : ""
-                  }`}
+                  className={`sports-navbar__competition-option ${
+                    active ? "active" : ""
+                  } ${disabled ? "disabled" : ""}`}
                   onClick={() => {
                     if (disabled) {
                       return;
@@ -324,22 +337,16 @@ function Navbar() {
                     seleccionarCompeticion(item.id);
                   }}
                   disabled={disabled}
+                  aria-pressed={active}
+                  title={item.name}
                 >
                   {/* LOGO INDIVIDUAL DE CADA REGISTRO */}
-                  <span className="sports-navbar__competition-item-icon">
-                    {itemLogo ? <img src={itemLogo} alt={item.name} /> : "⚽"}
-                  </span>
-                  <span>
-                    {item.name}
-
-                    {disabled && (
-                      <small className="sports-navbar__mobile-coming-soon">
-                        Próximamente
-                      </small>
-                    )}
-                  </span>
-
-                  <strong>{active ? "✓" : disabled ? "🔒" : "→"}</strong>
+                  {itemLogo && (
+                    <span className="sports-navbar__competition-item-icon">
+                      <img src={itemLogo} alt="" aria-hidden="true" />
+                    </span>
+                  )}
+                  <span>{item.short_name || item.name}</span>
                 </button>
               );
             })}

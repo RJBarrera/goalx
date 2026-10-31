@@ -11,6 +11,7 @@ function ExportPdfButton({ loading = false, onClick }) {
       className="match-export-button"
       disabled={loading}
       onClick={onClick}
+      aria-busy={loading}
     >
       <span className="match-export-button__icon">
         {loading ? (

@@ -189,6 +189,7 @@
       "visitorPlaceholder": "Auswärtsteam auswählen",
       "searchPlaceholder": "Team suchen...",
       "vs": "VS",
+      "swapTeams": "Teams tauschen",
       "refereeLabel": "Schiedsrichter",
       "refereeBadge": "SCHIEDSRICHTER",
       "refereePlaceholder": "Schiedsrichter auswählen",
@@ -289,7 +290,11 @@
           "topResultsTitle": "Top 5 Wahrscheinlichste Ergebnisse (Statistisch)",
           "tagAi": "GENAUES ERGEBNIS (XGBOOST)",
           "topResultsTitleAi": "Top 5 Wahrscheinlichste Ergebnisse (KI)",
-          "probabilityName": "Wahrscheinlichkeit"
+          "probabilityName": "Wahrscheinlichkeit",
+          "comparisonTitle": "Vergleich exakter Ergebnisse",
+          "classicModel": "Statistisch",
+          "aiModel": "KI",
+          "comparisonNote": "Balken erscheinen nur, wenn ein Ergebnis in den Top 5 des jeweiligen Modells enthalten ist."
         },
         "shots": {
           "eyebrow": "Schussmodell",
@@ -301,6 +306,7 @@
           "totalShotsHeader": "GESAMTSCHÜSSE",
           "totalShotsDescription": "Erwartete Gesamtschüsse",
           "moreThanShots": "Über {{line}} Schüsse",
+          "lineMarketsHeader": "LINIENMÄRKTE",
           "lineSimulatorHeader": "LINIEN-SIMULATOR",
           "lineSimulatorSubtitle": "Berechne deine eigene Schusslinie",
           "teamLabel": "Team",
@@ -318,7 +324,10 @@
         },
         "corners": {
           "eyebrow": "Eckbälle",
-          "title": "Eckenmarkt",
+          "title": "Ecken gesamt",
+          "metricHeader": "Kennzahl",
+          "marketsDisclosure": "Eckenmärkte anzeigen",
+          "matchMarketsTitle": "Spielmärkte",
           "description": "Gegenüberstellung von Eckball-Trends zwischen der Gesamthistorie und der jüngsten Leistung.",
           "fullMatch": "Ganzes Spiel",
           "firstHalf": "Erste Halbzeit",
@@ -357,6 +366,7 @@
         "cards": {
           "eyebrow": "Disziplin",
           "title": "Kartenmarkt",
+          "metricHeader": "Kennzahl",
           "description": "Angepasste Schätzung basierend auf Schiedsrichter {{referee}}.",
           "subtitle": "KLASSISCHE STATISTIKEN",
           "model_h": "Historisches Modell",
@@ -445,14 +455,20 @@
       "kicker": "{{competition}} · AKTUELLE SAISON",
       "goals": "Tore",
       "assists": "Vorlagen",
-      "contributions": "Beteiligungen"
+      "contributions": "Beteiligungen",
+      "seasonTotal": "Diese Saison"
     },
     "matchSlide": {
       "defaultCompetition": "Wettbewerb",
       "kicker": "{{competition}} · TOP-SPIEL",
+      "scoreLabel": "SPIELSTAND",
       "goals": "{{count}} Tore",
       "corners": "{{count}} Ecken",
-      "cards": "{{count}} Karten"
+      "cards": "{{count}} Karten",
+      "goalsLabel": "Tore",
+      "cornersLabel": "Ecken",
+      "cardsLabel": "Karten",
+      "matchTotal": "In diesem Spiel"
     },
     "container": {
       "kicker": "HIGHLIGHTS",

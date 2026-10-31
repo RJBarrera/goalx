@@ -1,187 +1,208 @@
 // sections/MatchSummary.jsx
 import { useTranslation } from "react-i18next";
 
+const SUMMARY_TRANSLATION_PREFIX = "matchAnalytics.analytics.results.summary";
+
+function getSignalLevel(probability, t) {
+  if (probability >= 75) {
+    return {
+      label: t(`${SUMMARY_TRANSLATION_PREFIX}.levels.high`),
+      className: "match-summary-signal--high",
+    };
+  }
+
+  if (probability >= 65) {
+    return {
+      label: t(`${SUMMARY_TRANSLATION_PREFIX}.levels.strong`),
+      className: "match-summary-signal--strong",
+    };
+  }
+
+  return {
+    label: t(`${SUMMARY_TRANSLATION_PREFIX}.levels.moderate`),
+    className: "",
+  };
+}
+
 export default function MatchSummary({ resumenProbabilidades, porcentaje }) {
   const { t } = useTranslation();
 
-  // Si los datos aún no existen, no renderizamos nada
   if (!resumenProbabilidades) return null;
 
+  const signals = resumenProbabilidades.top?.length
+    ? resumenProbabilidades.top
+    : resumenProbabilidades.principal
+      ? [resumenProbabilidades.principal]
+      : [];
+  const trends = resumenProbabilidades.tendencias ?? [];
+  const featuredSignal = signals[0];
+  const otherSignals = signals.slice(1);
+  const featuredProbability = featuredSignal
+    ? porcentaje(featuredSignal.probabilidad)
+    : 0;
+  const featuredProgress = Math.max(0, Math.min(featuredProbability, 100));
+  const featuredLevel = getSignalLevel(featuredProbability, t);
+
   return (
-    <>
-      {/* PRINCIPAL */}
-      {resumenProbabilidades.principal && (
-        <div className="match-summary-highlight">
-          <div className="match-summary-highlight__content">
-            <span className="match-summary-highlight__eyebrow">
-              {t(
-                "matchAnalytics.analytics.results.summary.highestProbabilityTag",
-              )}
+    <div className="match-summary">
+      {featuredSignal && (
+        <section
+          className="match-summary-featured"
+          aria-label={t(`${SUMMARY_TRANSLATION_PREFIX}.highestProbabilityTag`)}
+        >
+          <div className="match-summary-featured__content">
+            <span className="match-summary-featured__eyebrow">
+              {t(`${SUMMARY_TRANSLATION_PREFIX}.highestProbabilityTag`)}
             </span>
-
-            <h3>{resumenProbabilidades.principal.seleccion}</h3>
-
-            {/* <p>{resumenProbabilidades.principal.categoria}</p> */}
-          </div>
-
-          <div className="match-summary-highlight__probability">
-            <strong>
-              {porcentaje(resumenProbabilidades.principal.probabilidad).toFixed(
-                1,
-              )}
-              %
-            </strong>
-
-            <span>
-              {t("matchAnalytics.analytics.results.summary.probabilityLabel")}
+            <span className="match-summary-featured__category">
+              {featuredSignal.categoria}
+            </span>
+            <h3>{featuredSignal.seleccion}</h3>
+            {featuredSignal.descripcion && (
+              <p>{featuredSignal.descripcion}</p>
+            )}
+            <span className={`match-summary-signal ${featuredLevel.className}`}>
+              {featuredLevel.label}
             </span>
           </div>
-        </div>
+
+          <div
+            className="match-summary-featured__meter"
+            role="meter"
+            aria-label={featuredSignal.seleccion}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={featuredProgress}
+            style={{ "--signal-progress": `${featuredProgress}%` }}
+          >
+            <div>
+              <strong>{featuredProbability.toFixed(1)}%</strong>
+              <span>
+                {t(`${SUMMARY_TRANSLATION_PREFIX}.probabilityLabel`)}
+              </span>
+            </div>
+          </div>
+        </section>
       )}
 
-      {/* TOP SEÑALES */}
-      <div className="match-summary-ranking">
-        {resumenProbabilidades.top.map((item, index) => {
-          const probability = porcentaje(item.probabilidad);
+      {otherSignals.length > 0 && (
+        <section
+          className="match-summary-others"
+          aria-label={t(`${SUMMARY_TRANSLATION_PREFIX}.highestProbabilityTag`)}
+        >
+          {otherSignals.map((item, index) => {
+            const probability = porcentaje(item.probabilidad);
+            const level = getSignalLevel(probability, t);
+            const progress = Math.max(0, Math.min(probability, 100));
 
-          let nivel = t(
-            "matchAnalytics.analytics.results.summary.levels.moderate",
-          );
-
-          if (probability >= 75) {
-            nivel = t("matchAnalytics.analytics.results.summary.levels.high");
-          } else if (probability >= 65) {
-            nivel = t("matchAnalytics.analytics.results.summary.levels.strong");
-          }
-
-          return (
-            <article
-              key={`${item.categoria}-${item.seleccion}`}
-              className="match-summary-item"
-            >
-              <div className="match-summary-item__position">
-                {String(index + 1).padStart(2, "0")}
-              </div>
-
-              <div className="match-summary-item__body">
-                <span>{item.categoria}</span>
-
-                <strong>{item.seleccion}</strong>
-
-                <small>{item.descripcion}</small>
-              </div>
-
-              <div className="match-summary-item__score">
-                <strong>{probability.toFixed(1)}%</strong>
-
-                <span
-                  className={`match-summary-signal ${
-                    nivel ===
-                    t("matchAnalytics.analytics.results.summary.levels.high")
-                      ? "match-summary-signal--high"
-                      : nivel ===
-                          t(
-                            "matchAnalytics.analytics.results.summary.levels.strong",
-                          )
-                        ? "match-summary-signal--strong"
-                        : ""
-                  }`}
-                >
-                  {nivel}
+            return (
+              <article
+                key={`${item.categoria}-${item.seleccion}`}
+                className="match-summary-item match-summary-item--ranked"
+              >
+                <span className="match-summary-item__position">
+                  {String(index + 2).padStart(2, "0")}
                 </span>
-              </div>
-            </article>
-          );
-        })}
-      </div>
 
-      {/* LECTURA GENERAL */}
+                <div className="match-summary-item__body">
+                  <span className="match-summary-item__category">
+                    {item.categoria}
+                  </span>
+                  <strong>{item.seleccion}</strong>
+                  {item.descripcion && <small>{item.descripcion}</small>}
+                </div>
+
+                <div className="match-summary-item__score">
+                  <strong>{probability.toFixed(1)}%</strong>
+                  <span className={`match-summary-signal ${level.className}`}>
+                    {level.label}
+                  </span>
+                </div>
+
+                <div
+                  className="match-summary-item__progress"
+                  aria-hidden="true"
+                  style={{ "--signal-progress": `${progress}%` }}
+                >
+                  <span />
+                </div>
+              </article>
+            );
+          })}
+        </section>
+      )}
+
       <div className="match-summary-bottom">
-        <div className="match-summary-insights">
-          <span className="match-summary-title">
-            {t("matchAnalytics.analytics.results.summary.readingTitle")}
-          </span>
+        <section className="match-summary-insights">
+          <h3 className="match-summary-title">
+            {t(`${SUMMARY_TRANSLATION_PREFIX}.readingTitle`)}
+          </h3>
 
-          {resumenProbabilidades.tendencias.length > 0 ? (
-            resumenProbabilidades.tendencias.map((tendencia, index) => (
+          {trends.length > 0 ? (
+            trends.map((trend, index) => (
               <div
-                key={`${tendencia}-${index}`}
+                key={`${trend}-${index}`}
                 className="match-summary-insight"
               >
-                <span />
-                <p>{tendencia}</p>
+                <span aria-hidden="true" />
+                <p>{trend}</p>
               </div>
             ))
           ) : (
             <div className="match-summary-insight">
-              <span />
-              <p>{t("matchAnalytics.analytics.results.summary.noTrends")}</p>
+              <span aria-hidden="true" />
+              <p>{t(`${SUMMARY_TRANSLATION_PREFIX}.noTrends`)}</p>
             </div>
           )}
-        </div>
+        </section>
 
-        {/* MARCADOR */}
         {(resumenProbabilidades.marcador ||
           resumenProbabilidades.marcadorAi) && (
-          <div className="match-summary-scores-container">
-            {/* Marcador Clasico */}
+          <section className="match-summary-scores">
             {resumenProbabilidades.marcador && (
-              <div className="match-summary-score">
+              <article className="match-summary-score">
                 <span>
-                  {t(
-                    "matchAnalytics.analytics.results.summary.mostProbableScoreTag",
-                  )}
+                  {t(`${SUMMARY_TRANSLATION_PREFIX}.mostProbableScoreTag`)}
                 </span>
                 <strong>{resumenProbabilidades.marcador.marcador}</strong>
                 <small>
-                  {t(
-                    "matchAnalytics.analytics.results.summary.probabilityPercentage",
-                    {
-                      percentage: porcentaje(
-                        resumenProbabilidades.marcador.probabilidad,
-                      ).toFixed(1),
-                    },
-                  )}
+                  {t(`${SUMMARY_TRANSLATION_PREFIX}.probabilityPercentage`, {
+                    percentage: porcentaje(
+                      resumenProbabilidades.marcador.probabilidad,
+                    ).toFixed(1),
+                  })}
                 </small>
-              </div>
+              </article>
             )}
 
-            {/* Marcador IA (XGBoost) */}
             {resumenProbabilidades.marcadorAi && (
-              <div className="match-summary-score-ia">
+              <article className="match-summary-score-ia">
                 <span>
-                  {t(
-                    "matchAnalytics.analytics.results.summary.mostProbableScoreTagAi",
-                  )}
+                  {t(`${SUMMARY_TRANSLATION_PREFIX}.mostProbableScoreTagAi`)}
                 </span>
                 <strong>{resumenProbabilidades.marcadorAi.marcador}</strong>
                 <small>
-                  {t(
-                    "matchAnalytics.analytics.results.summary.probabilityPercentage",
-                    {
-                      percentage: porcentaje(
-                        resumenProbabilidades.marcadorAi.probabilidad,
-                      ).toFixed(1),
-                    },
-                  )}
+                  {t(`${SUMMARY_TRANSLATION_PREFIX}.probabilityPercentage`, {
+                    percentage: porcentaje(
+                      resumenProbabilidades.marcadorAi.probabilidad,
+                    ).toFixed(1),
+                  })}
                 </small>
-              </div>
+              </article>
             )}
-          </div>
+          </section>
         )}
       </div>
 
-      {/* NOTA */}
-      <div className="match-summary-disclaimer">
-        <span>i</span>
-
+      <aside className="match-summary-disclaimer">
+        <span aria-hidden="true">i</span>
         <p>
           <strong>
-            {t("matchAnalytics.analytics.results.summary.disclaimerTitle")}
+            {t(`${SUMMARY_TRANSLATION_PREFIX}.disclaimerTitle`)}
           </strong>{" "}
-          {t("matchAnalytics.analytics.results.summary.disclaimerText")}
+          {t(`${SUMMARY_TRANSLATION_PREFIX}.disclaimerText`)}
         </p>
-      </div>
-    </>
+      </aside>
+    </div>
   );
 }

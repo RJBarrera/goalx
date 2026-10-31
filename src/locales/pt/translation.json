@@ -189,6 +189,7 @@
       "visitorPlaceholder": "Selecionar time visitante",
       "searchPlaceholder": "Buscar equipe...",
       "vs": "VS",
+      "swapTeams": "Trocar equipes",
       "refereeLabel": "Árbitro",
       "refereeBadge": "ÁRBITRO",
       "refereePlaceholder": "Selecionar árbitro",
@@ -289,7 +290,11 @@
           "topResultsTitle": "Top 5 Resultados Mais Prováveis (Estatístico)",
           "tagAi": "RESULTADO EXATO (XGBOOST)",
           "topResultsTitleAi": "Top 5 Resultados Mais Prováveis (IA)",
-          "probabilityName": "Probabilidade"
+          "probabilityName": "Probabilidade",
+          "comparisonTitle": "Comparação de resultados exatos",
+          "classicModel": "Estatístico",
+          "aiModel": "IA",
+          "comparisonNote": "As barras aparecem apenas quando o resultado está no Top 5 do modelo correspondente."
         },
         "shots": {
           "eyebrow": "Modelo De Chutes",
@@ -301,6 +306,7 @@
           "totalShotsHeader": "CHUTES TOTAIS",
           "totalShotsDescription": "Chutes totais esperados",
           "moreThanShots": "Mais de {{line}} chutes",
+          "lineMarketsHeader": "MERCADOS POR LINHA",
           "lineSimulatorHeader": "SIMULADOR DE LINHA",
           "lineSimulatorSubtitle": "Calcule sua própria linha de chutes",
           "teamLabel": "Equipe",
@@ -318,7 +324,10 @@
         },
         "corners": {
           "eyebrow": "Escanteios",
-          "title": "Mercado de escanteios",
+          "title": "Escanteios totais",
+          "metricHeader": "Métrica",
+          "marketsDisclosure": "Ver mercados de escanteios",
+          "matchMarketsTitle": "Mercados da partida",
           "description": "Contraste de tendências de escanteios entre o histórico geral e o desempenho recente.",
           "fullMatch": "Partida completa",
           "firstHalf": "Primeiro tempo",
@@ -357,6 +366,7 @@
         "cards": {
           "eyebrow": "Disciplina",
           "title": "Mercado de Cartões",
+          "metricHeader": "Métrica",
           "description": "Estimativa ajustada com base no árbitro {{referee}}.",
           "subtitle": "ESTATÍSTICAS CLÁSSICAS",
           "model_h": "Modelo Histórico",
@@ -445,14 +455,20 @@
       "kicker": "{{competition}} · TEMPORADA ATUAL",
       "goals": "Gols",
       "assists": "Assistências",
-      "contributions": "Participações"
+      "contributions": "Participações",
+      "seasonTotal": "Nesta temporada"
     },
     "matchSlide": {
       "defaultCompetition": "Competição",
       "kicker": "{{competition}} · PARTIDA EM DESTAQUE",
+      "scoreLabel": "PLACAR",
       "goals": "{{count}} gols",
       "corners": "{{count}} escanteios",
-      "cards": "{{count}} cartões"
+      "cards": "{{count}} cartões",
+      "goalsLabel": "Gols",
+      "cornersLabel": "Escanteios",
+      "cardsLabel": "Cartões",
+      "matchTotal": "Nesta partida"
     },
     "container": {
       "kicker": "DESTAQUES",

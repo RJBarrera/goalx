@@ -1,4 +1,55 @@
 {
   "version": 1,
-  "fixtures": {}
+  "fixtures": {
+    "1603408": {
+      "fixture_id": 1603408,
+      "date": "2026-10-31T00:00:00+00:00",
+      "home": "Toluca W",
+      "away": "Guadalajara W",
+      "players": {
+        "toluca w|e. le sommer": {
+          "name": "E. Le Sommer",
+          "team": "Toluca W",
+          "goals": 1,
+          "assists": 0
+        },
+        "toluca w|f. robert": {
+          "name": "F. Robert",
+          "team": "Toluca W",
+          "goals": 0,
+          "assists": 2
+        },
+        "toluca w|s. vazquez": {
+          "name": "S. Vazquez",
+          "team": "Toluca W",
+          "goals": 1,
+          "assists": 0
+        },
+        "guadalajara w|a. cervantes": {
+          "name": "A. Cervantes",
+          "team": "Guadalajara W",
+          "goals": 2,
+          "assists": 0
+        },
+        "guadalajara w|d. castro": {
+          "name": "D. Castro",
+          "team": "Guadalajara W",
+          "goals": 0,
+          "assists": 1
+        },
+        "guadalajara w|n. colin": {
+          "name": "N. Colin",
+          "team": "Guadalajara W",
+          "goals": 1,
+          "assists": 0
+        },
+        "guadalajara w|j. a. casarez": {
+          "name": "J. A. Casarez",
+          "team": "Guadalajara W",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    }
+  }
 }

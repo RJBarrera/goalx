@@ -11,13 +11,8 @@ import {
 import { CustomTooltip, MetricCard, ProbabilityBar } from "./utils";
 
 const COLORS = {
-  local: "#21cfa1",
-  draw: "#94a3b8",
-  away: "#38bdf8",
-  positive: "#22c55e",
+  positive: "#2e7d32",
   negative: "#dce3eb",
-  corner: "#f59e0b",
-  card: "#eab308",
 };
 
 export default function MatchGoals({
@@ -33,17 +28,10 @@ export default function MatchGoals({
 
   return (
     <>
-      <div className="match-two-columns">
+      <div className="match-two-columns match-goals">
         {/*  MODELO CLASICO */}
-        <div className="match-panel">
-          <div
-            className="match-panel-title"
-            style={{
-              borderBottom: "1px solid #e2e8f0",
-              paddingBottom: "1rem",
-              marginBottom: "1.5rem",
-            }}
-          >
+        <div className="match-panel match-goals__panel">
+          <div className="match-panel-title match-goals__model-heading">
             <div>
               <h3>
                 {t("matchAnalytics.analytics.results.goals.classicTitle")}
@@ -52,10 +40,7 @@ export default function MatchGoals({
           </div>
 
           {/* xG Clasico */}
-          <div
-            className="match-metrics-grid"
-            style={{ marginBottom: "2.5rem" }}
-          >
+          <div className="match-metrics-grid match-goals__metrics">
             <MetricCard
               label={`xG ${resultado.partido.local}`}
               value={numero(datosResultado.goles.expected_goals_home)}
@@ -88,7 +73,7 @@ export default function MatchGoals({
           </div>
 
           {/* Over/Under Clasico */}
-          <div className="match-panel-title">
+          <div className="match-panel-title match-goals__subheading">
             <div>
               <span>
                 {t("matchAnalytics.analytics.results.goals.overUnderTag")}
@@ -99,7 +84,7 @@ export default function MatchGoals({
               </h3>
             </div>
           </div>
-          <div style={{ marginBottom: "2.5rem" }}>
+          <div className="match-goals__probabilities">
             <ProbabilityBar
               label={t("matchAnalytics.analytics.results.goals.over15")}
               value={datosResultado.goles?.Over_Under?.["Over 1.5"]}
@@ -138,7 +123,7 @@ export default function MatchGoals({
 
             return (
               <>
-                <div className="match-panel-title">
+                <div className="match-panel-title match-goals__subheading">
                   <div>
                     <span>
                       {t("matchAnalytics.analytics.results.goals.bttsTag")}
@@ -148,7 +133,7 @@ export default function MatchGoals({
                     </h3>
                   </div>
                 </div>
-                <div className="match-pie-wrapper" style={{ height: "240px" }}>
+                <div className="match-pie-wrapper match-goals__btts-chart">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
@@ -178,18 +163,8 @@ export default function MatchGoals({
 
         {/* MODELO IA XGBOOST */}
         {datosResultado.goles?.xgboost_mercados && (
-          <div
-            className="match-panel"
-            style={{ borderTop: "4px solid var(--cyan-500)" }}
-          >
-            <div
-              className="match-panel-title"
-              style={{
-                borderBottom: "1px solid #e2e8f0",
-                paddingBottom: "1rem",
-                marginBottom: "1.5rem",
-              }}
-            >
+          <div className="match-panel match-goals__panel match-goals__panel--ai">
+            <div className="match-panel-title match-goals__model-heading">
               <div>
                 {/* <span>{t("matchAnalytics.analytics.results.goals.xgboost")}</span> */}
                 <h3>{t("matchAnalytics.analytics.results.goals.xgboost")}</h3>
@@ -197,17 +172,14 @@ export default function MatchGoals({
             </div>
 
             {/* xG IA */}
-            <div
-              className="match-metrics-grid"
-              style={{ marginBottom: "2.5rem" }}
-            >
+            <div className="match-metrics-grid match-goals__metrics">
               <MetricCard
                 label={`xG ${resultado.partido.local}`}
                 value={numero(datosResultado.goles.xgboost_expected_goals_home)}
                 description={t(
                   "matchAnalytics.analytics.results.goals.expectedHomeDesc",
                 )}
-                variant="cyan"
+                variant="local"
                 tag={t("matchAnalytics.analytics.results.goals.tags.home")}
               />
 
@@ -217,7 +189,7 @@ export default function MatchGoals({
                 description={t(
                   "matchAnalytics.analytics.results.goals.expectedAwayDesc",
                 )}
-                variant="cyan"
+                variant="away"
                 tag={t("matchAnalytics.analytics.results.goals.tags.away")}
               />
 
@@ -230,13 +202,12 @@ export default function MatchGoals({
                 description={t(
                   "matchAnalytics.analytics.results.goals.jointExpectation",
                 )}
-                variant="cyan"
                 tag={t("matchAnalytics.analytics.results.goals.tags.match")}
               />
             </div>
 
             {/* Over/Under IA */}
-            <div className="match-panel-title">
+            <div className="match-panel-title match-goals__subheading">
               <div>
                 <span>
                   {t("matchAnalytics.analytics.results.goals.overUnderTag")}
@@ -247,7 +218,7 @@ export default function MatchGoals({
                 </h3>
               </div>
             </div>
-            <div style={{ marginBottom: "2.5rem" }}>
+            <div className="match-goals__probabilities">
               <ProbabilityBar
                 label={t("matchAnalytics.analytics.results.goals.over15")}
                 value={datosResultado.goles.xgboost_mercados["Over 1.5"]}
@@ -288,7 +259,7 @@ export default function MatchGoals({
 
               return (
                 <>
-                  <div className="match-panel-title">
+                  <div className="match-panel-title match-goals__subheading">
                     <div>
                       <span>
                         {t("matchAnalytics.analytics.results.goals.bttsTag")}
@@ -298,10 +269,7 @@ export default function MatchGoals({
                       </h3>
                     </div>
                   </div>
-                  <div
-                    className="match-pie-wrapper"
-                    style={{ height: "240px" }}
-                  >
+                  <div className="match-pie-wrapper match-goals__btts-chart">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
                         <Pie

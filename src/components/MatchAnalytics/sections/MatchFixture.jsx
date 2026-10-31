@@ -41,8 +41,8 @@ export default function MatchFixture({ resultado, logoLocal, logoVisitante }) {
 
       <div className="match-fixture-card__main">
         {/* LOCAL */}
-        <div className="match-team">
-          <span className="match-team-label">
+        <div className="match-team match-team--home">
+          <span className="match-team-label match-team-label--home">
             {t("matchAnalytics.analytics.results.fixture.localLabel")}
           </span>
 
@@ -85,8 +85,8 @@ export default function MatchFixture({ resultado, logoLocal, logoVisitante }) {
         </div>
 
         {/* VISITANTE */}
-        <div className="match-team">
-          <span className="match-team-label">
+        <div className="match-team match-team--away">
+          <span className="match-team-label match-team-label--away">
             {t("matchAnalytics.analytics.results.fixture.visitorLabel")}
           </span>
 

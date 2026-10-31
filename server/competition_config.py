@@ -121,6 +121,54 @@ COMPETITIONS = {
         "seed_streams_filename": "match_streams_ligue1.json",
         "streams_filename": "match_streams.json",
     },
+    "bundesliga": {
+        "id": "bundesliga",
+        "name": "Bundesliga",
+        "short_name": "Bundesliga",
+        "country": "Alemania",
+        "type": "league",
+        "enabled": True,
+        "default": False,
+        "sportsdb_league_id": 4331,
+        "api_football_league_id": 78,
+        "timezone": "America/Mazatlan",
+        "round_label": "Jornada",
+        "next_scope_label": "Próxima jornada",
+        "upcoming_scope_label": "Próximos partidos",
+        "season_mode": "european",
+        "dataset_sync_enabled": True,
+        "model_min_matches": 30,
+        "seed_history_filename": "historial_bundesliga.csv",
+        "history_filename": "historial_bundesliga.csv",
+        "seed_highlights_filename": "season_highlights_bundesliga.json",
+        "highlights_filename": "season_highlights.json",
+        "seed_streams_filename": "match_streams_bundesliga.json",
+        "streams_filename": "match_streams.json",
+    },
+    "serie-a": {
+        "id": "serie-a",
+        "name": "Serie A",
+        "short_name": "Serie A",
+        "country": "Italia",
+        "type": "league",
+        "enabled": True,
+        "default": False,
+        "sportsdb_league_id": 4332,
+        "api_football_league_id": 135,
+        "timezone": "America/Mazatlan",
+        "round_label": "Jornada",
+        "next_scope_label": "Próxima jornada",
+        "upcoming_scope_label": "Próximos partidos",
+        "season_mode": "european",
+        "dataset_sync_enabled": True,
+        "model_min_matches": 30,
+        "seed_history_filename": "historial_seriea.csv",
+        "history_filename": "historial_seriea.csv",
+        "seed_highlights_filename": "season_highlights_seriea.json",
+        "highlights_filename": "season_highlights.json",
+        "seed_streams_filename": "match_streams_seriea.json",
+        "streams_filename": "match_streams.json",
+    },
     "champions": {
         "id": "champions",
         "name": "UEFA Champions League",
@@ -225,6 +273,10 @@ LALIGA_EQUIVALENCIAS = {
     "Deportivo La Coruna": "Deportivo La Coruña",
     "Deportivo de A Coruña": "Deportivo La Coruña",
 }
+
+PREMIER_LEAGUE_EQUIVALENCIAS = {}
+
+BUNDESLIGA_EQUIVALENCIAS = {}
 
 # Equipos que pueden aparecer en múltiples competiciones
 EQUIVALENCIAS_GENERALES = {
@@ -439,6 +491,19 @@ LIGUE1_INACTIVE_TEAMS = {
     "Nantes",
     "Reims",
 }
+
+PREMIER_LEAGUE_INACTIVE_TEAMS = {
+    "Burnley", "Cardiff City", "Coventry City", "Derby County", 
+    "Huddersfield Town", "Hull City", "Leeds United", "Leicester City", 
+    "Luton Town", "Middlesbrough", "Millwall", "Norwich City", 
+    "Plymouth Argyle", "Preston North End", "Queens Park Rangers", 
+    "Reading", "Sheffield United", "Sheffield Wednesday", "Stoke City", 
+    "Sunderland", "Swansea City", "Watford", "West Bromwich Albion", 
+    "Wigan Athletic", "Birmingham City", "Blackburn Rovers", "Blackpool", 
+    "Bolton Wanderers", "Bristol City", "Charlton Athletic", "Portsmouth", 
+    "Rotherham United", "Wycombe Wanderers"
+}
+
 
 CHAMPIONS_INACTIVE_TEAMS = {
     "AC Milan",

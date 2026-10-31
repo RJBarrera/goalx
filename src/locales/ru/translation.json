@@ -181,6 +181,7 @@
       "visitorPlaceholder": "Выберите гостей",
       "searchPlaceholder": "Поиск команды...",
       "vs": "ПРОТИВ",
+      "swapTeams": "Поменять команды местами",
       "refereeLabel": "Судья",
       "refereeBadge": "СУДЬЯ",
       "refereePlaceholder": "Выберите судью",
@@ -281,7 +282,11 @@
           "topResultsTitle": "Топ-5 наиболее вероятных счетов (Статистика)",
           "tagAi": "ТОЧНЫЙ СЧЁТ (XGBOOST)",
           "topResultsTitleAi": "Топ-5 наиболее вероятных счетов (ИИ)",
-          "probabilityName": "Вероятность"
+          "probabilityName": "Вероятность",
+          "comparisonTitle": "Сравнение точных счетов",
+          "classicModel": "Статистическая модель",
+          "aiModel": "ИИ",
+          "comparisonNote": "Столбцы отображаются только для счетов, входящих в топ-5 соответствующей модели."
         },
         "shots": {
           "eyebrow": "Модель Ударов",
@@ -293,6 +298,7 @@
           "totalShotsHeader": "ВСЕГО УДАРОВ",
           "totalShotsDescription": "Ожидаемые всего ударов",
           "moreThanShots": "Более {{line}} ударов",
+          "lineMarketsHeader": "РЫНКИ ПО ЛИНИЯМ",
           "lineSimulatorHeader": "СИМУЛЯТОР ЛИНИИ",
           "lineSimulatorSubtitle": "Рассчитайте свою линию ударов",
           "teamLabel": "Команда",
@@ -310,7 +316,10 @@
         },
         "corners": {
           "eyebrow": "Угловые Удары",
-          "title": "Рынок угловых",
+          "title": "Всего угловых",
+          "metricHeader": "Показатель",
+          "marketsDisclosure": "Показать рынки угловых",
+          "matchMarketsTitle": "Рынки матча",
           "description": "Сравнение тенденций по угловым ударам между общей историей и недавними результатами.",
           "fullMatch": "Весь матч",
           "firstHalf": "Первый тайм",
@@ -349,6 +358,7 @@
         "cards": {
           "eyebrow": "Дисциплина",
           "title": "Рынок Карточек",
+          "metricHeader": "Показатель",
           "description": "Оценка скорректирована с учетом судьи {{referee}}.",
           "subtitle": "КЛАССИЧЕСКАЯ СТАТИСТИКА",
           "model_h": "Историческая модель",
@@ -436,14 +446,20 @@
       "kicker": "{{competition}} · ТЕКУЩИЙ СЕЗОН",
       "goals": "Голы",
       "assists": "Голевые передачи",
-      "contributions": "Участия"
+      "contributions": "Участия",
+      "seasonTotal": "В этом сезоне"
     },
     "matchSlide": {
       "defaultCompetition": "Соревнование",
       "kicker": "{{competition}} · ГЛАВНЫЙ МАТЧ",
+      "scoreLabel": "СЧЁТ",
       "goals": "{{count}} голов",
       "corners": "{{count}} угловых",
-      "cards": "{{count}} карточек"
+      "cards": "{{count}} карточек",
+      "goalsLabel": "Голы",
+      "cornersLabel": "Угловые",
+      "cardsLabel": "Карточки",
+      "matchTotal": "В этом матче"
     },
     "container": {
       "kicker": "ГЛАВНОЕ",
