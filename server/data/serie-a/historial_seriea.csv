@@ -1,1 +1,1620 @@
-fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,away_corners,total_corners,home_cards,away_cards,total_cards
+fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,away_corners,total_corners,home_cards,away_cards,total_cards,home_sont,away_sont,home_shots_off,away_shots_off,home_shots_total,away_shots_total
+881780,2022-08-13 16:30:00+00:00,Livio Marinelli,AC Milan,Udinese,4,2,5,1,6,1,4,5,5,4,9,5,14,9
+881781,2022-08-13 16:30:00+00:00,Federico Dionisi,Sampdoria,Atalanta,0,2,3,2,5,4,6,10,1,3,10,6,11,9
+881782,2022-08-13 18:45:00+00:00,Alessandro Prontera,Lecce,Inter,1,2,6,8,14,4,2,6,4,9,6,10,10,19
+881783,2022-08-13 18:45:00+00:00,Maurizio Mariani,Monza,Torino,1,2,2,7,9,1,2,3,4,6,11,7,15,13
+881784,2022-08-14 16:30:00+00:00,Juan Luca Sacchi,Fiorentina,Cremonese,3,2,11,4,15,0,5,5,11,4,17,9,28,13
+881785,2022-08-14 16:30:00+00:00,Luca Massimi,Lazio,Bologna,2,1,3,2,5,4,8,12,6,3,3,8,9,11
+881786,2022-08-14 18:45:00+00:00,Simone Sozza,Salernitana,AS Roma,0,1,4,2,6,3,2,5,2,5,11,15,13,20
+881787,2022-08-14 18:45:00+00:00,Daniele Chiffi,Spezia,Empoli,1,0,6,4,10,2,1,3,2,5,7,13,9,18
+881788,2022-08-15 16:30:00+00:00,Michael Fabbri,Hellas Verona,Napoli,2,5,4,8,12,2,2,4,3,8,3,17,6,25
+881789,2022-08-15 18:45:00+00:00,Antonio Rapuano,Juventus,Sassuolo,3,0,3,2,5,1,3,4,4,7,10,12,14,19
+881790,2022-08-20 16:30:00+00:00,Marco Piccinini,Torino,Lazio,0,0,6,4,10,0,5,5,1,2,9,5,10,7
+881791,2022-08-20 16:30:00+00:00,Gianluca Aureliano,Udinese,Salernitana,0,0,6,6,12,4,4,8,2,6,13,11,15,17
+881792,2022-08-20 18:45:00+00:00,Davide Ghersini,Inter,Spezia,3,0,10,4,14,0,0,0,8,0,11,2,19,2
+881793,2022-08-20 18:45:00+00:00,Andrea Colombo,Sassuolo,Lecce,1,0,5,4,9,5,1,6,3,1,9,6,12,7
+881794,2022-08-21 16:30:00+00:00,Matteo Marchetti,Empoli,Fiorentina,0,0,1,9,10,3,3,6,2,2,2,17,4,19
+881795,2022-08-21 16:30:00+00:00,Francesco Fourneau,Napoli,Monza,4,0,10,4,14,2,1,3,5,1,17,3,22,4
+881796,2022-08-21 18:45:00+00:00,Fabio Maresca,Atalanta,AC Milan,1,1,4,6,10,4,3,7,2,7,9,11,11,18
+881797,2022-08-21 18:45:00+00:00,Matteo Marcenaro,Bologna,Hellas Verona,1,1,9,8,17,5,3,8,5,3,12,16,17,19
+881798,2022-08-22 16:30:00+00:00,Luca Massimi,AS Roma,Cremonese,1,0,5,6,11,0,3,3,12,3,15,11,27,14
+881799,2022-08-22 18:45:00+00:00,Rosario Abisso,Sampdoria,Juventus,0,0,3,4,7,3,2,5,1,4,8,6,9,10
+881800,2022-08-26 16:30:00+00:00,Marco Di Bello,Monza,Udinese,1,2,3,5,8,3,2,5,5,4,5,11,10,15
+881801,2022-08-26 18:45:00+00:00,Michael Fabbri,Lazio,Inter,3,1,2,4,6,2,1,3,7,7,4,12,11,19
+881802,2022-08-27 16:30:00+00:00,Paolo Valeri,Cremonese,Torino,1,2,3,3,6,0,3,3,6,5,10,9,16,14
+881803,2022-08-27 16:30:00+00:00,Massimiliano Irrati,Juventus,AS Roma,1,1,4,5,9,2,2,4,3,4,11,4,14,8
+881804,2022-08-27 18:45:00+00:00,Gianluca Manganiello,AC Milan,Bologna,2,0,5,1,6,2,1,3,7,0,12,8,19,8
+881805,2022-08-27 18:45:00+00:00,Francesco Cosso,Spezia,Sassuolo,2,2,2,6,8,4,1,5,2,8,5,13,7,21
+881806,2022-08-28 16:30:00+00:00,Alessandro Prontera,Hellas Verona,Atalanta,0,1,7,6,13,3,3,6,2,7,12,8,14,15
+881807,2022-08-28 16:30:00+00:00,Davide Massa,Salernitana,Sampdoria,4,0,6,3,9,2,2,4,6,6,3,11,9,17
+881808,2022-08-28 18:45:00+00:00,Livio Marinelli,Fiorentina,Napoli,0,0,2,3,5,2,3,5,5,2,5,11,10,13
+881809,2022-08-28 18:45:00+00:00,Alberto Santoro,Lecce,Empoli,1,1,3,5,8,1,2,3,5,3,10,6,15,9
+881810,2022-08-30 16:30:00+00:00,Giovanni Ayroldi,Sassuolo,AC Milan,0,0,3,8,11,5,2,7,3,2,5,9,8,11
+881811,2022-08-30 18:45:00+00:00,Francesco Fourneau,Inter,Cremonese,3,1,6,6,12,0,3,3,7,4,11,7,18,11
+881812,2022-08-30 18:45:00+00:00,Marco Piccinini,AS Roma,Monza,3,0,5,4,9,0,3,3,8,1,7,12,15,13
+881813,2022-08-31 16:30:00+00:00,Marco Serra,Empoli,Hellas Verona,1,1,7,10,17,0,4,4,4,3,12,6,16,9
+881814,2022-08-31 16:30:00+00:00,Gianluca Aureliano,Sampdoria,Lazio,1,1,5,7,12,0,2,2,3,6,7,7,10,13
+881815,2022-08-31 16:30:00+00:00,Maurizio Mariani,Udinese,Fiorentina,1,0,3,7,10,1,2,3,3,2,5,10,8,12
+881816,2022-08-31 18:45:00+00:00,Andrea Colombo,Juventus,Spezia,2,0,7,3,10,0,2,2,3,0,12,9,15,9
+881817,2022-08-31 18:45:00+00:00,Matteo Marcenaro,Napoli,Lecce,1,1,6,4,10,1,4,5,7,4,12,5,19,9
+881818,2022-09-01 18:45:00+00:00,Marco Di Bello,Atalanta,Torino,3,1,7,2,9,1,3,4,5,2,7,6,12,8
+881819,2022-09-01 18:45:00+00:00,Davide Ghersini,Bologna,Salernitana,1,1,1,8,9,2,2,4,4,4,7,16,11,20
+881820,2022-09-03 13:00:00+00:00,Daniele Doveri,Fiorentina,Juventus,1,1,10,2,12,1,3,4,5,1,12,3,17,4
+881821,2022-09-03 16:00:00+00:00,Daniele Chiffi,AC Milan,Inter,3,2,2,5,7,5,2,7,5,5,16,11,21,16
+881822,2022-09-03 18:45:00+00:00,Simone Sozza,Lazio,Napoli,1,2,6,8,14,4,0,4,2,7,6,12,8,19
+881823,2022-09-04 10:30:00+00:00,Luca Pairetto,Cremonese,Sassuolo,0,0,2,3,5,1,1,2,0,7,10,10,10,17
+881824,2022-09-04 13:00:00+00:00,Antonio Giua,Spezia,Bologna,2,2,7,2,9,4,1,5,5,6,10,7,15,13
+881825,2022-09-04 16:00:00+00:00,Paolo Valeri,Hellas Verona,Sampdoria,2,1,7,2,9,2,2,4,9,3,8,8,17,11
+881826,2022-09-04 18:45:00+00:00,Fabio Maresca,Udinese,AS Roma,4,0,3,7,10,3,2,5,5,2,6,10,11,12
+881827,2022-09-05 16:30:00+00:00,Juan Luca Sacchi,Monza,Atalanta,0,2,4,9,13,1,1,2,3,6,7,7,10,13
+881828,2022-09-05 16:30:00+00:00,Rosario Abisso,Salernitana,Empoli,2,2,6,7,13,3,2,5,4,5,11,6,15,11
+881829,2022-09-05 18:45:00+00:00,Manuel Volpi,Torino,Lecce,1,0,4,4,8,2,1,3,4,2,9,7,13,9
+881837,2022-09-10 13:00:00+00:00,Alberto Santoro,Napoli,Spezia,1,0,10,5,15,1,2,3,6,1,22,9,28,10
+881833,2022-09-10 16:00:00+00:00,Giovanni Ayroldi,Inter,Torino,1,0,6,5,11,1,2,3,3,7,13,2,16,9
+881838,2022-09-10 18:45:00+00:00,Michael Fabbri,Sampdoria,AC Milan,1,2,2,4,6,5,4,9,4,4,6,11,10,15
+881830,2022-09-11 10:30:00+00:00,Andrea Colombo,Atalanta,Cremonese,1,1,3,3,6,3,5,8,6,4,8,3,14,7
+881831,2022-09-11 13:00:00+00:00,Daniele Orsato,Bologna,Fiorentina,2,1,6,8,14,1,6,7,4,2,8,11,12,13
+881836,2022-09-11 13:00:00+00:00,Luca Pairetto,Lecce,Monza,1,1,8,5,13,3,3,6,3,1,4,1,7,2
+881839,2022-09-11 13:00:00+00:00,Giacomo Camplone,Sassuolo,Udinese,1,3,5,6,11,3,3,6,2,4,3,13,5,17
+881835,2022-09-11 16:00:00+00:00,Massimiliano Irrati,Lazio,Hellas Verona,2,0,3,5,8,2,5,7,6,1,9,6,15,7
+881834,2022-09-11 18:45:00+00:00,Matteo Marcenaro,Juventus,Salernitana,2,2,8,2,10,9,6,15,8,5,15,6,23,11
+881832,2022-09-12 18:45:00+00:00,Livio Marinelli,Empoli,AS Roma,1,2,7,7,14,5,1,6,3,7,17,6,20,13
+881846,2022-09-16 18:45:00+00:00,Daniele Doveri,Salernitana,Lecce,1,2,4,5,9,1,3,4,4,4,4,9,8,13
+881840,2022-09-17 13:00:00+00:00,Manuel Volpi,Bologna,Empoli,0,1,5,8,13,2,3,5,3,5,13,7,16,12
+881847,2022-09-17 16:00:00+00:00,Simone Sozza,Spezia,Sampdoria,2,1,3,6,9,4,5,9,3,8,3,3,6,11
+881848,2022-09-17 18:45:00+00:00,Niccolò Baroni,Torino,Sassuolo,0,1,4,3,7,4,1,5,3,5,9,5,12,10
+881849,2022-09-18 10:30:00+00:00,Paolo Valeri,Udinese,Inter,3,1,7,4,11,3,4,7,6,4,14,12,20,16
+881841,2022-09-18 13:00:00+00:00,Daniele Orsato,Cremonese,Lazio,0,4,8,5,13,1,1,2,4,6,14,8,18,14
+881842,2022-09-18 13:00:00+00:00,Antonio Rapuano,Fiorentina,Hellas Verona,2,0,7,3,10,4,4,8,10,1,5,7,15,8
+881844,2022-09-18 13:00:00+00:00,Fabio Maresca,Monza,Juventus,1,0,5,3,8,2,3,5,4,2,13,8,17,10
+881845,2022-09-18 16:00:00+00:00,Daniele Chiffi,AS Roma,Atalanta,0,1,5,1,6,0,7,7,5,1,16,3,21,4
+881843,2022-09-18 18:45:00+00:00,Maurizio Mariani,AC Milan,Napoli,1,2,9,4,13,4,3,7,5,4,17,5,22,9
+881857,2022-10-01 13:00:00+00:00,Luca Massimi,Napoli,Torino,3,1,4,4,8,0,2,2,7,3,8,13,15,16
+881853,2022-10-01 16:00:00+00:00,Davide Massa,Inter,AS Roma,1,2,5,1,6,4,3,7,2,3,13,7,15,10
+881851,2022-10-01 18:45:00+00:00,Gianluca Aureliano,Empoli,AC Milan,1,3,3,7,10,3,2,5,4,6,12,13,16,19
+881855,2022-10-02 10:30:00+00:00,Juan Luca Sacchi,Lazio,Spezia,4,0,3,6,9,0,2,2,6,2,7,12,13,14
+881856,2022-10-02 13:00:00+00:00,Livio Marinelli,Lecce,Cremonese,1,1,1,8,9,3,1,4,1,4,5,9,6,13
+881858,2022-10-02 13:00:00+00:00,Giovanni Ayroldi,Sampdoria,Monza,0,3,2,4,6,2,2,4,1,6,2,7,3,13
+881859,2022-10-02 13:00:00+00:00,Maria Ferrieri,Sassuolo,Salernitana,5,0,1,2,3,1,1,2,11,1,6,5,17,6
+881850,2022-10-02 16:00:00+00:00,Massimiliano Irrati,Atalanta,Fiorentina,1,0,1,5,6,2,2,4,5,5,5,11,10,16
+881854,2022-10-02 18:45:00+00:00,Rosario Abisso,Juventus,Bologna,3,0,2,4,6,0,1,1,6,1,11,8,17,9
+881852,2022-10-03 18:45:00+00:00,Daniele Minelli,Hellas Verona,Udinese,1,2,4,9,13,3,3,6,2,8,5,13,7,21
+881867,2022-10-08 13:00:00+00:00,Simone Sozza,Sassuolo,Inter,1,2,6,5,11,3,2,5,3,4,12,12,15,16
+881863,2022-10-08 16:00:00+00:00,Daniele Orsato,AC Milan,Juventus,2,0,9,3,12,2,3,5,3,3,18,7,21,10
+881860,2022-10-08 18:45:00+00:00,Marco Piccinini,Bologna,Sampdoria,1,1,2,5,7,2,3,5,3,3,7,6,10,9
+881868,2022-10-09 10:30:00+00:00,Francesco Fourneau,Torino,Empoli,1,1,6,1,7,2,4,6,7,2,13,4,20,6
+881864,2022-10-09 13:00:00+00:00,Daniele Perenzoni,Monza,Spezia,2,0,3,6,9,3,2,5,4,1,3,9,7,10
+881866,2022-10-09 13:00:00+00:00,Davide Ghersini,Salernitana,Hellas Verona,2,1,1,6,7,5,5,10,4,2,10,10,14,12
+881869,2022-10-09 13:00:00+00:00,Daniele Doveri,Udinese,Atalanta,2,2,5,3,8,2,3,5,2,5,8,4,10,9
+881861,2022-10-09 16:00:00+00:00,Rosario Abisso,Cremonese,Napoli,1,4,5,2,7,2,0,2,1,10,11,11,12,21
+881865,2022-10-09 18:45:00+00:00,Alessandro Prontera,AS Roma,Lecce,2,1,13,4,17,2,4,6,6,3,14,3,20,6
+881862,2022-10-10 18:45:00+00:00,Fabio Maresca,Fiorentina,Lazio,0,4,9,2,11,4,1,5,3,6,22,4,25,10
+881871,2022-10-15 13:00:00+00:00,Antonio Rapuano,Empoli,Monza,1,0,2,9,11,5,5,10,5,4,6,12,11,16
+881879,2022-10-15 16:00:00+00:00,Maurizio Mariani,Torino,Juventus,0,1,3,6,9,2,0,2,2,8,13,6,15,14
+881870,2022-10-15 18:45:00+00:00,Matteo Marcenaro,Atalanta,Sassuolo,2,1,3,3,6,1,4,5,4,3,12,8,16,11
+881873,2022-10-16 10:30:00+00:00,Juan Luca Sacchi,Inter,Salernitana,2,0,6,4,10,0,1,1,6,3,10,5,16,8
+881874,2022-10-16 13:00:00+00:00,Andrea Colombo,Lazio,Udinese,0,0,7,3,10,1,4,5,3,2,5,10,8,12
+881878,2022-10-16 13:00:00+00:00,Gianluca Manganiello,Spezia,Cremonese,2,2,6,8,14,2,0,2,6,4,9,20,15,24
+881876,2022-10-16 16:00:00+00:00,Francesco Cosso,Napoli,Bologna,3,2,6,4,10,0,4,4,11,3,20,13,31,16
+881872,2022-10-16 18:45:00+00:00,Davide Massa,Hellas Verona,AC Milan,1,2,9,3,12,3,2,5,5,6,14,10,19,16
+881877,2022-10-17 16:30:00+00:00,Marco Di Bello,Sampdoria,AS Roma,0,1,4,3,7,4,3,7,1,4,7,3,8,7
+881875,2022-10-17 18:45:00+00:00,Luca Massimi,Lecce,Fiorentina,1,1,2,8,10,7,4,11,2,5,4,5,6,10
+881884,2022-10-21 18:45:00+00:00,Michael Fabbri,Juventus,Empoli,4,0,6,4,10,2,2,4,7,4,14,8,21,12
+881887,2022-10-22 13:00:00+00:00,Daniele Chiffi,Salernitana,Spezia,1,0,4,7,11,2,4,6,4,2,13,12,17,14
+881885,2022-10-22 16:00:00+00:00,Livio Marinelli,AC Milan,Monza,4,1,2,2,4,1,1,2,7,6,5,10,12,16
+881883,2022-10-22 18:45:00+00:00,Paolo Valeri,Fiorentina,Inter,3,4,1,2,3,4,3,7,4,7,6,1,10,8
+881889,2022-10-23 10:30:00+00:00,Matteo Marchetti,Udinese,Torino,1,2,7,4,11,2,4,6,4,6,11,7,15,13
+881881,2022-10-23 13:00:00+00:00,Simone Sozza,Bologna,Lecce,2,0,9,4,13,5,2,7,5,4,4,4,9,8
+881880,2022-10-23 16:00:00+00:00,Rosario Abisso,Atalanta,Lazio,0,2,5,8,13,6,2,8,0,5,7,7,7,12
+881886,2022-10-23 18:45:00+00:00,Massimiliano Irrati,AS Roma,Napoli,0,1,3,4,7,3,4,7,0,5,6,7,6,12
+881882,2022-10-24 16:30:00+00:00,Fabio Maresca,Cremonese,Sampdoria,0,1,5,1,6,3,4,7,4,4,17,4,21,8
+881888,2022-10-24 18:45:00+00:00,Alberto Santoro,Sassuolo,Hellas Verona,2,1,4,5,9,1,3,4,3,5,11,8,14,13
+881894,2022-10-29 13:00:00+00:00,Antonio Rapuano,Napoli,Sassuolo,4,0,11,5,16,0,5,5,6,6,12,4,18,10
+881898,2022-10-29 16:00:00+00:00,Daniele Chiffi,Lecce,Juventus,0,1,7,7,14,3,5,8,0,5,5,8,5,13
+881892,2022-10-29 18:45:00+00:00,Luca Massimi,Inter,Sampdoria,3,0,3,3,6,1,6,7,8,2,9,7,17,9
+881895,2022-10-30 11:30:00+00:00,Giovanni Ayroldi,Empoli,Atalanta,0,2,7,2,9,2,1,3,3,6,10,14,13,20
+881890,2022-10-30 14:00:00+00:00,Massimiliano Irrati,Cremonese,Udinese,0,0,7,4,11,1,0,1,2,3,11,10,13,13
+881897,2022-10-30 14:00:00+00:00,Davide Massa,Spezia,Fiorentina,1,2,5,5,10,7,3,10,6,5,4,22,10,27
+881893,2022-10-30 17:00:00+00:00,Gianluca Manganiello,Lazio,Salernitana,1,3,4,5,9,3,3,6,4,6,9,4,13,10
+881899,2022-10-30 19:45:00+00:00,Rosario Abisso,Torino,AC Milan,2,1,6,1,7,5,2,7,4,1,3,11,7,12
+881891,2022-10-31 17:30:00+00:00,Juan Luca Sacchi,Hellas Verona,AS Roma,1,3,2,4,6,5,1,6,3,6,4,8,7,14
+881896,2022-10-31 19:45:00+00:00,Luca Pairetto,Monza,Bologna,1,2,4,5,9,4,2,6,3,5,6,5,9,10
+881909,2022-11-04 19:45:00+00:00,Francesco Fourneau,Udinese,Lecce,1,1,3,2,5,2,3,5,5,1,11,8,16,9
+881902,2022-11-05 14:00:00+00:00,Ermanno Feliciani,Empoli,Sassuolo,1,0,3,6,9,2,0,2,1,3,16,7,17,10
+881904,2022-11-05 14:00:00+00:00,Matteo Marchetti,Salernitana,Cremonese,2,2,2,2,4,2,2,4,2,5,8,7,10,12
+881900,2022-11-05 17:00:00+00:00,Maurizio Mariani,Atalanta,Napoli,1,2,5,2,7,5,1,6,5,5,11,2,16,7
+881903,2022-11-05 19:45:00+00:00,Michael Fabbri,AC Milan,Spezia,2,1,3,6,9,8,4,12,11,5,12,8,23,13
+881901,2022-11-06 11:30:00+00:00,Antonio Giua,Bologna,Torino,2,1,3,1,4,3,3,6,5,2,4,5,9,7
+881905,2022-11-06 14:00:00+00:00,Livio Marinelli,Sampdoria,Fiorentina,0,2,4,4,8,1,0,1,2,4,12,1,14,5
+881906,2022-11-06 14:00:00+00:00,Francesco Cosso,Monza,Hellas Verona,2,0,5,2,7,3,3,6,3,2,11,5,14,7
+881908,2022-11-06 17:00:00+00:00,Daniele Orsato,AS Roma,Lazio,0,1,4,2,6,2,3,5,2,3,6,2,8,5
+881907,2022-11-06 19:45:00+00:00,Daniele Doveri,Juventus,Inter,2,0,2,8,10,2,2,4,3,4,5,10,8,14
+881916,2022-11-08 17:30:00+00:00,Luca Pairetto,Napoli,Empoli,2,0,5,0,5,1,8,9,4,1,14,5,18,6
+881918,2022-11-08 17:30:00+00:00,Marco Piccinini,Spezia,Udinese,1,1,9,0,9,3,3,6,6,2,15,8,21,10
+881910,2022-11-08 19:45:00+00:00,Antonio Rapuano,Cremonese,AC Milan,0,0,2,4,6,4,3,7,1,5,5,11,6,16
+881915,2022-11-09 17:30:00+00:00,Gianluca Aureliano,Lecce,Atalanta,2,1,4,3,7,1,2,3,3,4,12,8,15,12
+881917,2022-11-09 17:30:00+00:00,Giovanni Ayroldi,Sassuolo,AS Roma,1,1,3,2,5,5,3,8,7,4,8,7,15,11
+881911,2022-11-09 19:45:00+00:00,Federico La Penna,Fiorentina,Salernitana,2,1,4,3,7,0,1,1,7,1,11,3,18,4
+881913,2022-11-09 19:45:00+00:00,Andrea Colombo,Inter,Bologna,6,1,4,4,8,1,5,6,7,4,6,6,13,10
+881919,2022-11-09 19:45:00+00:00,Davide Massa,Torino,Sampdoria,2,0,4,3,7,1,3,4,5,1,3,10,8,11
+881912,2022-11-10 17:30:00+00:00,Marco Di Bello,Hellas Verona,Juventus,0,1,5,4,9,3,4,7,2,3,13,8,15,11
+881914,2022-11-10 19:45:00+00:00,Alberto Santoro,Lazio,Monza,1,0,4,3,7,2,1,3,4,0,8,8,12,8
+881922,2022-11-11 19:45:00+00:00,Federico Dionisi,Empoli,Cremonese,2,0,4,9,13,1,2,3,6,5,7,15,13,20
+881927,2022-11-12 14:00:00+00:00,Giovanni Ayroldi,Napoli,Udinese,3,2,5,3,8,2,3,5,5,4,10,6,15,10
+881929,2022-11-12 17:00:00+00:00,Daniele Doveri,Sampdoria,Lecce,0,2,9,0,9,2,3,5,2,3,9,8,11,11
+881921,2022-11-12 19:45:00+00:00,Ivano Pezzuto,Bologna,Sassuolo,3,0,4,6,10,1,0,1,4,3,4,6,8,9
+881920,2022-11-13 11:30:00+00:00,Daniele Chiffi,Atalanta,Inter,2,3,5,4,9,0,3,3,7,3,11,11,18,14
+881923,2022-11-13 14:00:00+00:00,Fabio Maresca,Hellas Verona,Spezia,1,2,2,10,12,2,4,6,5,9,13,7,18,16
+881926,2022-11-13 14:00:00+00:00,Antonio Giua,Monza,Salernitana,3,0,6,1,7,0,4,4,7,0,12,5,19,5
+881928,2022-11-13 14:00:00+00:00,Antonio Rapuano,AS Roma,Torino,1,1,7,0,7,3,2,5,4,2,9,8,13,10
+881925,2022-11-13 17:00:00+00:00,Simone Sozza,AC Milan,Fiorentina,2,1,5,7,12,1,4,5,3,5,9,6,12,11
+881924,2022-11-13 19:45:00+00:00,Davide Massa,Juventus,Lazio,3,0,2,6,8,2,1,3,9,3,4,7,13,10
+881938,2023-01-04 11:30:00+00:00,Francesco Fourneau,Salernitana,AC Milan,1,2,6,2,8,4,1,5,1,10,7,6,8,16
+881939,2023-01-04 11:30:00+00:00,Fabio Maresca,Sassuolo,Sampdoria,1,2,9,1,10,2,3,5,4,4,12,5,16,9
+881933,2023-01-04 13:30:00+00:00,Antonio Giua,Spezia,Atalanta,2,2,3,8,11,3,3,6,3,3,4,16,7,19
+881936,2023-01-04 13:30:00+00:00,Federico Dionisi,Torino,Hellas Verona,1,1,6,3,9,1,1,2,3,2,6,8,9,10
+881934,2023-01-04 15:30:00+00:00,Alberto Santoro,AS Roma,Bologna,1,0,3,3,6,2,3,5,4,2,10,9,14,11
+881937,2023-01-04 15:30:00+00:00,Livio Marinelli,Lecce,Lazio,2,1,4,3,7,3,2,5,4,2,7,6,11,8
+881930,2023-01-04 17:30:00+00:00,Giovanni Ayroldi,Cremonese,Juventus,0,1,3,8,11,5,3,8,3,8,10,11,13,19
+881931,2023-01-04 17:30:00+00:00,Ermanno Feliciani,Fiorentina,Monza,1,1,9,1,10,1,3,4,6,3,16,7,22,10
+881932,2023-01-04 19:45:00+00:00,Simone Sozza,Inter,Napoli,1,0,5,4,9,3,2,5,1,2,5,7,6,9
+881935,2023-01-04 19:45:00+00:00,Marco Serra,Udinese,Empoli,1,1,8,1,9,2,5,7,3,1,18,5,21,6
+881941,2023-01-07 14:00:00+00:00,Gianluca Manganiello,Fiorentina,Sassuolo,2,1,6,3,9,4,3,7,5,4,10,12,15,16
+881943,2023-01-07 17:00:00+00:00,Matteo Marchetti,Juventus,Udinese,1,0,6,4,10,1,2,3,4,3,10,8,14,11
+881946,2023-01-07 19:45:00+00:00,Juan Luca Sacchi,Monza,Inter,2,2,3,5,8,0,3,3,4,3,9,8,13,11
+881947,2023-01-08 11:30:00+00:00,Andrea Colombo,Salernitana,Torino,1,1,6,7,13,2,3,5,4,8,7,15,11,23
+881944,2023-01-08 14:00:00+00:00,Ivano Pezzuto,Lazio,Empoli,2,2,10,3,13,4,1,5,4,2,14,3,18,5
+881949,2023-01-08 14:00:00+00:00,Daniele Chiffi,Spezia,Lecce,0,0,5,7,12,0,1,1,2,4,8,11,10,15
+881948,2023-01-08 17:00:00+00:00,Rosario Abisso,Sampdoria,Napoli,0,2,2,5,7,5,2,7,2,8,7,16,9,24
+881945,2023-01-08 19:45:00+00:00,Davide Massa,AC Milan,AS Roma,2,2,3,4,7,4,6,10,5,3,7,9,12,12
+881942,2023-01-09 17:30:00+00:00,Maurizio Mariani,Hellas Verona,Cremonese,2,0,3,5,8,3,4,7,4,5,5,9,9,14
+881940,2023-01-09 19:45:00+00:00,Marco Di Bello,Bologna,Atalanta,1,2,4,0,4,3,2,5,3,3,9,4,12,7
+881955,2023-01-13 19:45:00+00:00,Daniele Doveri,Napoli,Juventus,5,1,2,5,7,0,1,1,10,2,4,9,14,11
+881951,2023-01-14 14:00:00+00:00,Davide Massa,Cremonese,Monza,2,3,4,2,6,2,4,6,7,3,4,5,11,8
+881954,2023-01-14 17:00:00+00:00,Daniele Orsato,Lecce,AC Milan,2,2,8,4,12,1,2,3,3,5,14,7,17,12
+881953,2023-01-14 19:45:00+00:00,Michael Fabbri,Inter,Hellas Verona,1,0,3,4,7,0,3,3,3,1,8,5,11,6
+881957,2023-01-15 11:30:00+00:00,Luca Pairetto,Sassuolo,Lazio,0,2,7,3,10,5,3,8,2,3,10,9,12,12
+881958,2023-01-15 14:00:00+00:00,Davide Ghersini,Torino,Spezia,0,1,7,2,9,3,3,6,4,5,7,8,11,13
+881959,2023-01-15 14:00:00+00:00,Manuel Volpi,Udinese,Bologna,1,2,6,4,10,1,3,4,4,2,16,13,20,15
+881950,2023-01-15 17:00:00+00:00,Gianluca Aureliano,Atalanta,Salernitana,8,2,5,2,7,1,0,1,13,2,6,5,19,7
+881956,2023-01-15 19:45:00+00:00,Antonio Giua,AS Roma,Fiorentina,2,0,5,9,14,3,6,9,4,3,6,4,10,7
+881952,2023-01-16 19:45:00+00:00,Alberto Santoro,Empoli,Sampdoria,1,0,3,3,6,5,6,11,5,7,11,9,16,16
+881962,2023-01-21 14:00:00+00:00,Federico La Penna,Hellas Verona,Lecce,2,0,5,4,9,3,0,3,4,3,7,6,11,9
+881967,2023-01-21 17:00:00+00:00,Daniele Chiffi,Salernitana,Napoli,0,2,3,4,7,2,2,4,2,4,3,5,5,9
+881961,2023-01-21 19:45:00+00:00,Federico Dionisi,Fiorentina,Torino,0,1,5,3,8,2,2,4,5,3,14,6,19,9
+881968,2023-01-22 11:30:00+00:00,Maurizio Mariani,Sampdoria,Udinese,0,1,6,6,12,3,1,4,1,5,8,9,9,14
+881966,2023-01-22 14:00:00+00:00,Alessandro Prontera,Monza,Sassuolo,1,1,10,4,14,2,2,4,3,1,11,12,14,13
+881969,2023-01-22 17:00:00+00:00,Simone Sozza,Spezia,AS Roma,0,2,4,0,4,3,1,4,0,3,8,10,8,13
+881964,2023-01-22 19:45:00+00:00,Livio Marinelli,Juventus,Atalanta,3,3,6,4,10,1,2,3,8,4,7,10,15,14
+881960,2023-01-23 17:30:00+00:00,Matteo Marchetti,Bologna,Cremonese,1,1,4,1,5,2,5,7,8,2,13,7,21,9
+881963,2023-01-23 19:45:00+00:00,Antonio Rapuano,Inter,Empoli,0,1,2,3,5,6,3,9,1,8,15,5,16,13
+881965,2023-01-24 19:45:00+00:00,Marco Di Bello,Lazio,AC Milan,4,0,3,4,7,1,2,3,5,3,5,7,10,10
+881971,2023-01-27 17:30:00+00:00,Luca Massimi,Bologna,Spezia,2,0,5,5,10,2,2,4,6,4,12,2,18,6
+881975,2023-01-27 19:45:00+00:00,Davide Massa,Lecce,Salernitana,1,2,4,4,8,2,4,6,5,6,10,4,15,10
+881973,2023-01-28 14:00:00+00:00,Matteo Marcenaro,Empoli,Torino,2,2,5,5,10,2,0,2,4,4,7,12,11,16
+881972,2023-01-28 17:00:00+00:00,Maurizio Mariani,Cremonese,Inter,1,2,2,14,16,0,2,2,4,10,8,20,12,30
+881970,2023-01-28 19:45:00+00:00,Daniele Doveri,Atalanta,Sampdoria,2,0,7,4,11,0,2,2,5,5,16,10,21,15
+881976,2023-01-29 11:30:00+00:00,Antonio Giua,AC Milan,Sassuolo,2,5,2,3,5,7,4,11,5,7,4,2,9,9
+881974,2023-01-29 14:00:00+00:00,Gianluca Aureliano,Juventus,Monza,0,2,12,1,13,0,2,2,8,3,14,0,22,3
+881978,2023-01-29 17:00:00+00:00,Andrea Colombo,Lazio,Fiorentina,1,1,3,4,7,2,3,5,1,6,12,11,13,17
+881977,2023-01-29 19:45:00+00:00,Daniele Orsato,Napoli,AS Roma,2,1,3,8,11,1,2,3,6,3,5,8,11,11
+881979,2023-01-30 19:45:00+00:00,Luca Pairetto,Udinese,Hellas Verona,1,1,14,6,20,1,3,4,8,2,18,8,26,10
+881980,2023-02-04 14:00:00+00:00,Daniele Orsato,Cremonese,Lecce,0,2,4,8,12,1,2,3,3,4,9,5,12,9
+881985,2023-02-04 17:00:00+00:00,Federico Dionisi,AS Roma,Empoli,2,0,7,7,14,2,1,3,6,2,6,9,12,11
+881987,2023-02-04 19:45:00+00:00,Matteo Marcenaro,Sassuolo,Atalanta,1,0,2,7,9,5,5,10,8,2,10,5,18,7
+881988,2023-02-05 11:30:00+00:00,Marco Di Bello,Spezia,Napoli,0,3,3,6,9,3,2,5,3,5,6,7,9,12
+881989,2023-02-05 14:00:00+00:00,Alessandro Prontera,Torino,Udinese,1,0,6,5,11,1,1,2,4,3,7,8,11,11
+881981,2023-02-05 17:00:00+00:00,Luca Pairetto,Fiorentina,Bologna,1,2,5,3,8,2,4,6,6,7,11,4,17,11
+881983,2023-02-05 19:45:00+00:00,Davide Massa,Inter,AC Milan,1,0,8,0,8,2,5,7,4,0,11,4,15,4
+881982,2023-02-06 17:30:00+00:00,Giovanni Ayroldi,Hellas Verona,Lazio,1,1,6,5,11,4,1,5,4,2,11,7,15,9
+881984,2023-02-06 19:45:00+00:00,Daniele Chiffi,Monza,Sampdoria,2,2,9,3,12,2,4,6,5,6,12,5,17,11
+881986,2023-02-07 19:45:00+00:00,Antonio Rapuano,Salernitana,Juventus,0,3,6,3,9,1,1,2,1,5,9,12,10,17
+881996,2023-02-10 19:45:00+00:00,Giovanni Ayroldi,AC Milan,Torino,1,0,3,8,11,1,4,5,4,2,5,10,9,12
+881991,2023-02-11 14:00:00+00:00,Antonio Giua,Empoli,Spezia,2,2,7,3,10,3,7,10,8,3,17,6,25,9
+881995,2023-02-11 17:00:00+00:00,Gianluca Aureliano,Lecce,AS Roma,1,1,3,7,10,4,1,5,3,5,5,7,8,12
+881994,2023-02-11 19:45:00+00:00,Daniele Orsato,Lazio,Atalanta,0,2,5,7,12,1,2,3,5,10,8,13,13,23
+881999,2023-02-12 11:30:00+00:00,Ivano Pezzuto,Udinese,Sassuolo,2,2,10,7,17,2,2,4,8,1,9,5,17,6
+881990,2023-02-12 14:00:00+00:00,Luca Zufferli,Bologna,Monza,0,1,3,2,5,1,4,5,4,4,9,1,13,5
+881993,2023-02-12 17:00:00+00:00,Michael Fabbri,Juventus,Fiorentina,1,0,5,6,11,5,2,7,3,2,4,9,7,11
+881997,2023-02-12 19:45:00+00:00,Luca Massimi,Napoli,Cremonese,3,0,9,7,16,0,2,2,10,1,5,5,15,6
+881992,2023-02-13 17:30:00+00:00,Paolo Valeri,Hellas Verona,Salernitana,1,0,5,1,6,2,3,5,4,3,10,5,14,8
+881998,2023-02-13 19:45:00+00:00,Fabio Maresca,Sampdoria,Inter,0,0,3,7,10,3,1,4,2,5,5,20,7,25
+882007,2023-02-17 19:45:00+00:00,Andrea Colombo,Sassuolo,Napoli,0,2,1,3,4,2,2,4,2,4,9,11,11,15
+882006,2023-02-18 14:00:00+00:00,Massimiliano Irrati,Sampdoria,Bologna,1,2,1,8,9,3,1,4,4,5,5,7,9,12
+882003,2023-02-18 17:00:00+00:00,Antonio Rapuano,Monza,AC Milan,0,1,10,3,13,4,2,6,5,8,6,6,11,14
+882002,2023-02-18 19:45:00+00:00,Federico Dionisi,Inter,Udinese,3,1,3,8,11,2,2,4,7,1,12,8,19,9
+882000,2023-02-19 11:30:00+00:00,Marco Piccinini,Atalanta,Lecce,1,2,6,1,7,3,3,6,10,2,10,2,20,4
+882001,2023-02-19 14:00:00+00:00,Alessandro Prontera,Fiorentina,Empoli,1,1,13,1,14,1,5,6,4,3,23,2,27,5
+882005,2023-02-19 14:00:00+00:00,Rosario Abisso,Salernitana,Lazio,0,2,2,9,11,6,1,7,2,7,7,14,9,21
+882008,2023-02-19 17:00:00+00:00,Federico La Penna,Spezia,Juventus,0,2,7,4,11,2,2,4,7,3,11,12,18,15
+882004,2023-02-19 19:45:00+00:00,Simone Sozza,AS Roma,Hellas Verona,1,0,5,1,6,1,2,3,5,1,4,7,9,8
+882009,2023-02-20 19:45:00+00:00,Giacomo Camplone,Torino,Cremonese,2,2,5,1,6,3,1,4,6,2,10,9,16,11
+882012,2023-02-25 17:00:00+00:00,Giovanni Ayroldi,Empoli,Napoli,0,2,4,13,17,2,3,5,2,6,7,13,9,19
+882015,2023-02-25 19:45:00+00:00,Niccolò Baroni,Lecce,Sassuolo,0,1,4,7,11,2,2,4,0,3,16,4,16,7
+882010,2023-02-26 11:30:00+00:00,Daniele Orsato,Bologna,Inter,1,0,1,6,7,1,2,3,5,4,9,9,14,13
+882018,2023-02-26 14:00:00+00:00,Livio Marinelli,Salernitana,Monza,3,0,1,3,4,2,6,8,5,4,7,11,12,15
+882019,2023-02-26 17:00:00+00:00,Matteo Marchetti,Udinese,Spezia,2,2,5,2,7,2,2,4,6,2,9,7,15,9
+882016,2023-02-26 19:45:00+00:00,Maurizio Mariani,AC Milan,Atalanta,2,0,4,3,7,3,1,4,3,0,10,3,13,3
+882017,2023-02-27 17:30:00+00:00,Federico La Penna,Hellas Verona,Fiorentina,0,3,4,2,6,3,3,6,3,7,9,9,12,16
+882014,2023-02-27 19:45:00+00:00,Andrea Colombo,Lazio,Sampdoria,1,0,8,3,11,2,2,4,4,2,11,6,15,8
+882011,2023-02-28 17:30:00+00:00,Marco Piccinini,Cremonese,AS Roma,2,1,3,3,6,3,2,5,2,3,4,7,6,10
+882013,2023-02-28 19:45:00+00:00,Daniele Chiffi,Juventus,Torino,4,2,3,7,10,0,2,2,6,3,7,5,13,8
+882024,2023-03-03 19:45:00+00:00,Luca Pairetto,Napoli,Lazio,0,1,8,3,11,2,2,4,2,2,12,3,14,5
+882023,2023-03-04 14:00:00+00:00,Ermanno Feliciani,Monza,Empoli,2,1,1,8,9,2,3,5,3,3,7,15,10,18
+882020,2023-03-04 17:00:00+00:00,Davide Ghersini,Atalanta,Udinese,0,0,12,3,15,2,3,5,5,1,12,4,17,5
+882021,2023-03-04 19:45:00+00:00,Marco Di Bello,Fiorentina,AC Milan,2,1,11,5,16,3,3,6,8,6,8,2,16,8
+882028,2023-03-05 11:30:00+00:00,Daniele Doveri,Spezia,Hellas Verona,0,0,9,5,14,4,1,5,4,3,16,8,20,11
+882026,2023-03-05 14:00:00+00:00,Davide Massa,Sampdoria,Salernitana,0,0,2,6,8,3,4,7,3,4,6,6,9,10
+882022,2023-03-05 17:00:00+00:00,Gianluca Manganiello,Inter,Lecce,2,0,6,4,10,0,0,0,4,1,10,10,14,11
+882025,2023-03-05 19:45:00+00:00,Fabio Maresca,AS Roma,Juventus,1,0,2,6,8,3,4,7,2,5,4,9,6,14
+882027,2023-03-06 17:30:00+00:00,Francesco Fourneau,Sassuolo,Cremonese,3,2,4,3,7,1,4,5,7,6,6,7,13,13
+882029,2023-03-06 19:45:00+00:00,Antonio Rapuano,Torino,Bologna,1,0,3,3,6,2,2,4,5,1,7,10,12,11
+882039,2023-03-10 19:45:00+00:00,Livio Marinelli,Spezia,Inter,2,1,1,13,14,3,0,3,2,8,2,20,4,28
+882032,2023-03-11 14:00:00+00:00,Francesco Cosso,Empoli,Udinese,0,1,11,5,16,2,4,6,3,4,14,10,17,14
+882038,2023-03-11 17:00:00+00:00,Andrea Colombo,Napoli,Atalanta,2,0,10,4,14,1,2,3,6,3,12,3,18,6
+882030,2023-03-11 19:45:00+00:00,Fabio Maresca,Bologna,Lazio,0,0,5,2,7,2,3,5,2,2,14,3,16,5
+882035,2023-03-12 11:30:00+00:00,Juan Luca Sacchi,Lecce,Torino,0,2,9,1,10,3,3,6,1,2,11,2,12,4
+882031,2023-03-12 14:00:00+00:00,Matteo Marcenaro,Cremonese,Fiorentina,0,2,1,6,7,1,2,3,5,3,11,7,16,10
+882033,2023-03-12 14:00:00+00:00,Marco Piccinini,Hellas Verona,Monza,1,1,7,2,9,2,0,2,3,3,5,6,8,9
+882037,2023-03-12 17:00:00+00:00,Michael Fabbri,AS Roma,Sassuolo,3,4,7,2,9,6,2,8,7,10,10,9,17,19
+882034,2023-03-12 19:45:00+00:00,Alessandro Prontera,Juventus,Sampdoria,4,2,11,3,14,1,1,2,8,3,16,6,24,9
+882036,2023-03-13 19:45:00+00:00,Federico La Penna,AC Milan,Salernitana,1,1,6,4,10,2,3,5,4,3,20,3,24,6
+882044,2023-03-17 17:30:00+00:00,Davide Ghersini,Sassuolo,Spezia,1,0,3,3,6,0,2,2,6,1,9,10,15,11
+882040,2023-03-17 19:45:00+00:00,Federico Dionisi,Atalanta,Empoli,2,1,13,2,15,3,2,5,6,2,21,3,27,5
+882046,2023-03-18 14:00:00+00:00,Antonio Giua,Monza,Cremonese,1,1,8,4,12,3,5,8,7,2,8,6,15,8
+882045,2023-03-18 17:00:00+00:00,Luca Pairetto,Salernitana,Bologna,2,2,5,4,9,0,1,1,4,2,10,8,14,10
+882048,2023-03-18 19:45:00+00:00,Daniele Doveri,Udinese,AC Milan,3,1,5,6,11,4,2,6,5,6,9,4,14,10
+882047,2023-03-19 11:30:00+00:00,Maurizio Mariani,Sampdoria,Hellas Verona,3,1,5,8,13,3,2,5,4,6,7,10,11,16
+882041,2023-03-19 14:00:00+00:00,Rosario Abisso,Fiorentina,Lecce,1,0,1,3,4,1,3,4,3,2,15,6,18,8
+882049,2023-03-19 14:00:00+00:00,Matteo Marchetti,Torino,Napoli,0,4,5,4,9,1,1,2,2,6,10,6,12,12
+882043,2023-03-19 17:00:00+00:00,Davide Massa,Lazio,AS Roma,1,0,5,2,7,6,8,14,5,3,7,5,12,8
+882042,2023-03-19 19:45:00+00:00,Daniele Chiffi,Inter,Juventus,0,1,6,4,10,5,6,11,3,3,15,4,18,7
+882054,2023-04-01 13:00:00+00:00,Livio Marinelli,Cremonese,Atalanta,1,3,0,6,6,3,2,5,4,4,11,8,15,12
+882055,2023-04-01 16:00:00+00:00,Fabio Maresca,Inter,Fiorentina,0,1,10,8,18,2,3,5,3,3,13,16,16,19
+882056,2023-04-01 18:45:00+00:00,Matteo Marchetti,Juventus,Hellas Verona,1,0,3,5,8,1,2,3,2,3,8,7,10,10
+882050,2023-04-02 10:30:00+00:00,Maria Ferrieri,Bologna,Udinese,3,0,2,7,9,1,1,2,4,5,7,10,11,15
+882057,2023-04-02 13:00:00+00:00,Matteo Marcenaro,Monza,Lazio,0,2,8,3,11,5,2,7,3,4,8,4,11,8
+882059,2023-04-02 13:00:00+00:00,Daniele Orsato,Spezia,Salernitana,1,1,9,5,14,0,1,1,4,2,11,10,15,12
+882052,2023-04-02 16:00:00+00:00,Massimiliano Irrati,AS Roma,Sampdoria,3,0,10,3,13,3,7,10,11,3,17,3,28,6
+882058,2023-04-02 18:45:00+00:00,Antonio Rapuano,Napoli,AC Milan,0,4,10,4,14,1,2,3,4,8,16,6,20,14
+882051,2023-04-03 16:30:00+00:00,Michael Fabbri,Empoli,Lecce,1,0,3,4,7,3,2,5,7,0,7,5,14,5
+882053,2023-04-03 18:45:00+00:00,Ivano Pezzuto,Sassuolo,Torino,1,1,6,7,13,1,1,2,4,2,8,14,12,16
+882066,2023-04-07 15:00:00+00:00,Michael Fabbri,Salernitana,Inter,1,1,2,8,10,2,2,4,3,11,8,14,11,25
+882063,2023-04-07 17:00:00+00:00,Gianluca Manganiello,Lecce,Napoli,1,2,4,4,8,2,1,3,3,3,8,6,11,9
+882065,2023-04-07 19:00:00+00:00,Matteo Marcenaro,AC Milan,Empoli,0,0,9,0,9,1,2,3,4,0,19,1,23,1
+882068,2023-04-08 10:30:00+00:00,Luca Massimi,Udinese,Monza,2,2,4,2,6,1,3,4,5,5,9,7,14,12
+882061,2023-04-08 12:30:00+00:00,Federico Dionisi,Fiorentina,Spezia,1,1,8,4,12,0,7,7,4,3,15,1,19,4
+882060,2023-04-08 14:30:00+00:00,Daniele Orsato,Atalanta,Bologna,0,2,6,0,6,3,2,5,6,6,9,7,15,13
+882064,2023-04-08 14:30:00+00:00,Daniele Doveri,Sampdoria,Cremonese,2,3,3,3,6,2,3,5,9,4,4,13,13,17
+882062,2023-04-08 16:30:00+00:00,Francesco Fourneau,Hellas Verona,Sassuolo,2,1,4,10,14,3,4,7,3,5,8,12,11,17
+882069,2023-04-08 16:30:00+00:00,Andrea Colombo,Torino,AS Roma,0,1,7,4,11,3,1,4,1,1,6,8,7,9
+882067,2023-04-08 18:45:00+00:00,Marco Di Bello,Lazio,Juventus,2,1,6,6,12,2,5,7,4,4,5,7,9,11
+882071,2023-04-14 16:30:00+00:00,Luca Zufferli,Cremonese,Empoli,1,0,3,8,11,1,0,1,5,1,9,14,14,15
+882078,2023-04-14 18:45:00+00:00,Massimiliano Irrati,Spezia,Lazio,0,3,2,3,5,5,4,9,2,7,4,6,6,13
+882070,2023-04-15 13:00:00+00:00,Davide Massa,Bologna,AC Milan,1,1,2,6,8,3,4,7,2,5,4,14,6,19
+882076,2023-04-15 16:00:00+00:00,Federico La Penna,Napoli,Hellas Verona,0,0,4,0,4,1,4,5,1,2,9,3,10,5
+882072,2023-04-15 18:45:00+00:00,Luca Pairetto,Inter,Monza,0,1,5,2,7,2,2,4,6,2,19,5,25,7
+882073,2023-04-16 10:30:00+00:00,Maurizio Mariani,Lecce,Sampdoria,1,1,11,8,19,1,4,5,11,2,19,6,30,8
+882079,2023-04-16 13:00:00+00:00,Gianluca Aureliano,Torino,Salernitana,1,1,4,2,6,0,1,1,5,1,11,7,16,8
+882077,2023-04-16 16:00:00+00:00,Antonio Rapuano,Sassuolo,Juventus,1,0,10,13,23,0,1,1,4,3,7,10,11,13
+882074,2023-04-16 18:45:00+00:00,Antonio Giua,AS Roma,Udinese,3,0,6,2,8,1,4,5,7,2,5,8,12,10
+882075,2023-04-17 18:45:00+00:00,Marco Guida,Fiorentina,Atalanta,1,1,5,1,6,1,3,4,7,1,11,5,18,6
+882086,2023-04-21 18:45:00+00:00,Maurizio Mariani,Hellas Verona,Bologna,2,1,4,2,6,2,4,6,5,7,4,10,9,17
+882084,2023-04-22 13:00:00+00:00,Giacomo Camplone,Salernitana,Sassuolo,3,0,4,8,12,1,2,3,5,2,8,9,13,11
+882083,2023-04-22 16:00:00+00:00,Davide Ghersini,Lazio,Torino,0,1,3,4,7,2,4,6,5,3,5,4,10,7
+882085,2023-04-22 18:45:00+00:00,Fabio Maresca,Sampdoria,Spezia,1,1,9,9,18,1,1,2,3,7,10,12,13,19
+882081,2023-04-23 10:30:00+00:00,Livio Marinelli,Empoli,Inter,0,3,5,4,9,1,1,2,3,4,8,12,11,16
+882087,2023-04-23 13:00:00+00:00,Francesco Fourneau,Udinese,Cremonese,3,0,3,8,11,2,3,5,9,2,8,10,17,12
+882088,2023-04-23 13:00:00+00:00,Juan Luca Sacchi,Monza,Fiorentina,3,2,5,3,8,3,3,6,5,5,8,5,13,10
+882089,2023-04-23 16:00:00+00:00,Daniele Chiffi,AC Milan,Lecce,2,0,4,2,6,1,0,1,5,4,3,5,8,9
+882082,2023-04-23 18:45:00+00:00,Michael Fabbri,Juventus,Napoli,0,1,3,6,9,4,1,5,4,6,3,11,7,17
+882080,2023-04-24 18:45:00+00:00,Massimiliano Irrati,Atalanta,AS Roma,3,1,3,4,7,3,1,4,4,1,3,13,7,14
+882094,2023-04-28 16:30:00+00:00,Matteo Marchetti,Lecce,Udinese,1,0,7,4,11,4,2,6,3,3,12,7,15,10
+882099,2023-04-28 18:45:00+00:00,Antonio Rapuano,Spezia,Monza,0,2,3,3,6,1,2,3,4,4,8,4,12,8
+882098,2023-04-29 16:00:00+00:00,Daniele Orsato,AS Roma,AC Milan,1,1,1,5,6,3,2,5,1,1,10,10,11,11
+882096,2023-04-29 18:45:00+00:00,Juan Luca Sacchi,Torino,Atalanta,1,2,3,3,6,1,1,2,4,5,0,4,4,9
+882093,2023-04-30 10:30:00+00:00,Marco Guida,Inter,Lazio,3,1,2,3,5,2,3,5,9,5,16,4,25,9
+882091,2023-04-30 13:00:00+00:00,Daniele Doveri,Cremonese,Hellas Verona,1,1,3,5,8,2,0,2,5,6,7,8,12,14
+882095,2023-04-30 13:00:00+00:00,Matteo Marcenaro,Napoli,Salernitana,1,1,10,0,10,2,2,4,8,2,16,3,24,5
+882097,2023-04-30 13:00:00+00:00,Federico Dionisi,Sassuolo,Empoli,2,1,7,5,12,4,1,5,4,1,9,6,13,7
+882092,2023-04-30 16:00:00+00:00,Antonio Giua,Fiorentina,Sampdoria,5,0,11,0,11,2,1,3,10,1,13,3,23,4
+882090,2023-04-30 18:45:00+00:00,Simone Sozza,Bologna,Juventus,1,1,4,5,9,2,2,4,6,5,10,9,16,14
+882100,2023-05-03 16:00:00+00:00,Livio Marinelli,Atalanta,Spezia,3,2,12,3,15,0,3,3,6,4,8,5,14,9
+882102,2023-05-03 16:00:00+00:00,Francesco Fourneau,Juventus,Lecce,2,1,6,7,13,2,2,4,4,5,12,9,16,14
+882105,2023-05-03 16:00:00+00:00,Giacomo Camplone,Sampdoria,Torino,0,2,2,3,5,5,2,7,0,4,7,8,7,12
+882108,2023-05-03 16:00:00+00:00,Ivano Pezzuto,Salernitana,Fiorentina,3,3,2,3,5,3,5,8,3,3,1,9,4,12
+882101,2023-05-03 19:00:00+00:00,Daniele Orsato,Hellas Verona,Inter,0,6,2,7,9,0,0,0,2,10,5,10,7,20
+882103,2023-05-03 19:00:00+00:00,Massimiliano Irrati,Lazio,Sassuolo,2,0,1,2,3,3,5,8,5,2,8,11,13,13
+882104,2023-05-03 19:00:00+00:00,Daniele Chiffi,Monza,AS Roma,1,1,4,3,7,3,7,10,4,8,4,6,8,14
+882107,2023-05-03 19:00:00+00:00,Luca Pairetto,AC Milan,Cremonese,1,1,10,0,10,0,5,5,5,2,13,4,18,6
+882106,2023-05-04 18:45:00+00:00,Federico La Penna,Empoli,Bologna,3,1,2,5,7,3,0,3,3,3,10,15,13,18
+882109,2023-05-04 18:45:00+00:00,Rosario Abisso,Udinese,Napoli,1,1,2,6,8,1,0,1,3,4,4,3,7,7
+882117,2023-05-06 13:00:00+00:00,Antonio Rapuano,AC Milan,Lazio,2,0,6,4,10,2,4,6,3,0,7,8,10,8
+882116,2023-05-06 16:00:00+00:00,Fabio Maresca,AS Roma,Inter,0,2,12,5,17,3,2,5,3,4,12,6,15,10
+882111,2023-05-06 18:45:00+00:00,Marco Guida,Cremonese,Spezia,2,0,3,13,16,0,2,2,4,8,5,10,9,18
+882110,2023-05-07 10:30:00+00:00,Daniele Doveri,Atalanta,Juventus,0,2,7,3,10,1,2,3,1,5,23,5,24,10
+882118,2023-05-07 13:00:00+00:00,Luca Zufferli,Torino,Monza,1,1,7,4,11,2,1,3,5,8,9,2,14,10
+882114,2023-05-07 16:00:00+00:00,Matteo Marchetti,Napoli,Fiorentina,1,0,0,5,5,0,0,0,3,3,7,12,10,15
+882115,2023-05-07 18:45:00+00:00,Davide Massa,Lecce,Hellas Verona,0,1,4,4,8,2,5,7,2,3,13,6,15,9
+882112,2023-05-08 16:30:00+00:00,Manuel Volpi,Empoli,Salernitana,2,1,8,7,15,2,2,4,4,2,7,11,11,13
+882119,2023-05-08 16:30:00+00:00,Niccolò Baroni,Udinese,Sampdoria,2,0,7,3,10,2,2,4,6,3,7,8,13,11
+882113,2023-05-08 18:45:00+00:00,Maria Ferrieri,Sassuolo,Bologna,1,1,4,4,8,1,1,2,2,3,4,9,6,12
+882124,2023-05-12 18:45:00+00:00,Fabio Maresca,Lazio,Lecce,2,2,2,3,5,3,5,8,6,4,14,9,20,13
+882126,2023-05-13 13:00:00+00:00,Marco Piccinini,Salernitana,Atalanta,1,0,5,3,8,2,2,4,4,3,6,10,10,13
+882129,2023-05-13 16:00:00+00:00,Daniele Doveri,Spezia,AC Milan,2,0,6,9,15,1,1,2,4,3,10,11,14,14
+882123,2023-05-13 18:45:00+00:00,Matteo Marcenaro,Inter,Sassuolo,4,2,1,5,6,2,3,5,3,5,8,11,11,16
+882122,2023-05-14 10:30:00+00:00,Marco Di Bello,Hellas Verona,Torino,0,1,3,4,7,3,2,5,4,8,10,7,14,15
+882121,2023-05-14 13:00:00+00:00,Daniele Paterna,Fiorentina,Udinese,2,0,3,3,6,5,5,10,3,1,15,4,18,5
+882125,2023-05-14 13:00:00+00:00,Francesco Cosso,Monza,Napoli,2,0,6,10,16,1,1,2,4,7,6,13,10,20
+882120,2023-05-14 16:00:00+00:00,Daniele Orsato,Bologna,AS Roma,0,0,3,6,9,2,1,3,3,2,9,5,12,7
+882127,2023-05-14 18:45:00+00:00,Daniele Chiffi,Juventus,Cremonese,2,0,7,0,7,2,0,2,7,2,17,1,24,3
+882128,2023-05-15 18:45:00+00:00,Ermanno Feliciani,Sampdoria,Empoli,1,1,1,2,3,3,4,7,3,4,10,13,13,17
+882139,2023-05-19 18:45:00+00:00,Alberto Santoro,Sassuolo,Monza,1,2,6,3,9,4,5,9,4,6,9,11,13,17
+882135,2023-05-20 13:00:00+00:00,Paolo Valeri,Cremonese,Bologna,1,5,3,9,12,1,4,5,2,9,11,10,13,19
+882130,2023-05-20 16:00:00+00:00,Simone Sozza,Atalanta,Hellas Verona,3,1,6,3,9,1,3,4,5,2,8,8,13,10
+882133,2023-05-20 18:45:00+00:00,Francesco Fourneau,AC Milan,Sampdoria,5,1,7,2,9,1,3,4,9,3,10,3,19,6
+882132,2023-05-21 10:30:00+00:00,Maurizio Mariani,Lecce,Spezia,0,0,2,5,7,2,3,5,1,0,5,14,6,14
+882136,2023-05-21 13:00:00+00:00,Luca Massimi,Torino,Fiorentina,1,1,3,3,6,1,2,3,4,1,6,7,10,8
+882137,2023-05-21 16:00:00+00:00,Livio Marinelli,Napoli,Inter,3,1,4,1,5,1,4,5,9,2,13,4,22,6
+882138,2023-05-21 18:45:00+00:00,Luca Pairetto,Udinese,Lazio,0,1,3,8,11,3,1,4,2,4,10,10,12,14
+882134,2023-05-22 16:30:00+00:00,Andrea Colombo,AS Roma,Salernitana,2,2,6,4,10,1,4,5,5,3,17,5,22,8
+882131,2023-05-22 18:45:00+00:00,Giovanni Ayroldi,Empoli,Juventus,4,1,3,7,10,2,2,4,7,4,7,15,14,19
+882144,2023-05-26 18:45:00+00:00,Francesco Meraviglia,Sampdoria,Sassuolo,2,2,8,4,12,1,2,3,3,8,14,14,17,22
+882143,2023-05-27 13:00:00+00:00,Niccolò Baroni,Salernitana,Udinese,3,2,2,1,3,3,5,8,3,4,8,6,11,10
+882145,2023-05-27 13:00:00+00:00,Marco Guida,Spezia,Torino,0,4,5,2,7,2,2,4,1,4,8,7,9,11
+882141,2023-05-27 16:00:00+00:00,Giovanni Ayroldi,Fiorentina,AS Roma,2,1,7,4,11,5,3,8,6,4,9,4,15,8
+882146,2023-05-27 18:45:00+00:00,Daniele Orsato,Inter,Atalanta,3,2,9,7,16,0,1,1,11,3,9,8,20,11
+882148,2023-05-28 10:30:00+00:00,Daniele Chiffi,Hellas Verona,Empoli,1,1,3,3,6,4,0,4,4,3,9,10,13,13
+882140,2023-05-28 13:00:00+00:00,Matteo Marcenaro,Bologna,Napoli,2,2,4,4,8,1,3,4,6,8,12,3,18,11
+882149,2023-05-28 13:00:00+00:00,Daniele Doveri,Monza,Lecce,0,1,1,3,4,4,3,7,1,1,4,8,5,9
+882147,2023-05-28 16:00:00+00:00,Antonio Giua,Lazio,Cremonese,3,2,4,3,7,2,2,4,8,5,4,6,12,11
+882142,2023-05-28 18:45:00+00:00,Maurizio Mariani,Juventus,AC Milan,0,1,4,5,9,1,2,3,3,3,13,6,16,9
+882156,2023-06-02 18:30:00+00:00,Matteo Marchetti,Sassuolo,Fiorentina,1,3,2,4,6,8,4,12,2,7,3,8,5,15
+882158,2023-06-03 16:30:00+00:00,Michael Fabbri,Torino,Inter,0,1,6,4,10,1,2,3,5,4,12,10,17,14
+882151,2023-06-03 19:00:00+00:00,Daniele Perenzoni,Cremonese,Salernitana,2,0,4,6,10,1,2,3,4,1,8,10,12,11
+882152,2023-06-03 19:00:00+00:00,Luca Massimi,Empoli,Lazio,0,2,6,7,13,5,2,7,1,11,6,10,7,21
+882153,2023-06-04 16:30:00+00:00,Ermanno Feliciani,Napoli,Sampdoria,2,0,11,0,11,0,1,1,9,4,12,2,21,6
+882150,2023-06-04 19:00:00+00:00,Marco Di Bello,Atalanta,Monza,5,2,5,1,6,1,4,5,10,4,10,4,20,8
+882154,2023-06-04 19:00:00+00:00,Fabio Maresca,AS Roma,Spezia,2,1,6,2,8,2,11,13,5,2,14,6,19,8
+882155,2023-06-04 19:00:00+00:00,Marco Piccinini,Lecce,Bologna,2,3,7,2,9,1,2,3,7,7,13,4,20,11
+882157,2023-06-04 19:00:00+00:00,Paolo Valeri,AC Milan,Hellas Verona,3,1,7,1,8,1,4,5,5,1,9,5,14,6
+882159,2023-06-04 19:00:00+00:00,Marco Guida,Udinese,Juventus,0,1,6,14,20,2,2,4,3,5,10,15,13,20
+1030674,2023-06-11 18:45:00+00:00,Daniele Orsato,Spezia,Hellas Verona,1,3,9,5,14,2,7,9,10,5,7,4,17,9
+1052254,2023-08-19 16:30:00+00:00,Luca Massimi,Empoli,Hellas Verona,0,1,2,4,6,2,2,4,4,4,6,6,10,10
+1052255,2023-08-19 16:30:00+00:00,Matteo Marcenaro,Frosinone,Napoli,1,3,4,6,10,3,3,6,1,8,3,11,4,19
+1052256,2023-08-19 18:45:00+00:00,Giovanni Ayroldi,Genoa,Fiorentina,1,4,3,4,7,2,3,5,2,5,2,4,4,9
+1052257,2023-08-19 18:45:00+00:00,Andrea Colombo,Inter,Monza,2,0,8,3,11,1,1,2,3,2,19,10,22,12
+1052259,2023-08-20 16:30:00+00:00,Ermanno Feliciani,AS Roma,Salernitana,2,2,9,1,10,0,4,4,3,2,10,1,13,3
+1052260,2023-08-20 16:30:00+00:00,Matteo Marchetti,Sassuolo,Atalanta,0,2,7,7,14,0,0,0,3,6,8,10,11,16
+1052258,2023-08-20 18:45:00+00:00,Federico Dionisi,Lecce,Lazio,2,1,5,2,7,3,2,5,7,4,16,6,23,10
+1052262,2023-08-20 18:45:00+00:00,Antonio Rapuano,Udinese,Juventus,0,3,7,3,10,1,3,4,5,4,13,5,18,9
+1052261,2023-08-21 16:30:00+00:00,Francesco Cosso,Torino,Cagliari,0,0,8,3,11,1,1,2,2,2,9,6,11,8
+1052253,2023-08-21 18:45:00+00:00,Luca Pairetto,Bologna,AC Milan,0,2,3,6,9,2,2,4,5,6,12,3,17,9
+1052265,2023-08-26 16:30:00+00:00,Juan Luca Sacchi,Frosinone,Atalanta,2,1,3,7,10,1,2,3,5,6,8,12,13,18
+1052270,2023-08-26 16:30:00+00:00,Gianluca Aureliano,Monza,Empoli,2,0,6,5,11,1,2,3,5,6,15,12,20,18
+1052266,2023-08-26 18:45:00+00:00,Daniele Doveri,Hellas Verona,AS Roma,2,1,1,12,13,3,3,6,3,7,2,16,5,23
+1052269,2023-08-26 18:45:00+00:00,Maurizio Mariani,AC Milan,Torino,4,1,2,1,3,2,3,5,7,1,10,7,17,8
+1052264,2023-08-27 16:30:00+00:00,Maria Ferrieri,Fiorentina,Lecce,2,2,3,3,6,1,3,4,4,2,6,4,10,6
+1052267,2023-08-27 16:30:00+00:00,Marco Di Bello,Juventus,Bologna,1,1,6,2,8,2,1,3,3,4,11,6,14,10
+1052268,2023-08-27 18:45:00+00:00,Livio Marinelli,Lazio,Genoa,0,1,15,1,16,4,2,6,2,3,14,2,16,5
+1052271,2023-08-27 18:45:00+00:00,Antonio Giua,Napoli,Sassuolo,2,0,12,4,16,0,3,3,5,1,20,5,25,6
+1052272,2023-08-28 16:30:00+00:00,Davide Massa,Salernitana,Udinese,1,1,7,5,12,4,4,8,4,6,5,8,9,14
+1052263,2023-08-28 18:45:00+00:00,Michael Fabbri,Cagliari,Inter,0,2,4,7,11,1,1,2,2,3,10,14,12,17
+1052280,2023-09-01 16:30:00+00:00,Marco Piccinini,Sassuolo,Hellas Verona,3,1,10,1,11,1,3,4,7,3,9,8,16,11
+1052279,2023-09-01 18:45:00+00:00,Antonio Rapuano,AS Roma,AC Milan,1,2,3,5,8,2,6,8,2,4,11,5,13,9
+1052274,2023-09-02 16:30:00+00:00,Daniele Orsato,Bologna,Cagliari,2,1,5,2,7,1,2,3,7,1,9,6,16,7
+1052282,2023-09-02 16:30:00+00:00,Marco Guida,Udinese,Frosinone,0,0,3,5,8,2,2,4,6,2,6,10,12,12
+1052273,2023-09-02 18:45:00+00:00,Matteo Marcenaro,Atalanta,Monza,3,0,7,3,10,0,3,3,8,2,10,6,18,8
+1052278,2023-09-02 18:45:00+00:00,Andrea Colombo,Napoli,Lazio,1,2,7,2,9,0,2,2,4,2,18,4,22,6
+1052276,2023-09-03 16:30:00+00:00,Matteo Marchetti,Inter,Fiorentina,4,0,1,1,2,1,1,2,11,2,10,4,21,6
+1052281,2023-09-03 16:30:00+00:00,Daniele Chiffi,Torino,Genoa,1,0,4,0,4,2,5,7,3,2,7,5,10,7
+1052275,2023-09-03 18:45:00+00:00,Giovanni Ayroldi,Empoli,Juventus,0,2,3,7,10,3,3,6,0,5,7,13,7,18
+1052277,2023-09-03 18:45:00+00:00,Luca Massimi,Lecce,Salernitana,2,0,6,5,11,3,3,6,6,4,14,7,20,11
+1052289,2023-09-16 13:00:00+00:00,Fabio Maresca,Juventus,Lazio,3,1,7,9,16,5,1,6,7,5,10,11,17,16
+1052288,2023-09-16 16:00:00+00:00,Simone Sozza,Inter,AC Milan,5,1,5,0,5,2,2,4,7,2,7,7,14,9
+1052286,2023-09-16 18:45:00+00:00,Michael Fabbri,Genoa,Napoli,2,2,3,1,4,3,2,5,3,4,5,8,8,12
+1052283,2023-09-17 10:30:00+00:00,Daniele Doveri,Cagliari,Udinese,0,0,4,6,10,4,1,5,1,1,9,10,10,11
+1052285,2023-09-17 13:00:00+00:00,Alessandro Prontera,Frosinone,Sassuolo,4,2,5,6,11,4,2,6,6,7,10,11,16,18
+1052290,2023-09-17 13:00:00+00:00,Livio Marinelli,Monza,Lecce,1,1,10,1,11,8,3,11,6,3,19,1,25,4
+1052284,2023-09-17 16:00:00+00:00,Luca Pairetto,Fiorentina,Atalanta,3,2,3,4,7,1,2,3,8,4,7,7,15,11
+1052291,2023-09-17 18:45:00+00:00,Juan Luca Sacchi,AS Roma,Empoli,7,0,2,6,8,2,2,4,9,2,5,6,14,8
+1052292,2023-09-18 16:30:00+00:00,Antonio Giua,Salernitana,Torino,0,3,1,2,3,2,2,4,4,3,10,8,14,11
+1052287,2023-09-18 18:45:00+00:00,Federico La Penna,Hellas Verona,Bologna,0,0,3,4,7,4,2,6,1,4,8,7,9,11
+1052299,2023-09-22 16:30:00+00:00,Marco Piccinini,Salernitana,Frosinone,1,1,8,6,14,2,2,4,6,3,13,6,19,9
+1052297,2023-09-22 18:45:00+00:00,Antonio Rapuano,Lecce,Genoa,1,0,4,3,7,1,5,6,3,1,15,7,18,8
+1052298,2023-09-23 13:00:00+00:00,Fabio Maresca,AC Milan,Hellas Verona,1,0,2,3,5,4,2,6,4,2,5,8,9,10
+1052300,2023-09-23 16:00:00+00:00,Andrea Colombo,Sassuolo,Juventus,4,2,6,3,9,4,2,6,7,2,11,13,18,15
+1052296,2023-09-23 18:45:00+00:00,Rosario Abisso,Lazio,Monza,1,1,1,3,4,2,2,4,1,4,7,12,8,16
+1052295,2023-09-24 10:30:00+00:00,Matteo Marcenaro,Empoli,Inter,0,1,3,6,9,2,2,4,1,6,6,17,7,23
+1052293,2023-09-24 13:00:00+00:00,Ermanno Feliciani,Atalanta,Cagliari,2,0,7,7,14,1,2,3,6,0,4,10,10,10
+1052302,2023-09-24 13:00:00+00:00,Daniele Chiffi,Udinese,Fiorentina,0,2,10,3,13,0,1,1,8,2,12,4,20,6
+1052294,2023-09-24 16:00:00+00:00,Giovanni Ayroldi,Bologna,Napoli,0,0,5,5,10,4,5,9,2,4,2,8,4,12
+1052301,2023-09-24 18:45:00+00:00,Marco Guida,Torino,AS Roma,1,1,7,1,8,0,2,2,4,3,8,8,12,11
+1052309,2023-09-26 18:45:00+00:00,Antonio Giua,Juventus,Lecce,1,0,5,1,6,2,7,9,5,0,10,2,15,2
+1052303,2023-09-27 16:30:00+00:00,Federico La Penna,Cagliari,AC Milan,1,3,3,5,8,3,1,4,6,6,10,11,16,17
+1052304,2023-09-27 16:30:00+00:00,Antonio Rapuano,Empoli,Salernitana,1,0,10,2,12,2,1,3,6,2,7,12,13,14
+1052307,2023-09-27 16:30:00+00:00,Federico Dionisi,Hellas Verona,Atalanta,0,1,4,1,5,2,4,6,2,2,9,6,11,8
+1052308,2023-09-27 18:45:00+00:00,Luca Massimi,Inter,Sassuolo,1,2,8,6,14,0,1,1,3,6,10,7,13,13
+1052310,2023-09-27 18:45:00+00:00,Michael Fabbri,Lazio,Torino,2,0,4,2,6,1,4,5,3,2,3,5,6,7
+1052312,2023-09-27 18:45:00+00:00,Gianluca Manganiello,Napoli,Udinese,4,1,8,4,12,1,1,2,10,3,13,10,23,13
+1052305,2023-09-28 16:30:00+00:00,Francesco Fourneau,Frosinone,Fiorentina,1,1,8,10,18,3,3,6,3,6,8,13,11,19
+1052311,2023-09-28 16:30:00+00:00,Ivano Pezzuto,Monza,Bologna,0,0,7,5,12,5,5,10,3,5,7,2,10,7
+1052306,2023-09-28 18:45:00+00:00,Daniele Orsato,Genoa,AS Roma,4,1,1,7,8,4,3,7,4,3,4,10,8,13
+1052316,2023-09-30 13:00:00+00:00,Luca Pairetto,Lecce,Napoli,0,4,3,7,10,3,2,5,4,6,5,9,9,15
+1052317,2023-09-30 16:00:00+00:00,Davide Massa,AC Milan,Lazio,2,0,7,1,8,3,2,5,7,4,7,9,14,13
+1052319,2023-09-30 18:45:00+00:00,Rosario Abisso,Salernitana,Inter,0,4,3,3,6,2,1,3,3,6,9,10,12,16
+1052314,2023-10-01 10:30:00+00:00,Fabio Maresca,Bologna,Empoli,3,0,2,6,8,2,4,6,9,4,12,8,21,12
+1052322,2023-10-01 13:00:00+00:00,Maurizio Mariani,Udinese,Genoa,2,2,5,0,5,4,2,6,2,4,9,4,11,8
+1052313,2023-10-01 16:00:00+00:00,Daniele Chiffi,Atalanta,Juventus,0,0,5,2,7,1,2,3,2,3,13,2,15,5
+1052318,2023-10-01 18:45:00+00:00,Matteo Marchetti,AS Roma,Frosinone,2,0,7,3,10,1,2,3,5,0,6,8,11,8
+1052320,2023-10-02 16:30:00+00:00,Luca Zufferli,Sassuolo,Monza,0,1,7,4,11,0,0,0,7,4,12,9,19,13
+1052321,2023-10-02 16:30:00+00:00,Ermanno Feliciani,Torino,Hellas Verona,0,0,10,1,11,1,1,2,2,2,6,3,8,5
+1052315,2023-10-02 18:45:00+00:00,Marco Di Bello,Fiorentina,Cagliari,3,0,4,2,6,1,1,2,2,4,12,2,14,6
+1052324,2023-10-06 16:30:00+00:00,Michael Fabbri,Empoli,Udinese,0,0,5,7,12,1,2,3,3,1,15,10,18,11
+1052330,2023-10-06 18:45:00+00:00,Juan Luca Sacchi,Lecce,Sassuolo,1,1,5,3,8,2,3,5,4,1,9,13,13,14
+1052327,2023-10-07 13:00:00+00:00,Marco Guida,Inter,Bologna,2,2,7,7,14,2,3,5,5,3,9,5,14,8
+1052328,2023-10-07 16:00:00+00:00,Davide Massa,Juventus,Torino,2,0,7,3,10,1,1,2,6,1,11,9,17,10
+1052326,2023-10-07 18:45:00+00:00,Marco Piccinini,Genoa,AC Milan,0,1,3,2,5,5,7,12,1,3,6,9,7,12
+1052331,2023-10-08 10:30:00+00:00,Luca Massimi,Monza,Salernitana,3,0,7,7,14,1,2,3,7,5,9,3,16,8
+1052325,2023-10-08 13:00:00+00:00,Maria Ferrieri,Frosinone,Hellas Verona,2,1,2,4,6,1,4,5,2,4,9,12,11,16
+1052329,2023-10-08 13:00:00+00:00,Daniele Orsato,Lazio,Atalanta,3,2,4,6,10,1,1,2,4,4,8,8,12,12
+1052323,2023-10-08 16:00:00+00:00,Simone Sozza,Cagliari,AS Roma,1,4,4,3,7,2,3,5,2,5,14,6,16,11
+1052332,2023-10-08 18:45:00+00:00,Federico La Penna,Napoli,Fiorentina,1,3,6,4,10,2,4,6,4,3,12,9,16,12
+1052336,2023-10-21 13:00:00+00:00,Rosario Abisso,Hellas Verona,Napoli,1,3,5,8,13,3,2,5,9,10,6,12,15,22
+1052341,2023-10-21 16:00:00+00:00,Matteo Marchetti,Torino,Inter,0,3,2,4,6,1,2,3,3,4,4,10,7,14
+1052340,2023-10-21 18:45:00+00:00,Marco Di Bello,Sassuolo,Lazio,0,2,5,7,12,1,5,6,2,6,7,12,9,18
+1052338,2023-10-22 10:30:00+00:00,Giovanni Ayroldi,AS Roma,Monza,1,0,8,5,13,2,6,8,4,4,17,7,21,11
+1052334,2023-10-22 13:00:00+00:00,Daniele Doveri,Bologna,Frosinone,2,1,4,5,9,2,4,6,6,5,6,7,12,12
+1052339,2023-10-22 13:00:00+00:00,Daniele Chiffi,Salernitana,Cagliari,2,2,8,5,13,3,4,7,2,6,11,7,13,13
+1052333,2023-10-22 16:00:00+00:00,Livio Marinelli,Atalanta,Genoa,2,0,8,4,12,4,2,6,8,4,5,11,13,15
+1052337,2023-10-22 18:45:00+00:00,Maurizio Mariani,AC Milan,Juventus,0,1,6,3,9,3,4,7,1,4,6,10,7,14
+1052342,2023-10-23 16:30:00+00:00,Paride Tremolada,Udinese,Lecce,1,1,2,7,9,3,5,8,6,1,6,11,12,12
+1052335,2023-10-23 18:45:00+00:00,Federico Dionisi,Fiorentina,Empoli,0,2,13,3,16,1,3,4,7,3,12,4,19,7
+1052345,2023-10-27 18:45:00+00:00,Davide Massa,Genoa,Salernitana,1,0,7,0,7,3,4,7,4,2,4,5,8,7
+1052352,2023-10-28 13:00:00+00:00,Antonio Giua,Sassuolo,Bologna,1,1,6,2,8,1,3,4,5,5,11,4,16,9
+1052349,2023-10-28 16:00:00+00:00,Gianluca Aureliano,Lecce,Torino,0,1,3,0,3,3,5,8,6,2,5,8,11,10
+1052347,2023-10-28 18:45:00+00:00,Ermanno Feliciani,Juventus,Hellas Verona,1,0,5,1,6,3,2,5,6,1,24,6,30,7
+1052343,2023-10-29 11:30:00+00:00,Luca Pairetto,Cagliari,Frosinone,4,3,5,7,12,1,4,5,6,6,18,4,24,10
+1052350,2023-10-29 14:00:00+00:00,Alessandro Prontera,Monza,Udinese,1,1,10,3,13,2,2,4,4,3,6,7,10,10
+1052346,2023-10-29 17:00:00+00:00,Fabio Maresca,Inter,AS Roma,1,0,8,0,8,3,4,7,3,1,16,2,19,3
+1052351,2023-10-29 19:45:00+00:00,Daniele Orsato,Napoli,AC Milan,2,2,6,4,10,6,3,9,4,6,13,14,17,20
+1052344,2023-10-30 17:30:00+00:00,Luca Massimi,Empoli,Atalanta,0,3,3,6,9,4,0,4,2,6,7,12,9,18
+1052348,2023-10-30 19:45:00+00:00,Matteo Marcenaro,Lazio,Fiorentina,1,0,0,4,4,3,3,6,4,5,7,4,11,9
+1052354,2023-11-03 19:45:00+00:00,Federico La Penna,Bologna,Lazio,1,0,2,6,8,2,5,7,2,1,4,10,6,11
+1052361,2023-11-04 14:00:00+00:00,Antonio Rapuano,Salernitana,Napoli,0,2,8,9,17,1,1,2,3,8,7,13,10,21
+1052353,2023-11-04 17:00:00+00:00,Simone Sozza,Atalanta,Inter,1,2,6,1,7,6,1,7,4,4,10,6,14,10
+1052359,2023-11-04 19:45:00+00:00,Juan Luca Sacchi,AC Milan,Udinese,0,1,11,5,16,1,2,3,4,2,10,10,14,12
+1052358,2023-11-05 11:30:00+00:00,Giuseppe Collu,Hellas Verona,Monza,1,3,2,6,8,1,2,3,5,6,11,6,16,12
+1052355,2023-11-05 14:00:00+00:00,Marco Guida,Cagliari,Genoa,2,1,1,1,2,4,2,6,4,2,8,6,12,8
+1052360,2023-11-05 17:00:00+00:00,Andrea Colombo,AS Roma,Lecce,2,1,5,2,7,3,5,8,5,4,10,11,15,15
+1052356,2023-11-05 19:45:00+00:00,Daniele Chiffi,Fiorentina,Juventus,0,1,9,2,11,1,3,4,4,3,21,1,25,4
+1052357,2023-11-06 17:30:00+00:00,Gianluca Manganiello,Frosinone,Empoli,2,1,9,2,11,3,2,5,5,2,12,8,17,10
+1052362,2023-11-06 19:45:00+00:00,Maria Ferrieri,Torino,Sassuolo,2,1,9,2,11,1,1,2,9,2,12,3,21,5
+1052371,2023-11-10 17:30:00+00:00,Davide Ghersini,Sassuolo,Salernitana,2,2,11,0,11,2,1,3,9,2,20,7,29,9
+1052364,2023-11-10 19:45:00+00:00,Daniele Orsato,Genoa,Hellas Verona,1,0,6,7,13,1,4,5,6,1,10,6,16,7
+1052368,2023-11-11 14:00:00+00:00,Rosario Abisso,Lecce,AC Milan,2,2,3,1,4,4,8,12,5,6,9,4,14,10
+1052366,2023-11-11 17:00:00+00:00,Marco Piccinini,Juventus,Cagliari,2,1,12,4,16,3,1,4,4,2,14,9,18,11
+1052369,2023-11-11 19:45:00+00:00,Daniele Doveri,Monza,Torino,1,1,3,1,4,2,2,4,5,5,7,7,12,12
+1052370,2023-11-12 11:30:00+00:00,Alessandro Prontera,Napoli,Empoli,0,1,8,3,11,1,1,2,7,3,11,5,18,8
+1052363,2023-11-12 14:00:00+00:00,Fabio Maresca,Fiorentina,Bologna,2,1,0,3,3,2,2,4,4,4,8,7,12,11
+1052372,2023-11-12 14:00:00+00:00,Gianluca Aureliano,Udinese,Atalanta,1,1,7,7,14,2,3,5,4,2,9,6,13,8
+1052367,2023-11-12 17:00:00+00:00,Davide Massa,Lazio,AS Roma,0,0,4,1,5,3,4,7,2,1,5,7,7,8
+1052365,2023-11-12 19:45:00+00:00,Federico Dionisi,Inter,Frosinone,2,0,9,4,13,0,1,1,6,3,15,9,21,12
+1052382,2023-11-25 14:00:00+00:00,Alessandro Prontera,Salernitana,Lazio,2,1,4,9,13,5,3,8,6,2,7,11,13,13
+1052373,2023-11-25 17:00:00+00:00,Maurizio Mariani,Atalanta,Napoli,1,2,5,4,9,2,2,4,5,4,11,7,16,11
+1052380,2023-11-25 19:45:00+00:00,Marco Di Bello,AC Milan,Fiorentina,1,0,3,11,14,1,2,3,6,4,3,17,9,21
+1052375,2023-11-26 11:30:00+00:00,Matteo Marchetti,Cagliari,Monza,1,1,10,11,21,1,2,3,6,4,11,8,17,12
+1052376,2023-11-26 14:00:00+00:00,Simone Sozza,Empoli,Sassuolo,3,4,6,5,11,4,2,6,8,9,3,8,11,17
+1052377,2023-11-26 14:00:00+00:00,Luca Zufferli,Frosinone,Genoa,2,1,4,2,6,2,3,5,5,3,4,10,9,13
+1052381,2023-11-26 17:00:00+00:00,Luca Massimi,AS Roma,Udinese,3,1,7,1,8,1,3,4,5,2,7,4,12,6
+1052379,2023-11-26 19:45:00+00:00,Marco Guida,Juventus,Inter,1,1,1,0,1,2,1,3,1,4,3,4,4,8
+1052378,2023-11-27 17:30:00+00:00,Federico La Penna,Hellas Verona,Lecce,2,2,4,2,6,1,2,3,11,5,8,9,19,14
+1052374,2023-11-27 19:45:00+00:00,Andrea Colombo,Bologna,Torino,2,0,3,2,5,3,4,7,2,3,11,6,13,9
+1052388,2023-12-01 19:45:00+00:00,Michael Fabbri,Monza,Juventus,1,2,7,3,10,1,2,3,1,7,15,11,16,18
+1052384,2023-12-02 14:00:00+00:00,Gianluca Aureliano,Genoa,Empoli,1,1,5,3,8,3,1,4,1,1,20,8,21,9
+1052385,2023-12-02 17:00:00+00:00,Federico Dionisi,Lazio,Cagliari,1,0,4,3,7,0,4,4,5,2,5,7,10,9
+1052387,2023-12-02 19:45:00+00:00,Matteo Marchetti,AC Milan,Frosinone,3,1,6,7,13,1,1,2,3,3,7,12,10,15
+1052386,2023-12-03 11:30:00+00:00,Daniele Doveri,Lecce,Bologna,1,1,6,3,9,3,2,5,4,4,10,7,14,11
+1052383,2023-12-03 14:00:00+00:00,Paride Tremolada,Fiorentina,Salernitana,3,0,3,2,5,1,0,1,9,1,13,10,22,11
+1052392,2023-12-03 14:00:00+00:00,Fabio Maresca,Udinese,Hellas Verona,3,3,5,3,8,2,5,7,6,4,6,9,12,13
+1052390,2023-12-03 17:00:00+00:00,Matteo Marcenaro,Sassuolo,AS Roma,1,2,1,11,12,6,1,7,2,7,6,8,8,15
+1052389,2023-12-03 19:45:00+00:00,Davide Massa,Napoli,Inter,0,3,6,4,10,2,2,4,4,4,11,7,15,11
+1052391,2023-12-04 19:45:00+00:00,Marco Piccinini,Torino,Atalanta,3,0,4,3,7,2,2,4,5,4,4,6,9,10
+1052399,2023-12-08 19:45:00+00:00,Daniele Orsato,Juventus,Napoli,1,0,3,6,9,2,4,6,2,1,9,12,11,13
+1052397,2023-12-09 14:00:00+00:00,Giovanni Ayroldi,Hellas Verona,Lazio,1,1,1,7,8,4,4,8,1,5,4,9,5,14
+1052393,2023-12-09 17:00:00+00:00,Federico La Penna,Atalanta,AC Milan,3,2,6,4,10,1,7,8,7,4,12,10,19,14
+1052398,2023-12-09 19:45:00+00:00,Marco Di Bello,Inter,Udinese,4,0,6,1,7,0,1,1,8,1,9,10,17,11
+1052396,2023-12-10 11:30:00+00:00,Luca Massimi,Frosinone,Torino,0,0,3,8,11,3,3,6,5,3,6,13,11,16
+1052400,2023-12-10 14:00:00+00:00,Giuseppe Collu,Monza,Genoa,1,0,2,3,5,1,2,3,3,1,3,15,6,16
+1052402,2023-12-10 17:00:00+00:00,Simone Sozza,Salernitana,Bologna,1,2,5,1,6,9,3,12,2,5,7,5,9,10
+1052401,2023-12-10 19:45:00+00:00,Antonio Rapuano,AS Roma,Fiorentina,1,1,1,6,7,9,5,14,1,8,3,6,4,14
+1052395,2023-12-11 17:30:00+00:00,Andrea Colombo,Empoli,Lecce,1,1,8,3,11,2,2,4,6,5,12,9,18,14
+1052394,2023-12-11 19:45:00+00:00,Maurizio Mariani,Cagliari,Sassuolo,2,1,10,4,14,1,9,10,6,4,12,4,18,8
+1052406,2023-12-15 19:45:00+00:00,Davide Massa,Genoa,Juventus,1,1,6,8,14,2,3,5,3,4,8,7,11,11
+1052408,2023-12-16 14:00:00+00:00,Luca Zufferli,Lecce,Frosinone,2,1,5,4,9,1,4,5,6,5,11,6,17,11
+1052410,2023-12-16 17:00:00+00:00,Matteo Marcenaro,Napoli,Cagliari,2,1,5,3,8,5,3,8,5,3,16,6,21,9
+1052411,2023-12-16 19:45:00+00:00,Livio Marinelli,Torino,Empoli,1,0,6,4,10,4,2,6,3,2,7,5,10,7
+1052409,2023-12-17 11:30:00+00:00,Gianluca Aureliano,AC Milan,Monza,3,0,4,5,9,1,2,3,9,4,8,17,17,21
+1052405,2023-12-17 14:00:00+00:00,Maria Ferrieri,Fiorentina,Hellas Verona,1,0,1,6,7,3,1,4,3,7,2,12,5,19
+1052412,2023-12-17 14:00:00+00:00,Gianluca Manganiello,Udinese,Sassuolo,2,2,1,13,14,5,1,6,7,7,2,14,9,21
+1052404,2023-12-17 17:00:00+00:00,Marco Guida,Bologna,AS Roma,2,0,0,4,4,4,4,8,2,3,6,5,8,8
+1052407,2023-12-17 19:45:00+00:00,Fabio Maresca,Lazio,Inter,0,2,8,7,15,3,2,5,4,4,9,8,13,12
+1052403,2023-12-18 19:45:00+00:00,Ermanno Feliciani,Atalanta,Salernitana,4,1,10,7,17,1,2,3,11,3,9,7,20,10
+1052414,2023-12-22 17:30:00+00:00,Matteo Marchetti,Empoli,Lazio,0,2,8,9,17,3,2,5,7,7,14,7,21,14
+1052421,2023-12-22 17:30:00+00:00,Marco Guida,Sassuolo,Genoa,1,2,3,6,9,2,1,3,3,5,9,9,12,14
+1052418,2023-12-22 19:45:00+00:00,Juan Luca Sacchi,Monza,Fiorentina,0,1,1,4,5,3,4,7,2,5,5,9,7,14
+1052420,2023-12-22 19:45:00+00:00,Daniele Doveri,Salernitana,AC Milan,2,2,6,6,12,5,1,6,7,9,12,12,19,21
+1052415,2023-12-23 11:30:00+00:00,Maurizio Mariani,Frosinone,Juventus,1,2,8,8,16,0,2,2,3,3,7,10,10,13
+1052413,2023-12-23 14:00:00+00:00,Antonio Rapuano,Bologna,Atalanta,1,0,3,5,8,2,4,6,1,2,8,10,9,12
+1052422,2023-12-23 14:00:00+00:00,Michael Fabbri,Torino,Udinese,1,1,8,2,10,2,2,4,4,4,10,6,14,10
+1052416,2023-12-23 17:00:00+00:00,Daniele Orsato,Hellas Verona,Cagliari,2,0,11,7,18,3,6,9,5,3,8,9,13,12
+1052417,2023-12-23 17:00:00+00:00,Matteo Marcenaro,Inter,Lecce,2,0,16,2,18,1,5,6,8,5,12,6,20,11
+1052419,2023-12-23 19:45:00+00:00,Andrea Colombo,AS Roma,Napoli,2,0,4,0,4,7,8,15,4,2,13,5,17,7
+1052425,2023-12-29 17:30:00+00:00,Federico La Penna,Fiorentina,Torino,1,0,4,2,6,4,2,6,3,3,9,3,12,6
+1052431,2023-12-29 17:30:00+00:00,Marco Di Bello,Napoli,Monza,0,0,10,1,11,4,6,10,9,3,16,5,25,8
+1052426,2023-12-29 19:45:00+00:00,Daniele Doveri,Genoa,Inter,1,1,8,2,10,2,2,4,4,6,9,10,13,16
+1052429,2023-12-29 19:45:00+00:00,Ermanno Feliciani,Lazio,Frosinone,3,1,6,2,8,3,2,5,5,2,8,9,13,11
+1052423,2023-12-30 11:30:00+00:00,Gianluca Manganiello,Atalanta,Lecce,1,0,5,6,11,2,2,4,4,2,13,13,17,15
+1052424,2023-12-30 14:00:00+00:00,Fabio Maresca,Cagliari,Empoli,0,0,8,6,14,1,3,4,3,1,11,4,14,5
+1052432,2023-12-30 14:00:00+00:00,Daniele Orsato,Udinese,Bologna,3,0,7,7,14,2,5,7,7,5,8,9,15,14
+1052427,2023-12-30 17:00:00+00:00,Maurizio Mariani,Hellas Verona,Salernitana,0,1,7,6,13,2,2,4,0,3,11,6,11,9
+1052430,2023-12-30 17:00:00+00:00,Livio Marinelli,AC Milan,Sassuolo,1,0,6,5,11,0,1,1,2,6,18,6,20,12
+1052428,2023-12-30 19:45:00+00:00,Simone Sozza,Juventus,AS Roma,1,0,2,2,4,1,1,2,4,2,9,9,13,11
+1052433,2024-01-05 19:45:00+00:00,Andrea Colombo,Bologna,Genoa,1,1,11,2,13,3,3,6,8,1,13,2,21,3
+1052436,2024-01-06 11:30:00+00:00,Michael Fabbri,Inter,Hellas Verona,2,1,7,0,7,0,4,4,6,3,9,5,15,8
+1052435,2024-01-06 14:00:00+00:00,Maria Ferrieri,Frosinone,Monza,2,3,5,1,6,5,5,10,5,2,5,5,10,7
+1052437,2024-01-06 17:00:00+00:00,Davide Massa,Lecce,Cagliari,1,1,7,6,13,1,1,2,2,2,13,12,15,14
+1052440,2024-01-06 19:45:00+00:00,Rosario Abisso,Sassuolo,Fiorentina,1,0,1,8,9,3,2,5,1,3,6,6,7,9
+1052434,2024-01-07 11:30:00+00:00,Federico La Penna,Empoli,AC Milan,0,3,6,6,12,1,2,3,2,6,15,7,17,13
+1052441,2024-01-07 14:00:00+00:00,Maurizio Mariani,Torino,Napoli,3,0,2,5,7,0,4,4,6,3,4,7,10,10
+1052442,2024-01-07 14:00:00+00:00,Juan Luca Sacchi,Udinese,Lazio,1,2,4,4,8,5,3,8,2,2,11,5,13,7
+1052439,2024-01-07 17:00:00+00:00,Marco Guida,Salernitana,Juventus,1,2,2,8,10,5,5,10,3,3,5,15,8,18
+1052438,2024-01-07 19:45:00+00:00,Gianluca Aureliano,AS Roma,Atalanta,1,1,6,5,11,1,6,7,6,2,10,6,16,8
+1052446,2024-01-13 14:00:00+00:00,Antonio Giua,Genoa,Torino,0,0,8,4,12,3,2,5,6,0,5,6,11,6
+1052452,2024-01-13 14:00:00+00:00,Livio Marinelli,Napoli,Salernitana,2,1,8,3,11,3,2,5,7,2,12,4,19,6
+1052447,2024-01-13 17:00:00+00:00,Daniele Doveri,Hellas Verona,Empoli,2,1,5,9,14,6,3,9,7,1,4,13,11,14
+1052451,2024-01-13 19:45:00+00:00,Antonio Rapuano,Monza,Inter,1,5,4,5,9,2,2,4,2,7,7,13,9,20
+1052449,2024-01-14 11:30:00+00:00,Maria Ferrieri,Lazio,Lecce,1,0,2,5,7,4,4,8,2,3,6,8,8,11
+1052444,2024-01-14 14:00:00+00:00,Gianluca Manganiello,Cagliari,Bologna,2,1,2,5,7,3,2,5,2,4,3,7,5,11
+1052445,2024-01-14 17:00:00+00:00,Luca Pairetto,Fiorentina,Udinese,2,2,4,4,8,1,1,2,3,6,7,6,10,12
+1052450,2024-01-14 19:45:00+00:00,Marco Guida,AC Milan,AS Roma,3,1,2,5,7,2,3,5,5,5,12,7,17,12
+1052443,2024-01-15 19:45:00+00:00,Alessandro Prontera,Atalanta,Frosinone,5,0,8,2,10,0,1,1,9,5,12,3,21,8
+1052448,2024-01-16 19:45:00+00:00,Marco Piccinini,Juventus,Sassuolo,3,0,5,2,7,0,2,2,5,4,7,4,12,8
+1052458,2024-01-20 17:00:00+00:00,Juan Luca Sacchi,AS Roma,Hellas Verona,2,1,1,2,3,2,2,4,2,3,7,9,9,12
+1052462,2024-01-20 19:45:00+00:00,Fabio Maresca,Udinese,AC Milan,2,3,5,7,12,6,1,7,6,7,5,8,11,15
+1052455,2024-01-21 11:30:00+00:00,Federico Dionisi,Frosinone,Cagliari,3,1,8,4,12,3,5,8,7,4,10,5,17,9
+1052454,2024-01-21 14:00:00+00:00,Antonio Giua,Empoli,Monza,3,0,1,7,8,1,3,4,5,5,4,10,9,15
+1052459,2024-01-21 17:00:00+00:00,Daniele Orsato,Salernitana,Genoa,1,2,5,5,10,0,5,5,2,5,9,0,11,5
+1052457,2024-01-21 19:45:00+00:00,Daniele Doveri,Lecce,Juventus,0,3,5,5,10,1,1,2,3,8,9,7,12,15
+1052464,2024-01-26 19:45:00+00:00,Andrea Colombo,Cagliari,Torino,1,2,9,2,11,2,4,6,10,6,15,10,25,16
+1052463,2024-01-27 14:00:00+00:00,Marco Piccinini,Atalanta,Udinese,2,0,4,4,8,2,1,3,11,5,3,8,14,13
+1052468,2024-01-27 17:00:00+00:00,Livio Marinelli,Juventus,Empoli,1,1,6,7,13,3,1,4,3,5,6,11,9,16
+1052470,2024-01-27 19:45:00+00:00,Davide Massa,AC Milan,Bologna,2,2,4,1,5,5,3,8,4,4,10,11,14,15
+1052466,2024-01-28 11:30:00+00:00,Luca Pairetto,Genoa,Lecce,2,1,3,8,11,0,2,2,7,5,12,14,19,19
+1052467,2024-01-28 14:00:00+00:00,Federico La Penna,Hellas Verona,Frosinone,1,1,1,9,10,2,2,4,5,6,10,5,15,11
+1052471,2024-01-28 14:00:00+00:00,Gianluca Manganiello,Monza,Sassuolo,1,0,4,5,9,1,3,4,1,3,11,11,12,14
+1052469,2024-01-28 17:00:00+00:00,Daniele Orsato,Lazio,Napoli,0,0,4,3,7,3,2,5,1,0,9,5,10,5
+1052465,2024-01-28 19:45:00+00:00,Gianluca Aureliano,Fiorentina,Inter,0,1,7,6,13,2,3,5,4,4,10,4,14,8
+1052472,2024-01-29 19:45:00+00:00,Marco Di Bello,Salernitana,AS Roma,1,2,5,1,6,2,3,5,7,2,8,3,15,5
+1052478,2024-02-02 19:45:00+00:00,Antonio Giua,Lecce,Fiorentina,3,2,1,3,4,3,3,6,8,3,8,7,16,10
+1052475,2024-02-03 14:00:00+00:00,Ermanno Feliciani,Empoli,Genoa,0,0,6,6,12,2,5,7,4,2,11,8,15,10
+1052482,2024-02-03 14:00:00+00:00,Alessandro Prontera,Udinese,Monza,0,0,7,4,11,3,2,5,6,2,15,1,21,3
+1052476,2024-02-03 17:00:00+00:00,Luca Pairetto,Frosinone,AC Milan,2,3,2,4,6,1,3,4,4,5,3,8,7,13
+1052474,2024-02-03 19:45:00+00:00,Juan Luca Sacchi,Bologna,Sassuolo,4,2,7,4,11,1,3,4,3,4,16,8,19,12
+1052481,2024-02-04 11:30:00+00:00,Daniele Chiffi,Torino,Salernitana,0,0,10,1,11,2,1,3,1,1,12,2,13,3
+1052479,2024-02-04 14:00:00+00:00,Marco Piccinini,Napoli,Hellas Verona,2,1,9,2,11,3,2,5,7,2,12,10,19,12
+1052473,2024-02-04 17:00:00+00:00,Marco Guida,Atalanta,Lazio,3,1,6,1,7,2,3,5,5,1,14,6,19,7
+1052477,2024-02-04 19:45:00+00:00,Fabio Maresca,Inter,Juventus,1,0,6,4,10,2,3,5,3,1,12,11,15,12
+1052480,2024-02-05 19:45:00+00:00,Matteo Marcenaro,AS Roma,Cagliari,4,0,7,5,12,1,1,2,6,3,14,9,20,12
+1052491,2024-02-09 19:45:00+00:00,Maurizio Mariani,Salernitana,Empoli,1,3,4,8,12,3,2,5,4,3,9,14,13,17
+1052484,2024-02-10 14:00:00+00:00,Marco Di Bello,Cagliari,Lazio,1,3,7,8,15,1,3,4,6,5,7,7,13,12
+1052490,2024-02-10 17:00:00+00:00,Marco Guida,AS Roma,Inter,2,4,3,8,11,2,0,2,3,6,5,4,8,10
+1052492,2024-02-10 19:45:00+00:00,Daniele Orsato,Sassuolo,Torino,1,1,5,4,9,1,3,4,4,2,7,11,11,13
+1052485,2024-02-11 11:30:00+00:00,Ermanno Feliciani,Fiorentina,Frosinone,5,1,2,5,7,3,1,4,7,3,11,8,18,11
+1052483,2024-02-11 14:00:00+00:00,Gianluca Manganiello,Bologna,Lecce,4,0,4,3,7,1,2,3,6,3,10,11,16,14
+1052489,2024-02-11 14:00:00+00:00,Davide Massa,Monza,Hellas Verona,0,0,5,2,7,1,2,3,1,1,10,9,11,10
+1052486,2024-02-11 17:00:00+00:00,Andrea Colombo,Genoa,Atalanta,1,4,7,4,11,3,4,7,6,9,9,5,15,14
+1052488,2024-02-11 19:45:00+00:00,Daniele Doveri,AC Milan,Napoli,1,0,1,2,3,1,1,2,6,2,4,10,10,12
+1052487,2024-02-12 19:45:00+00:00,Rosario Abisso,Juventus,Udinese,0,1,8,4,12,3,3,6,6,1,8,7,14,8
+1052453,2024-02-14 18:00:00+00:00,Daniele Chiffi,Bologna,Fiorentina,2,0,2,3,5,2,3,5,7,3,11,9,18,12
+1052501,2024-02-16 18:00:00+00:00,Giovanni Ayroldi,Torino,Lecce,2,0,5,5,10,1,6,7,4,4,8,4,12,8
+1052497,2024-02-16 20:00:00+00:00,Marco Piccinini,Inter,Salernitana,4,0,18,0,18,0,1,1,10,0,16,1,26,1
+1052500,2024-02-17 14:00:00+00:00,Juan Luca Sacchi,Napoli,Genoa,1,1,7,2,9,3,2,5,7,4,18,2,25,6
+1052496,2024-02-17 17:00:00+00:00,Marco Di Bello,Hellas Verona,Juventus,2,2,5,4,9,0,0,0,9,4,5,14,14,18
+1052493,2024-02-17 19:45:00+00:00,Alessandro Prontera,Atalanta,Sassuolo,3,0,11,5,16,0,0,0,13,4,14,8,27,12
+1052498,2024-02-18 11:30:00+00:00,Fabio Maresca,Lazio,Bologna,1,2,8,3,11,2,3,5,7,3,5,8,12,11
+1052494,2024-02-18 14:00:00+00:00,Luca Pairetto,Empoli,Fiorentina,1,1,0,3,3,3,2,5,4,4,1,5,5,9
+1052502,2024-02-18 14:00:00+00:00,Maurizio Mariani,Udinese,Cagliari,1,1,3,4,7,3,2,5,3,2,14,3,17,5
+1052495,2024-02-18 17:00:00+00:00,Antonio Giua,Frosinone,AS Roma,0,3,10,2,12,0,3,3,7,5,18,8,25,13
+1052499,2024-02-18 19:45:00+00:00,Andrea Colombo,Monza,AC Milan,4,2,7,3,10,4,3,7,6,6,6,10,12,16
+1052461,2024-02-22 19:45:00+00:00,Federico La Penna,Torino,Lazio,0,2,7,4,11,3,4,7,4,4,20,3,24,7
+1052503,2024-02-23 19:45:00+00:00,Rosario Abisso,Bologna,Hellas Verona,2,0,11,1,12,2,2,4,3,3,9,4,12,7
+1052512,2024-02-24 14:00:00+00:00,Gianluca Aureliano,Sassuolo,Empoli,2,3,4,1,5,1,3,4,5,6,14,7,19,13
+1052511,2024-02-24 17:00:00+00:00,Michael Fabbri,Salernitana,Monza,0,2,7,11,18,2,2,4,3,7,8,10,11,17
+1052506,2024-02-24 19:45:00+00:00,Francesco Fourneau,Genoa,Udinese,2,0,8,3,11,1,6,7,4,1,15,4,19,5
+1052507,2024-02-25 11:30:00+00:00,Antonio Rapuano,Juventus,Frosinone,3,2,8,3,11,2,2,4,5,2,17,4,22,6
+1052504,2024-02-25 14:00:00+00:00,Luca Pairetto,Cagliari,Napoli,1,1,4,3,7,4,1,5,3,4,5,5,8,9
+1052508,2024-02-25 17:00:00+00:00,Daniele Doveri,Lecce,Inter,0,4,7,10,17,1,2,3,2,7,12,4,14,11
+1052509,2024-02-25 19:45:00+00:00,Daniele Orsato,AC Milan,Atalanta,1,1,5,3,8,1,4,5,7,3,13,5,20,8
+1052510,2024-02-26 17:30:00+00:00,Juan Luca Sacchi,AS Roma,Torino,3,2,0,4,4,2,2,4,3,6,3,8,6,14
+1052505,2024-02-26 19:45:00+00:00,Marco Guida,Fiorentina,Lazio,2,1,13,2,15,0,2,2,7,1,15,4,22,5
+1052460,2024-02-28 17:00:00+00:00,Daniele Chiffi,Sassuolo,Napoli,1,6,5,10,15,0,0,0,2,9,3,18,5,27
+1052456,2024-02-28 19:45:00+00:00,Andrea Colombo,Inter,Atalanta,4,0,4,1,5,2,6,8,7,1,8,5,15,6
+1052518,2024-03-01 19:45:00+00:00,Marco Di Bello,Lazio,AC Milan,0,1,2,5,7,11,6,17,3,5,8,9,11,14
+1052522,2024-03-02 14:00:00+00:00,Gianluca Manganiello,Udinese,Salernitana,1,1,5,6,11,8,1,9,5,1,13,16,18,17
+1052519,2024-03-02 17:00:00+00:00,Marco Piccinini,Monza,AS Roma,1,4,6,3,9,1,4,5,5,6,11,6,16,12
+1052521,2024-03-02 19:45:00+00:00,Matteo Marchetti,Torino,Fiorentina,0,0,4,5,9,4,4,8,2,3,6,11,8,14
+1052516,2024-03-03 11:30:00+00:00,Fabio Maresca,Hellas Verona,Sassuolo,1,0,2,10,12,4,2,6,5,2,5,11,10,13
+1052514,2024-03-03 14:00:00+00:00,Antonio Rapuano,Empoli,Cagliari,0,1,9,2,11,0,3,3,3,4,13,4,16,8
+1052515,2024-03-03 14:00:00+00:00,Marco Guida,Frosinone,Lecce,1,1,12,8,20,1,1,2,7,4,8,7,15,11
+1052513,2024-03-03 17:00:00+00:00,Federico La Penna,Atalanta,Bologna,1,2,6,2,8,3,2,5,2,6,9,5,11,11
+1052520,2024-03-03 19:45:00+00:00,Maurizio Mariani,Napoli,Juventus,2,1,2,1,3,1,4,5,7,4,7,14,14,18
+1052517,2024-03-04 19:45:00+00:00,Giovanni Ayroldi,Inter,Genoa,2,1,4,5,9,2,3,5,5,2,10,8,15,10
+1052531,2024-03-08 19:45:00+00:00,Daniele Orsato,Napoli,Torino,1,1,13,7,20,2,2,4,8,2,14,9,22,11
+1052524,2024-03-09 14:00:00+00:00,Francesco Fourneau,Cagliari,Salernitana,4,2,5,4,9,1,2,3,7,5,5,7,12,12
+1052532,2024-03-09 14:00:00+00:00,Federico La Penna,Sassuolo,Frosinone,1,0,1,2,3,3,1,4,4,1,6,10,10,11
+1052523,2024-03-09 17:00:00+00:00,Luca Pairetto,Bologna,Inter,0,1,7,2,9,2,1,3,3,4,16,1,19,5
+1052526,2024-03-09 19:45:00+00:00,Ermanno Feliciani,Genoa,Monza,2,3,10,1,11,1,1,2,6,5,16,4,22,9
+1052529,2024-03-10 11:30:00+00:00,Daniele Chiffi,Lecce,Hellas Verona,0,1,11,6,17,3,5,8,3,4,12,9,15,13
+1052530,2024-03-10 14:00:00+00:00,Juan Luca Sacchi,AC Milan,Empoli,1,0,11,4,15,1,4,5,5,2,10,3,15,5
+1052527,2024-03-10 17:00:00+00:00,Marco Guida,Juventus,Atalanta,2,2,4,3,7,0,1,1,5,3,13,4,18,7
+1052525,2024-03-10 19:45:00+00:00,Davide Massa,Fiorentina,AS Roma,2,2,8,2,10,2,5,7,5,5,10,5,15,10
+1052528,2024-03-11 19:45:00+00:00,Gianluca Aureliano,Lazio,Udinese,1,2,9,5,14,3,8,11,6,5,12,9,18,14
+1052534,2024-03-15 19:45:00+00:00,Michael Fabbri,Empoli,Bologna,0,1,7,6,13,3,1,4,1,9,9,11,10,20
+1052539,2024-03-16 14:00:00+00:00,Matteo Marcenaro,Monza,Cagliari,1,0,3,7,10,2,1,3,3,0,12,10,15,10
+1052542,2024-03-16 14:00:00+00:00,Andrea Colombo,Udinese,Torino,0,2,3,4,7,3,2,5,1,5,11,7,12,12
+1052541,2024-03-16 17:00:00+00:00,Fabio Maresca,Salernitana,Lecce,0,1,7,1,8,4,3,7,6,4,9,13,15,17
+1052535,2024-03-16 19:45:00+00:00,Antonio Rapuano,Frosinone,Lazio,2,3,9,4,13,1,3,4,5,7,9,15,14,22
+1052538,2024-03-17 11:30:00+00:00,Antonio Giua,Juventus,Genoa,0,0,12,2,14,6,1,7,2,2,15,3,17,5
+1052536,2024-03-17 14:00:00+00:00,Maurizio Mariani,Hellas Verona,AC Milan,1,3,3,5,8,1,3,4,4,6,11,12,15,18
+1052540,2024-03-17 17:00:00+00:00,Gianluca Manganiello,AS Roma,Sassuolo,1,0,4,7,11,2,1,3,4,2,6,6,10,8
+1052537,2024-03-17 19:45:00+00:00,Federico La Penna,Inter,Napoli,1,1,5,7,12,2,1,3,6,3,13,8,19,11
+1052550,2024-03-30 11:30:00+00:00,Luca Pairetto,Napoli,Atalanta,0,3,7,5,12,2,2,4,6,6,14,6,20,12
+1052546,2024-03-30 14:00:00+00:00,Juan Luca Sacchi,Genoa,Frosinone,1,1,3,8,11,2,1,3,3,3,6,11,9,14
+1052552,2024-03-30 14:00:00+00:00,Gianluca Aureliano,Torino,Monza,1,0,7,2,9,0,5,5,6,2,9,7,15,9
+1052548,2024-03-30 17:00:00+00:00,Andrea Colombo,Lazio,Juventus,1,0,7,2,9,1,2,3,4,3,12,6,16,9
+1052545,2024-03-30 19:45:00+00:00,Fabio Maresca,Fiorentina,AC Milan,1,2,7,5,12,2,3,5,7,10,10,4,17,14
+1052543,2024-04-01 10:30:00+00:00,Ermanno Feliciani,Bologna,Salernitana,3,0,5,3,8,0,3,3,3,2,11,6,14,8
+1052544,2024-04-01 13:00:00+00:00,Daniele Doveri,Cagliari,Hellas Verona,1,1,7,2,9,0,2,2,2,5,10,3,12,8
+1052551,2024-04-01 13:00:00+00:00,Michael Fabbri,Sassuolo,Udinese,1,1,10,1,11,1,2,3,5,3,9,9,14,12
+1052549,2024-04-01 16:00:00+00:00,Matteo Marcenaro,Lecce,AS Roma,0,0,8,4,12,3,2,5,6,3,21,7,27,10
+1052547,2024-04-01 18:45:00+00:00,Federico Dionisi,Inter,Empoli,2,0,8,6,14,0,2,2,7,3,12,11,19,14
+1052561,2024-04-05 18:45:00+00:00,Simone Sozza,Salernitana,Sassuolo,2,2,4,9,13,4,3,7,2,5,3,11,5,16
+1052558,2024-04-06 13:00:00+00:00,Luca Massimi,AC Milan,Lecce,3,0,5,1,6,1,3,4,8,7,8,4,16,11
+1052560,2024-04-06 16:00:00+00:00,Marco Guida,AS Roma,Lazio,1,0,3,6,9,5,3,8,3,1,12,10,15,11
+1052554,2024-04-06 18:45:00+00:00,Davide Massa,Empoli,Torino,3,2,1,7,8,2,1,3,3,5,1,14,4,19
+1052555,2024-04-07 10:30:00+00:00,Daniele Orsato,Frosinone,Bologna,0,0,5,2,7,1,3,4,5,5,7,8,12,13
+1052559,2024-04-07 13:00:00+00:00,Daniele Doveri,Monza,Napoli,2,4,1,6,7,3,1,4,2,8,5,11,7,19
+1052553,2024-04-07 16:00:00+00:00,Antonio Rapuano,Cagliari,Atalanta,2,1,4,4,8,3,3,6,3,2,8,5,11,7
+1052556,2024-04-07 16:00:00+00:00,Gianluca Manganiello,Hellas Verona,Genoa,1,2,5,3,8,3,1,4,3,5,9,6,12,11
+1052557,2024-04-07 18:45:00+00:00,Federico La Penna,Juventus,Fiorentina,1,0,5,6,11,2,1,3,2,2,5,11,7,13
+1052562,2024-04-08 18:45:00+00:00,Marco Piccinini,Udinese,Inter,1,2,0,8,8,1,2,3,1,6,2,17,3,23
+1052567,2024-04-12 18:45:00+00:00,Luca Zufferli,Lazio,Salernitana,4,1,9,0,9,0,1,1,6,5,11,3,17,8
+1052568,2024-04-13 13:00:00+00:00,Maurizio Mariani,Lecce,Empoli,1,0,10,3,13,1,0,1,7,0,7,3,14,3
+1052571,2024-04-13 16:00:00+00:00,Fabio Maresca,Torino,Juventus,0,0,6,2,8,3,2,5,2,3,11,5,13,8
+1052564,2024-04-13 18:45:00+00:00,Federico La Penna,Bologna,Monza,0,0,10,0,10,4,4,8,7,0,10,4,17,4
+1052569,2024-04-14 10:30:00+00:00,Michael Fabbri,Napoli,Frosinone,2,2,6,2,8,5,1,6,9,6,11,7,20,13
+1052570,2024-04-14 13:00:00+00:00,Davide Massa,Sassuolo,AC Milan,3,3,2,6,8,3,1,4,5,7,5,16,10,23
+1052566,2024-04-14 18:45:00+00:00,Francesco Fourneau,Inter,Cagliari,2,2,7,0,7,0,2,2,7,6,8,4,15,10
+1052565,2024-04-15 16:30:00+00:00,Davide Di Marco,Fiorentina,Genoa,1,1,6,2,8,1,2,3,3,3,17,4,20,7
+1052563,2024-04-15 18:45:00+00:00,Juan Luca Sacchi,Atalanta,Hellas Verona,2,2,5,4,9,0,2,2,9,5,7,8,16,13
+1052575,2024-04-19 16:30:00+00:00,Ermanno Feliciani,Genoa,Lazio,0,1,2,9,11,1,2,3,2,1,6,12,8,13
+1052573,2024-04-19 18:45:00+00:00,Marco Piccinini,Cagliari,Juventus,2,2,4,3,7,2,3,5,4,3,5,8,9,11
+1052574,2024-04-20 16:00:00+00:00,Gianluca Manganiello,Empoli,Napoli,1,0,2,8,10,2,2,4,1,1,6,8,7,9
+1052576,2024-04-20 18:45:00+00:00,Marco Guida,Hellas Verona,Udinese,1,0,10,6,16,2,2,4,4,1,12,17,16,18
+1052581,2024-04-21 10:30:00+00:00,Daniele Doveri,Sassuolo,Lecce,0,3,9,4,13,1,0,1,3,8,7,6,10,14
+1052582,2024-04-21 13:00:00+00:00,Antonio Rapuano,Torino,Frosinone,0,0,6,4,10,2,2,4,2,3,11,9,13,12
+1052580,2024-04-21 16:00:00+00:00,Matteo Marchetti,Salernitana,Fiorentina,0,2,2,5,7,2,4,6,1,7,4,5,5,12
+1052578,2024-04-21 18:45:00+00:00,Antonio Giua,Monza,Atalanta,1,2,2,8,10,3,2,5,2,6,15,6,17,12
+1052579,2024-04-22 16:30:00+00:00,Fabio Maresca,AS Roma,Bologna,1,3,8,2,10,5,2,7,5,3,9,8,14,11
+1052577,2024-04-22 18:45:00+00:00,Andrea Colombo,AC Milan,Inter,1,2,5,3,8,7,4,11,6,3,9,8,15,11
+1052572,2024-04-25 16:00:00+00:00,Luca Pairetto,Udinese,AS Roma,1,2,4,8,12,3,2,5,3,5,6,14,9,19
+1052586,2024-04-26 18:45:00+00:00,Francesco Fourneau,Frosinone,Salernitana,3,0,7,3,10,2,2,4,4,2,7,15,11,17
+1052591,2024-04-27 13:00:00+00:00,Alberto Santoro,Lecce,Monza,1,1,0,5,5,2,3,5,4,1,8,8,12,9
+1052589,2024-04-27 16:00:00+00:00,Maurizio Mariani,Juventus,AC Milan,0,0,9,4,13,0,1,1,7,0,11,9,18,9
+1052590,2024-04-27 18:45:00+00:00,Davide Massa,Lazio,Hellas Verona,1,0,4,2,6,4,4,8,5,1,12,6,17,7
+1052588,2024-04-28 10:30:00+00:00,Maria Ferrieri,Inter,Torino,2,0,5,4,9,0,2,2,5,3,12,8,17,11
+1052584,2024-04-28 13:00:00+00:00,Juan Luca Sacchi,Bologna,Udinese,1,1,10,3,13,5,7,12,4,4,11,7,15,11
+1052583,2024-04-28 16:00:00+00:00,Michael Fabbri,Atalanta,Empoli,2,0,8,1,9,1,2,3,5,2,12,9,17,11
+1052592,2024-04-28 16:00:00+00:00,Simone Sozza,Napoli,AS Roma,2,2,9,2,11,2,0,2,9,4,17,6,26,10
+1052585,2024-04-28 18:45:00+00:00,Matteo Marcenaro,Fiorentina,Sassuolo,5,1,10,2,12,2,2,4,10,2,12,5,22,7
+1052587,2024-04-29 18:45:00+00:00,Federico Dionisi,Genoa,Cagliari,3,0,2,4,6,0,2,2,5,1,7,11,12,12
+1052601,2024-05-03 18:45:00+00:00,Simone Sozza,Torino,Bologna,0,0,2,4,6,2,2,4,1,1,7,4,8,5
+1052597,2024-05-04 16:00:00+00:00,Luca Pairetto,Monza,Lazio,2,2,5,4,9,1,7,8,7,5,10,4,17,9
+1052600,2024-05-04 18:45:00+00:00,Matteo Marchetti,Sassuolo,Inter,1,0,2,5,7,1,1,2,2,1,4,13,6,14
+1052593,2024-05-05 10:30:00+00:00,Matteo Marcenaro,Cagliari,Lecce,1,1,3,10,13,6,4,10,3,3,6,13,9,16
+1052594,2024-05-05 13:00:00+00:00,Daniele Doveri,Empoli,Frosinone,0,0,3,8,11,2,3,5,1,5,6,12,7,17
+1052595,2024-05-05 13:00:00+00:00,Antonio Rapuano,Hellas Verona,Fiorentina,2,1,1,2,3,2,1,3,4,4,5,9,9,13
+1052596,2024-05-05 16:00:00+00:00,Alessandro Prontera,AC Milan,Genoa,3,3,7,1,8,1,1,2,7,2,19,4,26,6
+1052598,2024-05-05 18:45:00+00:00,Andrea Colombo,AS Roma,Juventus,1,1,9,6,15,1,2,3,5,6,14,10,19,16
+1052599,2024-05-06 16:00:00+00:00,Ermanno Feliciani,Salernitana,Atalanta,1,2,1,7,8,1,0,1,2,4,7,13,9,17
+1052602,2024-05-06 18:45:00+00:00,Gianluca Aureliano,Udinese,Napoli,1,1,7,5,12,0,0,0,2,4,8,8,10,12
+1052605,2024-05-10 18:45:00+00:00,Antonio Giua,Frosinone,Inter,0,5,8,4,12,0,0,0,8,5,9,9,17,14
+1052612,2024-05-11 16:00:00+00:00,Luca Pairetto,Napoli,Bologna,0,2,9,3,12,2,1,3,6,4,10,7,16,11
+1052611,2024-05-11 18:45:00+00:00,Simone Sozza,AC Milan,Cagliari,5,1,6,3,9,2,1,3,10,7,7,6,17,13
+1052609,2024-05-12 10:30:00+00:00,Gianluca Aureliano,Lazio,Empoli,2,0,7,7,14,3,1,4,5,3,6,13,11,16
+1052606,2024-05-12 13:00:00+00:00,Maurizio Mariani,Genoa,Sassuolo,2,1,3,7,10,1,2,3,2,4,6,8,8,12
+1052607,2024-05-12 13:00:00+00:00,Livio Marinelli,Hellas Verona,Torino,1,2,7,4,11,5,2,7,5,2,8,4,13,6
+1052608,2024-05-12 16:00:00+00:00,Alberto Santoro,Juventus,Salernitana,1,1,9,4,13,2,5,7,6,4,19,9,25,13
+1052603,2024-05-12 18:45:00+00:00,Marco Guida,Atalanta,AS Roma,2,1,6,1,7,1,1,2,7,6,17,3,24,9
+1052610,2024-05-13 16:30:00+00:00,Davide Massa,Lecce,Udinese,0,2,8,2,10,2,1,3,2,3,7,13,9,16
+1052604,2024-05-13 18:45:00+00:00,Luca Zufferli,Fiorentina,Monza,2,1,6,1,7,1,1,2,9,2,7,4,16,6
+1052614,2024-05-17 18:45:00+00:00,Matteo Marchetti,Fiorentina,Napoli,2,2,5,3,8,1,2,3,5,3,9,12,14,15
+1052616,2024-05-18 16:00:00+00:00,Antonio Rapuano,Lecce,Atalanta,0,2,2,5,7,0,4,4,3,9,8,10,11,19
+1052621,2024-05-18 18:45:00+00:00,Ermanno Feliciani,Torino,AC Milan,3,1,3,8,11,1,1,2,5,4,6,12,11,16
+1052620,2024-05-19 10:30:00+00:00,Daniele Doveri,Sassuolo,Cagliari,0,2,5,6,11,7,2,9,0,3,7,10,7,13
+1052617,2024-05-19 13:00:00+00:00,Michael Fabbri,Monza,Frosinone,0,1,3,4,7,1,2,3,2,5,12,11,14,16
+1052622,2024-05-19 13:00:00+00:00,Marco Guida,Udinese,Empoli,1,1,5,5,10,1,9,10,2,1,6,3,8,4
+1052615,2024-05-19 16:00:00+00:00,Juan Luca Sacchi,Inter,Lazio,1,1,8,0,8,0,1,1,7,3,12,5,19,8
+1052618,2024-05-19 18:45:00+00:00,Gianluca Manganiello,AS Roma,Genoa,1,0,6,3,9,4,0,4,6,5,15,7,21,12
+1052619,2024-05-20 16:30:00+00:00,Marco Di Bello,Salernitana,Hellas Verona,1,2,4,6,10,3,2,5,1,5,8,12,9,17
+1052613,2024-05-20 18:45:00+00:00,Giovanni Ayroldi,Bologna,Juventus,3,3,3,2,5,1,5,6,5,4,5,7,10,11
+1052624,2024-05-23 18:45:00+00:00,Alessandro Prontera,Cagliari,Fiorentina,2,3,4,5,9,2,4,6,6,5,8,6,14,11
+1052627,2024-05-24 18:45:00+00:00,Alberto Santoro,Genoa,Bologna,2,0,3,6,9,1,2,3,3,1,11,10,14,11
+1052629,2024-05-25 16:00:00+00:00,Maria Ferrieri,Juventus,Monza,2,0,3,4,7,1,5,6,4,4,8,8,12,12
+1052631,2024-05-25 18:45:00+00:00,Davide Di Marco,AC Milan,Salernitana,3,3,13,3,16,0,1,1,11,6,12,8,23,14
+1052623,2024-05-26 16:00:00+00:00,Simone Sozza,Atalanta,Torino,3,0,2,5,7,1,1,2,7,1,11,7,18,8
+1052632,2024-05-26 16:00:00+00:00,Federico Dionisi,Napoli,Lecce,0,0,4,1,5,0,0,0,5,0,19,10,24,10
+1052625,2024-05-26 18:45:00+00:00,Davide Massa,Empoli,AS Roma,2,1,4,5,9,4,1,5,7,3,10,12,17,15
+1052626,2024-05-26 18:45:00+00:00,Daniele Doveri,Frosinone,Udinese,0,1,11,1,12,0,2,2,5,5,16,5,21,10
+1052628,2024-05-26 18:45:00+00:00,Luca Zufferli,Hellas Verona,Inter,2,2,9,3,12,1,1,2,8,11,10,4,18,15
+1052630,2024-05-26 18:45:00+00:00,Paride Tremolada,Lazio,Sassuolo,1,1,5,3,8,3,1,4,6,3,2,5,8,8
+1052533,2024-06-02 16:00:00+00:00,Daniele Orsato,Atalanta,Fiorentina,2,3,4,4,8,0,2,2,3,4,9,4,12,8
+1223598,2024-08-17 16:30:00+00:00,Ermanno Feliciani,Genoa,Inter,2,2,1,4,5,1,2,3,7,8,6,9,13,17
+1223604,2024-08-17 16:30:00+00:00,Giovanni Ayroldi,Parma,Fiorentina,1,1,4,9,13,3,4,7,6,7,8,8,14,15
+1223597,2024-08-17 18:45:00+00:00,Michael Fabbri,Empoli,Monza,0,0,7,3,10,1,1,2,2,1,9,5,11,6
+1223603,2024-08-17 18:45:00+00:00,Fabio Maresca,AC Milan,Torino,2,2,9,2,11,3,5,8,6,3,20,4,26,7
+1223595,2024-08-18 16:30:00+00:00,Maria Ferrieri,Bologna,Udinese,1,1,9,5,14,0,4,4,7,2,15,2,22,4
+1223599,2024-08-18 16:30:00+00:00,Matteo Marchetti,Hellas Verona,Napoli,3,0,1,5,6,4,1,5,4,4,5,10,9,14
+1223596,2024-08-18 18:45:00+00:00,Livio Marinelli,Cagliari,AS Roma,0,0,5,3,8,2,0,2,2,3,11,12,13,15
+1223601,2024-08-18 18:45:00+00:00,Paride Tremolada,Lazio,Venezia,3,1,6,3,9,1,2,3,6,2,7,9,13,11
+1223602,2024-08-19 16:30:00+00:00,Davide Massa,Lecce,Atalanta,0,4,5,3,8,0,2,2,4,6,17,5,21,11
+1223600,2024-08-19 18:45:00+00:00,Matteo Marcenaro,Juventus,Como,3,0,3,0,3,2,4,6,7,0,6,3,13,3
+1223611,2024-08-24 16:30:00+00:00,Juan Luca Sacchi,Parma,AC Milan,2,1,3,9,12,0,3,3,5,5,4,12,9,17
+1223614,2024-08-24 16:30:00+00:00,Daniele Doveri,Udinese,Lazio,2,1,4,13,17,6,1,7,3,5,5,12,8,17
+1223608,2024-08-24 18:45:00+00:00,Davide Di Marco,Inter,Lecce,2,0,10,6,16,0,2,2,3,4,8,6,11,10
+1223609,2024-08-24 18:45:00+00:00,Maurizio Mariani,Monza,Genoa,0,1,8,3,11,2,3,5,2,1,7,10,9,11
+1223606,2024-08-25 16:30:00+00:00,Simone Sozza,Fiorentina,Venezia,0,0,7,3,10,1,2,3,8,4,6,4,14,8
+1223613,2024-08-25 16:30:00+00:00,Antonio Rapuano,Torino,Atalanta,2,1,4,6,10,3,4,7,7,9,6,16,13,25
+1223610,2024-08-25 18:45:00+00:00,Luca Pairetto,Napoli,Bologna,3,0,7,5,12,2,2,4,5,2,11,6,16,8
+1223612,2024-08-25 18:45:00+00:00,Luca Zufferli,AS Roma,Empoli,1,2,8,5,13,0,3,3,7,4,20,10,27,14
+1223605,2024-08-26 16:30:00+00:00,Marco Di Bello,Cagliari,Como,1,1,5,6,11,2,2,4,5,4,6,10,11,14
+1223607,2024-08-26 18:45:00+00:00,Antonio Giua,Hellas Verona,Juventus,0,3,4,1,5,2,0,2,1,5,6,3,7,8
+1223624,2024-08-30 16:30:00+00:00,Matteo Marcenaro,Venezia,Torino,0,1,3,3,6,2,4,6,4,6,9,6,13,12
+1223618,2024-08-30 18:45:00+00:00,Matteo Marchetti,Inter,Atalanta,4,0,3,4,7,0,2,2,4,1,9,10,13,11
+1223615,2024-08-31 16:30:00+00:00,Livio Marinelli,Bologna,Empoli,1,1,6,3,9,0,3,3,3,2,11,1,14,3
+1223621,2024-08-31 16:30:00+00:00,Michael Fabbri,Lecce,Cagliari,1,0,7,10,17,3,3,6,4,2,13,19,17,21
+1223620,2024-08-31 18:45:00+00:00,Davide Massa,Lazio,AC Milan,2,2,5,7,12,4,2,6,5,4,2,6,7,10
+1223622,2024-08-31 18:45:00+00:00,Paride Tremolada,Napoli,Parma,2,1,6,4,10,2,6,8,7,2,22,11,29,13
+1223616,2024-09-01 16:30:00+00:00,Andrea Colombo,Fiorentina,Monza,2,2,7,0,7,2,4,6,6,3,12,1,18,4
+1223617,2024-09-01 16:30:00+00:00,Giovanni Ayroldi,Genoa,Hellas Verona,0,2,3,1,4,2,6,8,1,3,10,7,11,10
+1223619,2024-09-01 18:45:00+00:00,Marco Guida,Juventus,AS Roma,0,0,6,4,10,2,2,4,1,1,7,6,8,7
+1223623,2024-09-01 18:45:00+00:00,Alessandro Prontera,Udinese,Como,1,0,4,6,10,3,0,3,3,4,7,17,10,21
+1223627,2024-09-14 13:00:00+00:00,Marco Piccinini,Como,Bologna,2,2,4,3,7,2,1,3,4,4,10,10,14,14
+1223628,2024-09-14 16:00:00+00:00,Marco Di Bello,Empoli,Juventus,0,0,4,8,12,1,2,3,3,3,5,12,8,15
+1223631,2024-09-14 18:45:00+00:00,Davide Di Marco,AC Milan,Venezia,4,0,6,1,7,1,5,6,8,1,4,5,12,6
+1223629,2024-09-15 10:30:00+00:00,Antonio Giua,Genoa,AS Roma,1,1,4,5,9,1,3,4,8,6,12,10,20,16
+1223625,2024-09-15 13:00:00+00:00,Juan Luca Sacchi,Atalanta,Fiorentina,3,2,5,2,7,2,3,5,7,5,6,8,13,13
+1223634,2024-09-15 13:00:00+00:00,Andrea Colombo,Torino,Lecce,0,0,2,7,9,1,3,4,0,6,5,14,5,20
+1223626,2024-09-15 16:00:00+00:00,Federico La Penna,Cagliari,Napoli,0,4,7,4,11,1,2,3,5,5,14,8,19,13
+1223632,2024-09-15 18:45:00+00:00,Luca Pairetto,Monza,Inter,1,1,1,8,9,1,2,3,2,2,3,14,5,16
+1223633,2024-09-16 16:30:00+00:00,Rosario Abisso,Parma,Udinese,2,3,5,6,11,4,3,7,3,6,6,12,9,18
+1223630,2024-09-16 18:45:00+00:00,Luca Zufferli,Lazio,Hellas Verona,2,1,9,6,15,2,2,4,7,2,7,5,14,7
+1223636,2024-09-20 16:30:00+00:00,Simone Sozza,Cagliari,Empoli,0,2,10,4,14,1,2,3,4,4,17,5,21,9
+1223638,2024-09-20 18:45:00+00:00,Livio Marinelli,Hellas Verona,Torino,2,3,5,6,11,5,1,6,2,3,6,13,8,16
+1223644,2024-09-21 13:00:00+00:00,Matteo Marchetti,Venezia,Genoa,2,0,3,4,7,2,3,5,4,0,8,9,12,9
+1223640,2024-09-21 16:00:00+00:00,Daniele Doveri,Juventus,Napoli,0,0,4,3,7,1,0,1,1,1,8,7,9,8
+1223641,2024-09-21 18:45:00+00:00,Marco Guida,Lecce,Parma,2,2,2,12,14,6,2,8,3,10,11,15,14,25
+1223637,2024-09-22 10:30:00+00:00,Matteo Marcenaro,Fiorentina,Lazio,2,1,3,10,13,3,4,7,5,6,9,14,14,20
+1223642,2024-09-22 13:00:00+00:00,Davide Massa,Monza,Bologna,1,2,2,2,4,3,2,5,3,8,3,7,6,15
+1223643,2024-09-22 16:00:00+00:00,Ermanno Feliciani,AS Roma,Udinese,3,0,2,1,3,2,2,4,8,2,8,7,16,9
+1223639,2024-09-22 18:45:00+00:00,Maurizio Mariani,Inter,AC Milan,1,2,6,2,8,4,1,5,4,8,9,8,13,16
+1223635,2024-09-24 18:45:00+00:00,Paride Tremolada,Atalanta,Como,2,3,6,2,8,1,3,4,5,7,3,7,8,14
+1223649,2024-09-27 18:45:00+00:00,Luca Zufferli,AC Milan,Lecce,3,0,4,7,11,3,1,4,6,7,9,9,15,16
+1223654,2024-09-28 13:00:00+00:00,Juan Luca Sacchi,Udinese,Inter,2,3,7,3,10,1,0,1,3,7,6,9,9,16
+1223648,2024-09-28 16:00:00+00:00,Andrea Colombo,Genoa,Juventus,0,3,5,3,8,2,1,3,2,3,5,9,7,12
+1223645,2024-09-28 18:45:00+00:00,Antonio Rapuano,Bologna,Atalanta,1,1,2,9,11,5,3,8,1,5,4,18,5,23
+1223653,2024-09-29 10:30:00+00:00,Simone Sozza,Torino,Lazio,2,3,3,1,4,2,3,5,7,7,5,6,12,13
+1223646,2024-09-29 13:00:00+00:00,Antonio Giua,Como,Hellas Verona,3,2,9,1,10,2,7,9,11,3,13,3,24,6
+1223652,2024-09-29 13:00:00+00:00,Rosario Abisso,AS Roma,Venezia,2,1,6,3,9,1,2,3,5,7,17,11,22,18
+1223647,2024-09-29 16:00:00+00:00,Gianluca Aureliano,Empoli,Fiorentina,0,0,2,4,6,0,1,1,1,0,7,13,8,13
+1223650,2024-09-29 18:45:00+00:00,Gianluca Manganiello,Napoli,Monza,2,0,1,3,4,1,2,3,2,1,9,4,11,5
+1223651,2024-09-30 18:45:00+00:00,Francesco Fourneau,Parma,Cagliari,2,3,5,3,8,3,2,5,4,4,14,8,18,12
+1223663,2024-10-04 16:30:00+00:00,Ermanno Feliciani,Napoli,Como,3,1,4,1,5,1,1,2,6,2,3,9,9,11
+1223658,2024-10-04 18:45:00+00:00,Marco Guida,Hellas Verona,Venezia,2,1,13,6,19,3,0,3,3,2,17,12,20,14
+1223664,2024-10-05 13:00:00+00:00,Maurizio Mariani,Udinese,Lecce,1,0,5,0,5,2,2,4,4,3,8,6,12,9
+1223655,2024-10-05 16:00:00+00:00,Daniele Chiffi,Atalanta,Genoa,5,1,4,2,6,0,0,0,8,2,15,5,23,7
+1223659,2024-10-05 18:45:00+00:00,Matteo Marcenaro,Inter,Torino,3,2,14,0,14,1,4,5,8,5,21,2,29,7
+1223660,2024-10-06 10:30:00+00:00,Livio Marinelli,Juventus,Cagliari,1,1,8,3,11,7,2,9,9,2,12,7,21,9
+1223656,2024-10-06 13:00:00+00:00,Marco Di Bello,Bologna,Parma,0,0,13,6,19,1,2,3,3,2,16,11,19,13
+1223661,2024-10-06 13:00:00+00:00,Giovanni Ayroldi,Lazio,Empoli,2,1,5,3,8,2,4,6,6,2,10,5,16,7
+1223662,2024-10-06 16:00:00+00:00,Federico La Penna,Monza,AS Roma,1,1,1,3,4,3,1,4,3,4,0,11,3,15
+1223657,2024-10-06 18:45:00+00:00,Luca Pairetto,Fiorentina,AC Milan,2,1,0,7,7,2,5,7,3,8,9,8,12,16
+1223666,2024-10-19 13:00:00+00:00,Michael Fabbri,Como,Parma,1,1,7,4,11,1,2,3,3,3,9,6,12,9
+1223668,2024-10-19 13:00:00+00:00,Daniele Doveri,Genoa,Bologna,2,2,1,7,8,2,0,2,4,7,6,5,10,12
+1223672,2024-10-19 16:00:00+00:00,Daniele Chiffi,AC Milan,Udinese,1,0,8,4,12,4,3,7,5,1,5,12,10,13
+1223670,2024-10-19 18:45:00+00:00,Juan Luca Sacchi,Juventus,Lazio,1,0,7,1,8,4,4,8,3,1,13,1,16,2
+1223667,2024-10-20 10:30:00+00:00,Rosario Abisso,Empoli,Napoli,0,1,7,7,14,2,2,4,4,1,7,8,11,9
+1223671,2024-10-20 13:00:00+00:00,Francesco Fourneau,Lecce,Fiorentina,0,6,1,3,4,2,5,7,2,11,3,8,5,19
+1223674,2024-10-20 13:00:00+00:00,Luca Zufferli,Venezia,Atalanta,0,2,2,5,7,1,1,2,4,7,8,9,12,16
+1223665,2024-10-20 16:00:00+00:00,Gianluca Aureliano,Cagliari,Torino,3,2,9,12,21,1,3,4,4,5,13,12,17,17
+1223673,2024-10-20 18:45:00+00:00,Davide Massa,AS Roma,Inter,0,1,3,3,6,2,3,5,3,6,11,5,14,11
+1223669,2024-10-21 18:45:00+00:00,Federico Dionisi,Hellas Verona,Monza,0,3,9,6,15,3,2,5,4,4,12,6,16,10
+1223684,2024-10-25 16:30:00+00:00,Gianluca Manganiello,Udinese,Cagliari,2,0,2,4,6,2,5,7,4,0,9,3,13,3
+1223683,2024-10-25 18:45:00+00:00,Giovanni Ayroldi,Torino,Como,1,0,1,3,4,3,3,6,2,6,6,14,8,20
+1223681,2024-10-26 13:00:00+00:00,Paride Tremolada,Napoli,Lecce,1,0,16,5,21,3,2,5,8,2,16,9,24,11
+1223675,2024-10-26 18:45:00+00:00,Ermanno Feliciani,Atalanta,Hellas Verona,6,1,4,2,6,0,1,1,10,2,9,2,19,4
+1223682,2024-10-27 10:30:00+00:00,Federico La Penna,Parma,Empoli,1,1,9,3,12,4,5,9,4,1,13,4,17,5
+1223679,2024-10-27 13:00:00+00:00,Marco Piccinini,Lazio,Genoa,3,0,7,4,11,3,1,4,4,2,14,4,18,6
+1223680,2024-10-27 13:00:00+00:00,Antonio Rapuano,Monza,Venezia,2,2,4,3,7,6,2,8,2,2,11,4,13,6
+1223678,2024-10-27 16:00:00+00:00,Marco Guida,Inter,Juventus,4,4,13,5,18,2,2,4,9,5,9,5,18,10
+1223677,2024-10-27 19:45:00+00:00,Simone Sozza,Fiorentina,AS Roma,5,1,6,2,8,2,7,9,10,5,11,9,21,14
+1223686,2024-10-29 17:30:00+00:00,Francesco Fourneau,Cagliari,Bologna,0,2,7,2,9,2,2,4,2,4,12,7,14,11
+1223691,2024-10-29 17:30:00+00:00,Maurizio Mariani,Lecce,Hellas Verona,1,0,3,4,7,1,7,8,6,1,8,6,14,7
+1223692,2024-10-29 19:45:00+00:00,Andrea Colombo,AC Milan,Napoli,0,2,5,1,6,0,1,1,5,4,8,5,13,9
+1223688,2024-10-30 17:30:00+00:00,Matteo Marchetti,Empoli,Inter,0,3,1,4,5,3,1,4,1,5,5,10,6,15
+1223694,2024-10-30 17:30:00+00:00,Davide Massa,Venezia,Udinese,3,2,2,6,8,3,6,9,7,5,11,10,18,15
+1223685,2024-10-30 19:45:00+00:00,Marco Piccinini,Atalanta,Monza,2,0,5,1,6,2,3,5,6,3,10,1,16,4
+1223690,2024-10-30 19:45:00+00:00,Luca Zufferli,Juventus,Parma,2,2,10,6,16,2,0,2,6,5,18,8,24,13
+1223689,2024-10-31 17:30:00+00:00,Daniele Chiffi,Genoa,Fiorentina,0,1,4,4,8,4,2,6,4,4,10,8,14,12
+1223687,2024-10-31 19:45:00+00:00,Luca Pairetto,Como,Lazio,1,5,3,5,8,4,7,11,2,7,12,7,14,14
+1223693,2024-10-31 19:45:00+00:00,Michael Fabbri,AS Roma,Torino,1,0,3,5,8,2,2,4,3,2,6,2,9,4
+1223695,2024-11-02 14:00:00+00:00,Giuseppe Collu,Bologna,Lecce,1,0,9,1,10,2,2,4,4,0,16,6,20,6
+1223704,2024-11-02 17:00:00+00:00,Rosario Abisso,Udinese,Juventus,0,2,10,3,13,2,2,4,2,5,9,6,11,11
+1223700,2024-11-02 19:45:00+00:00,Ermanno Feliciani,Monza,AC Milan,0,1,3,5,8,2,1,3,2,7,10,11,12,18
+1223701,2024-11-03 11:30:00+00:00,Daniele Doveri,Napoli,Atalanta,0,3,4,3,7,1,3,4,3,3,10,9,13,12
+1223703,2024-11-03 14:00:00+00:00,Federico La Penna,Torino,Fiorentina,0,1,1,3,4,2,1,3,1,3,8,5,9,8
+1223697,2024-11-03 17:00:00+00:00,Matteo Marcenaro,Hellas Verona,AS Roma,3,2,2,2,4,4,2,6,3,3,4,11,7,14
+1223698,2024-11-03 19:45:00+00:00,Maria Ferrieri,Inter,Venezia,1,0,9,3,12,2,1,3,8,2,12,5,20,7
+1223696,2024-11-04 17:30:00+00:00,Marco Di Bello,Empoli,Como,1,0,3,6,9,1,0,1,4,2,5,10,9,12
+1223702,2024-11-04 17:30:00+00:00,Marco Guida,Parma,Genoa,0,1,3,7,10,2,5,7,0,7,13,8,13,15
+1223699,2024-11-04 19:45:00+00:00,Giovanni Ayroldi,Lazio,Cagliari,2,1,2,3,5,3,12,15,5,1,15,5,20,6
+1223708,2024-11-07 19:45:00+00:00,Antonio Rapuano,Genoa,Como,1,1,8,5,13,4,3,7,4,8,4,10,8,18
+1223711,2024-11-08 19:45:00+00:00,Juan Luca Sacchi,Lecce,Empoli,1,1,4,3,7,0,3,3,3,6,15,5,18,11
+1223714,2024-11-09 14:00:00+00:00,Daniele Chiffi,Venezia,Parma,1,2,6,6,12,1,2,3,6,3,6,7,12,10
+1223706,2024-11-09 17:00:00+00:00,Michael Fabbri,Cagliari,AC Milan,3,3,6,3,9,0,2,2,7,6,9,7,16,13
+1223710,2024-11-09 19:45:00+00:00,Simone Sozza,Juventus,Torino,2,0,5,5,10,1,3,4,4,1,9,5,13,6
+1223705,2024-11-10 11:30:00+00:00,Marco Di Bello,Atalanta,Udinese,2,1,4,5,9,1,1,2,3,6,7,5,10,11
+1223707,2024-11-10 14:00:00+00:00,Luca Zufferli,Fiorentina,Hellas Verona,3,1,8,3,11,1,2,3,6,2,5,6,11,8
+1223713,2024-11-10 14:00:00+00:00,Gianluca Manganiello,AS Roma,Bologna,2,3,4,3,7,2,3,5,5,4,10,11,15,15
+1223712,2024-11-10 17:00:00+00:00,Andrea Colombo,Monza,Lazio,0,1,6,6,12,5,1,6,2,6,10,8,12,14
+1223709,2024-11-10 19:45:00+00:00,Maurizio Mariani,Inter,Napoli,1,1,4,2,6,1,0,1,4,2,9,3,13,5
+1223718,2024-11-23 14:00:00+00:00,Andrea Colombo,Hellas Verona,Inter,0,5,4,2,6,2,1,3,2,7,7,5,9,12
+1223720,2024-11-23 17:00:00+00:00,Daniele Chiffi,AC Milan,Juventus,0,0,2,4,6,3,2,5,1,2,5,5,6,7
+1223722,2024-11-23 19:45:00+00:00,Gianluca Manganiello,Parma,Atalanta,1,3,2,5,7,0,2,2,3,6,6,9,9,15
+1223717,2024-11-24 11:30:00+00:00,Simone Sozza,Genoa,Cagliari,2,2,6,8,14,2,2,4,6,6,14,11,20,17
+1223715,2024-11-24 14:00:00+00:00,Matteo Marchetti,Como,Fiorentina,0,2,3,4,7,4,1,5,4,4,6,4,10,8
+1223723,2024-11-24 14:00:00+00:00,Rosario Abisso,Torino,Monza,1,1,7,3,10,1,2,3,5,6,7,3,12,9
+1223721,2024-11-24 17:00:00+00:00,Davide Massa,Napoli,AS Roma,1,0,8,2,10,0,3,3,2,1,12,5,14,6
+1223719,2024-11-24 19:45:00+00:00,Antonio Rapuano,Lazio,Bologna,3,0,3,0,3,3,5,8,4,1,9,2,13,3
+1223716,2024-11-25 17:30:00+00:00,Livio Marinelli,Empoli,Udinese,1,1,1,8,9,3,2,5,2,3,2,13,4,16
+1223724,2024-11-25 19:45:00+00:00,Luca Pairetto,Venezia,Lecce,0,1,6,2,8,1,4,5,6,2,10,5,16,7
+1223726,2024-11-29 19:45:00+00:00,Maurizio Mariani,Cagliari,Hellas Verona,1,0,7,1,8,1,2,3,5,2,14,9,19,11
+1223727,2024-11-30 14:00:00+00:00,Juan Luca Sacchi,Como,Monza,1,1,11,4,15,3,0,3,3,3,14,6,17,9
+1223730,2024-11-30 17:00:00+00:00,Federico Dionisi,AC Milan,Empoli,3,0,7,3,10,2,2,4,4,0,16,9,20,9
+1223725,2024-11-30 19:45:00+00:00,Luca Massimi,Bologna,Venezia,3,0,1,0,1,0,2,2,9,1,7,4,16,5
+1223734,2024-12-01 11:30:00+00:00,Gianluca Aureliano,Udinese,Genoa,0,2,6,4,10,4,3,7,2,4,2,10,4,14
+1223731,2024-12-01 14:00:00+00:00,Luca Zufferli,Parma,Lazio,3,1,4,10,14,4,3,7,4,8,8,15,12,23
+1223733,2024-12-01 14:00:00+00:00,Michael Fabbri,Torino,Napoli,0,1,4,7,11,4,1,5,1,6,4,10,5,16
+1223729,2024-12-01 19:45:00+00:00,Antonio Rapuano,Lecce,Juventus,1,1,2,7,9,1,4,5,6,3,4,11,10,14
+1223732,2024-12-02 19:45:00+00:00,Marco Guida,AS Roma,Atalanta,0,2,2,4,6,2,3,5,1,7,4,11,5,18
+1223739,2024-12-06 17:30:00+00:00,Rosario Abisso,Inter,Parma,3,1,10,1,11,1,1,2,5,1,13,3,18,4
+1223735,2024-12-06 19:45:00+00:00,Federico La Penna,Atalanta,AC Milan,2,1,7,0,7,2,0,2,8,2,9,4,17,6
+1223737,2024-12-07 14:00:00+00:00,Livio Marinelli,Genoa,Torino,0,0,4,4,8,2,1,3,1,3,4,7,5,10
+1223740,2024-12-07 17:00:00+00:00,Matteo Marchetti,Juventus,Bologna,2,2,1,4,5,3,4,7,3,4,7,6,10,10
+1223743,2024-12-07 19:45:00+00:00,Daniele Chiffi,AS Roma,Lecce,4,1,8,1,9,2,3,5,9,1,14,2,23,3
+1223736,2024-12-08 11:30:00+00:00,Marco Piccinini,Fiorentina,Cagliari,1,0,6,4,10,3,2,5,3,1,5,7,8,8
+1223738,2024-12-08 14:00:00+00:00,Marco Di Bello,Hellas Verona,Empoli,1,4,5,8,13,2,2,4,3,5,9,10,12,15
+1223744,2024-12-08 17:00:00+00:00,Daniele Doveri,Venezia,Como,2,2,5,9,14,1,1,2,4,4,4,6,8,10
+1223742,2024-12-08 19:45:00+00:00,Andrea Colombo,Napoli,Lazio,0,1,6,2,8,2,3,5,1,3,11,4,12,7
+1223741,2024-12-09 19:45:00+00:00,Gianluca Manganiello,Monza,Udinese,1,2,10,1,11,1,2,3,4,3,23,7,27,10
+1223748,2024-12-13 19:45:00+00:00,Kevin Bonacina,Empoli,Torino,0,1,12,3,15,2,3,5,4,4,6,10,10,14
+1223746,2024-12-14 14:00:00+00:00,Luca Pairetto,Cagliari,Atalanta,0,1,2,5,7,3,3,6,8,2,4,10,12,12
+1223754,2024-12-14 17:00:00+00:00,Daniele Doveri,Udinese,Napoli,1,3,3,9,12,1,1,2,3,4,4,13,7,17
+1223749,2024-12-14 19:45:00+00:00,Antonio Giua,Juventus,Venezia,2,2,7,4,11,1,3,4,4,2,8,6,12,8
+1223751,2024-12-15 11:30:00+00:00,Maurizio Mariani,Lecce,Monza,2,1,2,7,9,1,5,6,4,0,7,9,11,9
+1223745,2024-12-15 14:00:00+00:00,Michael Fabbri,Bologna,Fiorentina,1,0,1,3,4,2,2,4,6,4,10,6,16,10
+1223753,2024-12-15 14:00:00+00:00,Simone Sozza,Parma,Hellas Verona,2,3,5,2,7,1,3,4,8,6,11,11,19,17
+1223747,2024-12-15 17:00:00+00:00,Antonio Rapuano,Como,AS Roma,2,0,6,5,11,6,1,7,7,1,11,5,18,6
+1223752,2024-12-15 19:45:00+00:00,Marco Guida,AC Milan,Genoa,0,0,9,2,11,0,2,2,4,0,18,5,22,5
+1223750,2024-12-16 19:45:00+00:00,Daniele Chiffi,Lazio,Inter,0,6,4,2,6,2,4,6,2,7,7,5,9,12
+1223758,2024-12-20 19:45:00+00:00,Livio Marinelli,Hellas Verona,AC Milan,0,1,3,8,11,1,1,2,2,6,8,8,10,14
+1223763,2024-12-21 14:00:00+00:00,Marco Piccinini,Torino,Bologna,0,2,4,0,4,0,2,2,0,5,6,3,6,8
+1223757,2024-12-21 17:00:00+00:00,Federico La Penna,Genoa,Napoli,1,2,5,6,11,2,1,3,3,2,8,10,11,12
+1223760,2024-12-21 19:45:00+00:00,Gianluca Manganiello,Lecce,Lazio,1,2,6,6,12,5,1,6,2,7,9,6,11,13
+1223762,2024-12-22 11:30:00+00:00,Marco Di Bello,AS Roma,Parma,5,0,5,2,7,1,2,3,9,3,10,6,19,9
+1223764,2024-12-22 14:00:00+00:00,Marco Guida,Venezia,Cagliari,2,1,4,8,12,1,2,3,6,7,6,7,12,14
+1223755,2024-12-22 17:00:00+00:00,Ermanno Feliciani,Atalanta,Empoli,3,2,6,3,9,1,1,2,7,3,9,4,16,7
+1223761,2024-12-22 19:45:00+00:00,Davide Massa,Monza,Juventus,1,2,3,7,10,1,1,2,5,9,12,7,17,16
+1223756,2024-12-23 17:30:00+00:00,Matteo Marcenaro,Fiorentina,Udinese,1,2,10,2,12,2,5,7,3,4,11,7,14,11
+1223759,2024-12-23 19:45:00+00:00,Antonio Giua,Inter,Como,2,0,7,1,8,2,2,4,5,4,12,4,17,8
+1223768,2024-12-28 14:00:00+00:00,Antonio Rapuano,Empoli,Genoa,1,2,7,4,11,1,2,3,8,5,4,9,12,14
+1223773,2024-12-28 14:00:00+00:00,Federico La Penna,Parma,Monza,2,1,4,6,10,3,9,12,3,4,6,6,9,10
+1223766,2024-12-28 17:00:00+00:00,Daniele Doveri,Cagliari,Inter,0,3,5,7,12,0,0,0,1,5,4,15,5,20
+1223770,2024-12-28 19:45:00+00:00,Davide Massa,Lazio,Atalanta,1,1,2,7,9,2,3,5,5,4,6,10,11,14
+1223774,2024-12-29 11:30:00+00:00,Francesco Fourneau,Udinese,Torino,2,2,4,3,7,1,0,1,3,6,7,6,10,12
+1223772,2024-12-29 14:00:00+00:00,Francesco Cosso,Napoli,Venezia,1,0,14,4,18,0,3,3,8,2,17,2,25,4
+1223769,2024-12-29 17:00:00+00:00,Maurizio Mariani,Juventus,Fiorentina,2,2,7,2,9,3,1,4,5,4,10,7,15,11
+1223771,2024-12-29 19:45:00+00:00,Michael Fabbri,AC Milan,AS Roma,1,1,6,5,11,4,4,8,7,5,14,7,21,12
+1223767,2024-12-30 17:30:00+00:00,Marco Piccinini,Como,Lecce,2,0,4,4,8,3,2,5,8,1,7,10,15,11
+1223765,2024-12-30 19:45:00+00:00,Giovanni Ayroldi,Bologna,Hellas Verona,2,3,11,5,16,4,5,9,8,3,15,4,23,7
+1223784,2025-01-04 14:00:00+00:00,Juan Luca Sacchi,Venezia,Empoli,1,1,2,8,10,1,2,3,3,6,5,12,8,18
+1223777,2025-01-04 17:00:00+00:00,Gianluca Manganiello,Fiorentina,Napoli,0,3,4,2,6,0,1,1,2,4,12,6,14,10
+1223778,2025-01-04 19:45:00+00:00,Federico Dionisi,Hellas Verona,Udinese,0,0,7,3,10,5,2,7,3,6,10,9,13,15
+1223781,2025-01-05 11:30:00+00:00,Marco Di Bello,Monza,Cagliari,1,2,1,3,4,4,2,6,2,4,4,9,6,13
+1223780,2025-01-05 14:00:00+00:00,Livio Marinelli,Lecce,Genoa,0,0,9,4,13,0,1,1,3,1,7,3,10,4
+1223783,2025-01-05 17:00:00+00:00,Ermanno Feliciani,Torino,Parma,0,0,8,7,15,2,1,3,4,3,8,7,12,10
+1223782,2025-01-05 19:45:00+00:00,Luca Pairetto,AS Roma,Lazio,2,0,3,10,13,4,7,11,5,6,2,11,7,17
+1223788,2025-01-10 19:45:00+00:00,Paride Tremolada,Lazio,Como,1,1,7,7,14,6,3,9,4,4,8,13,12,17
+1223786,2025-01-11 14:00:00+00:00,Daniele Chiffi,Empoli,Lecce,1,3,9,2,11,0,3,3,5,6,10,8,15,14
+1223793,2025-01-11 14:00:00+00:00,Maurizio Mariani,Udinese,Atalanta,0,0,5,3,8,1,2,3,3,2,9,2,12,4
+1223792,2025-01-11 17:00:00+00:00,Michael Fabbri,Torino,Juventus,1,1,9,1,10,4,1,5,2,9,9,6,11,15
+1223789,2025-01-11 19:45:00+00:00,Francesco Fourneau,AC Milan,Cagliari,1,1,9,1,10,1,2,3,11,2,13,4,24,6
+1223787,2025-01-12 11:30:00+00:00,Andrea Colombo,Genoa,Parma,1,0,6,9,15,2,3,5,4,3,10,6,14,9
+1223794,2025-01-12 14:00:00+00:00,Marco Piccinini,Venezia,Inter,0,1,4,5,9,3,1,4,2,6,5,11,7,17
+1223785,2025-01-12 17:00:00+00:00,Rosario Abisso,Bologna,AS Roma,2,2,5,4,9,4,1,5,8,4,6,7,14,11
+1223791,2025-01-12 19:45:00+00:00,Luca Zufferli,Napoli,Hellas Verona,2,0,8,1,9,0,0,0,3,2,11,4,14,6
+1223790,2025-01-13 19:45:00+00:00,Federico Dionisi,Monza,Fiorentina,2,1,2,4,6,4,1,5,3,2,7,9,10,11
+1223776,2025-01-14 17:30:00+00:00,Gianluca Manganiello,Como,AC Milan,1,2,2,4,6,1,6,7,4,6,8,6,12,12
+1223775,2025-01-14 19:45:00+00:00,Daniele Doveri,Atalanta,Juventus,1,1,3,3,6,1,1,2,6,9,11,8,17,17
+1223779,2025-01-15 19:45:00+00:00,Luca Pairetto,Inter,Bologna,2,2,3,3,6,0,0,0,6,6,6,8,12,14
+1223804,2025-01-17 19:45:00+00:00,Luca Zufferli,AS Roma,Genoa,3,1,3,2,5,1,1,2,7,3,9,4,16,7
+1223796,2025-01-18 14:00:00+00:00,Maurizio Mariani,Bologna,Monza,3,1,4,0,4,1,3,4,7,1,11,2,18,3
+1223802,2025-01-18 17:00:00+00:00,Davide Massa,Juventus,AC Milan,2,0,5,5,10,0,2,2,6,3,9,10,15,13
+1223795,2025-01-18 19:45:00+00:00,Andrea Colombo,Atalanta,Napoli,2,3,3,1,4,4,2,6,6,3,9,3,15,6
+1223799,2025-01-19 11:30:00+00:00,Livio Marinelli,Fiorentina,Torino,1,1,9,2,11,3,5,8,6,3,14,3,20,6
+1223797,2025-01-19 14:00:00+00:00,Juan Luca Sacchi,Cagliari,Lecce,4,1,6,1,7,3,3,6,7,2,12,5,19,7
+1223803,2025-01-19 14:00:00+00:00,Francesco Fourneau,Parma,Venezia,1,1,8,2,10,2,3,5,8,2,11,5,19,7
+1223800,2025-01-19 17:00:00+00:00,Michael Fabbri,Hellas Verona,Lazio,0,3,5,6,11,8,2,10,3,5,13,9,16,14
+1223801,2025-01-19 19:45:00+00:00,Ermanno Feliciani,Inter,Empoli,3,1,7,3,10,0,0,0,7,1,11,4,18,5
+1223798,2025-01-20 19:45:00+00:00,Francesco Cosso,Como,Udinese,4,1,3,2,5,4,6,10,8,2,3,4,11,6
+1223812,2025-01-24 19:45:00+00:00,Kevin Bonacina,Torino,Cagliari,2,0,6,3,9,0,1,1,6,1,12,5,18,6
+1223805,2025-01-25 14:00:00+00:00,Luca Pairetto,Como,Atalanta,1,2,4,5,9,2,3,5,5,3,10,2,15,5
+1223811,2025-01-25 17:00:00+00:00,Daniele Chiffi,Napoli,Juventus,2,1,9,1,10,2,2,4,3,2,11,3,14,5
+1223806,2025-01-25 19:45:00+00:00,Federico La Penna,Empoli,Bologna,1,1,2,4,6,3,0,3,1,8,4,1,5,9
+1223810,2025-01-26 11:30:00+00:00,Rosario Abisso,AC Milan,Parma,3,2,7,4,11,2,5,7,5,5,9,7,14,12
+1223813,2025-01-26 14:00:00+00:00,Simone Sozza,Udinese,AS Roma,1,2,1,5,6,2,2,4,3,10,7,6,10,16
+1223809,2025-01-26 17:00:00+00:00,Livio Marinelli,Lecce,Inter,0,4,7,0,7,0,2,2,4,5,13,4,17,9
+1223808,2025-01-26 19:45:00+00:00,Antonio Rapuano,Lazio,Fiorentina,1,2,14,2,16,1,6,7,3,3,19,4,22,7
+1223814,2025-01-27 17:30:00+00:00,Gianluca Manganiello,Venezia,Hellas Verona,1,1,7,9,16,1,1,2,1,5,8,16,9,21
+1223807,2025-01-27 19:45:00+00:00,Daniele Doveri,Genoa,Monza,2,0,9,6,15,0,4,4,6,1,12,4,18,5
+1223822,2025-01-31 19:45:00+00:00,Simone Sozza,Parma,Lecce,1,3,3,2,5,1,2,3,7,3,12,3,19,6
+1223821,2025-02-01 14:00:00+00:00,Davide Massa,Monza,Hellas Verona,0,1,7,3,10,2,3,5,2,4,7,8,9,12
+1223824,2025-02-01 14:00:00+00:00,Maurizio Mariani,Udinese,Venezia,3,2,4,6,10,3,3,6,5,3,8,11,13,14
+1223815,2025-02-01 17:00:00+00:00,Marco Piccinini,Atalanta,Torino,1,1,8,0,8,0,3,3,10,3,12,2,22,5
+1223816,2025-02-01 19:45:00+00:00,Luca Massimi,Bologna,Como,2,0,4,2,6,3,6,9,4,1,11,7,15,8
+1223819,2025-02-02 11:30:00+00:00,Luca Zufferli,Juventus,Empoli,4,1,8,6,14,0,5,5,8,3,15,7,23,10
+1223818,2025-02-02 14:00:00+00:00,Giuseppe Collu,Fiorentina,Genoa,2,1,1,8,9,3,1,4,6,3,1,14,7,17
+1223820,2025-02-02 17:00:00+00:00,Daniele Chiffi,AC Milan,Inter,1,1,8,11,19,0,2,2,4,6,6,10,10,16
+1223823,2025-02-02 19:45:00+00:00,Michael Fabbri,AS Roma,Napoli,1,1,2,3,5,2,1,3,2,2,10,3,12,5
+1223817,2025-02-03 19:45:00+00:00,Gianluca Manganiello,Cagliari,Lazio,1,2,7,7,14,0,0,0,5,6,10,5,15,11
+1223728,2025-02-06 19:45:00+00:00,Daniele Doveri,Fiorentina,Inter,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+1223826,2025-02-07 19:45:00+00:00,Rosario Abisso,Como,Juventus,1,2,9,1,10,3,1,4,6,3,10,5,16,8
+1223828,2025-02-08 14:00:00+00:00,Simone Sozza,Hellas Verona,Atalanta,0,5,7,2,9,2,1,3,7,7,11,10,18,17
+1223827,2025-02-08 17:00:00+00:00,Luca Pairetto,Empoli,AC Milan,0,2,2,6,8,4,6,10,0,5,8,11,8,16
+1223833,2025-02-08 19:45:00+00:00,Ermanno Feliciani,Torino,Genoa,1,1,4,2,6,2,2,4,3,2,7,4,10,6
+1223834,2025-02-09 11:30:00+00:00,Luca Zufferli,Venezia,AS Roma,0,1,4,6,10,2,3,5,3,5,9,8,12,13
+1223825,2025-02-09 14:00:00+00:00,Marco Di Bello,Cagliari,Parma,2,1,7,6,13,0,2,2,3,1,11,8,14,9
+1223830,2025-02-09 14:00:00+00:00,Gianluca Aureliano,Lazio,Monza,5,1,8,1,9,0,1,1,10,1,16,2,26,3
+1223831,2025-02-09 17:00:00+00:00,Francesco Fourneau,Lecce,Bologna,0,0,6,5,11,0,2,2,1,2,5,6,6,8
+1223832,2025-02-09 19:45:00+00:00,Livio Marinelli,Napoli,Udinese,1,1,6,6,12,0,1,1,4,4,14,4,18,8
+1223829,2025-02-10 19:45:00+00:00,Federico La Penna,Inter,Fiorentina,2,1,8,1,9,4,3,7,8,2,14,5,22,7
+1223836,2025-02-14 19:45:00+00:00,Michael Fabbri,Bologna,Torino,3,2,8,2,10,0,4,4,6,5,16,3,22,8
+1223835,2025-02-15 14:00:00+00:00,Matteo Marchetti,Atalanta,Cagliari,0,0,8,2,10,1,1,2,2,0,7,3,9,3
+1223840,2025-02-15 17:00:00+00:00,Davide Massa,Lazio,Napoli,2,2,7,1,8,2,2,4,5,2,7,3,12,5
+1223841,2025-02-15 19:45:00+00:00,Francesco Fourneau,AC Milan,Hellas Verona,1,0,10,7,17,3,4,7,3,2,15,5,18,7
+1223837,2025-02-16 11:30:00+00:00,Marco Piccinini,Fiorentina,Como,0,2,2,1,3,3,2,5,3,4,2,4,5,8
+1223842,2025-02-16 14:00:00+00:00,Giuseppe Collu,Monza,Lecce,0,0,3,7,10,2,2,4,3,5,5,14,8,19
+1223844,2025-02-16 14:00:00+00:00,Daniele Doveri,Udinese,Empoli,3,0,9,5,14,0,0,0,9,4,8,12,17,16
+1223843,2025-02-16 17:00:00+00:00,Daniele Chiffi,Parma,AS Roma,0,1,1,10,11,4,3,7,1,4,4,12,5,16
+1223839,2025-02-16 19:45:00+00:00,Maurizio Mariani,Juventus,Inter,1,0,7,5,12,1,1,2,8,2,8,15,16,17
+1223838,2025-02-17 19:45:00+00:00,Livio Marinelli,Genoa,Venezia,2,0,4,5,9,1,1,2,5,3,9,4,14,7
+1223850,2025-02-21 19:45:00+00:00,Kevin Bonacina,Lecce,Udinese,0,1,11,8,19,1,3,4,1,5,9,7,10,12
+1223851,2025-02-22 14:00:00+00:00,Rosario Abisso,Parma,Bologna,2,0,0,4,4,2,1,3,3,1,1,15,4,16
+1223854,2025-02-22 14:00:00+00:00,Matteo Marchetti,Venezia,Lazio,0,0,6,6,12,4,2,6,2,3,7,6,9,9
+1223853,2025-02-22 17:00:00+00:00,Simone Sozza,Torino,AC Milan,2,1,4,11,15,1,1,2,3,8,6,18,9,26
+1223849,2025-02-22 19:45:00+00:00,Marco Piccinini,Inter,Genoa,1,0,6,7,13,0,2,2,5,2,13,9,18,11
+1223846,2025-02-23 11:30:00+00:00,Gianluca Manganiello,Como,Napoli,2,1,4,6,10,1,3,4,3,4,5,9,8,13
+1223848,2025-02-23 14:00:00+00:00,Marco Di Bello,Hellas Verona,Fiorentina,1,0,4,1,5,2,3,5,3,3,4,5,7,8
+1223847,2025-02-23 17:00:00+00:00,Maurizio Mariani,Empoli,Atalanta,0,5,3,4,7,0,1,1,1,8,9,6,10,14
+1223845,2025-02-23 19:45:00+00:00,Andrea Colombo,Cagliari,Juventus,0,1,3,4,7,0,1,1,2,7,6,7,8,14
+1223852,2025-02-24 19:45:00+00:00,Fabio Maresca,AS Roma,Monza,4,0,6,3,9,0,1,1,6,2,17,3,23,5
+1223676,2025-02-27 19:45:00+00:00,Maurizio Mariani,Bologna,AC Milan,2,1,4,5,9,1,2,3,4,4,10,4,14,8
+1223857,2025-02-28 19:45:00+00:00,Livio Marinelli,Fiorentina,Lecce,1,0,5,2,7,3,2,5,3,3,7,5,10,8
+1223855,2025-03-01 14:00:00+00:00,Giuseppe Collu,Atalanta,Venezia,0,0,3,2,5,1,2,3,3,2,15,6,18,8
+1223862,2025-03-01 17:00:00+00:00,Daniele Doveri,Napoli,Inter,1,1,12,3,15,1,0,1,4,1,15,5,19,6
+1223864,2025-03-01 19:45:00+00:00,Fabio Maresca,Udinese,Parma,1,0,7,7,14,1,1,2,6,4,14,5,20,9
+1223861,2025-03-02 11:30:00+00:00,Antonio Rapuano,Monza,Torino,0,2,1,4,5,2,2,4,2,7,7,6,9,13
+1223856,2025-03-02 14:00:00+00:00,Luca Zufferli,Bologna,Cagliari,2,1,4,1,5,1,2,3,5,1,10,1,15,2
+1223858,2025-03-02 14:00:00+00:00,Davide Massa,Genoa,Empoli,1,1,3,6,9,1,3,4,1,1,3,6,4,7
+1223863,2025-03-02 17:00:00+00:00,Luca Pairetto,AS Roma,Como,2,1,1,2,3,2,9,11,4,3,7,7,11,10
+1223860,2025-03-02 19:45:00+00:00,Gianluca Manganiello,AC Milan,Lazio,1,2,3,5,8,4,1,5,4,8,11,13,15,21
+1223859,2025-03-03 19:45:00+00:00,Matteo Marchetti,Juventus,Hellas Verona,2,0,6,0,6,1,0,1,9,2,18,3,27,5
+1223865,2025-03-07 19:45:00+00:00,Michael Fabbri,Cagliari,Genoa,1,1,2,5,7,2,2,4,1,2,8,6,9,8
+1223866,2025-03-08 14:00:00+00:00,Giovanni Ayroldi,Como,Venezia,1,1,3,5,8,2,3,5,7,5,5,5,12,10
+1223874,2025-03-08 14:00:00+00:00,Francesco Fourneau,Parma,Torino,2,2,7,4,11,4,2,6,4,2,8,4,12,6
+1223872,2025-03-08 17:00:00+00:00,Daniele Doveri,Lecce,AC Milan,2,3,2,7,9,2,1,3,3,9,8,7,11,16
+1223869,2025-03-08 19:45:00+00:00,Luca Zufferli,Inter,Monza,3,2,13,1,14,0,1,1,9,4,21,4,30,8
+1223868,2025-03-09 11:30:00+00:00,Antonio Rapuano,Hellas Verona,Bologna,1,2,1,3,4,5,1,6,2,6,5,6,7,12
+1223873,2025-03-09 14:00:00+00:00,Andrea Colombo,Napoli,Fiorentina,2,1,4,4,8,1,2,3,11,2,8,5,19,7
+1223867,2025-03-09 17:00:00+00:00,Marco Di Bello,Empoli,AS Roma,0,1,1,9,10,0,0,0,1,7,2,9,3,16
+1223870,2025-03-09 19:45:00+00:00,Simone Sozza,Juventus,Atalanta,0,4,2,5,7,1,1,2,2,9,7,10,9,19
+1223871,2025-03-10 19:45:00+00:00,Marco Piccinini,Lazio,Udinese,1,1,4,9,13,2,4,6,5,4,5,11,10,15
+1223878,2025-03-14 19:45:00+00:00,Fabio Maresca,Genoa,Lecce,2,1,3,3,6,3,2,5,2,2,6,13,8,15
+1223880,2025-03-15 14:00:00+00:00,Gianluca Manganiello,Monza,Parma,1,1,6,3,9,0,3,3,4,6,8,8,12,14
+1223883,2025-03-15 14:00:00+00:00,Giovanni Ayroldi,Udinese,Hellas Verona,0,1,2,1,3,5,2,7,3,2,8,5,11,7
+1223879,2025-03-15 17:00:00+00:00,Matteo Marchetti,AC Milan,Como,2,1,0,5,5,3,5,8,3,6,6,9,9,15
+1223882,2025-03-15 19:45:00+00:00,Daniele Chiffi,Torino,Empoli,1,0,5,5,10,1,0,1,3,2,10,14,13,16
+1223884,2025-03-16 11:30:00+00:00,Maurizio Mariani,Venezia,Napoli,0,0,3,8,11,2,1,3,4,7,9,8,13,15
+1223876,2025-03-16 14:00:00+00:00,Andrea Colombo,Bologna,Lazio,5,0,7,1,8,2,3,5,7,2,6,5,13,7
+1223881,2025-03-16 15:00:00+00:00,Marco Piccinini,AS Roma,Cagliari,1,0,8,3,11,0,2,2,1,5,12,6,13,11
+1223877,2025-03-16 17:00:00+00:00,Michael Fabbri,Fiorentina,Juventus,3,0,1,6,7,2,3,5,3,2,6,9,9,11
+1223875,2025-03-16 19:45:00+00:00,Davide Massa,Atalanta,Inter,0,2,2,6,8,5,5,10,3,5,13,9,16,14
+1223886,2025-03-29 14:00:00+00:00,Maurizio Mariani,Como,Empoli,1,1,4,1,5,2,7,9,5,4,11,10,16,14
+1223894,2025-03-29 14:00:00+00:00,Marco Di Bello,Venezia,Bologna,0,1,2,3,5,4,1,5,3,4,3,9,6,13
+1223890,2025-03-29 17:00:00+00:00,Antonio Rapuano,Juventus,Genoa,1,0,4,3,7,2,2,4,6,3,3,6,9,9
+1223892,2025-03-29 19:45:00+00:00,Gianluca Manganiello,Lecce,AS Roma,0,1,6,6,12,1,2,3,4,6,13,10,17,16
+1223885,2025-03-30 10:30:00+00:00,Francesco Fourneau,Cagliari,Monza,3,0,4,6,10,2,2,4,4,3,7,9,11,12
+1223887,2025-03-30 13:00:00+00:00,Daniele Doveri,Fiorentina,Atalanta,1,0,2,4,6,0,3,3,4,0,8,9,12,9
+1223889,2025-03-30 16:00:00+00:00,Daniele Chiffi,Inter,Udinese,2,1,2,4,6,2,0,2,3,4,10,7,13,11
+1223893,2025-03-30 18:45:00+00:00,Simone Sozza,Napoli,AC Milan,2,1,2,6,8,1,1,2,3,4,5,13,8,17
+1223888,2025-03-31 16:30:00+00:00,Juan Luca Sacchi,Hellas Verona,Parma,0,0,5,5,10,2,1,3,0,1,6,9,6,10
+1223891,2025-03-31 18:45:00+00:00,Davide Massa,Lazio,Torino,1,1,5,3,8,3,4,7,6,2,10,5,16,7
+1223898,2025-04-04 18:45:00+00:00,Daniele Perenzoni,Genoa,Udinese,1,0,1,2,3,2,2,4,7,2,6,3,13,5
+1223901,2025-04-05 13:00:00+00:00,Giuseppe Collu,Monza,Como,1,3,2,2,4,2,1,3,4,7,4,10,8,17
+1223902,2025-04-05 16:00:00+00:00,Daniele Doveri,Parma,Inter,2,2,2,4,6,2,3,5,4,4,4,16,8,20
+1223900,2025-04-05 18:45:00+00:00,Giovanni Ayroldi,AC Milan,Fiorentina,2,2,7,4,11,4,3,7,6,8,13,7,19,15
+1223899,2025-04-06 10:30:00+00:00,Marco Piccinini,Lecce,Venezia,1,1,8,3,11,2,4,6,4,3,19,10,23,13
+1223897,2025-04-06 13:00:00+00:00,Federico La Penna,Empoli,Cagliari,0,0,2,3,5,0,4,4,1,1,6,6,7,7
+1223904,2025-04-06 13:00:00+00:00,Kevin Bonacina,Torino,Hellas Verona,1,1,1,5,6,3,1,4,3,1,4,12,7,13
+1223895,2025-04-06 16:00:00+00:00,Daniele Chiffi,Atalanta,Lazio,0,1,11,4,15,1,2,3,2,3,8,5,10,8
+1223903,2025-04-06 18:45:00+00:00,Andrea Colombo,AS Roma,Juventus,1,1,4,4,8,1,1,2,4,7,7,4,11,11
+1223896,2025-04-07 18:45:00+00:00,Davide Massa,Bologna,Napoli,1,1,8,3,11,1,3,4,4,2,8,4,12,6
+1223913,2025-04-11 18:45:00+00:00,Juan Luca Sacchi,Udinese,AC Milan,0,4,5,7,12,1,1,2,5,7,9,8,14,15
+1223914,2025-04-12 13:00:00+00:00,Fabio Maresca,Venezia,Monza,1,0,3,4,7,7,3,10,4,3,4,8,8,11
+1223909,2025-04-12 16:00:00+00:00,Marco Di Bello,Inter,Cagliari,3,1,5,6,11,0,1,1,4,4,9,4,13,8
+1223910,2025-04-12 18:45:00+00:00,Luca Zufferli,Juventus,Lecce,2,1,9,4,13,0,1,1,7,3,15,11,22,14
+1223905,2025-04-13 10:30:00+00:00,Maurizio Mariani,Atalanta,Bologna,2,0,4,5,9,4,1,5,2,5,2,7,4,12
+1223907,2025-04-13 13:00:00+00:00,Gianluca Manganiello,Fiorentina,Parma,0,0,2,2,4,0,5,5,3,3,6,4,9,7
+1223908,2025-04-13 13:00:00+00:00,Matteo Marchetti,Hellas Verona,Genoa,0,0,6,2,8,3,1,4,2,1,12,3,14,4
+1223906,2025-04-13 16:00:00+00:00,Matteo Marcenaro,Como,Torino,1,0,7,4,11,1,3,4,7,4,8,6,15,10
+1223911,2025-04-13 18:45:00+00:00,Simone Sozza,Lazio,AS Roma,1,1,10,5,15,4,2,6,7,4,5,5,12,9
+1223912,2025-04-14 18:45:00+00:00,Michael Fabbri,Napoli,Empoli,3,0,5,5,10,1,1,2,6,1,11,11,17,12
+1223919,2025-04-19 13:00:00+00:00,Simone Sozza,Lecce,Como,0,3,9,4,13,3,5,8,7,5,7,5,14,10
+1223921,2025-04-19 16:00:00+00:00,Federico La Penna,Monza,Napoli,0,1,6,7,13,4,2,6,0,5,8,11,8,16
+1223923,2025-04-19 18:45:00+00:00,Luca Pairetto,AS Roma,Hellas Verona,1,0,4,6,10,0,2,2,3,2,3,6,6,8
+1223917,2025-04-20 13:00:00+00:00,Davide Massa,Empoli,Venezia,2,2,2,5,7,2,1,3,4,7,7,6,11,13
+1223915,2025-04-20 16:00:00+00:00,Andrea Colombo,Bologna,Inter,1,0,5,6,11,2,3,5,3,1,9,7,12,8
+1223920,2025-04-20 18:45:00+00:00,Marco Piccinini,AC Milan,Atalanta,0,1,7,5,12,0,1,1,1,2,11,9,12,11
+1223916,2025-04-23 16:30:00+00:00,Livio Marinelli,Cagliari,Fiorentina,1,2,4,4,8,2,2,4,2,4,6,4,8,8
+1223918,2025-04-23 16:30:00+00:00,Giovanni Ayroldi,Genoa,Lazio,0,2,6,8,14,5,3,8,4,6,4,9,8,15
+1223922,2025-04-23 16:30:00+00:00,Daniele Chiffi,Parma,Juventus,1,0,4,9,13,2,3,5,3,2,3,14,6,16
+1223924,2025-04-23 16:30:00+00:00,Giuseppe Collu,Torino,Udinese,2,0,8,7,15,2,2,4,4,6,6,4,10,10
+1223926,2025-04-27 10:30:00+00:00,Alberto Ruben Arena,Como,Genoa,1,0,6,3,9,2,1,3,3,1,11,3,14,4
+1223934,2025-04-27 10:30:00+00:00,Gianluca Manganiello,Venezia,AC Milan,0,2,7,2,9,1,0,1,2,2,13,9,15,11
+1223927,2025-04-27 13:00:00+00:00,Antonio Rapuano,Fiorentina,Empoli,2,1,1,6,7,3,2,5,3,5,3,3,6,8
+1223929,2025-04-27 13:00:00+00:00,Michael Fabbri,Inter,AS Roma,0,1,4,3,7,1,2,3,2,7,15,12,17,19
+1223930,2025-04-27 16:00:00+00:00,Daniele Perenzoni,Juventus,Monza,2,0,0,5,5,5,3,8,5,3,5,9,10,12
+1223925,2025-04-27 18:45:00+00:00,Federico La Penna,Atalanta,Lecce,1,1,12,3,15,1,1,2,6,3,15,7,21,10
+1223932,2025-04-27 18:45:00+00:00,Maurizio Mariani,Napoli,Torino,2,0,2,5,7,0,3,3,2,0,6,9,8,9
+1223933,2025-04-28 16:30:00+00:00,Fabio Maresca,Udinese,Bologna,0,0,5,6,11,3,2,5,4,1,9,11,13,12
+1223928,2025-04-28 18:45:00+00:00,Rosario Abisso,Hellas Verona,Cagliari,0,2,2,3,5,4,1,5,2,4,4,2,6,6
+1223931,2025-04-28 18:45:00+00:00,Juan Luca Sacchi,Lazio,Parma,2,2,5,1,6,1,3,4,7,5,7,2,14,7
+1223944,2025-05-02 18:45:00+00:00,Simone Sozza,Torino,Venezia,1,1,5,1,6,1,0,1,4,3,15,4,19,7
+1223936,2025-05-03 13:00:00+00:00,Ermanno Feliciani,Cagliari,Udinese,1,2,5,4,9,1,2,3,2,3,6,8,8,11
+1223942,2025-05-03 13:00:00+00:00,Marco Di Bello,Parma,Como,0,1,5,5,10,1,1,2,3,4,10,9,13,13
+1223940,2025-05-03 16:00:00+00:00,Davide Massa,Lecce,Napoli,0,1,5,2,7,2,0,2,1,2,8,6,9,8
+1223939,2025-05-03 18:45:00+00:00,Gianluca Manganiello,Inter,Hellas Verona,1,0,4,3,7,1,3,4,2,1,7,5,9,6
+1223937,2025-05-04 10:30:00+00:00,Andrea Colombo,Empoli,Lazio,0,1,2,7,9,7,7,14,2,3,5,6,7,9
+1223941,2025-05-04 13:00:00+00:00,Luca Pairetto,Monza,Atalanta,0,4,3,7,10,1,2,3,7,5,7,10,14,15
+1223943,2025-05-04 16:00:00+00:00,Daniele Chiffi,AS Roma,Fiorentina,1,0,7,4,11,2,4,6,4,5,8,8,12,13
+1223935,2025-05-04 18:45:00+00:00,Daniele Doveri,Bologna,Juventus,1,1,10,3,13,1,3,4,2,3,7,3,9,6
+1223938,2025-05-05 18:45:00+00:00,Giuseppe Collu,Genoa,AC Milan,1,2,8,7,15,1,5,6,4,5,7,5,11,10
+1223950,2025-05-09 18:45:00+00:00,Livio Marinelli,AC Milan,Bologna,3,1,3,4,7,2,2,4,5,4,5,6,10,10
+1223946,2025-05-10 13:00:00+00:00,Francesco Fourneau,Como,Cagliari,3,1,5,1,6,1,3,4,5,3,14,6,19,9
+1223949,2025-05-10 16:00:00+00:00,Davide Massa,Lazio,Juventus,1,1,3,3,6,5,6,11,6,3,13,5,19,8
+1223947,2025-05-10 18:45:00+00:00,Michael Fabbri,Empoli,Parma,2,1,4,0,4,2,4,6,4,1,11,2,15,3
+1223953,2025-05-11 10:30:00+00:00,Valerio Crezzini,Udinese,Monza,1,2,7,0,7,2,3,5,5,2,16,3,21,5
+1223948,2025-05-11 13:00:00+00:00,Fabio Maresca,Hellas Verona,Lecce,1,1,3,6,9,4,0,4,2,3,4,8,6,11
+1223952,2025-05-11 16:00:00+00:00,Federico La Penna,Torino,Inter,0,2,9,3,12,1,3,4,3,7,14,5,17,12
+1223951,2025-05-11 18:45:00+00:00,Marco Piccinini,Napoli,Genoa,2,2,8,0,8,1,2,3,11,2,11,6,22,8
+1223954,2025-05-12 16:30:00+00:00,Matteo Marchetti,Venezia,Fiorentina,2,1,1,5,6,1,4,5,4,5,5,11,9,16
+1223945,2025-05-12 18:45:00+00:00,Simone Sozza,Atalanta,AS Roma,2,1,8,7,15,1,0,1,3,4,13,6,16,10
+1223957,2025-05-17 18:45:00+00:00,Davide Ghersini,Genoa,Atalanta,2,3,7,0,7,0,0,0,5,6,7,7,12,13
+1223955,2025-05-18 18:45:00+00:00,Luca Pairetto,Cagliari,Venezia,3,0,8,8,16,1,1,2,5,1,15,9,20,10
+1223956,2025-05-18 18:45:00+00:00,Luca Zufferli,Fiorentina,Bologna,3,2,2,4,6,4,3,7,5,3,1,12,6,15
+1223958,2025-05-18 18:45:00+00:00,Rosario Abisso,Hellas Verona,Como,1,1,5,5,10,2,3,5,3,5,13,7,16,12
+1223959,2025-05-18 18:45:00+00:00,Daniele Chiffi,Inter,Lazio,2,2,5,1,6,1,3,4,3,4,7,8,10,12
+1223960,2025-05-18 18:45:00+00:00,Giovanni Ayroldi,Juventus,Udinese,2,0,12,3,15,0,3,3,7,2,17,5,24,7
+1223961,2025-05-18 18:45:00+00:00,Antonio Rapuano,Lecce,Torino,1,0,3,4,7,1,1,2,4,4,6,6,10,10
+1223962,2025-05-18 18:45:00+00:00,Livio Marinelli,Monza,Empoli,1,3,2,6,8,0,1,1,4,4,8,5,12,9
+1223963,2025-05-18 18:45:00+00:00,Daniele Doveri,Parma,Napoli,0,0,3,2,5,2,2,4,4,2,2,5,6,7
+1223964,2025-05-18 18:45:00+00:00,Marco Piccinini,AS Roma,AC Milan,3,1,4,2,6,3,4,7,6,3,9,9,15,12
+1223967,2025-05-23 18:45:00+00:00,Davide Massa,Como,Inter,0,2,1,4,5,3,3,6,4,7,14,4,18,11
+1223971,2025-05-23 18:45:00+00:00,Federico La Penna,Napoli,Cagliari,2,0,8,3,11,2,1,3,6,1,12,3,18,4
+1223966,2025-05-24 16:00:00+00:00,Marco Monaldi,Bologna,Genoa,1,3,13,1,14,5,2,7,5,3,11,2,16,5
+1223970,2025-05-24 18:45:00+00:00,Daniele Rutella,AC Milan,Monza,2,0,4,6,10,0,1,1,6,2,15,4,21,6
+1223965,2025-05-25 18:45:00+00:00,Livio Marinelli,Atalanta,Parma,2,3,5,6,11,1,1,2,5,10,6,8,11,18
+1223968,2025-05-25 18:45:00+00:00,Daniele Doveri,Empoli,Hellas Verona,1,2,13,1,14,2,2,4,5,2,10,3,15,5
+1223969,2025-05-25 18:45:00+00:00,Michael Fabbri,Lazio,Lecce,0,1,14,4,18,4,7,11,7,3,19,6,26,9
+1223972,2025-05-25 18:45:00+00:00,Marco Di Bello,Torino,AS Roma,0,2,2,1,3,1,1,2,4,5,7,10,11,15
+1223973,2025-05-25 18:45:00+00:00,Matteo Marcenaro,Udinese,Fiorentina,2,3,2,8,10,5,2,7,3,11,9,14,12,25
+1223974,2025-05-25 18:45:00+00:00,Andrea Colombo,Venezia,Juventus,2,3,6,6,12,1,2,3,5,5,7,10,12,15
+1377867,2025-08-23 16:30:00+00:00,Davide Massa,Genoa,Lecce,0,0,3,7,10,2,3,5,2,0,3,7,5,7
+1377872,2025-08-23 16:30:00+00:00,Giovanni Ayroldi,Sassuolo,Napoli,0,2,1,2,3,5,1,6,2,4,5,9,7,13
+1377870,2025-08-23 18:45:00+00:00,Giuseppe Collu,AC Milan,Cremonese,1,2,9,2,11,1,4,5,6,3,18,1,24,4
+1377871,2025-08-23 18:45:00+00:00,Luca Zufferli,AS Roma,Bologna,1,0,2,4,6,1,1,2,4,2,10,8,14,10
+1377865,2025-08-24 16:30:00+00:00,Simone Sozza,Cagliari,Fiorentina,1,1,3,2,5,4,2,6,6,1,8,3,14,4
+1377866,2025-08-24 16:30:00+00:00,Gianluca Manganiello,Como,Lazio,2,0,6,0,6,2,3,5,6,1,13,4,19,5
+1377864,2025-08-24 18:45:00+00:00,Alberto Ruben Arena,Atalanta,Pisa,1,1,10,4,14,2,0,2,6,2,15,9,21,11
+1377869,2025-08-24 18:45:00+00:00,Matteo Marcenaro,Juventus,Parma,2,0,6,6,12,3,2,5,8,2,17,6,25,8
+1377873,2025-08-25 16:30:00+00:00,Paride Tremolada,Udinese,Hellas Verona,1,1,5,1,6,3,2,5,4,3,10,6,14,9
+1377868,2025-08-25 18:45:00+00:00,Federico La Penna,Inter,Torino,5,0,6,5,11,0,0,0,9,4,11,8,20,12
+1377875,2025-08-29 16:30:00+00:00,Marco Guida,Cremonese,Sassuolo,3,2,5,4,9,2,2,4,6,6,5,3,11,9
+1377879,2025-08-29 18:45:00+00:00,Livio Marinelli,Lecce,AC Milan,0,2,4,5,9,1,0,1,2,6,5,8,7,14
+1377874,2025-08-30 16:30:00+00:00,Daniele Doveri,Bologna,Como,1,0,7,4,11,4,4,8,2,2,13,11,15,13
+1377881,2025-08-30 16:30:00+00:00,Maurizio Mariani,Parma,Atalanta,1,1,1,2,3,2,2,4,3,3,4,8,7,11
+1377880,2025-08-30 18:45:00+00:00,Kevin Bonacina,Napoli,Cagliari,1,0,13,0,13,2,1,3,6,1,14,9,20,10
+1377882,2025-08-30 18:45:00+00:00,Giuseppe Collu,Pisa,AS Roma,0,1,1,7,8,2,1,3,3,5,4,5,7,10
+1377876,2025-08-31 16:30:00+00:00,Daniele Chiffi,Genoa,Juventus,0,1,3,4,7,1,2,3,1,3,9,10,10,13
+1377883,2025-08-31 16:30:00+00:00,Rosario Abisso,Torino,Fiorentina,0,0,7,3,10,2,2,4,4,4,3,12,7,16
+1377877,2025-08-31 18:45:00+00:00,Matteo Marchetti,Inter,Udinese,1,2,13,2,15,1,3,4,4,5,12,5,16,10
+1377878,2025-08-31 18:45:00+00:00,Valerio Crezzini,Lazio,Hellas Verona,4,0,8,1,9,0,0,0,6,4,16,8,22,12
+1377885,2025-09-13 13:00:00+00:00,Francesco Fourneau,Cagliari,Parma,2,0,4,5,9,3,1,4,5,5,7,12,12,17
+1377888,2025-09-13 16:00:00+00:00,Andrea Colombo,Juventus,Inter,4,3,5,9,14,2,2,4,4,4,8,14,12,18
+1377887,2025-09-13 18:45:00+00:00,Luca Zufferli,Fiorentina,Napoli,1,3,8,5,13,0,0,0,3,9,16,5,19,14
+1377891,2025-09-14 10:30:00+00:00,Giovanni Ayroldi,AS Roma,Torino,0,1,7,4,11,2,3,5,5,4,17,4,22,8
+1377884,2025-09-14 13:00:00+00:00,Gianluca Manganiello,Atalanta,Lecce,4,1,8,2,10,0,0,0,8,3,11,9,19,12
+1377890,2025-09-14 13:00:00+00:00,Davide Massa,Pisa,Udinese,0,1,8,6,14,1,2,3,2,3,10,10,12,13
+1377892,2025-09-14 16:00:00+00:00,Paride Tremolada,Sassuolo,Lazio,1,0,3,7,10,6,3,9,3,3,7,10,10,13
+1377889,2025-09-14 18:45:00+00:00,Matteo Marcenaro,AC Milan,Bologna,1,0,7,4,11,3,2,5,3,0,11,5,14,5
+1377893,2025-09-15 16:30:00+00:00,Alberto Ruben Arena,Hellas Verona,Cremonese,0,0,10,1,11,2,1,3,9,2,11,4,20,6
+1377886,2025-09-15 18:45:00+00:00,Marco Piccinini,Como,Genoa,1,1,0,8,8,4,2,6,4,6,9,6,13,12
+1377899,2025-09-19 18:45:00+00:00,Luca Zufferli,Lecce,Cagliari,1,2,4,7,11,2,3,5,5,6,6,9,11,15
+1377894,2025-09-20 13:00:00+00:00,Giuseppe Collu,Bologna,Genoa,2,1,8,2,10,1,5,6,6,4,8,3,14,7
+1377903,2025-09-20 16:00:00+00:00,Antonio Rapuano,Hellas Verona,Juventus,1,1,5,3,8,3,3,6,4,4,10,6,14,10
+1377902,2025-09-20 18:45:00+00:00,Daniele Doveri,Udinese,AC Milan,0,3,1,4,5,2,0,2,4,6,6,7,10,13
+1377898,2025-09-21 10:30:00+00:00,Simone Sozza,Lazio,AS Roma,0,1,3,6,9,5,1,6,2,6,8,7,10,13
+1377895,2025-09-21 13:00:00+00:00,Federico La Penna,Cremonese,Parma,0,0,3,3,6,1,0,1,1,3,2,12,3,15
+1377901,2025-09-21 13:00:00+00:00,Andrea Colombo,Torino,Atalanta,0,3,1,0,1,0,0,0,5,5,6,4,11,9
+1377896,2025-09-21 16:00:00+00:00,Kevin Bonacina,Fiorentina,Como,1,2,2,6,8,4,3,7,1,7,7,12,8,19
+1377897,2025-09-21 18:45:00+00:00,Livio Marinelli,Inter,Sassuolo,2,1,7,3,10,2,1,3,6,5,14,4,20,9
+1377900,2025-09-22 18:45:00+00:00,Valerio Crezzini,Napoli,Pisa,3,2,5,3,8,1,2,3,6,6,12,9,18,15
+1377905,2025-09-27 13:00:00+00:00,Marco Di Bello,Como,Cremonese,1,1,4,3,7,5,4,9,6,2,8,7,14,9
+1377907,2025-09-27 16:00:00+00:00,Simone Sozza,Juventus,Atalanta,1,1,14,5,19,0,5,5,10,2,14,10,24,12
+1377904,2025-09-27 18:45:00+00:00,Marco Piccinini,Cagliari,Inter,0,2,4,4,8,0,2,2,0,5,6,15,6,20
+1377913,2025-09-28 10:30:00+00:00,Daniele Perenzoni,Sassuolo,Udinese,3,1,1,5,6,0,3,3,5,5,6,7,11,12
+1377911,2025-09-28 13:00:00+00:00,Gianluca Manganiello,Pisa,Fiorentina,0,0,4,6,10,0,1,1,1,2,10,12,11,14
+1377912,2025-09-28 13:00:00+00:00,Ermanno Feliciani,AS Roma,Hellas Verona,2,0,8,1,9,0,4,4,5,3,5,9,10,12
+1377908,2025-09-28 16:00:00+00:00,Francesco Fourneau,Lecce,Bologna,2,2,3,9,12,4,2,6,4,5,8,9,12,14
+1377909,2025-09-28 18:45:00+00:00,Daniele Chiffi,AC Milan,Napoli,2,1,1,7,8,3,0,3,3,7,3,12,6,19
+1377910,2025-09-29 16:30:00+00:00,Giuseppe Collu,Parma,Torino,2,1,4,3,7,3,3,6,2,4,11,11,13,15
+1377906,2025-09-29 18:45:00+00:00,Giovanni Ayroldi,Genoa,Lazio,0,3,6,0,6,5,1,6,5,6,12,3,17,9
+1377923,2025-10-03 18:45:00+00:00,Francesco Fourneau,Hellas Verona,Sassuolo,0,1,4,2,6,2,3,5,9,3,8,8,17,11
+1377919,2025-10-04 13:00:00+00:00,Marco Piccinini,Lazio,Torino,3,3,3,5,8,3,3,6,4,8,5,8,9,16
+1377921,2025-10-04 13:00:00+00:00,Daniele Doveri,Parma,Lecce,0,1,4,9,13,1,2,3,2,3,8,4,10,7
+1377917,2025-10-04 16:00:00+00:00,Ermanno Feliciani,Inter,Cremonese,4,1,13,1,14,1,1,2,9,2,18,1,27,3
+1377914,2025-10-04 18:45:00+00:00,Luca Zufferli,Atalanta,Como,1,1,8,3,11,1,3,4,4,4,12,8,16,12
+1377922,2025-10-05 10:30:00+00:00,Alberto Ruben Arena,Udinese,Cagliari,1,1,7,2,9,1,2,3,4,2,19,6,23,8
+1377915,2025-10-05 13:00:00+00:00,Rosario Abisso,Bologna,Pisa,4,0,2,2,4,0,3,3,7,0,17,2,24,2
+1377916,2025-10-05 13:00:00+00:00,Andrea Colombo,Fiorentina,AS Roma,1,2,3,4,7,2,3,5,3,3,8,5,11,8
+1377920,2025-10-05 16:00:00+00:00,Federico La Penna,Napoli,Genoa,2,1,7,5,12,1,3,4,5,1,7,5,12,6
+1377918,2025-10-05 18:45:00+00:00,Marco Guida,Juventus,AC Milan,0,0,6,0,6,2,2,4,3,4,9,9,12,13
+1377929,2025-10-18 13:00:00+00:00,Valerio Crezzini,Lecce,Sassuolo,0,0,6,4,10,2,2,4,2,2,9,7,11,9
+1377931,2025-10-18 13:00:00+00:00,Marco Guida,Pisa,Hellas Verona,0,0,3,8,11,4,2,6,0,3,7,12,7,15
+1377933,2025-10-18 16:00:00+00:00,Matteo Marcenaro,Torino,Napoli,1,0,3,11,14,1,2,3,2,5,10,17,12,22
+1377932,2025-10-18 18:45:00+00:00,Davide Massa,AS Roma,Inter,0,1,4,5,9,4,3,7,5,3,10,9,15,12
+1377926,2025-10-19 10:30:00+00:00,Giovanni Ayroldi,Como,Juventus,2,0,4,1,5,3,1,4,6,3,6,12,12,15
+1377925,2025-10-19 13:00:00+00:00,Matteo Marchetti,Cagliari,Bologna,0,2,2,7,9,1,3,4,3,7,1,3,4,10
+1377928,2025-10-19 13:00:00+00:00,Simone Sozza,Genoa,Parma,0,0,3,0,3,2,7,9,7,0,16,1,23,1
+1377924,2025-10-19 16:00:00+00:00,Giuseppe Collu,Atalanta,Lazio,0,0,7,1,8,4,0,4,6,1,10,3,16,4
+1377930,2025-10-19 18:45:00+00:00,Livio Marinelli,AC Milan,Fiorentina,2,1,1,3,4,3,3,6,4,1,10,4,14,5
+1377927,2025-10-20 18:45:00+00:00,Michael Fabbri,Cremonese,Udinese,1,1,5,4,9,4,2,6,4,1,7,7,11,8
+1377937,2025-10-24 18:45:00+00:00,Luca Zufferli,AC Milan,Pisa,2,2,6,2,8,1,3,4,7,2,13,6,20,8
+1377939,2025-10-25 13:00:00+00:00,Daniele Chiffi,Parma,Como,0,0,3,3,6,0,1,1,3,2,7,4,10,6
+1377942,2025-10-25 13:00:00+00:00,Ermanno Feliciani,Udinese,Lecce,3,2,4,9,13,2,2,4,4,3,4,10,8,13
+1377938,2025-10-25 16:00:00+00:00,Maurizio Mariani,Napoli,Inter,3,1,1,4,5,2,1,3,3,3,4,12,7,15
+1377934,2025-10-25 18:45:00+00:00,Alberto Ruben Arena,Cremonese,Atalanta,1,1,2,10,12,3,1,4,5,6,4,14,9,20
+1377941,2025-10-26 11:30:00+00:00,Kevin Bonacina,Torino,Genoa,2,1,9,1,10,2,2,4,6,3,7,8,13,11
+1377940,2025-10-26 14:00:00+00:00,Gianluca Manganiello,Sassuolo,AS Roma,0,1,6,6,12,3,2,5,1,8,10,7,11,15
+1377943,2025-10-26 14:00:00+00:00,Federico Dionisi,Hellas Verona,Cagliari,2,2,3,2,5,3,4,7,6,3,4,4,10,7
+1377935,2025-10-26 17:00:00+00:00,Federico La Penna,Fiorentina,Bologna,2,2,5,6,11,3,7,10,7,3,12,3,19,6
+1377936,2025-10-26 19:45:00+00:00,Andrea Colombo,Lazio,Juventus,1,0,2,5,7,2,4,6,3,5,10,9,13,14
+1377951,2025-10-28 17:30:00+00:00,Giuseppe Collu,Lecce,Napoli,0,1,3,5,8,2,1,3,2,3,5,11,7,14
+1377944,2025-10-28 19:45:00+00:00,Daniele Doveri,Atalanta,AC Milan,1,1,9,4,13,1,3,4,3,1,14,5,17,6
+1377947,2025-10-29 17:30:00+00:00,Matteo Marcenaro,Como,Hellas Verona,3,1,1,3,4,1,4,5,5,9,10,4,15,13
+1377950,2025-10-29 17:30:00+00:00,Marco Di Bello,Juventus,Udinese,3,1,8,4,12,1,4,5,11,2,14,6,25,8
+1377953,2025-10-29 17:30:00+00:00,Valerio Crezzini,AS Roma,Parma,2,1,9,2,11,0,4,4,6,5,12,3,18,8
+1377945,2025-10-29 19:45:00+00:00,Giovanni Ayroldi,Bologna,Torino,0,0,3,3,6,2,3,5,2,2,9,6,11,8
+1377948,2025-10-29 19:45:00+00:00,Rosario Abisso,Genoa,Cremonese,0,2,7,3,10,3,1,4,1,4,15,7,16,11
+1377949,2025-10-29 19:45:00+00:00,Simone Sozza,Inter,Fiorentina,3,0,8,5,13,1,4,5,8,2,14,8,22,10
+1377946,2025-10-30 17:30:00+00:00,Luca Pairetto,Cagliari,Sassuolo,1,2,3,7,10,4,4,8,1,4,7,8,8,12
+1377952,2025-10-30 19:45:00+00:00,Davide Massa,Pisa,Lazio,0,0,3,1,4,2,2,4,2,6,8,5,10,11
+1377962,2025-11-01 14:00:00+00:00,Michael Fabbri,Udinese,Atalanta,1,0,5,4,9,1,3,4,5,0,6,5,11,5
+1377958,2025-11-01 17:00:00+00:00,Luca Zufferli,Napoli,Como,0,0,4,2,6,3,2,5,8,2,5,11,13,13
+1377954,2025-11-01 19:45:00+00:00,Daniele Chiffi,Cremonese,Juventus,1,2,2,3,5,1,0,1,2,5,7,10,9,15
+1377963,2025-11-02 11:30:00+00:00,Daniele Doveri,Hellas Verona,Inter,1,2,4,8,12,2,1,3,2,6,6,15,8,21
+1377955,2025-11-02 14:00:00+00:00,Antonio Rapuano,Fiorentina,Lecce,0,1,4,4,8,4,1,5,4,4,11,7,15,11
+1377961,2025-11-02 14:00:00+00:00,Alberto Ruben Arena,Torino,Pisa,2,2,4,2,6,2,1,3,3,3,12,8,15,11
+1377959,2025-11-02 17:00:00+00:00,Kevin Bonacina,Parma,Bologna,1,3,1,5,6,6,2,8,1,6,6,16,7,22
+1377957,2025-11-02 19:45:00+00:00,Marco Guida,AC Milan,AS Roma,1,0,7,8,15,1,5,6,8,6,9,14,17,20
+1377960,2025-11-03 17:30:00+00:00,Ermanno Feliciani,Sassuolo,Genoa,1,2,3,7,10,1,3,4,4,5,9,11,13,16
+1377956,2025-11-03 19:45:00+00:00,Juan Luca Sacchi,Lazio,Cagliari,2,0,7,5,12,0,2,2,3,5,5,12,8,17
+1377972,2025-11-07 19:45:00+00:00,Matteo Marcenaro,Pisa,Cremonese,1,0,4,5,9,4,2,6,6,3,7,10,13,13
+1377966,2025-11-08 14:00:00+00:00,Ivano Pezzuto,Como,Cagliari,0,0,10,0,10,3,1,4,6,2,4,2,10,4
+1377970,2025-11-08 14:00:00+00:00,Rosario Abisso,Lecce,Hellas Verona,0,0,7,2,9,1,4,5,6,2,5,3,11,5
+1377969,2025-11-08 17:00:00+00:00,Luca Zufferli,Juventus,Torino,0,0,6,2,8,0,1,1,6,3,16,5,22,8
+1377971,2025-11-08 19:45:00+00:00,Marco Di Bello,Parma,AC Milan,2,2,4,3,7,1,1,2,4,5,10,4,14,9
+1377964,2025-11-09 11:30:00+00:00,Valerio Crezzini,Atalanta,Sassuolo,0,3,4,1,5,0,2,2,2,4,12,4,14,8
+1377965,2025-11-09 14:00:00+00:00,Daniele Chiffi,Bologna,Napoli,2,0,5,4,9,1,3,4,4,1,7,3,11,4
+1377967,2025-11-09 14:00:00+00:00,Marco Guida,Genoa,Fiorentina,2,2,3,7,10,2,3,5,6,3,4,4,10,7
+1377973,2025-11-09 17:00:00+00:00,Giuseppe Collu,AS Roma,Udinese,2,0,3,4,7,2,1,3,4,4,9,6,13,10
+1377968,2025-11-09 19:45:00+00:00,Gianluca Manganiello,Inter,Lazio,2,0,3,1,4,3,1,4,3,5,5,3,8,8
+1377974,2025-11-22 14:00:00+00:00,Federico La Penna,Cagliari,Genoa,3,3,6,2,8,4,5,9,5,8,6,5,11,13
+1377982,2025-11-22 14:00:00+00:00,Juan Luca Sacchi,Udinese,Bologna,0,3,7,2,9,0,1,1,3,5,9,5,12,10
+1377976,2025-11-22 17:00:00+00:00,Daniele Doveri,Fiorentina,Juventus,1,1,7,3,10,3,3,6,2,4,9,13,11,17
+1377979,2025-11-22 19:45:00+00:00,Marco Di Bello,Napoli,Atalanta,3,1,5,3,8,1,2,3,6,3,5,11,11,14
+1377983,2025-11-23 11:30:00+00:00,Luca Pairetto,Hellas Verona,Parma,1,2,4,4,8,4,3,7,2,7,8,8,10,15
+1377975,2025-11-23 14:00:00+00:00,Giovanni Ayroldi,Cremonese,AS Roma,1,3,3,5,8,2,2,4,4,6,5,6,9,12
+1377978,2025-11-23 17:00:00+00:00,Alberto Ruben Arena,Lazio,Lecce,2,0,8,2,10,1,1,2,9,1,10,4,19,5
+1377977,2025-11-23 19:45:00+00:00,Simone Sozza,Inter,AC Milan,0,1,9,1,10,1,2,3,6,3,14,4,20,7
+1377981,2025-11-24 17:30:00+00:00,Kevin Bonacina,Torino,Como,1,5,3,4,7,0,1,1,2,7,8,8,10,15
+1377980,2025-11-24 19:45:00+00:00,Davide Di Marco,Sassuolo,Pisa,2,2,5,2,7,2,1,3,7,3,15,7,22,10
+1377986,2025-11-28 19:45:00+00:00,Matteo Marchetti,Como,Sassuolo,2,0,4,4,8,2,1,3,13,5,5,7,18,12
+1377987,2025-11-29 14:00:00+00:00,Michael Fabbri,Genoa,Hellas Verona,2,1,2,3,5,1,3,4,4,5,11,8,15,13
+1377991,2025-11-29 14:00:00+00:00,Marco Piccinini,Parma,Udinese,0,2,5,9,14,3,2,5,2,5,15,9,17,14
+1377988,2025-11-29 17:00:00+00:00,Valerio Crezzini,Juventus,Cagliari,2,1,1,6,7,1,5,6,6,3,8,2,14,5
+1377990,2025-11-29 19:45:00+00:00,Giuseppe Collu,AC Milan,Lazio,1,0,1,4,5,3,4,7,4,4,12,5,16,9
+1377989,2025-11-30 11:30:00+00:00,Maurizio Mariani,Lecce,Torino,2,1,6,6,12,2,3,5,2,6,8,9,10,15
+1377992,2025-11-30 14:00:00+00:00,Marco Guida,Pisa,Inter,0,2,4,6,10,2,1,3,2,3,8,11,10,14
+1377984,2025-11-30 17:00:00+00:00,Matteo Marcenaro,Atalanta,Fiorentina,2,0,4,5,9,1,3,4,9,3,12,12,21,15
+1377993,2025-11-30 19:45:00+00:00,Davide Massa,AS Roma,Napoli,0,1,4,2,6,4,3,7,2,5,6,2,8,7
+1377985,2025-12-01 19:45:00+00:00,Ermanno Feliciani,Bologna,Cremonese,1,3,13,8,21,0,2,2,7,5,22,5,29,10
+1378000,2025-12-06 14:00:00+00:00,Luca Pairetto,Sassuolo,Fiorentina,3,1,7,1,8,2,3,5,5,1,8,8,13,9
+1377996,2025-12-06 17:00:00+00:00,Marco Di Bello,Inter,Como,4,0,7,4,11,1,2,3,7,3,4,12,11,15
+1378003,2025-12-06 19:45:00+00:00,Maurizio Mariani,Hellas Verona,Atalanta,3,1,5,5,10,2,1,3,7,5,5,7,12,12
+1377995,2025-12-07 11:30:00+00:00,Giuseppe Mucera,Cremonese,Lecce,2,0,5,5,10,1,2,3,4,1,7,8,11,9
+1377994,2025-12-07 14:00:00+00:00,Luca Zufferli,Cagliari,AS Roma,1,0,4,1,5,2,3,5,8,2,7,4,15,6
+1377997,2025-12-07 17:00:00+00:00,Michael Fabbri,Lazio,Bologna,1,1,7,3,10,5,3,8,9,6,7,7,16,13
+1377998,2025-12-07 19:45:00+00:00,Federico La Penna,Napoli,Juventus,2,1,9,0,9,2,1,3,4,2,5,3,9,5
+1377999,2025-12-08 14:00:00+00:00,Daniele Doveri,Pisa,Parma,0,1,6,0,6,4,2,6,2,2,12,7,14,9
+1378002,2025-12-08 17:00:00+00:00,Fabio Maresca,Udinese,Genoa,1,2,6,2,8,1,0,1,6,6,17,6,23,12
+1378001,2025-12-08 19:45:00+00:00,Daniele Chiffi,Torino,AC Milan,2,3,2,4,6,2,1,3,4,6,4,11,8,17
+1378008,2025-12-12 19:45:00+00:00,Juan Luca Sacchi,Lecce,Pisa,1,0,12,1,13,2,1,3,3,0,18,5,21,5
+1378012,2025-12-13 14:00:00+00:00,Livio Marinelli,Torino,Cremonese,1,0,6,6,12,1,2,3,6,3,12,7,18,10
+1378010,2025-12-13 17:00:00+00:00,Matteo Marchetti,Parma,Lazio,0,1,4,4,8,2,5,7,5,5,14,10,19,15
+1378004,2025-12-13 19:45:00+00:00,Davide Di Marco,Atalanta,Cagliari,2,1,5,4,9,1,2,3,8,1,9,7,17,8
+1378009,2025-12-14 11:30:00+00:00,Valerio Crezzini,AC Milan,Sassuolo,2,2,7,3,10,1,3,4,5,3,8,5,13,8
+1378006,2025-12-14 14:00:00+00:00,Andrea Colombo,Fiorentina,Hellas Verona,1,2,9,4,13,1,5,6,4,3,16,10,20,13
+1378013,2025-12-14 14:00:00+00:00,Simone Sozza,Udinese,Napoli,1,0,1,3,4,1,0,1,5,0,13,7,18,7
+1378007,2025-12-14 17:00:00+00:00,Daniele Doveri,Genoa,Inter,1,2,1,6,7,2,3,5,3,8,2,10,5,18
+1378005,2025-12-14 19:45:00+00:00,Davide Massa,Bologna,Juventus,0,1,3,4,7,5,1,6,4,3,7,10,11,13
+1378011,2025-12-15 19:45:00+00:00,Ermanno Feliciani,AS Roma,Como,1,0,6,3,9,3,3,6,4,1,10,12,14,13
+1378020,2025-12-20 17:00:00+00:00,Luca Pairetto,Lazio,Cremonese,0,0,3,0,3,4,5,9,2,2,6,7,8,9
+1378019,2025-12-20 19:45:00+00:00,Simone Sozza,Juventus,AS Roma,2,1,2,4,6,2,3,5,9,5,4,9,13,14
+1378014,2025-12-21 11:30:00+00:00,Francesco Fourneau,Cagliari,Pisa,2,2,2,6,8,3,2,5,5,3,9,12,14,15
+1378022,2025-12-21 14:00:00+00:00,Andrea Calzavara,Sassuolo,Torino,0,1,2,3,5,3,1,4,1,5,6,5,7,10
+1378016,2025-12-21 17:00:00+00:00,Maurizio Mariani,Fiorentina,Udinese,5,1,1,4,5,3,3,6,7,4,13,7,20,11
+1378017,2025-12-21 19:45:00+00:00,Rosario Abisso,Genoa,Atalanta,0,1,6,10,16,3,2,5,3,4,3,12,6,16
+1378029,2025-12-27 11:30:00+00:00,Marco Guida,Parma,Fiorentina,1,0,5,6,11,2,2,4,2,4,11,19,13,23
+1378027,2025-12-27 14:00:00+00:00,Matteo Marchetti,Lecce,Como,0,3,4,6,10,2,4,6,5,6,6,6,11,12
+1378032,2025-12-27 14:00:00+00:00,Daniele Doveri,Torino,Cagliari,1,2,6,2,8,3,0,3,10,4,9,5,19,9
+1378033,2025-12-27 17:00:00+00:00,Andrea Colombo,Udinese,Lazio,1,1,5,6,11,3,4,7,4,1,11,13,15,14
+1378030,2025-12-27 19:45:00+00:00,Fabio Maresca,Pisa,Juventus,0,2,2,8,10,4,1,5,0,7,8,8,8,15
+1378028,2025-12-28 11:30:00+00:00,Michael Fabbri,AC Milan,Hellas Verona,3,0,7,3,10,0,1,1,5,1,6,8,11,9
+1378026,2025-12-28 14:00:00+00:00,Maurizio Mariani,Cremonese,Napoli,0,2,1,10,11,2,2,4,2,8,4,14,6,22
+1378025,2025-12-28 17:00:00+00:00,Juan Luca Sacchi,Bologna,Sassuolo,1,1,2,3,5,2,3,5,6,5,10,3,16,8
+1378024,2025-12-28 19:45:00+00:00,Federico La Penna,Atalanta,Inter,0,1,4,7,11,2,1,3,0,4,7,11,7,15
+1378031,2025-12-29 19:45:00+00:00,Marco Di Bello,AS Roma,Genoa,3,1,6,1,7,0,1,1,8,2,8,8,16,10
+1378035,2026-01-02 19:45:00+00:00,Rosario Abisso,Cagliari,AC Milan,0,1,6,7,13,2,1,3,1,4,5,7,6,11
+1378036,2026-01-03 11:30:00+00:00,Alberto Ruben Arena,Como,Udinese,1,0,3,2,5,1,3,4,3,0,12,3,15,3
+1378038,2026-01-03 14:00:00+00:00,Daniele Chiffi,Genoa,Pisa,1,1,2,7,9,1,3,4,4,2,8,8,12,10
+1378042,2026-01-03 14:00:00+00:00,Ermanno Feliciani,Sassuolo,Parma,1,1,4,7,11,2,1,3,3,5,8,11,11,16
+1378040,2026-01-03 17:00:00+00:00,Giuseppe Collu,Juventus,Lecce,1,1,10,1,11,0,3,3,5,1,20,5,25,6
+1378034,2026-01-03 19:45:00+00:00,Michael Fabbri,Atalanta,AS Roma,1,0,7,5,12,1,2,3,2,4,11,6,13,10
+1378041,2026-01-04 11:30:00+00:00,Davide Massa,Lazio,Napoli,0,2,2,6,8,9,3,12,0,3,5,11,5,14
+1378037,2026-01-04 14:00:00+00:00,Federico La Penna,Fiorentina,Cremonese,1,0,7,3,10,1,2,3,8,2,14,4,22,6
+1378043,2026-01-04 17:00:00+00:00,Antonio Rapuano,Hellas Verona,Torino,0,3,4,7,11,0,2,2,3,5,4,16,7,21
+1378039,2026-01-04 19:45:00+00:00,Marco Guida,Inter,Bologna,3,1,7,1,8,3,3,6,10,2,9,4,19,6
+1378051,2026-01-06 14:00:00+00:00,Luca Pairetto,Pisa,Como,0,3,1,5,6,2,2,4,4,7,6,8,10,15
+1378047,2026-01-06 17:00:00+00:00,Juan Luca Sacchi,Lecce,AS Roma,0,2,2,2,4,3,1,4,1,3,5,7,6,10
+1378052,2026-01-06 19:45:00+00:00,Luca Zufferli,Sassuolo,Juventus,0,3,5,5,10,0,0,0,2,10,4,7,6,17
+1378044,2026-01-07 17:30:00+00:00,Marco Di Bello,Bologna,Atalanta,0,2,6,6,12,0,0,0,2,5,9,6,11,11
+1378049,2026-01-07 17:30:00+00:00,Matteo Marchetti,Napoli,Hellas Verona,2,2,6,1,7,0,3,3,4,4,11,7,15,11
+1378046,2026-01-07 19:45:00+00:00,Simone Sozza,Lazio,Fiorentina,2,2,8,2,10,3,5,8,9,5,8,3,17,8
+1378050,2026-01-07 19:45:00+00:00,Andrea Colombo,Parma,Inter,0,2,1,3,4,0,3,3,0,8,4,18,4,26
+1378053,2026-01-07 19:45:00+00:00,Fabio Maresca,Torino,Udinese,1,2,3,6,9,2,1,3,4,4,6,5,10,9
+1378045,2026-01-08 17:30:00+00:00,Kevin Bonacina,Cremonese,Cagliari,2,2,2,4,6,2,2,4,5,5,7,16,12,21
+1378048,2026-01-08 19:45:00+00:00,Maurizio Mariani,AC Milan,Genoa,1,1,12,1,13,4,1,5,8,2,24,5,32,7
+1378055,2026-01-10 14:00:00+00:00,Rosario Abisso,Como,Bologna,1,1,4,2,6,3,5,8,3,2,9,5,12,7
+1378062,2026-01-10 14:00:00+00:00,Giovanni Ayroldi,Udinese,Pisa,2,2,3,8,11,1,4,5,2,7,9,7,11,14
+1378061,2026-01-10 17:00:00+00:00,Matteo Marcenaro,AS Roma,Sassuolo,2,0,5,2,7,2,2,4,6,3,20,2,26,5
+1378054,2026-01-10 19:45:00+00:00,Francesco Fourneau,Atalanta,Torino,2,0,5,4,9,1,2,3,5,3,13,7,18,10
+1378060,2026-01-11 11:30:00+00:00,Livio Marinelli,Lecce,Parma,1,2,3,3,6,7,1,8,1,2,9,10,10,12
+1378056,2026-01-11 14:00:00+00:00,Davide Massa,Fiorentina,AC Milan,1,1,8,5,13,2,3,5,7,3,13,10,20,13
+1378063,2026-01-11 17:00:00+00:00,Marco Guida,Hellas Verona,Lazio,0,1,2,1,3,2,1,3,2,2,8,9,10,11
+1378058,2026-01-11 19:45:00+00:00,Daniele Doveri,Inter,Napoli,2,2,4,1,5,0,1,1,4,3,9,4,13,7
+1378057,2026-01-12 17:30:00+00:00,Federico La Penna,Genoa,Cagliari,3,0,2,3,5,2,5,7,7,3,4,12,11,15
+1378059,2026-01-12 19:45:00+00:00,Ermanno Feliciani,Juventus,Cremonese,5,0,4,5,9,0,1,1,11,2,7,7,18,9
+1378021,2026-01-14 17:30:00+00:00,Michael Fabbri,Napoli,Parma,0,0,7,1,8,1,3,4,4,1,12,3,16,4
+1378018,2026-01-14 19:45:00+00:00,Fabio Maresca,Inter,Lecce,1,0,11,3,14,2,1,3,7,1,14,9,21,10
+1378023,2026-01-15 17:30:00+00:00,Maurizio Mariani,Hellas Verona,Bologna,2,3,4,5,9,1,2,3,5,5,10,9,15,14
+1378015,2026-01-15 19:45:00+00:00,Marco Guida,Como,AC Milan,1,3,8,4,12,1,0,1,8,4,10,3,18,7
+1378071,2026-01-16 19:45:00+00:00,Matteo Marchetti,Pisa,Atalanta,1,1,10,1,11,1,2,3,6,4,8,5,14,9
+1378073,2026-01-17 14:00:00+00:00,Marco Di Bello,Udinese,Inter,0,1,2,5,7,0,1,1,1,5,4,9,5,14
+1378069,2026-01-17 17:00:00+00:00,Francesco Fourneau,Napoli,Sassuolo,1,0,5,4,9,0,2,2,4,4,7,17,11,21
+1378065,2026-01-17 19:45:00+00:00,Davide Massa,Cagliari,Juventus,1,0,1,18,19,0,1,1,1,5,2,16,3,21
+1378070,2026-01-18 11:30:00+00:00,Luca Pairetto,Parma,Genoa,0,0,7,3,10,3,2,5,2,3,12,8,14,11
+1378064,2026-01-18 14:00:00+00:00,Daniele Doveri,Bologna,Fiorentina,1,2,7,1,8,3,0,3,3,4,15,7,18,11
+1378072,2026-01-18 17:00:00+00:00,Daniele Chiffi,Torino,AS Roma,0,2,2,1,3,2,1,3,4,5,4,9,8,14
+1378068,2026-01-18 19:45:00+00:00,Luca Zufferli,AC Milan,Lecce,1,0,10,2,12,1,1,2,6,0,14,3,20,3
+1378066,2026-01-19 17:30:00+00:00,Alberto Ruben Arena,Cremonese,Hellas Verona,0,0,3,6,9,3,0,3,1,4,6,7,7,11
+1378067,2026-01-19 19:45:00+00:00,Michael Fabbri,Lazio,Como,0,3,3,2,5,4,3,7,4,6,4,5,8,11
+1378078,2026-01-23 19:45:00+00:00,Matteo Marcenaro,Inter,Pisa,6,2,7,5,12,2,3,5,14,3,20,5,34,8
+1378075,2026-01-24 14:00:00+00:00,Ermanno Feliciani,Como,Torino,6,0,2,1,3,0,1,1,7,1,10,6,17,7
+1378076,2026-01-24 17:00:00+00:00,Marco Guida,Fiorentina,Cagliari,1,2,8,3,11,2,3,5,3,6,12,4,15,10
+1378080,2026-01-24 19:45:00+00:00,Daniele Chiffi,Lecce,Lazio,0,0,4,1,5,2,1,3,2,1,13,5,15,6
+1378082,2026-01-25 11:30:00+00:00,Giuseppe Collu,Sassuolo,Cremonese,1,0,3,5,8,1,2,3,7,4,6,6,13,10
+1378074,2026-01-25 14:00:00+00:00,Juan Luca Sacchi,Atalanta,Parma,4,0,6,9,15,1,0,1,9,2,12,13,21,15
+1378077,2026-01-25 14:00:00+00:00,Fabio Maresca,Genoa,Bologna,3,2,5,2,7,2,4,6,6,3,2,10,8,13
+1378079,2026-01-25 17:00:00+00:00,Maurizio Mariani,Juventus,Napoli,3,0,2,2,4,1,2,3,6,1,6,8,12,9
+1378081,2026-01-25 19:45:00+00:00,Andrea Colombo,AS Roma,AC Milan,1,1,5,3,8,0,4,4,7,2,8,3,15,5
+1378083,2026-01-26 19:45:00+00:00,Gianluca Manganiello,Hellas Verona,Udinese,1,3,3,8,11,2,0,2,4,7,3,13,7,20
+1378088,2026-01-30 19:45:00+00:00,Luca Zufferli,Lazio,Genoa,3,2,5,3,8,2,3,5,4,4,10,12,14,16
+1378091,2026-01-31 14:00:00+00:00,Alberto Ruben Arena,Pisa,Sassuolo,1,3,2,5,7,3,3,6,6,5,9,16,15,21
+1378089,2026-01-31 17:00:00+00:00,Federico La Penna,Napoli,Fiorentina,2,1,4,4,8,1,1,2,6,5,13,10,19,15
+1378085,2026-01-31 19:45:00+00:00,Kevin Bonacina,Cagliari,Hellas Verona,4,0,6,3,9,0,4,4,7,3,6,6,13,9
+1378092,2026-02-01 11:30:00+00:00,Simone Sozza,Torino,Lecce,1,0,3,8,11,2,2,4,5,2,12,12,17,14
+1378086,2026-02-01 14:00:00+00:00,Luca Pairetto,Como,Atalanta,0,0,7,1,8,4,5,9,9,2,19,4,28,6
+1378087,2026-02-01 17:00:00+00:00,Davide Massa,Cremonese,Inter,0,2,1,6,7,3,0,3,3,4,6,11,9,15
+1378090,2026-02-01 19:45:00+00:00,Francesco Fourneau,Parma,Juventus,1,4,5,3,8,1,3,4,4,8,6,7,10,15
+1378093,2026-02-02 19:45:00+00:00,Juan Luca Sacchi,Udinese,AS Roma,1,0,4,7,11,5,4,9,4,3,3,7,7,10
+1378084,2026-02-03 19:45:00+00:00,Gianluca Manganiello,Bologna,AC Milan,0,3,5,0,5,3,0,3,2,7,11,3,13,10
+1378103,2026-02-06 19:45:00+00:00,Daniele Doveri,Hellas Verona,Pisa,0,0,8,4,12,1,2,3,0,3,3,8,3,11
+1378097,2026-02-07 17:00:00+00:00,Davide Massa,Genoa,Napoli,2,3,4,3,7,2,6,8,3,5,9,9,12,14
+1378096,2026-02-07 19:45:00+00:00,Andrea Colombo,Fiorentina,Torino,2,2,9,4,13,2,5,7,5,4,16,8,21,12
+1378095,2026-02-08 11:30:00+00:00,Giuseppe Collu,Bologna,Parma,0,1,4,5,9,3,5,8,2,1,14,4,16,5
+1378099,2026-02-08 14:00:00+00:00,Antonio Rapuano,Lecce,Udinese,2,1,7,0,7,1,2,3,5,1,11,5,16,6
+1378102,2026-02-08 17:00:00+00:00,Daniele Chiffi,Sassuolo,Inter,0,5,5,6,11,3,1,4,2,11,5,12,7,23
+1378098,2026-02-08 19:45:00+00:00,Marco Guida,Juventus,Lazio,2,2,8,1,9,0,2,2,8,2,26,7,34,9
+1378094,2026-02-09 17:30:00+00:00,Marco Piccinini,Atalanta,Cremonese,2,1,13,2,15,2,0,2,9,2,20,10,29,12
+1378101,2026-02-09 19:45:00+00:00,Matteo Marcenaro,AS Roma,Cagliari,2,0,7,1,8,2,4,6,5,1,10,2,15,3
+1378111,2026-02-13 19:45:00+00:00,Michael Fabbri,Pisa,AC Milan,1,2,3,1,4,1,5,6,2,2,5,5,7,7
+1378105,2026-02-14 14:00:00+00:00,Matteo Marchetti,Como,Fiorentina,1,2,4,2,6,6,2,8,3,3,13,4,16,7
+1378108,2026-02-14 17:00:00+00:00,Juan Luca Sacchi,Lazio,Atalanta,0,2,5,4,9,1,4,5,5,5,13,7,18,12
+1378107,2026-02-14 19:45:00+00:00,Federico La Penna,Inter,Juventus,3,2,4,1,5,4,4,8,9,8,12,2,21,10
+1378113,2026-02-15 11:30:00+00:00,Maria Ferrieri,Udinese,Sassuolo,1,2,7,6,13,3,3,6,2,3,6,7,8,10
+1378106,2026-02-15 14:00:00+00:00,Simone Sozza,Cremonese,Genoa,0,0,6,11,17,2,0,2,8,6,11,13,19,19
+1378110,2026-02-15 14:00:00+00:00,Luca Pairetto,Parma,Hellas Verona,2,1,12,1,13,2,3,5,8,1,19,3,27,4
+1378112,2026-02-15 17:00:00+00:00,Francesco Fourneau,Torino,Bologna,1,2,4,2,6,3,1,4,2,6,5,8,7,14
+1378109,2026-02-15 19:45:00+00:00,Andrea Colombo,Napoli,AS Roma,2,2,2,1,3,1,1,2,7,2,4,7,11,9
+1378104,2026-02-16 19:45:00+00:00,Ermanno Feliciani,Cagliari,Lecce,0,2,8,2,10,0,0,0,0,4,11,9,11,13
+1378100,2026-02-18 19:45:00+00:00,Maurizio Mariani,AC Milan,Como,1,1,4,4,8,2,3,5,4,4,2,6,6,10
+1378123,2026-02-20 19:45:00+00:00,Livio Marinelli,Sassuolo,Hellas Verona,3,0,6,5,11,2,5,7,4,1,4,11,8,12
+1378119,2026-02-21 14:00:00+00:00,Daniele Doveri,Juventus,Como,0,2,7,2,9,1,0,1,3,2,8,9,11,11
+1378120,2026-02-21 17:00:00+00:00,Gianluca Manganiello,Lecce,Inter,0,2,2,10,12,1,2,3,0,9,3,15,3,24
+1378116,2026-02-21 19:45:00+00:00,Antonio Rapuano,Cagliari,Lazio,0,0,3,6,9,5,2,7,2,3,9,7,11,10
+1378118,2026-02-22 11:30:00+00:00,Marco Guida,Genoa,Torino,3,0,1,3,4,0,3,3,5,3,11,4,16,7
+1378114,2026-02-22 14:00:00+00:00,Daniele Chiffi,Atalanta,Napoli,2,1,6,1,7,1,1,2,7,4,3,6,10,10
+1378121,2026-02-22 17:00:00+00:00,Marco Piccinini,AC Milan,Parma,0,1,5,2,7,2,1,3,6,3,19,6,25,9
+1378122,2026-02-22 19:45:00+00:00,Marco Di Bello,AS Roma,Cremonese,3,0,9,1,10,1,1,2,5,0,18,2,23,2
+1378117,2026-02-23 17:30:00+00:00,Maurizio Mariani,Fiorentina,Pisa,1,0,4,3,7,3,3,6,5,1,10,6,15,7
+1378115,2026-02-23 19:45:00+00:00,Matteo Marcenaro,Bologna,Udinese,1,0,4,7,11,1,1,2,6,3,5,7,11,10
+1378127,2026-02-27 19:45:00+00:00,Luca Massimi,Parma,Cagliari,1,1,6,3,9,2,4,6,4,5,14,6,18,11
+1378124,2026-02-28 14:00:00+00:00,Francesco Fourneau,Como,Lecce,3,1,5,1,6,0,1,1,7,2,5,3,12,5
+1378133,2026-02-28 17:00:00+00:00,Andrea Colombo,Hellas Verona,Napoli,1,2,2,5,7,3,4,7,2,5,6,3,8,8
+1378126,2026-02-28 19:45:00+00:00,Michael Fabbri,Inter,Genoa,2,0,10,2,12,2,1,3,6,2,8,4,14,6
+1378125,2026-03-01 11:30:00+00:00,Davide Massa,Cremonese,AC Milan,0,2,6,7,13,2,0,2,3,6,12,14,15,20
+1378130,2026-03-01 14:00:00+00:00,Matteo Marchetti,Sassuolo,Atalanta,2,1,3,9,12,4,2,6,5,7,2,19,7,26
+1378131,2026-03-01 17:00:00+00:00,Rosario Abisso,Torino,Lazio,2,0,6,9,15,4,1,5,5,3,8,9,13,12
+1378129,2026-03-01 19:45:00+00:00,Simone Sozza,AS Roma,Juventus,3,3,4,1,5,1,0,1,5,5,6,8,11,13
+1378128,2026-03-02 17:30:00+00:00,Ermanno Feliciani,Pisa,Bologna,0,1,7,4,11,0,2,2,3,1,3,7,6,8
+1378132,2026-03-02 19:45:00+00:00,Luca Pairetto,Udinese,Fiorentina,3,0,5,2,7,1,4,5,7,0,3,10,10,10
+1378143,2026-03-06 19:45:00+00:00,Michael Fabbri,Napoli,Torino,2,1,11,2,13,0,3,3,9,4,5,3,14,7
+1378136,2026-03-07 14:00:00+00:00,Livio Marinelli,Cagliari,Como,1,2,2,3,5,3,1,4,3,2,5,6,8,8
+1378134,2026-03-07 17:00:00+00:00,Antonio Rapuano,Atalanta,Udinese,2,2,11,3,14,1,2,3,4,2,18,6,22,8
+1378139,2026-03-07 19:45:00+00:00,Juan Luca Sacchi,Juventus,Pisa,4,0,4,4,8,1,3,4,7,2,18,5,25,7
+1378141,2026-03-08 11:30:00+00:00,Simone Sozza,Lecce,Cremonese,2,1,4,4,8,1,6,7,3,5,6,5,9,10
+1378135,2026-03-08 14:00:00+00:00,Giuseppe Mucera,Bologna,Hellas Verona,1,2,5,3,8,1,2,3,2,5,17,10,19,15
+1378137,2026-03-08 14:00:00+00:00,Luca Zufferli,Fiorentina,Parma,0,0,7,1,8,2,0,2,1,0,11,8,12,8
+1378138,2026-03-08 17:00:00+00:00,Andrea Colombo,Genoa,AS Roma,2,1,3,6,9,1,3,4,5,1,6,7,11,8
+1378142,2026-03-08 19:45:00+00:00,Daniele Doveri,AC Milan,Inter,1,0,1,6,7,2,2,4,2,2,7,9,9,11
+1378140,2026-03-09 19:45:00+00:00,Alberto Ruben Arena,Lazio,Sassuolo,2,1,1,6,7,0,4,4,5,4,8,3,13,7
+1378151,2026-03-13 19:45:00+00:00,Fabio Maresca,Torino,Parma,4,1,2,7,9,1,3,4,6,3,9,3,15,6
+1378146,2026-03-14 14:00:00+00:00,Gianluca Manganiello,Inter,Atalanta,1,1,2,3,5,2,2,4,3,3,13,5,16,8
+1378148,2026-03-14 17:00:00+00:00,Rosario Abisso,Napoli,Lecce,2,1,7,7,14,0,1,1,4,2,8,10,12,12
+1378152,2026-03-14 19:45:00+00:00,Maurizio Mariani,Udinese,Juventus,0,1,2,6,8,3,1,4,2,8,8,14,10,22
+1378153,2026-03-15 11:30:00+00:00,Matteo Marchetti,Hellas Verona,Genoa,0,2,4,2,6,2,1,3,1,3,7,8,8,11
+1378149,2026-03-15 14:00:00+00:00,Federico La Penna,Pisa,Cagliari,3,1,1,5,6,3,6,9,6,4,4,10,10,14
+1378150,2026-03-15 14:00:00+00:00,Kevin Bonacina,Sassuolo,Bologna,0,1,7,4,11,1,2,3,3,3,6,13,9,16
+1378144,2026-03-15 17:00:00+00:00,Davide Massa,Como,AS Roma,2,1,7,1,8,2,5,7,7,1,15,2,22,3
+1378147,2026-03-15 19:45:00+00:00,Marco Guida,Lazio,AC Milan,1,0,1,9,10,4,1,5,2,3,5,14,7,17
+1378145,2026-03-16 19:45:00+00:00,Marco Di Bello,Cremonese,Fiorentina,1,4,4,6,10,1,0,1,3,6,10,7,13,13
+1378156,2026-03-20 17:30:00+00:00,Maurizio Mariani,Cagliari,Napoli,0,1,2,7,9,2,2,4,0,5,7,12,7,17
+1378159,2026-03-20 19:45:00+00:00,Giuseppe Collu,Genoa,Udinese,0,2,7,1,8,1,5,6,2,4,16,2,18,6
+1378162,2026-03-21 14:00:00+00:00,Michael Fabbri,Parma,Cremonese,0,2,3,1,4,3,3,6,1,4,7,3,8,7
+1378161,2026-03-21 17:00:00+00:00,Francesco Fourneau,AC Milan,Torino,3,2,4,6,10,3,1,4,6,7,9,12,15,19
+1378160,2026-03-21 19:45:00+00:00,Matteo Marchetti,Juventus,Sassuolo,1,1,9,4,13,1,2,3,8,1,10,6,18,7
+1378157,2026-03-22 11:30:00+00:00,Luca Pairetto,Como,Pisa,5,0,7,1,8,0,2,2,7,0,7,7,14,7
+1378154,2026-03-22 14:00:00+00:00,Giovanni Ayroldi,Atalanta,Hellas Verona,1,0,2,4,6,1,3,4,3,3,8,9,11,12
+1378155,2026-03-22 14:00:00+00:00,Ermanno Feliciani,Bologna,Lazio,0,2,2,1,3,1,1,2,4,5,11,4,15,9
+1378163,2026-03-22 17:00:00+00:00,Juan Luca Sacchi,AS Roma,Lecce,1,0,10,2,12,2,2,4,2,3,12,5,14,8
+1378158,2026-03-22 19:45:00+00:00,Andrea Colombo,Fiorentina,Inter,1,1,3,5,8,3,3,6,6,4,10,8,16,12
+1378171,2026-04-04 13:00:00+00:00,Daniele Chiffi,Sassuolo,Cagliari,2,1,2,2,4,1,0,1,2,3,7,8,9,11
+1378173,2026-04-04 16:00:00+00:00,Marco Guida,Hellas Verona,Fiorentina,0,1,9,1,10,5,3,8,8,1,13,4,21,5
+1378167,2026-04-04 18:45:00+00:00,Matteo Marcenaro,Lazio,Parma,1,1,7,2,9,1,2,3,3,4,4,3,7,7
+1378164,2026-04-05 13:00:00+00:00,Rosario Abisso,Cremonese,Bologna,1,2,2,4,6,4,5,9,3,7,6,7,9,14
+1378170,2026-04-05 16:00:00+00:00,Luca Zufferli,Pisa,Torino,0,1,1,2,3,1,0,1,1,2,6,11,7,13
+1378165,2026-04-05 18:45:00+00:00,Simone Sozza,Inter,AS Roma,5,2,7,4,11,0,1,1,9,3,8,6,17,9
+1378172,2026-04-06 10:30:00+00:00,Fabio Maresca,Udinese,Como,0,0,6,2,8,2,3,5,4,4,10,8,14,12
+1378168,2026-04-06 13:00:00+00:00,Federico La Penna,Lecce,Atalanta,0,3,2,5,7,0,2,2,0,6,11,10,11,16
+1378166,2026-04-06 16:00:00+00:00,Davide Massa,Juventus,Genoa,2,0,5,5,10,4,1,5,5,3,11,9,16,12
+1378169,2026-04-06 18:45:00+00:00,Daniele Doveri,Napoli,AC Milan,1,0,4,3,7,2,0,2,3,1,7,6,10,7
+1378182,2026-04-10 18:45:00+00:00,Ermanno Feliciani,AS Roma,Pisa,3,0,1,3,4,1,1,2,3,5,5,4,8,9
+1378176,2026-04-11 13:00:00+00:00,Daniele Doveri,Cagliari,Cremonese,1,0,6,5,11,1,1,2,5,2,12,3,17,5
+1378183,2026-04-11 13:00:00+00:00,Kevin Bonacina,Torino,Hellas Verona,2,1,3,6,9,1,4,5,2,4,9,14,11,18
+1378180,2026-04-11 16:00:00+00:00,Matteo Marchetti,AC Milan,Udinese,0,3,4,3,7,1,1,2,3,6,17,6,20,12
+1378174,2026-04-11 18:45:00+00:00,Fabio Maresca,Atalanta,Juventus,0,1,13,2,15,1,3,4,3,2,19,5,22,7
+1378179,2026-04-12 10:30:00+00:00,Antonio Rapuano,Genoa,Sassuolo,2,1,5,3,8,4,5,9,7,6,7,9,14,15
+1378181,2026-04-12 13:00:00+00:00,Marco Di Bello,Parma,Napoli,1,1,3,7,10,1,0,1,2,6,1,14,3,20
+1378175,2026-04-12 16:00:00+00:00,Andrea Colombo,Bologna,Lecce,2,0,8,6,14,0,2,2,4,1,8,5,12,6
+1378177,2026-04-12 18:45:00+00:00,Davide Massa,Como,Inter,3,4,1,1,2,3,7,10,8,5,16,2,24,7
+1378178,2026-04-13 18:45:00+00:00,Michael Fabbri,Fiorentina,Lazio,1,0,5,6,11,3,2,5,2,6,6,7,8,13
+1378191,2026-04-17 16:30:00+00:00,Francesco Fourneau,Sassuolo,Como,2,1,5,8,13,3,3,6,4,3,7,9,11,12
+1378185,2026-04-17 18:45:00+00:00,Matteo Marchetti,Inter,Cagliari,3,0,4,9,13,0,2,2,5,1,13,9,18,10
+1378192,2026-04-18 13:00:00+00:00,Davide Di Marco,Udinese,Parma,0,1,10,5,15,2,0,2,3,1,13,9,16,10
+1378188,2026-04-18 16:00:00+00:00,Luca Zufferli,Napoli,Lazio,0,2,12,0,12,1,3,4,0,7,12,7,12,14
+1378190,2026-04-18 18:45:00+00:00,Matteo Marcenaro,AS Roma,Atalanta,1,1,7,6,13,1,2,3,9,2,10,6,19,8
+1378184,2026-04-19 10:30:00+00:00,Michael Fabbri,Cremonese,Torino,0,0,6,1,7,0,3,3,4,1,10,3,14,4
+1378193,2026-04-19 13:00:00+00:00,Daniele Chiffi,Hellas Verona,AC Milan,0,1,6,1,7,2,0,2,2,3,11,3,13,6
+1378189,2026-04-19 16:00:00+00:00,Valerio Crezzini,Pisa,Genoa,1,2,5,5,10,3,1,4,4,5,8,8,12,13
+1378186,2026-04-19 18:45:00+00:00,Maurizio Mariani,Juventus,Bologna,2,0,6,1,7,1,0,1,4,0,10,7,14,7
+1378187,2026-04-20 18:45:00+00:00,Fabio Maresca,Lecce,Fiorentina,1,1,5,2,7,2,4,6,4,3,10,2,14,5
+1378200,2026-04-24 18:45:00+00:00,Daniele Doveri,Napoli,Cremonese,4,0,7,5,12,0,0,0,9,4,16,3,25,7
+1378201,2026-04-25 13:00:00+00:00,Andrea Calzavara,Parma,Pisa,1,0,7,4,11,1,2,3,5,3,10,9,15,12
+1378194,2026-04-25 16:00:00+00:00,Marco Di Bello,Bologna,AS Roma,0,2,7,7,14,0,3,3,2,2,8,5,10,7
+1378203,2026-04-25 18:45:00+00:00,Davide Massa,Hellas Verona,Lecce,0,0,2,4,6,2,5,7,3,2,3,10,6,12
+1378196,2026-04-26 10:30:00+00:00,Livio Marinelli,Fiorentina,Sassuolo,0,0,7,4,11,2,1,3,5,1,17,10,22,11
+1378197,2026-04-26 13:00:00+00:00,Federico La Penna,Genoa,Como,0,2,2,3,5,1,3,4,1,2,8,6,9,8
+1378202,2026-04-26 16:00:00+00:00,Maurizio Mariani,Torino,Inter,2,2,5,5,10,1,2,3,2,5,12,9,14,14
+1378199,2026-04-26 18:45:00+00:00,Simone Sozza,AC Milan,Juventus,0,0,1,3,4,2,3,5,1,5,7,5,8,10
+1378195,2026-04-27 16:30:00+00:00,Juan Luca Sacchi,Cagliari,Atalanta,3,2,4,6,10,0,0,0,4,6,5,6,9,12
+1378198,2026-04-27 18:45:00+00:00,Kevin Bonacina,Lazio,Udinese,3,3,4,5,9,3,1,4,5,7,8,9,13,16
+1378210,2026-05-01 18:45:00+00:00,Daniele Doveri,Pisa,Lecce,1,2,6,1,7,4,2,6,7,4,10,3,17,7
+1378213,2026-05-02 13:00:00+00:00,Giuseppe Mucera,Udinese,Torino,2,0,5,2,7,1,1,2,8,1,11,8,19,9
+1378206,2026-05-02 16:00:00+00:00,Michael Fabbri,Como,Napoli,0,0,3,2,5,1,1,2,5,1,11,7,16,8
+1378204,2026-05-02 18:45:00+00:00,Ivano Pezzuto,Atalanta,Genoa,0,0,6,2,8,2,1,3,7,2,14,5,21,7
+1378205,2026-05-03 10:30:00+00:00,Valerio Crezzini,Bologna,Cagliari,0,0,7,2,9,2,1,3,4,2,9,6,13,8
+1378212,2026-05-03 13:00:00+00:00,Fabio Maresca,Sassuolo,AC Milan,2,0,2,3,5,4,6,10,4,1,9,6,13,7
+1378209,2026-05-03 16:00:00+00:00,Giovanni Ayroldi,Juventus,Hellas Verona,1,1,14,1,15,1,4,5,7,3,22,4,29,7
+1378208,2026-05-03 18:45:00+00:00,Kevin Bonacina,Inter,Parma,2,0,8,3,11,1,0,1,5,0,7,4,12,4
+1378207,2026-05-04 16:30:00+00:00,Daniele Chiffi,Cremonese,Lazio,1,2,3,3,6,1,2,3,5,3,8,5,13,8
+1378211,2026-05-04 18:45:00+00:00,Luca Zufferli,AS Roma,Fiorentina,4,0,4,5,9,2,2,4,7,1,7,3,14,4
+1378222,2026-05-08 18:45:00+00:00,Simone Galipò,Torino,Sassuolo,2,1,7,5,12,4,2,6,4,7,14,6,18,13
+1378214,2026-05-09 13:00:00+00:00,Federico Dionisi,Cagliari,Udinese,0,2,8,4,12,1,1,2,5,6,17,3,22,9
+1378217,2026-05-09 16:00:00+00:00,Rosario Abisso,Lazio,Inter,0,3,5,1,6,4,1,5,5,5,4,9,9,14
+1378218,2026-05-09 18:45:00+00:00,Andrea Colombo,Lecce,Juventus,0,1,1,7,8,1,1,2,3,6,5,9,8,15
+1378223,2026-05-10 10:30:00+00:00,Marco Di Bello,Hellas Verona,Como,0,1,7,7,14,1,1,2,3,4,8,7,11,11
+1378215,2026-05-10 13:00:00+00:00,Giovanni Ayroldi,Cremonese,Pisa,3,0,7,1,8,0,8,8,6,0,4,0,10,0
+1378216,2026-05-10 13:00:00+00:00,Luca Massimi,Fiorentina,Genoa,0,0,4,3,7,0,0,0,1,3,12,6,13,9
+1378221,2026-05-10 16:00:00+00:00,Daniele Chiffi,Parma,AS Roma,2,3,3,6,9,6,0,6,3,7,8,8,11,15
+1378219,2026-05-10 18:45:00+00:00,Luca Zufferli,AC Milan,Atalanta,2,3,2,2,4,3,3,6,9,5,11,4,20,9
+1378220,2026-05-11 18:45:00+00:00,Marco Piccinini,Napoli,Bologna,2,3,7,1,8,1,4,5,5,4,9,6,14,10
+1378226,2026-05-17 10:00:00+00:00,Luca Zufferli,Como,Parma,1,0,15,2,17,2,0,2,7,2,16,0,23,2
+1378227,2026-05-17 10:00:00+00:00,Simone Sozza,Genoa,AC Milan,1,2,4,4,8,2,3,5,2,6,9,2,11,8
+1378229,2026-05-17 10:00:00+00:00,Davide Massa,Juventus,Fiorentina,0,2,6,2,8,1,5,6,9,4,17,6,26,10
+1378230,2026-05-17 10:00:00+00:00,Francesco Fourneau,Pisa,Napoli,0,3,1,6,7,2,2,4,2,5,2,5,4,10
+1378231,2026-05-17 10:00:00+00:00,Fabio Maresca,AS Roma,Lazio,2,0,8,3,11,4,5,9,7,2,9,4,16,6
+1378228,2026-05-17 13:00:00+00:00,Andrea Calzavara,Inter,Hellas Verona,1,1,10,2,12,0,2,2,6,5,11,9,17,14
+1378224,2026-05-17 16:00:00+00:00,Daniele Perenzoni,Atalanta,Bologna,0,1,2,5,7,1,1,2,1,5,9,5,10,10
+1378225,2026-05-17 18:45:00+00:00,Alberto Ruben Arena,Cagliari,Torino,2,1,5,1,6,1,1,2,4,3,9,7,13,10
+1378232,2026-05-17 18:45:00+00:00,Federico La Penna,Sassuolo,Lecce,2,3,2,8,10,1,4,5,6,6,9,5,15,11
+1378233,2026-05-17 18:45:00+00:00,Gianluca Manganiello,Udinese,Cremonese,0,1,5,5,10,1,3,4,2,4,8,3,10,7
+1378236,2026-05-22 18:45:00+00:00,Mario Perri,Fiorentina,Atalanta,1,1,3,3,6,0,2,2,4,6,7,15,11,21
+1378234,2026-05-23 16:00:00+00:00,Kevin Bonacina,Bologna,Inter,3,3,1,4,5,0,2,2,3,5,8,6,11,11
+1378237,2026-05-23 18:45:00+00:00,Maria Ferrieri,Lazio,Pisa,2,1,5,1,6,2,1,3,9,2,6,6,15,8
+1378241,2026-05-24 13:00:00+00:00,Niccolò Turrini,Parma,Sassuolo,1,0,1,1,2,2,2,4,3,1,13,5,16,6
+1378240,2026-05-24 16:00:00+00:00,Andrea Zanotti,Napoli,Udinese,1,0,3,3,6,0,5,5,6,3,8,7,14,10
+1378235,2026-05-24 18:45:00+00:00,Fabio Maresca,Cremonese,Como,1,4,2,4,6,10,2,12,1,6,5,9,6,15
+1378238,2026-05-24 18:45:00+00:00,Daniele Doveri,Lecce,Genoa,1,0,1,6,7,2,0,2,4,1,5,7,9,8
+1378239,2026-05-24 18:45:00+00:00,Marco Guida,AC Milan,Cagliari,1,2,5,5,10,2,2,4,3,10,13,15,16,25
+1378242,2026-05-24 18:45:00+00:00,Luca Zufferli,Torino,Juventus,2,2,6,6,12,1,2,3,5,4,7,13,12,17
+1378243,2026-05-24 18:45:00+00:00,Simone Sozza,Hellas Verona,AS Roma,0,2,6,6,12,5,1,6,3,7,5,12,8,19
+1550092,2026-08-22 16:30:00+00:00,Livio Marinelli,Inter,Monza,4,1,3,3,6,2,2,4,5,3,8,4,13,7
+1550095,2026-08-22 16:30:00+00:00,Alberto Ruben Arena,Udinese,Como,1,1,1,10,11,3,0,3,3,6,14,14,17,20
+1550091,2026-08-22 18:45:00+00:00,Marco Di Bello,Genoa,Napoli,0,2,5,5,10,2,1,3,2,4,9,9,11,13
+1550093,2026-08-22 18:45:00+00:00,Daniele Perenzoni,Parma,Cagliari,0,1,3,2,5,0,2,2,2,5,11,9,13,14
+1550090,2026-08-23 16:30:00+00:00,Giovanni Ayroldi,Frosinone,Juventus,0,1,3,12,15,2,2,4,2,5,9,15,11,20
+1550096,2026-08-23 16:30:00+00:00,Antonio Rapuano,Venezia,Lecce,0,2,5,3,8,1,3,4,7,5,12,7,19,12
+1550088,2026-08-23 18:45:00+00:00,Valerio Crezzini,Atalanta,Sassuolo,2,1,4,4,8,0,0,0,7,8,7,14,14,22
+1550094,2026-08-23 18:45:00+00:00,Luca Zufferli,Torino,AC Milan,1,2,2,4,6,0,1,1,1,4,7,15,8,19
+1550089,2026-08-24 16:30:00+00:00,Fabio Maresca,Bologna,Lazio,0,1,8,6,14,4,4,8,5,3,9,7,14,10
+1550087,2026-08-24 18:45:00+00:00,Matteo Marcenaro,AS Roma,Fiorentina,4,0,2,3,5,2,2,4,8,4,9,5,17,9
+1550097,2026-08-28 18:45:00+00:00,Gianluca Manganiello,AC Milan,Venezia,2,0,2,3,5,1,3,4,5,2,11,7,16,9
+1550100,2026-08-29 16:30:00+00:00,Giuseppe Collu,Fiorentina,Frosinone,0,3,8,5,13,3,3,6,4,6,21,6,25,12
+1550104,2026-08-29 16:30:00+00:00,Claudio Giuseppe Allegretta,Monza,Udinese,2,3,3,3,6,1,0,1,5,5,10,7,15,12
+1550106,2026-08-29 16:30:00+00:00,Davide Di Marco,Sassuolo,Torino,2,1,4,3,7,3,1,4,7,4,12,6,19,10
+1550101,2026-08-29 18:45:00+00:00,Francesco Fourneau,Juventus,Parma,2,0,10,2,12,2,3,5,6,3,15,1,21,4
+1550105,2026-08-30 16:30:00+00:00,Luca Pairetto,Napoli,Como,1,2,2,7,9,1,0,1,2,6,11,15,13,21
+1550099,2026-08-30 18:45:00+00:00,Michael Fabbri,Cagliari,Inter,0,1,8,6,14,2,1,3,0,7,10,24,10,31
+1550102,2026-08-30 18:45:00+00:00,Ermanno Feliciani,Lazio,Genoa,1,0,4,2,6,1,2,3,2,1,13,7,15,8
+1550103,2026-08-31 16:30:00+00:00,Daniele Chiffi,Lecce,AS Roma,0,4,2,1,3,1,1,2,3,8,4,7,7,15
+1550098,2026-08-31 18:45:00+00:00,Daniele Doveri,Atalanta,Bologna,1,0,1,2,3,1,0,1,2,3,4,13,6,16
+1550112,2026-09-04 18:45:00+00:00,Marco Guida,Genoa,Como,1,4,5,4,9,2,1,3,2,9,9,11,11,20
+1550110,2026-09-05 13:00:00+00:00,Davide Massa,Fiorentina,Torino,1,2,3,5,8,0,0,0,6,4,8,3,14,7
+1550113,2026-09-05 16:00:00+00:00,Simone Sozza,Inter,Napoli,3,2,10,5,15,1,2,3,8,7,21,9,29,16
+1550107,2026-09-05 18:45:00+00:00,Andrea Colombo,AS Roma,Atalanta,2,1,14,1,15,0,3,3,10,2,29,4,39,6
+1550111,2026-09-06 13:00:00+00:00,Mario Perri,Frosinone,Venezia,3,2,5,2,7,2,4,6,8,4,5,11,13,15
+1550115,2026-09-06 13:00:00+00:00,Federico La Penna,Parma,Monza,1,1,6,3,9,2,2,4,3,5,4,11,7,16
+1550108,2026-09-06 16:00:00+00:00,Marco Di Bello,Bologna,Sassuolo,2,2,10,7,17,3,1,4,5,6,16,9,21,15
+1550114,2026-09-06 18:45:00+00:00,Maurizio Mariani,Juventus,AC Milan,1,1,7,1,8,1,3,4,5,1,9,2,14,3
+1550109,2026-09-07 16:30:00+00:00,Juan Luca Sacchi,Cagliari,Lecce,1,0,7,5,12,1,3,4,9,3,11,7,20,10
+1550116,2026-09-07 18:45:00+00:00,Paride Tremolada,Udinese,Lazio,1,2,2,8,10,5,1,6,6,6,4,13,10,19
+1550126,2026-09-11 18:45:00+00:00,Francesco Fourneau,Venezia,Fiorentina,2,4,2,4,6,2,1,3,3,10,7,9,10,19
+1550119,2026-09-12 13:00:00+00:00,Antonio Rapuano,Genoa,Frosinone,1,1,8,9,17,5,2,7,5,6,12,20,17,26
+1550121,2026-09-12 16:00:00+00:00,Matteo Marcenaro,Lazio,AC Milan,2,2,2,5,7,2,3,5,6,7,2,9,8,16
+1550117,2026-09-12 18:45:00+00:00,Alberto Ruben Arena,Atalanta,Cagliari,1,2,3,2,5,0,0,0,4,5,18,0,22,5
+1550122,2026-09-13 13:00:00+00:00,Valerio Crezzini,Lecce,Monza,3,2,4,6,10,2,0,2,3,11,4,8,7,19
+1550123,2026-09-13 16:00:00+00:00,Kevin Bonacina,Napoli,Bologna,1,0,10,0,10,0,1,1,3,2,11,3,14,5
+1550124,2026-09-13 18:45:00+00:00,Juan Luca Sacchi,Sassuolo,Juventus,3,2,3,10,13,2,2,4,6,8,4,11,10,19
+1550118,2026-09-14 16:30:00+00:00,Giuseppe Mucera,Como,Parma,2,1,11,4,15,1,0,1,7,4,22,8,29,12
+1550125,2026-09-14 16:30:00+00:00,Fabio Maresca,Torino,AS Roma,0,2,1,8,9,0,2,2,3,5,5,9,8,14
+1550120,2026-09-14 18:45:00+00:00,Luca Pairetto,Inter,Udinese,5,3,10,1,11,1,1,2,12,5,15,1,27,6
+1550133,2026-09-18 18:45:00+00:00,Daniele Perenzoni,Monza,Sassuolo,2,1,7,5,12,4,1,5,6,8,9,12,15,20
+1550129,2026-09-19 13:00:00+00:00,Marco Guida,Bologna,Torino,1,1,1,6,7,0,3,3,1,3,10,11,11,14
+1550135,2026-09-19 13:00:00+00:00,Gianluca Manganiello,Udinese,Cagliari,0,1,16,1,17,2,0,2,5,2,21,3,26,5
+1550128,2026-09-19 16:00:00+00:00,Davide Massa,AS Roma,Inter,2,2,4,2,6,3,3,6,4,5,14,11,18,16
+1550136,2026-09-19 18:45:00+00:00,Simone Sozza,Venezia,Lazio,0,2,7,2,9,6,0,6,6,2,11,10,17,12
+1550130,2026-09-20 10:30:00+00:00,Daniele Doveri,Fiorentina,Napoli,1,1,4,5,9,3,0,3,4,5,13,8,17,13
+1550131,2026-09-20 13:00:00+00:00,Daniele Chiffi,Frosinone,Como,2,0,7,8,15,3,2,5,6,8,16,19,22,27
+1550134,2026-09-20 13:00:00+00:00,Maurizio Mariani,Parma,Genoa,2,1,2,5,7,3,3,6,2,5,3,7,5,12
+1550132,2026-09-20 16:00:00+00:00,Luca Zufferli,Juventus,Atalanta,2,0,4,5,9,1,2,3,5,2,9,9,14,11
+1550127,2026-09-20 18:45:00+00:00,Federico La Penna,AC Milan,Lecce,3,0,2,3,5,0,1,1,4,3,6,3,10,6
+1550140,2026-10-10 13:00:00+00:00,Fabio Maresca,Genoa,Fiorentina,2,1,3,4,7,5,3,8,4,3,6,10,10,13
+1550141,2026-10-10 16:00:00+00:00,Kevin Bonacina,Inter,Parma,3,0,3,1,4,0,0,0,6,2,13,7,19,9
+1550144,2026-10-10 18:45:00+00:00,Ermanno Feliciani,Napoli,Frosinone,3,0,6,4,10,2,0,2,8,1,11,16,19,17
+1550139,2026-10-11 10:30:00+00:00,Michael Fabbri,Como,AS Roma,0,0,6,2,8,2,5,7,4,2,15,7,19,9
+1550142,2026-10-11 13:00:00+00:00,Giuseppe Collu,Lazio,Monza,3,1,7,6,13,3,3,6,7,6,10,8,17,14
+1550143,2026-10-11 13:00:00+00:00,Luca Pairetto,Lecce,Bologna,1,2,10,3,13,3,2,5,5,5,14,4,19,9
+1550145,2026-10-11 16:00:00+00:00,Francesco Fourneau,Sassuolo,AC Milan,1,1,3,5,8,2,4,6,4,6,6,5,10,11
+1550138,2026-10-11 18:45:00+00:00,Matteo Marcenaro,Cagliari,Juventus,1,1,1,9,10,2,1,3,2,10,2,12,4,22
+1550137,2026-10-12 16:30:00+00:00,Paride Tremolada,Atalanta,Venezia,3,1,8,7,15,3,2,5,11,4,11,15,22,19
+1550146,2026-10-12 18:45:00+00:00,Valerio Crezzini,Torino,Udinese,2,1,4,3,7,0,1,1,4,1,8,14,12,15
+1550151,2026-10-16 18:45:00+00:00,Matteo Marchetti,Frosinone,Sassuolo,4,2,5,4,9,0,1,1,10,6,11,8,21,14
+1550156,2026-10-17 13:00:00+00:00,Juan Luca Sacchi,Venezia,Napoli,1,0,0,12,12,2,0,2,4,10,5,19,9,29
+1550149,2026-10-17 16:00:00+00:00,Daniele Doveri,Bologna,Inter,1,3,2,6,8,4,3,7,4,8,7,9,11,17
+1550148,2026-10-17 18:45:00+00:00,Rosario Abisso,AS Roma,Genoa,2,0,5,3,8,2,3,5,5,1,10,8,15,9
+1550155,2026-10-18 10:30:00+00:00,Marco Guida,Udinese,Lecce,0,3,1,4,5,1,0,1,2,11,12,6,14,17
+1550150,2026-10-18 13:00:00+00:00,Marco Di Bello,Fiorentina,Como,1,3,11,5,16,2,3,5,7,8,12,8,19,16
+1550147,2026-10-18 16:00:00+00:00,Daniele Chiffi,AC Milan,Atalanta,3,2,2,2,4,1,2,3,6,4,5,8,11,12
+1550152,2026-10-18 18:45:00+00:00,Davide Massa,Juventus,Lazio,0,3,5,7,12,0,2,2,2,3,7,6,9,9
+1550153,2026-10-19 16:30:00+00:00,Andrea Calzavara,Monza,Cagliari,4,0,2,7,9,1,2,3,6,5,8,11,14,16
+1550154,2026-10-19 18:45:00+00:00,Giovanni Ayroldi,Parma,Torino,0,3,6,2,8,3,2,5,8,3,17,6,25,9
+1550165,2026-10-23 18:45:00+00:00,Andrea Zanotti,Torino,Monza,3,2,3,4,7,1,0,1,7,3,10,4,17,7
+1550158,2026-10-24 13:00:00+00:00,Kevin Bonacina,Cagliari,Bologna,0,2,1,6,7,3,1,4,1,5,3,5,4,10
+1550159,2026-10-24 13:00:00+00:00,Davide Di Marco,Como,Sassuolo,2,0,6,4,10,2,2,4,6,1,8,6,14,7
+1550164,2026-10-24 16:00:00+00:00,Andrea Colombo,Napoli,AS Roma,3,3,2,11,13,1,4,5,9,4,6,20,15,24
+1550162,2026-10-24 18:45:00+00:00,Alberto Ruben Arena,Lazio,Parma,2,1,8,3,11,1,1,2,5,4,16,6,21,10
+1550161,2026-10-25 11:30:00+00:00,Maurizio Mariani,Inter,Fiorentina,2,1,6,1,7,0,3,3,11,2,22,5,33,7
+1550157,2026-10-25 14:00:00+00:00,Livio Marinelli,Atalanta,Frosinone,4,4,8,9,17,1,4,5,9,10,13,14,22,24
+1550160,2026-10-25 14:00:00+00:00,Simone Sozza,Genoa,Venezia,1,0,2,10,12,1,0,1,4,5,3,14,7,19
+1550163,2026-10-25 17:00:00+00:00,Fabio Maresca,Lecce,Juventus,0,2,5,3,8,3,0,3,4,2,12,6,16,8
+1550166,2026-10-25 19:45:00+00:00,Matteo Marcenaro,Udinese,AC Milan,0,2,5,4,9,1,2,3,5,7,7,12,12,19
+1550174,2026-10-27 17:30:00+00:00,Luca Zufferli,Sassuolo,Lazio,2,6,2,1,3,3,1,4,1,8,8,8,9,16
+1550168,2026-10-27 19:45:00+00:00,Ermanno Feliciani,AS Roma,Cagliari,4,2,7,8,15,0,1,1,8,8,12,11,20,19
+1550175,2026-10-27 19:45:00+00:00,Giuseppe Collu,Torino,Como,1,3,5,6,11,1,0,1,5,5,6,13,11,18
+1550167,2026-10-28 17:30:00+00:00,Juan Luca Sacchi,AC Milan,Bologna,2,4,2,3,5,0,2,2,3,5,5,4,8,9
+1550173,2026-10-28 17:30:00+00:00,Davide Massa,Parma,Udinese,0,0,3,6,9,1,2,3,2,5,6,15,8,20
+1550176,2026-10-28 17:30:00+00:00,Luca Pairetto,Venezia,Inter,0,2,3,6,9,0,2,2,4,2,8,14,12,16
+1550171,2026-10-28 19:45:00+00:00,Daniele Doveri,Genoa,Juventus,2,0,6,9,15,0,1,1,2,4,12,13,14,17
+1550172,2026-10-28 19:45:00+00:00,Giovanni Ayroldi,Monza,Napoli,1,4,2,2,4,3,0,3,6,7,7,9,13,16
+1550170,2026-10-29 17:30:00+00:00,Rosario Abisso,Frosinone,Lecce,5,1,10,3,13,0,3,3,9,6,17,9,26,15
+1550169,2026-10-29 19:45:00+00:00,Federico La Penna,Fiorentina,Atalanta,2,2,8,2,10,3,2,5,4,5,22,5,26,10
+1550179,2026-10-31 14:00:00+00:00,Andrea Zanotti,Bologna,Monza,2,1,5,2,7,4,3,7,5,4,5,2,10,6
+1550186,2026-10-31 17:00:00+00:00,Fabio Maresca,Udinese,AS Roma,2,5,7,4,11,1,1,2,7,9,8,5,15,14
+1550177,2026-10-31 19:45:00+00:00,Marco Guida,AC Milan,Inter,3,1,3,11,14,2,1,3,4,8,3,11,7,19
+1550180,2026-11-01 11:30:00+00:00,Maria Ferrieri,Como,Venezia,1,0,8,1,9,1,2,3,4,1,15,6,19,7
+1550181,2026-11-01 14:00:00+00:00,Giuseppe Mucera,Frosinone,Torino,2,0,7,7,14,1,3,4,8,3,12,9,20,12
+1550183,2026-11-01 14:00:00+00:00,Andrea Colombo,Lazio,Cagliari,2,1,2,2,4,1,4,5,4,3,7,6,11,9
+1550184,2026-11-01 17:00:00+00:00,Matteo Marchetti,Lecce,Genoa,1,2,6,3,9,2,1,3,7,3,11,10,18,13
+1550182,2026-11-01 19:45:00+00:00,Simone Sozza,Juventus,Napoli,2,0,13,4,17,3,3,6,4,1,14,7,18,8

@@ -1374,3 +1374,9 @@ fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,a
 1552800,2026-10-26 19:30:00+00:00,Jérôme Brisard,Paris Saint Germain,Lyon,2,0,7,4,11,2,1,3,10,5,7,3,17,8
 1552801,2026-10-30 18:00:00+00:00,François Letexier,Le Havre,Paris Saint Germain,1,5,5,3,8,0,0,0,5,10,9,5,14,15
 1552806,2026-10-30 18:00:00+00:00,Éric Wattellier,Nice,Rennes,5,2,4,7,11,4,3,7,8,9,9,9,17,18
+1552802,2026-10-30 20:05:00+00:00,Jérôme Brisard,Lille,Lens,1,0,10,2,12,0,1,1,7,3,9,2,16,5
+1552809,2026-10-31 19:45:00+00:00,Azzedine Souifi,Estac Troyes,Le Mans,2,0,4,2,6,3,4,7,8,1,6,2,14,3
+1552808,2026-11-01 14:00:00+00:00,Guillaume Paradis,Strasbourg,Auxerre,5,1,5,0,5,0,6,6,6,2,13,4,19,6
+1552804,2026-11-01 16:15:00+00:00,Marc Bollengier,Lyon,Angers,2,0,4,3,7,0,1,1,5,2,16,6,21,8
+1552807,2026-11-01 16:15:00+00:00,Jérémy Stinat,Paris FC,Monaco,3,1,3,2,5,2,2,4,10,2,9,7,19,9
+1552805,2026-11-01 19:45:00+00:00,Hakim Ben el Hadj,Marseille,Toulouse,2,0,4,3,7,2,1,3,3,7,10,7,13,14

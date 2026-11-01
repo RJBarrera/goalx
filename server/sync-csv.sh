@@ -4,184 +4,105 @@ echo "=========================================="
 echo "    VERIFICADOR Y SINCRONIZADOR DE CSVs    "
 echo "=========================================="
 
+# Agrega o modifica ligas: nombre|origen|destino
+DATASETS=(
+    "LIGA MX|/app/server/historial_ligamx_2023.csv|/data/historial_ligamx_2023.csv"
+    "LIGA MX FEMENIL|/app/server/data/liga-mx-f/historial_F.csv|/data/liga-mx-f/historial_F.csv"
+    "LA LIGA|/app/server/data/laliga/historial_laliga.csv|/data/laliga/historial_laliga.csv"
+    "LIGUE 1|/app/server/data/ligue-1/historial_ligue1.csv|/data/ligue-1/historial_ligue1.csv"
+    "PREMIER LEAGUE|/app/server/data/premier-league/historial_premier.csv|/data/premier-league/historial_premier.csv"
+    "BUNDESLIGA|/app/server/data/bundesliga/historial_bundesliga.csv|/data/bundesliga/historial_bundesliga.csv"
+    "SERIE A|/app/server/data/serie-a/historial_seriea.csv|/data/serie-a/historial_seriea.csv"
+    "UEFA CHAMPIONS|/app/server/data/champions/historial_champions.csv|/data/champions/historial_champions.csv"
+)
 
-# --- 1. LIGA MX ---
-echo ""
-echo "[ 1 / 6 ] LIGA MX"
-SRC_LIGA="/app/server/historial_ligamx_2023.csv"
-DEST_LIGA="/data/historial_ligamx_2023.csv"
+sync_dataset() {
+    local name="$1"
+    local source="$2"
+    local destination="$3"
+    local response
+    local compare_status
 
-echo -n "  -> Versión App (GitHub): "
-if [ -f "$SRC_LIGA" ]; then
-    wc -l < "$SRC_LIGA" | xargs echo "líneas"
-else
-    echo "No encontrado ($SRC_LIGA)"
-fi
+    echo ""
+    echo "[$current / $total] $name"
 
-echo -n "  -> Versión Railway (/data): "
-if [ -f "$DEST_LIGA" ]; then
-    wc -l < "$DEST_LIGA" | xargs echo "líneas"
-else
-    echo "No existe aún en /data"
-fi
+    if [ ! -f "$source" ]; then
+        echo "  -> ERROR: No se encontró el archivo de origen ($source)"
+        echo "  -> Se omite este archivo; no se intentará copiar."
+        return 1
+    fi
 
-read -p "¿Deseas copiar/homologar el archivo de Liga MX de GitHub a Railway? (s/n): " resp_liga
-if [[ "$resp_liga" =~ ^[sS]$ ]]; then
-    mkdir -p "$(dirname "$DEST_LIGA")"
-    cp "$SRC_LIGA" "$DEST_LIGA"
-    echo "Archivo de Liga MX copiado con éxito."
-else
-    echo "Omitido."
-fi
+    echo "  -> Versión App (GitHub): $(wc -l < "$source") saltos de línea"
 
+    if [ -f "$destination" ]; then
+    echo "  -> Versión Railway (/data): $(wc -l < "$destination") saltos de línea"
+        if cmp -s "$source" "$destination"; then
+            echo "  -> Los archivos son idénticos."
+        else
+        compare_status=$?
+        if [ "$compare_status" -eq 1 ]; then
+            echo "  -> Los archivos tienen diferencias."
+        else
+            echo "  -> ERROR: No se pudieron comparar los archivos."
+            return 1
+        fi
+        fi
+    else
+        echo "  -> No existe aún en /data ($destination)"
+    fi
 
-# --- 2. LIGA MX FEMENIL ---
-echo ""
-echo "[ 2 / 6 ] LIGA MX FEMENIL"
-SRC_FEM="/app/server/data/liga-mx-f/historial_F.csv"
-DEST_FEM="/data/liga-mx-f/historial_F.csv"
+    if ! read -r -p "¿Deseas copiar/homologar $name de GitHub a Railway? (s/n): " response; then
+        echo ""
+        echo "  -> No se recibió respuesta; se omite."
+        return 0
+    fi
 
-echo -n "  -> Versión App (GitHub): "
-if [ -f "$SRC_FEM" ]; then
-    wc -l < "$SRC_FEM" | xargs echo "líneas"
-else
-    echo "No encontrado ($SRC_FEM)"
-fi
+    if [[ ! "$response" =~ ^[sS]$ ]]; then
+        echo "  -> Omitido."
+        return 0
+    fi
 
-echo -n "  -> Versión Railway (/data): "
-if [ -f "$DEST_FEM" ]; then
-    wc -l < "$DEST_FEM" | xargs echo "líneas"
-else
-    echo "No existe aún en /data"
-fi
+    if ! mkdir -p "$(dirname "$destination")"; then
+        echo "  -> ERROR: No se pudo crear el directorio de destino."
+        return 1
+    fi
 
-read -p "¿Deseas copiar/homologar el archivo Femenil de GitHub a Railway? (s/n): " resp_fem
-if [[ "$resp_fem" =~ ^[sS]$ ]]; then
-    mkdir -p "$(dirname "$DEST_FEM")"
-    cp "$SRC_FEM" "$DEST_FEM"
-    echo "Archivo Liga MX Femenil copiado con éxito."
-else
-    echo "Omitido."
-fi
+    if ! cp "$source" "$destination"; then
+        echo "  -> ERROR: No se pudo copiar el archivo."
+        return 1
+    fi
 
+    if cmp -s "$source" "$destination"; then
+        :
+    else
+        compare_status=$?
+        if [ "$compare_status" -eq 1 ]; then
+            echo "  -> ERROR: La verificación posterior a la copia no coincide."
+        else
+            echo "  -> ERROR: No se pudo verificar el archivo copiado."
+        fi
+        return 1
+    fi
 
-# --- 3. LA LIGA ---
-echo ""
-echo "[ 3 / 6 ] LA LIGA"
-SRC_LALIGA="/app/server/data/laliga/historial_laliga.csv"
-DEST_LALIGA="/data/laliga/historial_laliga.csv"
+    echo "  -> Archivo copiado y verificado con éxito."
+}
 
-echo -n "  -> Versión App (GitHub): "
-if [ -f "$SRC_LALIGA" ]; then
-    wc -l < "$SRC_LALIGA" | xargs echo "líneas"
-else
-    echo "No encontrado ($SRC_LALIGA)"
-fi
+total=${#DATASETS[@]}
+failures=0
 
-echo -n "  -> Versión Railway (/data): "
-if [ -f "$DEST_LALIGA" ]; then
-    wc -l < "$DEST_LALIGA" | xargs echo "líneas"
-else
-    echo "No existe aún en /data"
-fi
+for index in "${!DATASETS[@]}"; do
+    IFS='|' read -r name source destination <<< "${DATASETS[$index]}"
+    current=$((index + 1))
 
-read -p "¿Deseas copiar/homologar el archivo La Liga de GitHub a Railway? (s/n): " resp_laliga
-if [[ "$resp_laliga" =~ ^[sS]$ ]]; then
-    mkdir -p "$(dirname "$DEST_LALIGA")"
-    cp "$SRC_LALIGA" "$DEST_LALIGA"
-    echo "Archivo La Liga copiado con éxito."
-else
-    echo "Omitido."
-fi
-
-
-# --- 4. LIGUE 1 ---
-echo ""
-echo "[ 4 / 6 ] LIGUE 1"
-SRC_LIGUE1="/app/server/data/ligue-1/historial_ligue1.csv"
-DEST_LIGUE1="/data/ligue-1/historial_ligue1.csv"
-
-echo -n "  -> Versión App (GitHub): "
-if [ -f "$SRC_LIGUE1" ]; then
-    wc -l < "$SRC_LIGUE1" | xargs echo "líneas"
-else
-    echo "No encontrado ($SRC_LIGUE1)"
-fi
-
-echo -n "  -> Versión Railway (/data): "
-if [ -f "$DEST_LIGUE1" ]; then
-    wc -l < "$DEST_LIGUE1" | xargs echo "líneas"
-else
-    echo "No existe aún en /data"
-fi
-
-read -p "¿Deseas copiar/homologar el archivo Ligue 1 de GitHub a Railway? (s/n): " resp_ligue1
-if [[ "$resp_ligue1" =~ ^[sS]$ ]]; then
-    mkdir -p "$(dirname "$DEST_LIGUE1")"
-    cp "$SRC_LIGUE1" "$DEST_LIGUE1"
-    echo "Archivo Ligue 1 copiado con éxito."
-else
-    echo "Omitido."
-fi
-
-
-# # --- 5. PREMIER LEAGUE ---
-# echo ""
-# echo "[ 5 / 6 ] PREMIER LEAGUE"
-# SRC_PREMIER="/app/server/data/premier-league/historial_premier.csv"
-# DEST_PREMIER="/data/premier-league/historial_premier.csv"
-
-# echo -n "  -> Versión App (GitHub): "
-# if [ -f "$SRC_PREMIER" ]; then
-#     wc -l < "$SRC_PREMIER" | xargs echo "líneas"
-# else
-#     echo "No encontrado ($SRC_PREMIER)"
-# fi
-
-# echo -n "  -> Versión Railway (/data): "
-# if [ -f "$DEST_PREMIER" ]; then
-#     wc -l < "$DEST_PREMIER" | xargs echo "líneas"
-# else
-#     echo "No existe aún en /data"
-# fi
-
-# read -p "¿Deseas copiar/homologar el archivo Premier League de GitHub a Railway? (s/n): " resp_premier
-# if [[ "$resp_premier" =~ ^[sS]$ ]]; then
-#     mkdir -p "$(dirname "$DEST_PREMIER")"
-#     cp "$SRC_PREMIER" "$DEST_PREMIER"
-#     echo "Archivo Premier League copiado con éxito."
-# else
-#     echo "Omitido."
-# fi
-
-# --- 6. UEFA CHAMPIONS ---
-echo ""
-echo "[ 6 / 6 ] UEFA CHAMPIONS"
-SRC_CHAMPIONS="/app/server/data/champions/historial_champions.csv"
-DEST_CHAMPIONS="/data/champions/historial_champions.csv"
-
-echo -n "  -> Versión App (GitHub): "
-if [ -f "$SRC_CHAMPIONS" ]; then
-    wc -l < "$SRC_CHAMPIONS" | xargs echo "líneas"
-else
-    echo "No encontrado ($SRC_CHAMPIONS)"
-fi
-
-echo -n "  -> Versión Railway (/data): "
-if [ -f "$DEST_CHAMPIONS" ]; then
-    wc -l < "$DEST_CHAMPIONS" | xargs echo "líneas"
-else
-    echo "No existe aún en /data"
-fi
-
-read -p "¿Deseas copiar/homologar el archivo UEFA Champions de GitHub a Railway? (s/n): " resp_premier
-if [[ "$resp_premier" =~ ^[sS]$ ]]; then
-    mkdir -p "$(dirname "$DEST_CHAMPIONS")"
-    cp "$SRC_CHAMPIONS" "$DEST_CHAMPIONS"
-    echo "Archivo UEFA Champions copiado con éxito."
-else
-    echo "Omitido."
-fi
+    if ! sync_dataset "$name" "$source" "$destination"; then
+        failures=$((failures + 1))
+    fi
+done
 
 echo ""
-echo "Proceso finalizado."
+if [ "$failures" -gt 0 ]; then
+    echo "Proceso finalizado con $failures error(es)."
+    exit 1
+fi
+
+echo "Proceso finalizado sin errores."
