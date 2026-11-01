@@ -466,6 +466,170 @@
           "assists": 0
         }
       }
+    },
+    "1551023": {
+      "fixture_id": 1551023,
+      "date": "2026-10-31T23:00:00+00:00",
+      "home": "CF Pachuca",
+      "away": "Tigres UANL",
+      "players": {
+        "cf pachuca|salomón rondón": {
+          "name": "Salomón Rondón",
+          "team": "CF Pachuca",
+          "goals": 2,
+          "assists": 0
+        },
+        "cf pachuca|oussama idrissi": {
+          "name": "Oussama Idrissi",
+          "team": "CF Pachuca",
+          "goals": 0,
+          "assists": 2
+        },
+        "cf pachuca|robert nunes": {
+          "name": "Robert Nunes",
+          "team": "CF Pachuca",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1551024": {
+      "fixture_id": 1551024,
+      "date": "2026-11-01T01:07:00+00:00",
+      "home": "Guadalajara Chivas",
+      "away": "Atlante FC",
+      "players": {
+        "guadalajara chivas|santiago sandoval": {
+          "name": "Santiago Sandoval",
+          "team": "Guadalajara Chivas",
+          "goals": 2,
+          "assists": 0
+        },
+        "guadalajara chivas|luis romo": {
+          "name": "Luis Romo",
+          "team": "Guadalajara Chivas",
+          "goals": 0,
+          "assists": 1
+        },
+        "guadalajara chivas|efrain alvarez": {
+          "name": "Efrain Alvarez",
+          "team": "Guadalajara Chivas",
+          "goals": 1,
+          "assists": 1
+        },
+        "atlante fc|martín sarrafiore": {
+          "name": "Martín Sarrafiore",
+          "team": "Atlante FC",
+          "goals": 1,
+          "assists": 0
+        },
+        "guadalajara chivas|omar govea": {
+          "name": "Omar Govea",
+          "team": "Guadalajara Chivas",
+          "goals": 0,
+          "assists": 1
+        },
+        "atlante fc|jhojan julio": {
+          "name": "Jhojan Julio",
+          "team": "Atlante FC",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1551025": {
+      "fixture_id": 1551025,
+      "date": "2026-11-01T01:05:00+00:00",
+      "home": "Monterrey",
+      "away": "Club Tijuana",
+      "players": {
+        "club tijuana|jackson porozo": {
+          "name": "Jackson Porozo",
+          "team": "Club Tijuana",
+          "goals": 1,
+          "assists": 0
+        },
+        "club tijuana|francisco gonzález": {
+          "name": "Francisco González",
+          "team": "Club Tijuana",
+          "goals": 0,
+          "assists": 1
+        },
+        "monterrey|hugo cuypers": {
+          "name": "Hugo Cuypers",
+          "team": "Monterrey",
+          "goals": 2,
+          "assists": 0
+        },
+        "monterrey|ricardo chávez": {
+          "name": "Ricardo Chávez",
+          "team": "Monterrey",
+          "goals": 0,
+          "assists": 1
+        },
+        "club tijuana|adonis preciado": {
+          "name": "Adonis Preciado",
+          "team": "Club Tijuana",
+          "goals": 2,
+          "assists": 0
+        },
+        "club tijuana|rafael fernández": {
+          "name": "Rafael Fernández",
+          "team": "Club Tijuana",
+          "goals": 0,
+          "assists": 1
+        },
+        "monterrey|lucas ocampos": {
+          "name": "Lucas Ocampos",
+          "team": "Monterrey",
+          "goals": 1,
+          "assists": 0
+        },
+        "monterrey|óliver torres": {
+          "name": "Óliver Torres",
+          "team": "Monterrey",
+          "goals": 0,
+          "assists": 1
+        },
+        "club tijuana|josé rivero": {
+          "name": "José Rivero",
+          "team": "Club Tijuana",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1551026": {
+      "fixture_id": 1551026,
+      "date": "2026-11-01T03:10:00+00:00",
+      "home": "Club America",
+      "away": "Toluca",
+      "players": {
+        "toluca|federico viñas": {
+          "name": "Federico Viñas",
+          "team": "Toluca",
+          "goals": 1,
+          "assists": 0
+        },
+        "toluca|hélio júnio nunes de castro": {
+          "name": "Hélio Júnio Nunes de Castro",
+          "team": "Toluca",
+          "goals": 0,
+          "assists": 1
+        },
+        "club america|henry martin": {
+          "name": "Henry Martin",
+          "team": "Club America",
+          "goals": 2,
+          "assists": 0
+        },
+        "toluca|alexis vega": {
+          "name": "Alexis Vega",
+          "team": "Toluca",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
