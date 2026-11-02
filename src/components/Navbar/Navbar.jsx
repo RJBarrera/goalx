@@ -170,11 +170,8 @@ function Navbar() {
               >
                 {sortedCompetitions.map((item) => {
                   const active = item.id === competitionId;
-                  const disabled = [
-                    "bundesliga",
-                    "premier-league",
-                    "serie-a",
-                  ].includes(item.id);
+                  const disabledIds = [""];
+                  const disabled = disabledIds.includes(item.id);
                   const itemLogo = getTeamLogo(item.id);
 
                   return (
@@ -318,7 +315,7 @@ function Navbar() {
           >
             {sortedCompetitions.map((item) => {
               const active = item.id === competitionId;
-              const disabledIds = ["bundesliga", "premier-league", "serie-a"];
+              const disabledIds = [""];
               const disabled = disabledIds.includes(item.id);
               const itemLogo = getTeamLogo(item.id);
 
