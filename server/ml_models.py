@@ -209,12 +209,16 @@ def preparar_features_al_vuelo(df):
     return df_ml
 
 
-def entrenar_xgboost_tarjetas(df_crudo):
+def _features_para_entrenamiento(df, features_prepared):
+    return df if features_prepared else preparar_features_al_vuelo(df)
+
+
+def entrenar_xgboost_tarjetas(df_crudo, *, features_prepared=False):
     """
     Entrena un modelo XGBoost para predecir el total de tarjetas.
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
 
     # Seleccionar las variables predictoras (X) y el objetivo (y)
     X = df_features[FEATURES_MODELO]
@@ -222,7 +226,11 @@ def entrenar_xgboost_tarjetas(df_crudo):
 
     # Entrenar el modelo
     modelo_xgb = xgb.XGBRegressor(
-        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+        objective="reg:squarederror",
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+        n_jobs=1,
     )
 
     modelo_xgb.fit(X, y)
@@ -230,12 +238,12 @@ def entrenar_xgboost_tarjetas(df_crudo):
     return modelo_xgb
 
 
-def entrenar_xgboost_tarjetas_probabilidad(df_crudo):
+def entrenar_xgboost_tarjetas_probabilidad(df_crudo, *, features_prepared=False):
     """
     Entrena un modelo XGBClassifier para predecir la probabilidad de +4.5 tarjetas.
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
 
     # Seleccionar las variables predictoras (X) y el objetivo (y)
     X = df_features[FEATURES_MODELO]
@@ -248,6 +256,7 @@ def entrenar_xgboost_tarjetas_probabilidad(df_crudo):
         learning_rate=0.1,
         max_depth=4,
         eval_metric="logloss",
+        n_jobs=1,
     )
 
     modelo_xgb_clasificador.fit(X, y)
@@ -255,15 +264,15 @@ def entrenar_xgboost_tarjetas_probabilidad(df_crudo):
     return modelo_xgb_clasificador
 
 
-def entrenar_xgboost_marcadores(df_crudo):
+def entrenar_xgboost_marcadores(df_crudo, *, features_prepared=False):
     """
     Entrena un XGBClassifier multiclase para predecir el marcador exacto.
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
 
     # Pasar el marcador en texto
-    df_features["marcador_str"] = (
+    marcador_str = (
         df_features["home_goals"].astype(int).astype(str)
         + "-"
         + df_features["away_goals"].astype(int).astype(str)
@@ -271,7 +280,7 @@ def entrenar_xgboost_marcadores(df_crudo):
 
     # Transforma los marcadores a clases numericas para XGBoost
     le = LabelEncoder()
-    y = le.fit_transform(df_features["marcador_str"])
+    y = le.fit_transform(marcador_str)
 
     # Variables predictoras (ultimos 5 partidos)
     X = df_features[FEATURES_MODELO]
@@ -282,6 +291,7 @@ def entrenar_xgboost_marcadores(df_crudo):
         learning_rate=0.1,
         max_depth=4,
         eval_metric="mlogloss",
+        n_jobs=1,
     )
 
     modelo_xgb_marcadores.fit(X, y)
@@ -290,13 +300,13 @@ def entrenar_xgboost_marcadores(df_crudo):
     return modelo_xgb_marcadores, le
 
 
-def entrenar_xgboost_goles(df_crudo):
+def entrenar_xgboost_goles(df_crudo, *, features_prepared=False):
     """
     Entrena dos modelos XGBRegressor para predecir los goles esperados (xG)
     del equipo local y del equipo visitante.
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
 
     # Variables predictoras
     X = df_features[FEATURES_MODELO]
@@ -304,24 +314,32 @@ def entrenar_xgboost_goles(df_crudo):
     y_away = df_features["away_goals"]
 
     modelo_xgb_goles_home = xgb.XGBRegressor(
-        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+        objective="reg:squarederror",
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+        n_jobs=1,
     )
     modelo_xgb_goles_home.fit(X, y_home)
 
     modelo_xgb_goles_away = xgb.XGBRegressor(
-        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+        objective="reg:squarederror",
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+        n_jobs=1,
     )
     modelo_xgb_goles_away.fit(X, y_away)
 
     return modelo_xgb_goles_home, modelo_xgb_goles_away
 
 
-def entrenar_xgboost_goles_mercados(df_crudo):
+def entrenar_xgboost_goles_mercados(df_crudo, *, features_prepared=False):
     """
     Entrena modelos XGBClassifier para predecir probabilidades de Over/Under y BTTS.
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
 
     X = df_features[FEATURES_MODELO]
 
@@ -338,6 +356,7 @@ def entrenar_xgboost_goles_mercados(df_crudo):
         "learning_rate": 0.1,
         "max_depth": 4,
         "eval_metric": "logloss",
+        "n_jobs": 1,
     }
 
     modelo_ou15 = xgb.XGBClassifier(**clf_params).fit(X, y_ou15)
@@ -347,12 +366,12 @@ def entrenar_xgboost_goles_mercados(df_crudo):
     return modelo_ou15, modelo_ou25, modelo_btts
 
 
-def entrenar_xgboost_corners(df_crudo):
+def entrenar_xgboost_corners(df_crudo, *, features_prepared=False):
     """
     Entrena modelos XGBoost para córners esperados y el mercado Over 9.5
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
     X = df_features[FEATURES_MODELO]
 
     # Objetivos
@@ -361,10 +380,18 @@ def entrenar_xgboost_corners(df_crudo):
     y_ou95 = (df_features["total_corners"] > 9.5).astype(int)
 
     modelo_xgb_corners_home = xgb.XGBRegressor(
-        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+        objective="reg:squarederror",
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+        n_jobs=1,
     ).fit(X, y_home)
     modelo_xgb_corners_away = xgb.XGBRegressor(
-        objective="reg:squarederror", n_estimators=100, learning_rate=0.1, max_depth=4
+        objective="reg:squarederror",
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=4,
+        n_jobs=1,
     ).fit(X, y_away)
 
     modelo_xgb_corners_ou95 = xgb.XGBClassifier(
@@ -373,17 +400,18 @@ def entrenar_xgboost_corners(df_crudo):
         learning_rate=0.1,
         max_depth=4,
         eval_metric="logloss",
+        n_jobs=1,
     ).fit(X, y_ou95)
 
     return modelo_xgb_corners_home, modelo_xgb_corners_away, modelo_xgb_corners_ou95
 
 
-def entrenar_xgboost_corners_mercados(df_crudo):
+def entrenar_xgboost_corners_mercados(df_crudo, *, features_prepared=False):
     """
     Entrena modelos XGBClassifier para las líneas individuales de córners de cada equipo.
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
     X = df_features[FEATURES_MODELO]
 
     # Objetivos binarios para las 4 lineas principales
@@ -397,6 +425,7 @@ def entrenar_xgboost_corners_mercados(df_crudo):
         "n_estimators": 100,
         "learning_rate": 0.1,
         "max_depth": 4,
+        "n_jobs": 1,
     }
 
     mod_h45 = xgb.XGBClassifier(**clf_params).fit(X, y_h45)
@@ -407,12 +436,12 @@ def entrenar_xgboost_corners_mercados(df_crudo):
     return mod_h45, mod_h55, mod_a35, mod_a45
 
 
-def entrenar_xgboost_1x2(df_crudo):
+def entrenar_xgboost_1x2(df_crudo, *, features_prepared=False):
     """
     Entrena modelos XGBoost para 1x2
     """
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
 
     X = df_features[FEATURES_MODELO]
 
@@ -429,15 +458,16 @@ def entrenar_xgboost_1x2(df_crudo):
         n_estimators=100,
         learning_rate=0.1,
         max_depth=4,
+        n_jobs=1,
     ).fit(X, y)
 
     return modelo_1x2
 
 
-def entrenar_xgboost_tiros(df_crudo):
+def entrenar_xgboost_tiros(df_crudo, *, features_prepared=False):
     """Entrena regresores para predecir el valor esperado de Tiros a Puerta (SOT) y Tiros Totales"""
 
-    df_features = preparar_features_al_vuelo(df_crudo)
+    df_features = _features_para_entrenamiento(df_crudo, features_prepared)
     X = df_features[FEATURES_MODELO]
 
     reg_params = {
@@ -445,6 +475,7 @@ def entrenar_xgboost_tiros(df_crudo):
         "n_estimators": 100,
         "learning_rate": 0.1,
         "max_depth": 4,
+        "n_jobs": 1,
     }
 
     modelo_sot_home = xgb.XGBRegressor(**reg_params).fit(X, df_features["home_sont"])

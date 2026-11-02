@@ -7,6 +7,7 @@ import requests
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
+from scipy.special import gammaln
 from scipy.stats import poisson
 from dotenv import load_dotenv
 
@@ -275,7 +276,9 @@ class DixonColesModel:
         a_idx = np.array([team_idx[t] for t in df["away_team"]])
         x = df["home_goals"].values.astype(int)
         y = df["away_goals"].values.astype(int)
+        log_factorials = gammaln(x + 1) + gammaln(y + 1)
         w = weights  # weights es un array de numpy
+        log_probability_floor = np.log(1e-10)
 
         # Mascaras booleanas pre-calculadas para correccion rho
         mask_00 = (x == 0) & (y == 0)
@@ -290,11 +293,10 @@ class DixonColesModel:
             rho = params[2 * n]
 
             # Calculos Matriciales
-            lambd = np.exp(alphas[h_idx] + betas[a_idx] + gamma)
-            mu = np.exp(alphas[a_idx] + betas[h_idx])
-
-            # Poisson base
-            prob_ind = poisson.pmf(x, lambd) * poisson.pmf(y, mu)
+            log_lambda = alphas[h_idx] + betas[a_idx] + gamma
+            log_mu = alphas[a_idx] + betas[h_idx]
+            lambd = np.exp(log_lambda)
+            mu = np.exp(log_mu)
 
             # Ajuste de Correlacion
             tau = np.ones_like(x, dtype=float)
@@ -303,11 +305,20 @@ class DixonColesModel:
             tau[mask_10] = 1 + (mu[mask_10] * rho)
             tau[mask_11] = 1 - rho
 
-            # Evitar logaritmos de cero
-            p = np.maximum(prob_ind * tau, 1e-10)
+            # Evaluar la Poisson en logaritmos evita recalcular pmf y perder
+            # precision numerica durante las evaluaciones del optimizador.
+            log_probability = (
+                x * log_lambda
+                - lambd
+                + y * log_mu
+                - mu
+                - log_factorials
+                + np.log(np.maximum(tau, 1e-300))
+            )
+            log_probability = np.maximum(log_probability, log_probability_floor)
 
             # Suma final ponderada por el decaimiento de tiempo
-            ll = np.sum(w * np.log(p))
+            ll = np.sum(w * log_probability)
 
             return -ll
 

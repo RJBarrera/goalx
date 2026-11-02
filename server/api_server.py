@@ -32,7 +32,7 @@ from competition_config import (
     list_competitions,
 )
 from competition_manager import CompetitionManager
-from live_service import get_quota_status
+from live_service import APIQuotaExceededError, get_quota_status
 from live_intelligence import build_live_intelligence
 from live_ai import answer_live_question
 from prediccion_ligamx import analizar_h2h
@@ -572,6 +572,15 @@ async def dataset_sync_worker():
                             "- nuevos partidos:",
                             result["saved_count"],
                         )
+
+                except APIQuotaExceededError as error:
+                    print(
+                        "⚠️ Dataset Sync",
+                        runtime.competition["name"],
+                        error,
+                        "- se omiten las demás competiciones en este ciclo.",
+                    )
+                    break
 
                 except Exception as error:
                     print(
@@ -1623,6 +1632,12 @@ def sincronizar_dataset(
             "result": result,
             "dataset": runtime.history_service.get_status(),
         }
+
+    except APIQuotaExceededError as error:
+        raise HTTPException(
+            status_code=503,
+            detail=str(error),
+        ) from error
 
     except Exception as error:
         raise HTTPException(

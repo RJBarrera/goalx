@@ -17,6 +17,7 @@ from prediccion_ligamx import (
     SpecialMarketsModel,
 )
 from ml_models import (
+    preparar_features_al_vuelo,
     entrenar_xgboost_tarjetas,
     entrenar_xgboost_tarjetas_probabilidad,
     entrenar_xgboost_marcadores,
@@ -267,10 +268,24 @@ class CompetitionManager:
                 f"{time.time() - started:.2f} segundos."
             )
 
+            print("⚙️ Preparando variables para XGBoost...")
+            started = time.time()
+            df_features = preparar_features_al_vuelo(df)
+            print(
+                "   ✅ Variables preparadas en "
+                f"{time.time() - started:.2f} segundos."
+            )
+
             print("⚙️ Entrenando modelo XGBoost para tarjetas...")
             started = time.time()
-            xgb_model = entrenar_xgboost_tarjetas(df.copy())
-            xgb_clasificador = entrenar_xgboost_tarjetas_probabilidad(df.copy())
+            xgb_model = entrenar_xgboost_tarjetas(
+                df_features,
+                features_prepared=True,
+            )
+            xgb_clasificador = entrenar_xgboost_tarjetas_probabilidad(
+                df_features,
+                features_prepared=True,
+            )
             print(
                 "   ✅ XGBoost de tarjetas preparado en "
                 f"{time.time() - started:.2f} segundos."
@@ -278,35 +293,56 @@ class CompetitionManager:
 
             print("⚙️ Entrenando modelo XGBoost para marcadores...")
             started = time.time()
-            xgb_marcadores, le_marcadores = entrenar_xgboost_marcadores(df.copy())
+            xgb_marcadores, le_marcadores = entrenar_xgboost_marcadores(
+                df_features,
+                features_prepared=True,
+            )
             print(
                 f"   ✅ XGBoost de Marcadores preparado en {time.time() - started:.2f} seg."
             )
 
             print("⚙️ Entrenando modelos XGBoost para goles (xG)...")
             started = time.time()
-            xgb_goles_home, xgb_goles_away = entrenar_xgboost_goles(df.copy())
+            xgb_goles_home, xgb_goles_away = entrenar_xgboost_goles(
+                df_features,
+                features_prepared=True,
+            )
             print(
                 f"   ✅ XGBoost de Goles preparado en {time.time() - started:.2f} seg."
             )
 
             print("⚙️ Entrenando modelos XGBoost para mercados de goles...")
-            xgb_ou15, xgb_ou25, xgb_btts = entrenar_xgboost_goles_mercados(df.copy())
+            started = time.time()
+            xgb_ou15, xgb_ou25, xgb_btts = entrenar_xgboost_goles_mercados(
+                df_features,
+                features_prepared=True,
+            )
             print(
                 f"   ✅ XGBoost para mercados de goles preparado en {time.time() - started:.2f} seg."
             )
 
             print("⚙️ Entrenando modelos XGBoost para Córners...")
-            xgb_corn_h, xgb_corn_a, xgb_corn_ou95 = entrenar_xgboost_corners(df.copy())
+            started = time.time()
+            xgb_corn_h, xgb_corn_a, xgb_corn_ou95 = entrenar_xgboost_corners(
+                df_features,
+                features_prepared=True,
+            )
             xgb_c_h45, xgb_c_h55, xgb_c_a35, xgb_c_a45 = (
-                entrenar_xgboost_corners_mercados(df.copy())
+                entrenar_xgboost_corners_mercados(
+                    df_features,
+                    features_prepared=True,
+                )
             )
             print(
                 f"   ✅ XGBoost para Córners listo en {time.time() - started:.2f} seg."
             )
 
             print("⚙️ Entrenando modelo XGBoost para 1X2...")
-            runtime.state["xgb_1x2"] = entrenar_xgboost_1x2(df.copy())
+            started = time.time()
+            runtime.state["xgb_1x2"] = entrenar_xgboost_1x2(
+                df_features,
+                features_prepared=True,
+            )
             print(
                 f"   ✅ XGBoost para 1X2 preparado en {time.time() - started:.2f} seg."
             )
@@ -314,7 +350,10 @@ class CompetitionManager:
             print("⚙️ Entrenando modelos XGBoost para Tiros (SOT y Totales)...")
             started = time.time()
             xgb_sot_home, xgb_sot_away, xgb_shots_home, xgb_shots_away = (
-                entrenar_xgboost_tiros(df.copy())
+                entrenar_xgboost_tiros(
+                    df_features,
+                    features_prepared=True,
+                )
             )
             print(f"   ✅ XGBoost de Tiros listo en {time.time() - started:.2f} seg.")
 

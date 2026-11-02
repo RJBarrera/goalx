@@ -197,6 +197,7 @@ COMPETITIONS = {
 
 # Aqui se agregan para el buscador y seccion live
 TEAM_EQUIVALENCES = {
+    "Atlante FC": "Atlante",
     "Mazatlán": "Atlante",
     "Mazatlan": "Atlante",
     "Mazatlán FC": "Atlante",
@@ -276,13 +277,21 @@ LALIGA_EQUIVALENCIAS = {
 
 PREMIER_LEAGUE_EQUIVALENCIAS = {}
 
-BUNDESLIGA_EQUIVALENCIAS = {}
-
 # Equipos que pueden aparecer en múltiples competiciones
 EQUIVALENCIAS_GENERALES = {
+    # Ligue 1
     "Paris Saint Germain": "PSG",
     "Paris Saint-Germain": "PSG",
     "Stade Brestois 29": "Brest",
+
+    # Serie A
+    "Roma": "AS Roma",
+    "Como 1907": "Como",
+    "Inter Milan": "Inter",
+    "Napoli": "Napoli",
+
+    # Bundesliga
+    "Bayern Munich": "Bayern München",
 }
 
 # Equivalencias específicas de Ligue 1
@@ -291,13 +300,26 @@ LIGUE1_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
     "Saint Etienne": "Etienne",
 }
 
+BUNDESLIGA_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
+    "1. FC Köln": "FC Köln",
+    "1899 Hoffenheim":"Hoffenheim",
+    "Borussia Monchengladbach": "Borussia Mönchengladbach",
+    "FC Schalke 04": "Schalke 04",
+    "FSV Mainz 05": "Mainz 05",
+    "Hamburger SV":"Hamburger", "SC Freiburg": "Freiburg",
+    "SC Paderborn 07":"Paderborn", "":""
+}
+
+SERIE_A_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
+    "AC Milan": "Milan",
+    "AC Monza": "Monza",
+}
+
+
 # Equivalencias específicas de Champions
 CHAMPIONS_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
-    # "AC Milan": "Milan",
     "AEK Athens FC": "AEK Athens",
-    "Roma": "AS Roma",
     "BSC Young Boys": "Young Boys",
-    "Bayern Munich": "Bayern München",
     "Bodø/Glimt": "Bodo/Glimt",
     "Club Brugge KV": "Club Brugge",
     "FC Basel 1893": "Basel",
@@ -307,7 +329,6 @@ CHAMPIONS_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
     "FK Crvena Zvezda": "Crvena Zvezda",
     "Fenerbahçe": "Fenerbahce",
     "Ferencvarosi TC": "Ferencvaros",
-    "Inter Milan": "Inter",
     "Kairat Almaty": "Kairat",
     "Lask Linz": "LASK",
     "Olympiakos Piraeus": "Olympiacos",
@@ -325,8 +346,8 @@ COMPETITION_EQUIVALENCES = {
     "laliga": LALIGA_EQUIVALENCIAS,
     "ligue-1": LIGUE1_EQUIVALENCIAS,
     # "premier-league": PREMIER_LEAGUE_EQUIVALENCIAS,
-    # "bundesliga": BUNDESLIGA_EQUIVALENCIAS,
-    # "serie-a": SERIE_A_EQUIVALENCIAS,
+    "bundesliga": BUNDESLIGA_EQUIVALENCIAS,
+    "serie-a": SERIE_A_EQUIVALENCIAS,
     "champions": CHAMPIONS_EQUIVALENCIAS,
 }
 
@@ -493,17 +514,19 @@ LIGUE1_INACTIVE_TEAMS = {
 }
 
 PREMIER_LEAGUE_INACTIVE_TEAMS = {
-    "Burnley", "Cardiff City", "Coventry City", "Derby County", 
-    "Huddersfield Town", "Hull City", "Leeds United", "Leicester City", 
-    "Luton Town", "Middlesbrough", "Millwall", "Norwich City", 
-    "Plymouth Argyle", "Preston North End", "Queens Park Rangers", 
-    "Reading", "Sheffield United", "Sheffield Wednesday", "Stoke City", 
-    "Sunderland", "Swansea City", "Watford", "West Bromwich Albion", 
-    "Wigan Athletic", "Birmingham City", "Blackburn Rovers", "Blackpool", 
-    "Bolton Wanderers", "Bristol City", "Charlton Athletic", "Portsmouth", 
-    "Rotherham United", "Wycombe Wanderers"
+    "Burnley", "Leicester", "Luton", "Luton Town", "Sheffield Utd", "Sheffield United",
+    "Southampton", "West Ham", "Wolves"
 }
 
+BUNDESLIGA_INACTIVE_TEAMS = {
+    "1. FC Heidenheim", "FC Heidenheim", "FC St. Pauli", "Fortuna Dusseldorf",
+    "Hertha Berlin", "Holstein Kiel", "SV Darmstadt 98", "Vfl Bochum", "VfL Wolfsburg"
+}
+
+SERIE_A_INACTIVE_TEAMS = {
+    "Cremonese","Empoli","Hellas Verona", "Pisa", "Salernitana", "Sampdoria",
+    "Spezia",
+}
 
 CHAMPIONS_INACTIVE_TEAMS = {
     "AC Milan",
@@ -565,9 +588,9 @@ INACTIVE_TEAMS_BY_COMPETITION = {
     # "liga-mx-f": LIGA_MX_F_INACTIVE_TEAMS,
     "laliga": LALIGA_INACTIVE_TEAMS,
     "ligue-1": LIGUE1_INACTIVE_TEAMS,
-    # "premier-league": PREMIER_LEAGUE_INACTIVE_TEAMS,
-    # "bundesliga": BUNDESLIGA_INACTIVE_TEAMS,
-    # "serie-a": SERIE_A_INACTIVE_TEAMS,
+    "premier-league": PREMIER_LEAGUE_INACTIVE_TEAMS,
+    "bundesliga": BUNDESLIGA_INACTIVE_TEAMS,
+    "serie-a": SERIE_A_INACTIVE_TEAMS,
     "champions": CHAMPIONS_INACTIVE_TEAMS,
 }
 

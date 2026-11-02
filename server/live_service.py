@@ -83,6 +83,11 @@ QUOTA_STATUS = {
     "mode": API_FOOTBALL_MODE,
 }
 
+
+class APIQuotaExceededError(RuntimeError):
+    """La API rechazó la consulta por haber agotado la cuota disponible."""
+
+
 # FINALIZADOS EN ESTA EJECUCIÓN
 _FINISHED_MATCHES = set()
 
@@ -322,7 +327,9 @@ class LiveFootballService:
                     "quota_exhausted": True,
                 }
 
-            raise RuntimeError("La cuota diaria de API-Football " "está agotada.")
+            raise APIQuotaExceededError(
+                "La cuota diaria de API-Football está agotada."
+            )
 
         url = f"{API_BASE_URL}{path}"
 
@@ -378,6 +385,7 @@ class LiveFootballService:
                 if self._is_quota_error(message):
 
                     QUOTA_STATUS["remaining"] = 0
+                    raise APIQuotaExceededError(f"API-Football: {message}")
 
                 raise RuntimeError(f"API-Football: {message}")
 

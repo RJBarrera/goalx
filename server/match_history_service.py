@@ -39,6 +39,21 @@ HISTORY_COLUMNS = [
     "home_cards",
     "away_cards",
     "total_cards",
+    "home_sont",
+    "away_sont",
+    "home_shots_off",
+    "away_shots_off",
+    "home_shots_total",
+    "away_shots_total",
+]
+
+SHOT_COLUMNS = [
+    "home_sont",
+    "away_sont",
+    "home_shots_off",
+    "away_shots_off",
+    "home_shots_total",
+    "away_shots_total",
 ]
 
 # ESTADOS FINALES
@@ -249,19 +264,33 @@ class MatchHistoryService:
         self,
     ):
 
-        df = pd.read_csv(
+        columns = pd.read_csv(
             self.history_path,
-            nrows=1,
-        )
+            nrows=0,
+        ).columns.tolist()
 
-        missing = [column for column in HISTORY_COLUMNS if column not in df.columns]
+        missing = [column for column in HISTORY_COLUMNS if column not in columns]
+        missing_shots = [column for column in missing if column in SHOT_COLUMNS]
+        missing_required = [
+            column for column in missing if column not in SHOT_COLUMNS
+        ]
 
-        if missing:
+        if missing_required:
 
             raise RuntimeError(
                 "El histórico no tiene la estructura "
-                "esperada. Columnas faltantes: " + ", ".join(missing)
+                "esperada. Columnas faltantes: " + ", ".join(missing_required)
             )
+
+        if missing_shots:
+            df = pd.read_csv(self.history_path)
+
+            for column in missing_shots:
+                df[column] = pd.NA
+
+            temp_path = self.history_path.with_suffix(".csv.tmp")
+            df.to_csv(temp_path, index=False)
+            os.replace(temp_path, self.history_path)
 
     # STATE
     def _read_state(
@@ -582,7 +611,7 @@ class MatchHistoryService:
 
         Se contabiliza:
 
-        Yellow Cards + Red Cards
+        Yellow Cards + (Red Cards * 2)
 
         Si tu extractor histórico original aplicaba
         otra regla, esta es la ÚNICA función que
@@ -611,7 +640,8 @@ class MatchHistoryService:
 
             red = 0
 
-        return yellow + red
+        # Cambio: cada roja cuenta doble, igual que en la carga histórica.
+        return yellow + (red * 2)
 
     # CONSTRUIR FILA
     def _build_row(
@@ -659,6 +689,11 @@ class MatchHistoryService:
             "Corner Kicks",
         )
 
+        home_sont = self._stat(detail, "home", "Shots on Goal")
+        away_sont = self._stat(detail, "away", "Shots on Goal")
+        home_shots_total = self._stat(detail, "home", "Total Shots")
+        away_shots_total = self._stat(detail, "away", "Total Shots")
+
         home_cards = self._cards(
             detail,
             "home",
@@ -696,6 +731,18 @@ class MatchHistoryService:
         if away_corners is None:
             missing.append("away_corners")
 
+        if home_sont is None:
+            missing.append("home_sont")
+
+        if away_sont is None:
+            missing.append("away_sont")
+
+        if home_shots_total is None:
+            missing.append("home_shots_total")
+
+        if away_shots_total is None:
+            missing.append("away_shots_total")
+
         if home_cards is None:
             missing.append("home_cards")
 
@@ -712,6 +759,8 @@ class MatchHistoryService:
         # TOTALS
         total_corners = home_corners + away_corners
         total_cards = home_cards + away_cards
+        home_shots_off = home_shots_total - home_sont
+        away_shots_off = away_shots_total - away_sont
         row = {
             "fixture_id": int(fixture_id),
             "date": date,
@@ -726,6 +775,12 @@ class MatchHistoryService:
             "home_cards": home_cards,
             "away_cards": away_cards,
             "total_cards": total_cards,
+            "home_sont": home_sont,
+            "away_sont": away_sont,
+            "home_shots_off": home_shots_off,
+            "away_shots_off": away_shots_off,
+            "home_shots_total": home_shots_total,
+            "away_shots_total": away_shots_total,
         }
 
         return (
