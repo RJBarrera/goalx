@@ -1707,7 +1707,7 @@
 
 .season-highlight-match-meta__chip strong {
   color: #f3f5f7;
-  font-size: 1.65rem;
+  /* font-size: 1rem; */
   font-variant-numeric: tabular-nums;
   line-height: 1.05;
 }
@@ -1788,10 +1788,6 @@
     letter-spacing: 0.04em;
   }
 
-  .season-highlight-match-meta__chip strong {
-    font-size: 1.3rem;
-  }
-
   .season-highlight-match-meta__chip .season-highlight-match-meta__description {
     font-size: 0.55rem;
   }
@@ -1806,5 +1802,99 @@
 @media (prefers-reduced-motion: reduce) {
   .season-highlights__viewport {
     scroll-behavior: auto;
+  }
+}
+
+/* LOGOS GIGANTES DE FONDO EN TODO EL SLIDE */
+
+.season-highlight-slide--match {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.season-highlight-match-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.season-highlight-match-background__logo {
+  position: absolute;
+  top: 50%;
+  width: clamp(180px, 20vw, 320px);
+  height: clamp(180px, 20vw, 320px);
+  object-fit: contain;
+  opacity: 0.1;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.18));
+}
+
+/* Logo local al fondo izquierdo */
+.season-highlight-match-background__logo--home {
+  left: 0px;
+  transform: translateY(-50%) rotate(-10deg);
+}
+
+/* Logo visitante al fondo derecho */
+.season-highlight-match-background__logo--away {
+  right: 0px;
+  transform: translateY(-50%) rotate(10deg);
+}
+
+/* Asegurar que el contenido quede encima */
+.season-highlight-slide--match .season-highlight-slide__content {
+  position: relative;
+  z-index: 2;
+}
+
+.season-highlight-slide--match .season-highlight-scoreboard,
+.season-highlight-slide--match .season-highlight-match-meta {
+  position: relative;
+  z-index: 2;
+}
+
+/* La copa al fondo, pero más tenue para que no compita */
+.season-highlight-slide--match .season-highlight-match-decoration {
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.02);
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .season-highlight-match-background__logo {
+    width: 250px;
+    height: 250px;
+    opacity: 0.09;
+  }
+
+  .season-highlight-match-background__logo--home {
+    left: -40px;
+  }
+
+  .season-highlight-match-background__logo--away {
+    right: -40px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .season-highlight-match-background__logo {
+    width: 115px;
+    height: 115px;
+    opacity: 0.08;
+  }
+
+  .season-highlight-match-background__logo--home {
+    left: 0px;
+    transform: translateY(-50%) rotate(-8deg);
+  }
+
+  .season-highlight-match-background__logo--away {
+    right: 0px;
+    transform: translateY(-50%) rotate(8deg);
   }
 }

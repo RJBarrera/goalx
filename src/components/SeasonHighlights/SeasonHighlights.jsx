@@ -19,82 +19,6 @@ import "./SeasonHighlights.css";
 const API_URL = "";
 const SLIDE_SECONDS = 6;
 
-// Anterior
-// function PlayerSlide({ slide, competitionName }) {
-//   // Hook de traduccion
-//   const { t } = useTranslation();
-//   const player = slide.player || {};
-//   const teamLogo = getTeamLogo(player.team?.name);
-
-//   const initials = String(player.name || "?")
-//     .split(" ")
-//     .filter(Boolean)
-//     .slice(0, 2)
-//     .map((part) => part[0])
-//     .join("")
-//     .toUpperCase();
-
-//   return (
-//     <article className="season-highlight-slide season-highlight-slide--player">
-//       <div className="season-highlight-slide__visual">
-//         <div className="season-highlight-player-fallback">
-//           <span>{initials}</span>
-//         </div>
-
-//         {teamLogo && (
-//           <img
-//             className="season-highlight-team-watermark"
-//             src={teamLogo}
-//             alt=""
-//           />
-//         )}
-//       </div>
-
-//       <div className="season-highlight-slide__content">
-//         <div className="season-highlight-badge">
-//           <FontAwesomeIcon icon={faFire} />
-
-//           {t(`seasonHighlights.badges.${slide.badge}`)}
-//         </div>
-
-//         <span className="season-highlight-kicker">
-//           {t("seasonHighlights.playerSlide.kicker", {
-//             competition: String(
-//               competitionName ||
-//                 t("seasonHighlights.playerSlide.defaultCompetition"),
-//             ).toUpperCase(),
-//           })}
-//         </span>
-
-//         <h2>{player.name}</h2>
-
-//         <div className="season-highlight-team">
-//           {teamLogo && <img src={teamLogo} alt={player.team?.name} />}
-
-//           <span>{player.team?.name}</span>
-//         </div>
-
-//         <div className="season-highlight-player-stats">
-//           <div>
-//             <strong>{player.goals ?? 0}</strong>
-//             <span>{t("seasonHighlights.playerSlide.goals")}</span>
-//           </div>
-
-//           <div>
-//             <strong>{player.assists ?? 0}</strong>
-//             <span>{t("seasonHighlights.playerSlide.assists")}</span>
-//           </div>
-
-//           <div>
-//             <strong>{player.contributions ?? 0}</strong>
-//             <span>{t("seasonHighlights.playerSlide.contributions")}</span>
-//           </div>
-//         </div>
-//       </div>
-//     </article>
-//   );
-// }
-
 function PlayerSlide({ slide, competitionName }) {
   const { t } = useTranslation();
 
@@ -212,10 +136,27 @@ function MatchSlide({ slide, competitionName }) {
 
   return (
     <article className="season-highlight-slide season-highlight-slide--match">
+      <div className="season-highlight-match-background" aria-hidden="true">
+        {homeLogo && (
+          <img
+            className="season-highlight-match-background__logo season-highlight-match-background__logo--home"
+            src={homeLogo}
+            alt=""
+          />
+        )}
+
+        {awayLogo && (
+          <img
+            className="season-highlight-match-background__logo season-highlight-match-background__logo--away"
+            src={awayLogo}
+            alt=""
+          />
+        )}
+      </div>
+
       <div className="season-highlight-slide__content">
         <div className="season-highlight-badge">
           <FontAwesomeIcon icon={faFutbol} />
-
           {t(`seasonHighlights.badges.${slide.badge}`)}
         </div>
 
@@ -228,45 +169,8 @@ function MatchSlide({ slide, competitionName }) {
           })}
         </span>
 
-        {/* Anterior */}
-        {/* <div className="season-highlight-scoreboard">
-          <div className="season-highlight-club">
-            <div className="season-highlight-club__logo">
-              {homeLogo && <img src={homeLogo} alt={match.home?.name} />}
-            </div>
-
-            <strong>{match.home?.name}</strong>
-          </div>
-
-          <div className="season-highlight-score">
-            <span>{match.home?.goals}</span>
-
-            <small>—</small>
-
-            <span>{match.away?.goals}</span>
-          </div>
-
-          <div className="season-highlight-club">
-            <div className="season-highlight-club__logo">
-              {awayLogo && <img src={awayLogo} alt={match.away?.name} />}
-            </div>
-
-            <strong>{match.away?.name}</strong>
-          </div>
-        </div> */}
-
         <div className="season-highlight-scoreboard">
-          {/* EQUIPO LOCAL */}
-          <div className="season-highlight-club season-highlight-club--home">
-            {homeLogo && (
-              <img
-                className="season-highlight-club__bg-logo"
-                src={homeLogo}
-                alt=""
-                aria-hidden="true"
-              />
-            )}
-
+          <div className="season-highlight-club">
             <div className="season-highlight-club__logo">
               {homeLogo ? (
                 <img src={homeLogo} alt={match.home?.name} />
@@ -287,21 +191,14 @@ function MatchSlide({ slide, competitionName }) {
             </div>
 
             <span className="season-highlight-score__label">
-              {t("seasonHighlights.matchSlide.scoreLabel")}
+              {t("seasonHighlights.matchSlide.scoreLabel", {
+                defaultValue: "MARCADOR",
+              })}
             </span>
           </div>
 
           {/* EQUIPO VISITANTE */}
-          <div className="season-highlight-club season-highlight-club--away">
-            {awayLogo && (
-              <img
-                className="season-highlight-club__bg-logo"
-                src={awayLogo}
-                alt=""
-                aria-hidden="true"
-              />
-            )}
-
+          <div className="season-highlight-club">
             <div className="season-highlight-club__logo">
               {awayLogo ? (
                 <img src={awayLogo} alt={match.away?.name} />
@@ -314,84 +211,42 @@ function MatchSlide({ slide, competitionName }) {
           </div>
         </div>
 
-        {/* Anterior */}
-        {/* <div className="season-highlight-match-meta">
-          <FontAwesomeIcon icon={faStar} />
-
-          <strong>
-            {t("seasonHighlights.matchSlide.goals", {
-              count: match.total_goals,
-            })}
-          </strong>
-
-          {match.total_corners !== null &&
-            match.total_corners !== undefined && (
-              <>
-                <span>•</span>
-                <span>
-                  {t("seasonHighlights.matchSlide.corners", {
-                    count: match.total_corners,
-                  })}
-                </span>
-              </>
-            )}
-
-          {match.total_cards !== null && match.total_cards !== undefined && (
-            <>
-              <span>•</span>
-              <span>
-                {t("seasonHighlights.matchSlide.cards", {
-                  count: match.total_cards,
-                })}
-              </span>
-            </>
-          )}
-        </div> */}
-
         <div className="season-highlight-match-meta">
-          {/* GOLES */}
           <div className="season-highlight-match-meta__chip">
-            <span className="season-highlight-match-meta__heading">
-              <FontAwesomeIcon icon={faFutbol} />
-              <span className="season-highlight-match-meta__label">
-                {t("seasonHighlights.matchSlide.goalsLabel")}
-              </span>
-            </span>
-            <strong>{match.total_goals ?? "—"}</strong>
+            <FontAwesomeIcon icon={faFutbol} />
+            <strong>
+              {t("seasonHighlights.matchSlide.goals", {
+                count: match.total_goals,
+              })}
+            </strong>
             <span className="season-highlight-match-meta__description">
               {t("seasonHighlights.matchSlide.matchTotal")}
             </span>
           </div>
 
-          {/* CORNERS */}
           {match.total_corners !== null &&
             match.total_corners !== undefined && (
               <div className="season-highlight-match-meta__chip">
-                <span className="season-highlight-match-meta__heading">
-                  <FontAwesomeIcon icon={faStar} />
-                  <span className="season-highlight-match-meta__label">
-                    {t("seasonHighlights.matchSlide.cornersLabel")}
-                  </span>
+                <FontAwesomeIcon icon={faStar} />
+                <span>
+                  {t("seasonHighlights.matchSlide.corners", {
+                    count: match.total_corners,
+                  })}
                 </span>
-                <strong>{match.total_corners}</strong>
                 <span className="season-highlight-match-meta__description">
                   {t("seasonHighlights.matchSlide.matchTotal")}
                 </span>
               </div>
             )}
 
-          {/* TARJETAS */}
           {match.total_cards !== null && match.total_cards !== undefined && (
             <div className="season-highlight-match-meta__chip">
-              <span className="season-highlight-match-meta__heading">
-                <span className="season-highlight-match-meta__card-icon">
-                  ▣
-                </span>
-                <span className="season-highlight-match-meta__label">
-                  {t("seasonHighlights.matchSlide.cardsLabel")}
-                </span>
+              <span className="season-highlight-match-meta__card-icon">▣</span>
+              <span>
+                {t("seasonHighlights.matchSlide.cards", {
+                  count: match.total_cards,
+                })}
               </span>
-              <strong>{match.total_cards}</strong>
               <span className="season-highlight-match-meta__description">
                 {t("seasonHighlights.matchSlide.matchTotal")}
               </span>
