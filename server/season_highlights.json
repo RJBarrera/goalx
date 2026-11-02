@@ -630,6 +630,45 @@
           "assists": 0
         }
       }
+    },
+    "1551027": {
+      "fixture_id": 1551027,
+      "date": "2026-11-01T23:00:00+00:00",
+      "home": "Santos Laguna",
+      "away": "Necaxa",
+      "players": {}
+    },
+    "1551028": {
+      "fixture_id": 1551028,
+      "date": "2026-11-02T01:10:00+00:00",
+      "home": "Cruz Azul",
+      "away": "Leon",
+      "players": {
+        "cruz azul|andrés montaño": {
+          "name": "Andrés Montaño",
+          "team": "Cruz Azul",
+          "goals": 1,
+          "assists": 0
+        },
+        "cruz azul|josé paradela": {
+          "name": "José Paradela",
+          "team": "Cruz Azul",
+          "goals": 1,
+          "assists": 0
+        },
+        "cruz azul|nicolás ibañez": {
+          "name": "Nicolás Ibañez",
+          "team": "Cruz Azul",
+          "goals": 0,
+          "assists": 1
+        },
+        "leon|jose alvarado": {
+          "name": "Jose Alvarado",
+          "team": "Leon",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
