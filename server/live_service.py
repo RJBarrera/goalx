@@ -47,6 +47,14 @@ API_FOOTBALL_MODE = os.getenv(
     "FREE",
 ).upper()
 
+# Control manual para el marcador de goles
+# False: no consultaremos la API-Football desde el Live Center
+# Con esto no afectamos las consultas del autoguardado
+LIVE_OVERLAY_ENABLED = os.getenv(
+    "API_FOOTBALL_LIVE_OVERLAY_ENABLED",
+    "false",
+).strip().lower() in {"true", "1", "yes", "on"}
+
 
 # aproximadamente 1 consulta cada 90 s.
 OVERLAY_CACHE_SECONDS = int(
@@ -327,9 +335,7 @@ class LiveFootballService:
                     "quota_exhausted": True,
                 }
 
-            raise APIQuotaExceededError(
-                "La cuota diaria de API-Football está agotada."
-            )
+            raise APIQuotaExceededError("La cuota diaria de API-Football está agotada.")
 
         url = f"{API_BASE_URL}{path}"
 
@@ -633,7 +639,10 @@ class LiveFootballService:
                 )
             ]
 
-        overlay_active = len(candidates) > 0
+        # overlay_active = len(candidates) > 0
+
+        # Solamente se activara el overlay si esta habilitado
+        overlay_active = LIVE_OVERLAY_ENABLED and len(candidates) > 0
         overlay_error = None
         stale = False
         api_called = False
@@ -725,17 +734,25 @@ class LiveFootballService:
         return {
             "matches": matches,
             "count": len(matches),
+            # EL calendario de los partidos la obtiene la api TheSportsDB
             "schedule_provider": "thesportsdb",
-            "live_provider": ("api-football" if self.has_api_football() else None),
+            # API-Football desactivada para marcadores
+            "live_provider": (
+                "api-football"
+                if LIVE_OVERLAY_ENABLED and self.has_api_football()
+                else None
+            ),
             "overlay_active": overlay_active,
-            "overlay_available": self.has_api_football(),
+            "overlay_available": (LIVE_OVERLAY_ENABLED and self.has_api_football()),
             "overlay_stale": stale,
             "overlay_error": overlay_error,
             "api_called": api_called,
-            "quota": get_quota_status(),
-            # El cache evita consumir proveedor.
+            "quota": (get_quota_status() if LIVE_OVERLAY_ENABLED else None),
+            # Actualización del calendario cada 5 minutos
             "ui_refresh_seconds": (
-                300 if scope == "next" else (20 if overlay_active else 60)
+                300
+                if not LIVE_OVERLAY_ENABLED
+                else (300 if scope == "next" else (20 if overlay_active else 60))
             ),
             "provider_refresh_seconds": (
                 OVERLAY_CACHE_SECONDS if overlay_active else 300

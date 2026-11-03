@@ -1,8 +1,6 @@
 import axios from "axios";
-
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useTranslation } from "react-i18next";
 import {
   CartesianGrid,
@@ -16,22 +14,17 @@ import {
 
 import { useCompetition } from "../../context/CompetitionContext";
 import { getTeamLogo } from "../../utils/teamLogos";
-
 import "./LiveCenter.css";
 
 const API_URL = "";
-
-const NORMAL_REFRESH_SECONDS = 60;
-
+const NORMAL_REFRESH_SECONDS = 300;
 const LIVE_UI_REFRESH_SECONDS = 20;
-
 const DETAIL_REFRESH_SECONDS = 90;
 
 // UTILIDADES
 
 const number = (value, fallback = 0) => {
   const n = Number(value);
-
   return Number.isFinite(n) ? n : fallback;
 };
 
@@ -110,9 +103,7 @@ const streamMatchesMatch = (stream, match) => {
 // STATUS
 function LiveStatus({ match }) {
   const status = match?.status?.short;
-
   const minute = match?.status?.elapsed;
-
   const live =
     match?.live_verified ||
     ["1H", "HT", "2H", "ET", "BT", "P", "INT", "SUSP", "LIVE"].includes(status);
@@ -121,7 +112,6 @@ function LiveStatus({ match }) {
     return (
       <span className="live-status live-status--active">
         <span />
-
         {status === "HT" ? "DESCANSO" : minute ? `${minute}'` : "EN VIVO"}
       </span>
     );
@@ -149,7 +139,6 @@ function LiveStatus({ match }) {
 // ESCUDO
 function TeamBadge({ team }) {
   const localLogo = getTeamLogo(team?.name);
-
   const logo = localLogo || team?.logo;
 
   return (
@@ -185,47 +174,39 @@ function LiveMatchCard({
     <article
       className={[
         "live-match-card",
-
         selected ? "live-match-card--selected" : "",
-
         live ? "live-match-card--live" : "",
-
         finished ? "live-match-card--finished" : "",
       ].join(" ")}
       onClick={onClick}
     >
       <div className="live-match-card__top">
         <LiveStatus match={match} />
-
         <span>{match.league?.round}</span>
       </div>
 
       <div className="live-match-card__team">
         <TeamBadge team={match.home} />
-
         <strong>{match.home?.name}</strong>
 
-        <b className={live ? "live-score-number" : ""}>
+        {/* <b className={live ? "live-score-number" : ""}>
           {match.home?.goals ?? "-"}
-        </b>
+        </b> */}
       </div>
 
       <div className="live-match-card__team">
         <TeamBadge team={match.away} />
-
         <strong>{match.away?.name}</strong>
 
-        <b className={live ? "live-score-number" : ""}>
+        {/* <b className={live ? "live-score-number" : ""}>
           {match.away?.goals ?? "-"}
-        </b>
+        </b> */}
       </div>
 
       {live && (
         <div className="live-match-card__live-strip">
           <span />
-
           <strong>LIVE DATA</strong>
-
           <small>API-Football</small>
         </div>
       )}
@@ -237,25 +218,6 @@ function LiveMatchCard({
           {match.venue?.name || competitionName || "Competición"}
         </span>
       </div>
-
-      {/* ::::: Se comenta temporalmente ::::: */}
-
-      {/* {stream && !finished && (
-        <button
-          type="button"
-          className="live-match-card__watch"
-          onClick={(event) => {
-            event.stopPropagation();
-            onWatch?.();
-          }}
-        >
-          <span>{live ? "●" : "▶"}</span>
-          Ver aquí
-          <small>
-            {stream.source_count} fuente{stream.source_count === 1 ? "" : "s"}
-          </small>
-        </button>
-      )} */}
     </article>
   );
 }
@@ -263,20 +225,15 @@ function LiveMatchCard({
 // STAT
 function LiveStatRow({ label, home, away, suffix = "" }) {
   const homeValue = number(home);
-
   const awayValue = number(away);
-
   const total = homeValue + awayValue;
-
   const homeWidth = total > 0 ? (homeValue / total) * 100 : 50;
 
   return (
     <div className="live-stat-row">
       <div className="live-stat-row__values">
         <strong>{formatStat(home, suffix)}</strong>
-
         <span>{label}</span>
-
         <strong>{formatStat(away, suffix)}</strong>
       </div>
 
@@ -326,24 +283,16 @@ const getEventIcon = (event) => {
 function LiveCenter({ onSeleccionarPartido }) {
   // Hook de traduccion
   const { t } = useTranslation();
-
   const navigate = useNavigate();
   const { competition, competitionId } = useCompetition();
-
   const [scope, setScope] = useState("live");
-
   const [matches, setMatches] = useState([]);
-
   const [streams, setStreams] = useState([]);
-
   const [selectedFixture, setSelectedFixture] = useState(null);
-
   // Partido seleccionado desde TheSportsDB
   const [selectedScheduleMatch, setSelectedScheduleMatch] = useState(null);
-
   // Resolviendo ID entre proveedores
   const [resolvingFixture, setResolvingFixture] = useState(false);
-
   const [liveMeta, setLiveMeta] = useState({
     overlayActive: false,
     overlayAvailable: false,
@@ -353,24 +302,15 @@ function LiveCenter({ onSeleccionarPartido }) {
   });
 
   const [detail, setDetail] = useState(null);
-
   const [loadingMatches, setLoadingMatches] = useState(true);
-
   const [loadingDetail, setLoadingDetail] = useState(false);
-
   const [error, setError] = useState("");
-
   const [countdown, setCountdown] = useState(NORMAL_REFRESH_SECONDS);
-
   const [lastUpdated, setLastUpdated] = useState(null);
-
   // AI
   const [aiQuestion, setAiQuestion] = useState("");
-
   const [aiMessages, setAiMessages] = useState([]);
-
   const [aiLoading, setAiLoading] = useState(false);
-
   // Transmisiones configuradas en GoalPicks
   const loadStreams = useCallback(async () => {
     try {
@@ -415,23 +355,16 @@ function LiveCenter({ onSeleccionarPartido }) {
         }
 
         const nextMatches = Array.isArray(data.matches) ? data.matches : [];
-
         setMatches(nextMatches);
-
         setLiveMeta({
           overlayActive: Boolean(data.overlay_active),
-
           overlayAvailable: Boolean(data.overlay_available),
-
           stale: Boolean(data.overlay_stale),
-
           quota: data.quota || null,
-
           providerRefreshSeconds: data.provider_refresh_seconds || 300,
         });
 
         setCountdown(data.ui_refresh_seconds || NORMAL_REFRESH_SECONDS);
-
         setLastUpdated(new Date());
 
         setError("");
@@ -451,12 +384,6 @@ function LiveCenter({ onSeleccionarPartido }) {
     [scope, competitionId],
   );
 
-  // SELECCIONAR PARTIDO
-  // TheSportsDB
-  //      ↓
-  // resolver
-  //      ↓
-  // API-Football fixture_id
   // const seleccionarPartido = async (match) => {
   //   if (!match || resolvingFixture) {
   //     return;
@@ -470,32 +397,30 @@ function LiveCenter({ onSeleccionarPartido }) {
 
   //   setError("");
 
-  //   // YA TENEMOS FIXTURE ID
+  //   onSeleccionarPartido?.({
+  //     home: match.home?.name || "",
+  //     away: match.away?.name || "",
+  //   });
+
+  //   if (scope === "today" || scope === "upcoming" || scope === "next") {
+  //     return;
+  //   }
+
   //   if (match.fixture_id) {
   //     setSelectedFixture(match.fixture_id);
 
   //     return;
   //   }
 
-  //   // SI TODAVÍA NO TENEMOS FIXTURE ID
-  //   // resolver bajo demanda.
   //   setResolvingFixture(true);
 
   //   try {
-  //     const { data } = await axios.post(
-  //       `${API_URL}/api/live/resolve`,
-
-  //       {
-  //         competition: competitionId,
-  //         event_id: match.sportsdb_event_id,
-
-  //         date: match.date_local,
-
-  //         home: match.home?.name,
-
-  //         away: match.away?.name,
-  //       },
-  //     );
+  //     const { data } = await axios.post(`${API_URL}/api/live/resolve`, {
+  //       event_id: match.sportsdb_event_id,
+  //       date: match.date_local,
+  //       home: match.home?.name,
+  //       away: match.away?.name,
+  //     });
 
   //     if (!data?.success || !data?.fixture_id) {
   //       throw new Error("No fue posible identificar el fixture.");
@@ -514,59 +439,28 @@ function LiveCenter({ onSeleccionarPartido }) {
   //   }
   // };
 
-  const seleccionarPartido = async (match) => {
-    if (!match || resolvingFixture) {
+  const seleccionarPartido = (match) => {
+    if (!match) {
       return;
     }
 
+    // Seleccionar partido desde TheSportsDB
     setSelectedScheduleMatch(match);
 
+    // No activar seguimiento con API-Football
+    setSelectedFixture(null);
+    setDetail(null);
+    setResolvingFixture(false);
+
     setAiMessages([]);
-
     setAiQuestion("");
-
     setError("");
 
+    // Mantener integración con las predicciones
     onSeleccionarPartido?.({
       home: match.home?.name || "",
       away: match.away?.name || "",
     });
-
-    if (scope === "today" || scope === "upcoming" || scope === "next") {
-      return;
-    }
-
-    if (match.fixture_id) {
-      setSelectedFixture(match.fixture_id);
-
-      return;
-    }
-
-    setResolvingFixture(true);
-
-    try {
-      const { data } = await axios.post(`${API_URL}/api/live/resolve`, {
-        event_id: match.sportsdb_event_id,
-        date: match.date_local,
-        home: match.home?.name,
-        away: match.away?.name,
-      });
-
-      if (!data?.success || !data?.fixture_id) {
-        throw new Error("No fue posible identificar el fixture.");
-      }
-
-      setSelectedFixture(data.fixture_id);
-    } catch (requestError) {
-      console.error(requestError);
-
-      setError(
-        requestError?.response?.data?.detail ||
-          "Live Intelligence todavía no está disponible para este partido.",
-      );
-    } finally {
-      setResolvingFixture(false);
-    }
   };
 
   // DETALLE
@@ -590,9 +484,7 @@ function LiveCenter({ onSeleccionarPartido }) {
         }
 
         setDetail(data.data);
-
         const liveDetail = data.data;
-
         setMatches((current) =>
           current.map((match) => {
             if (
@@ -604,22 +496,16 @@ function LiveCenter({ onSeleccionarPartido }) {
 
             return {
               ...match,
-
               live_verified: ["1H", "HT", "2H", "ET", "BT", "P"].includes(
                 liveDetail?.status?.short,
               ),
-
               status: liveDetail.status,
-
               home: {
                 ...match.home,
-
                 goals: liveDetail?.home?.goals,
               },
-
               away: {
                 ...match.away,
-
                 goals: liveDetail?.away?.goals,
               },
             };
@@ -659,30 +545,52 @@ function LiveCenter({ onSeleccionarPartido }) {
     loadStreams();
   }, [loadStreams]);
 
-  // TheSportsDB
-  // 1 request cada 5 minutos
-  // Y SE DETIENE cuando estamos viendo un partido.
-  useEffect(() => {
-    loadMatches();
+  // ELIMINAR SI FUNCIONA
+  // // TheSportsDB
+  // // 1 request cada 5 minutos
+  // // Y SE DETIENE cuando estamos viendo un partido.
+  // useEffect(() => {
+  //   loadMatches();
 
-    if (selectedFixture) {
+  //   if (selectedFixture) {
+  //     return undefined;
+  //   }
+
+  //   const intervalSeconds = liveMeta.overlayActive
+  //     ? LIVE_UI_REFRESH_SECONDS
+  //     : NORMAL_REFRESH_SECONDS;
+
+  //   const interval = window.setInterval(
+  //     () => {
+  //       loadMatches(true);
+  //     },
+
+  //     intervalSeconds * 1000,
+  //   );
+
+  //   return () => window.clearInterval(interval);
+  // }, [loadMatches, selectedFixture, liveMeta.overlayActive]);
+
+  // Calendario TheSportsDB
+  // Actualización automática cada 5 minutos
+
+  useEffect(() => {
+    if (!competitionId) {
       return undefined;
     }
 
-    const intervalSeconds = liveMeta.overlayActive
-      ? LIVE_UI_REFRESH_SECONDS
-      : NORMAL_REFRESH_SECONDS;
+    // Consulta inicial
+    loadMatches();
 
-    const interval = window.setInterval(
-      () => {
-        loadMatches(true);
-      },
+    // Actualizaciones posteriores
+    const interval = window.setInterval(() => {
+      loadMatches(true);
+    }, NORMAL_REFRESH_SECONDS * 1000);
 
-      intervalSeconds * 1000,
-    );
-
-    return () => window.clearInterval(interval);
-  }, [loadMatches, selectedFixture, liveMeta.overlayActive]);
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [loadMatches, competitionId]);
 
   // API-Football
   // 1 request / minuto
@@ -704,41 +612,50 @@ function LiveCenter({ onSeleccionarPartido }) {
     return () => window.clearInterval(interval);
   }, [selectedFixture, loadDetail]);
 
-  // COUNTDOWN
+  // ELIMINAR SI FUNCIONA
+  // // COUNTDOWN
+  // useEffect(() => {
+  //   const timer = window.setInterval(
+  //     () => {
+  //       setCountdown((current) => {
+  //         if (current <= 1) {
+  //           return selectedFixture
+  //             ? LIVE_UI_REFRESH_SECONDS
+  //             : NORMAL_REFRESH_SECONDS;
+  //         }
+
+  //         return current - 1;
+  //       });
+  //     },
+
+  //     1000,
+  //   );
+
+  //   return () => window.clearInterval(timer);
+  // }, [selectedFixture]);
+
+  // Contador visual de actualización
+
   useEffect(() => {
-    const timer = window.setInterval(
-      () => {
-        setCountdown((current) => {
-          if (current <= 1) {
-            return selectedFixture
-              ? LIVE_UI_REFRESH_SECONDS
-              : NORMAL_REFRESH_SECONDS;
-          }
+    const timer = window.setInterval(() => {
+      setCountdown((current) =>
+        current <= 1 ? NORMAL_REFRESH_SECONDS : current - 1,
+      );
+    }, 1000);
 
-          return current - 1;
-        });
-      },
-
-      1000,
-    );
-
-    return () => window.clearInterval(timer);
-  }, [selectedFixture]);
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, []);
 
   // CAMBIAR SCOPE
   const changeScope = (nextScope) => {
     setScope(nextScope);
-
     setSelectedFixture(null);
-
     setSelectedScheduleMatch(null);
-
     setDetail(null);
-
     setAiMessages([]);
-
     setAiQuestion("");
-
     setError("");
   };
 
@@ -757,7 +674,6 @@ function LiveCenter({ onSeleccionarPartido }) {
   };
 
   const shift = intelligence?.probability_shift;
-
   const signals = intelligence?.signals || [];
 
   // AI
@@ -772,13 +688,11 @@ function LiveCenter({ onSeleccionarPartido }) {
       ...current,
       {
         role: "user",
-
         content: question,
       },
     ]);
 
     setAiQuestion("");
-
     setAiLoading(true);
 
     try {
@@ -800,9 +714,7 @@ function LiveCenter({ onSeleccionarPartido }) {
         ...current,
         {
           role: "assistant",
-
           content: data.answer,
-
           provider: data.provider,
         },
       ]);
@@ -811,11 +723,9 @@ function LiveCenter({ onSeleccionarPartido }) {
         ...current,
         {
           role: "assistant",
-
           content:
             requestError?.response?.data?.detail ||
             "MatchLab AI no está disponible en este momento.",
-
           error: true,
         },
       ]);
@@ -850,7 +760,6 @@ function LiveCenter({ onSeleccionarPartido }) {
 
     if (scope === "next") {
       const round = matches?.[0]?.league?.round;
-
       return round
         ? t("liveCenter.sectionTitles.nextWithRound", { round })
         : competition?.next_scope_label ||
@@ -990,10 +899,8 @@ function LiveCenter({ onSeleccionarPartido }) {
           <div className="live-provider-strip">
             <div>
               <span className="live-provider-strip__dot live-provider-strip__dot--schedule" />
-
               <div>
                 <strong>{t("liveCenter.sportsDB.title")}</strong>
-
                 <small>
                   {t("liveCenter.sportsDB.calendar")}{" "}
                   {competition?.name || t("liveCenter.common.competition")}
@@ -1002,27 +909,21 @@ function LiveCenter({ onSeleccionarPartido }) {
             </div>
 
             <span className="live-provider-strip__connector">→</span>
-
             <div>
               <span className="live-provider-strip__dot live-provider-strip__dot--live" />
-
               <div>
                 <strong className="live-cuota-apifot">
                   {t("liveCenter.apiFootball.title")}
                 </strong>
-
                 <small>{t("liveCenter.apiFootball.liveOnDemand")}</small>
               </div>
             </div>
 
             <span className="live-provider-strip__connector">→</span>
-
             <div>
               <span className="live-provider-strip__dot live-provider-strip__dot--ai" />
-
               <div>
                 <strong>{t("liveCenter.matchLab.title")}</strong>
-
                 <small>{t("liveCenter.matchLab.model")}</small>
               </div>
             </div>
@@ -1036,10 +937,8 @@ function LiveCenter({ onSeleccionarPartido }) {
             >
               <div className="live-quota__status">
                 <span />
-
                 <div>
                   <strong>{t("liveCenter.apiFootball.title")}</strong>
-
                   <small>{t("liveCenter.liveOverlay")}</small>
                 </div>
               </div>
@@ -1052,7 +951,6 @@ function LiveCenter({ onSeleccionarPartido }) {
                       {" / "}
                       {liveMeta.quota.limit}
                     </strong>
-
                     <small>{t("liveCenter.availableRequests")}</small>
                   </>
                 )}
@@ -1064,7 +962,6 @@ function LiveCenter({ onSeleccionarPartido }) {
           {error && (
             <div className="live-error">
               <strong>{t("liveCenter.liveCenter")}</strong>
-
               <span>{error}</span>
             </div>
           )}
@@ -1080,10 +977,8 @@ function LiveCenter({ onSeleccionarPartido }) {
                       t("liveCenter.common.defaultCompetition"),
                   })}
                 </span>
-
                 <h3>{sectionTitle}</h3>
               </div>
-
               <small>
                 {t("liveCenter.matches.matchesCount", {
                   count: matches.length,
@@ -1141,14 +1036,10 @@ function LiveCenter({ onSeleccionarPartido }) {
                   <span />
                   <span />
                   <span />
-
                   <strong>{emptyState.badge}</strong>
                 </div>
-
                 <h3>{emptyState.title}</h3>
-
                 <p>{emptyState.description}</p>
-
                 {scope === "live" && (
                   <button type="button" onClick={() => changeScope("today")}>
                     {t("liveCenter.matches.viewTodayMatches")}
@@ -1162,17 +1053,12 @@ function LiveCenter({ onSeleccionarPartido }) {
             <div className="live-resolving">
               <div className="live-resolving__radar">
                 <span />
-
                 <span />
-
                 <strong>{t("liveCenter.matches.live")}</strong>
               </div>
-
               <div>
                 <span>{t("liveCenter.matchLab.live")}</span>
-
                 <h3>{t("liveCenter.matchLab.activatingLiveIntelligence")}</h3>
-
                 <p>{t("liveCenter.matches.linkingMatchWithProvider")}</p>
               </div>
             </div>
@@ -1192,10 +1078,8 @@ function LiveCenter({ onSeleccionarPartido }) {
                     <section className="live-scoreboard">
                       <div className="live-scoreboard__top">
                         <span>{t("liveCenter.scoreboard.titleLive")}</span>
-
                         <div>
                           <span className="live-toolbar__live-dot" />
-
                           {detail.status?.short === "HT" ? (
                             <span className="uppercase">
                               {t("liveCenter.scoreboard.halfTime")}
@@ -1209,7 +1093,6 @@ function LiveCenter({ onSeleccionarPartido }) {
                       <div className="live-scoreboard__main">
                         <div className="live-score-team">
                           <span>{t("liveCenter.scoreboard.home")}</span>
-
                           <div className="live-score-team__logo">
                             {homeLogo && (
                               <img src={homeLogo} alt={detail.home?.name} />
@@ -1221,12 +1104,9 @@ function LiveCenter({ onSeleccionarPartido }) {
 
                         <div className="live-score">
                           <span>{detail.status?.elapsed || 0}'</span>
-
                           <div>
                             <strong>{detail.home?.goals ?? 0}</strong>
-
                             <b>-</b>
-
                             <strong>{detail.away?.goals ?? 0}</strong>
                           </div>
 
@@ -1239,13 +1119,11 @@ function LiveCenter({ onSeleccionarPartido }) {
 
                         <div className="live-score-team">
                           <span>{t("liveCenter.scoreboard.away")}</span>
-
                           <div className="live-score-team__logo live-score-team__logo--away">
                             {awayLogo && (
                               <img src={awayLogo} alt={detail.away?.name} />
                             )}
                           </div>
-
                           <h3>{detail.away?.name}</h3>
                         </div>
                       </div>
@@ -1277,9 +1155,7 @@ function LiveCenter({ onSeleccionarPartido }) {
                       <div className="live-panel__heading">
                         <div>
                           <span>{t("liveCenter.momentum.liveMomentum")}</span>
-
                           <h3>{t("liveCenter.momentum.matchMomentum")}</h3>
-
                           <p>{momentum.window}</p>
                         </div>
 
@@ -1292,13 +1168,11 @@ function LiveCenter({ onSeleccionarPartido }) {
                       <div className="live-momentum__teams">
                         <div>
                           <strong>{detail.home?.name}</strong>
-
                           <b>{number(momentum.home).toFixed(1)}%</b>
                         </div>
 
                         <div>
                           <strong>{detail.away?.name}</strong>
-
                           <b>{number(momentum.away).toFixed(1)}%</b>
                         </div>
                       </div>
@@ -1383,7 +1257,6 @@ function LiveCenter({ onSeleccionarPartido }) {
                         <div className="live-panel__heading">
                           <div>
                             <span>{t("liveCenter.stats.liveStats")}</span>
-
                             <h3>{t("liveCenter.stats.matchData")}</h3>
                           </div>
                         </div>
@@ -1430,7 +1303,6 @@ function LiveCenter({ onSeleccionarPartido }) {
                         <div className="live-panel__heading">
                           <div>
                             <span>{t("liveCenter.stats.signalDetector")}</span>
-
                             <h3>{t("liveCenter.stats.matchSignals")}</h3>
                           </div>
                         </div>
@@ -1470,9 +1342,7 @@ function LiveCenter({ onSeleccionarPartido }) {
                             <span className="uppercase">
                               {t("liveCenter.prematch.title")}
                             </span>
-
                             <h3>{t("liveCenter.prematch.heading")}</h3>
-
                             <p>{t("liveCenter.prematch.description")}</p>
                           </div>
                         </div>
@@ -1606,16 +1476,12 @@ function LiveCenter({ onSeleccionarPartido }) {
                       <div className="live-ai__header">
                         <div className="live-ai__identity">
                           <div className="live-ai__logo">✦</div>
-
                           <div>
                             <span>{t("liveCenter.ai.title")}</span>
-
                             <h3>{t("liveCenter.ai.heading")}</h3>
-
                             <p>{t("liveCenter.ai.description")}</p>
                           </div>
                         </div>
-
                         <div className="live-ai__status">
                           <span /> {t("liveCenter.ai.status")}
                         </div>
@@ -1643,10 +1509,8 @@ function LiveCenter({ onSeleccionarPartido }) {
                         {aiMessages.length === 0 ? (
                           <div className="live-ai__welcome">
                             <span>✦</span>
-
                             <div>
                               <strong>{t("liveCenter.ai.welcomeTitle")}</strong>
-
                               <p>{t("liveCenter.ai.welcomeText")}</p>
                             </div>
                           </div>
@@ -1664,7 +1528,6 @@ function LiveCenter({ onSeleccionarPartido }) {
 
                               <div>
                                 {message.content}
-
                                 {message.provider && (
                                   <small>
                                     {message.provider === "openai"
