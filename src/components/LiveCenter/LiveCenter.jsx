@@ -372,9 +372,9 @@ function LiveCenter({ onSeleccionarPartido }) {
         console.error(requestError);
 
         setError(
-          requestError?.response?.data?.detail ||
-            requestError?.message ||
-            "No fue posible actualizar Live Center.",
+          "No pudimos actualizar el calendario. " +
+            "TheSportsDB está tardando en responder. " +
+            "Intenta nuevamente en unos minutos.",
         );
       } finally {
         setLoadingMatches(false);
@@ -1030,7 +1030,7 @@ function LiveCenter({ onSeleccionarPartido }) {
               </div>
             )}
 
-            {!loadingMatches && matches.length === 0 && (
+            {!loadingMatches && !error && matches.length === 0 && (
               <div className="live-empty">
                 <div className="live-empty__radar">
                   <span />
