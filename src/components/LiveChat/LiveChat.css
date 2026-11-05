@@ -250,3 +250,54 @@
     padding: 12px;
   }
 }
+
+/* GOALPICKS - SCROLLBAR PREMIUM Chat en vivo */
+
+/* Contenedor de mensajes */
+.goalx-chat__messages {
+  scrollbar-width: thin;
+  scrollbar-color: #21b987 transparent;
+  overscroll-behavior: contain;
+}
+
+/* Ancho de la barra */
+.goalx-chat__messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Fondo del carril */
+.goalx-chat__messages::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+/* Barra de desplazamiento */
+.goalx-chat__messages::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #37e3a6 0%, #12b981 55%, #0c7557 100%);
+
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 20px;
+}
+
+/* Efecto al pasar el cursor */
+.goalx-chat__messages::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6af3c2 0%, #37e3a6 50%, #19aa7c 100%);
+
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Efecto al arrastrar */
+.goalx-chat__messages::-webkit-scrollbar-thumb:active {
+  background: #0f936b;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Adaptación móvil */
+@media (max-width: 600px) {
+  .goalx-chat__messages::-webkit-scrollbar {
+    width: 5px;
+  }
+}

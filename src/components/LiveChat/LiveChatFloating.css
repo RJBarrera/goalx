@@ -1,6 +1,4 @@
-/* =========================================
-   GOALPICKS - CHAT FLOTANTE
-========================================= */
+/* GOALPICKS - CHAT FLOTANTE */
 
 .goalx-floating-chat {
   position: fixed;
@@ -57,16 +55,71 @@
 }
 
 .goalx-floating-chat__launcher-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #ffffff;
   font-size: 20px;
-  line-height: 1;
 }
 
+/* Punto verde animado */
 .goalx-floating-chat__online-dot {
-  width: 8px;
-  height: 8px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+
   background: #a5ffbf;
   box-shadow: 0 0 8px rgba(165, 255, 191, 0.6);
+
+  animation: goalxOnlinePulse 2s ease-in-out infinite;
+}
+
+/* Animación del indicador */
+@keyframes goalxOnlinePulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(165, 255, 191, 0.4);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+    box-shadow: 0 0 14px rgba(165, 255, 191, 0.9);
+  }
+}
+
+/* Onda luminosa alrededor del punto verde */
+.goalx-floating-chat__online-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+
+  border: 1px solid rgba(165, 255, 191, 0.8);
+  border-radius: 50%;
+
+  animation: goalxOnlineRing 2s ease-out infinite;
+}
+
+@keyframes goalxOnlineRing {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.7);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
 }
 
 /* VENTANA FLOTANTE */
@@ -175,9 +228,7 @@
   }
 }
 
-/* =========================================
-   DISPOSITIVOS MÓVILES
-========================================= */
+/* DISPOSITIVOS MÓVILES */
 
 @media (max-width: 600px) {
   .goalx-floating-chat {
@@ -242,11 +293,24 @@
 /* ACCESIBILIDAD */
 
 @media (prefers-reduced-motion: reduce) {
+  /* Desactivar animación de apertura del chat */
   .goalx-floating-chat__panel {
     animation: none;
   }
 
+  /* Desactivar transiciones del botón */
   .goalx-floating-chat__launcher {
     transition: none;
+  }
+
+  /* Desactivar parpadeo del punto verde */
+  .goalx-floating-chat__online-dot,
+  .goalx-floating-chat__online-dot::after {
+    animation: none;
+  }
+
+  /* Ocultar onda luminosa */
+  .goalx-floating-chat__online-dot::after {
+    display: none;
   }
 }

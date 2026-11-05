@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComments } from "@fortawesome/free-solid-svg-icons";
 import LiveChat from "./LiveChat";
 import "./LiveChatFloating.css";
 
@@ -58,7 +60,7 @@ export default function LiveChatFloating() {
         onClick={() => setIsOpen((previous) => !previous)}
       >
         <span className="goalx-floating-chat__launcher-icon" aria-hidden="true">
-          💬
+          <FontAwesomeIcon icon={faComments} />
         </span>
 
         <span>{isOpen ? "Cerrar chat" : "Chat en vivo"}</span>
