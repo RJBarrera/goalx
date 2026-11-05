@@ -1,4 +1,455 @@
 {
   "version": 1,
-  "fixtures": {}
+  "fixtures": {
+    "1635606": {
+      "fixture_id": 1635606,
+      "date": "2026-11-04T17:45:00+00:00",
+      "home": "AEK Athens",
+      "away": "Real Madrid",
+      "players": {
+        "aek athens|aboubakary koita": {
+          "name": "Aboubakary Koita",
+          "team": "AEK Athens",
+          "goals": 1,
+          "assists": 1
+        },
+        "aek athens|luka jovic": {
+          "name": "Luka Jovic",
+          "team": "AEK Athens",
+          "goals": 0,
+          "assists": 1
+        },
+        "real madrid|jude bellingham": {
+          "name": "Jude Bellingham",
+          "team": "Real Madrid",
+          "goals": 1,
+          "assists": 0
+        },
+        "real madrid|marc cucurella": {
+          "name": "Marc Cucurella",
+          "team": "Real Madrid",
+          "goals": 0,
+          "assists": 1
+        },
+        "aek athens|stavros pilios": {
+          "name": "Stavros Pilios",
+          "team": "AEK Athens",
+          "goals": 1,
+          "assists": 0
+        },
+        "real madrid|kylian mbappé": {
+          "name": "Kylian Mbappé",
+          "team": "Real Madrid",
+          "goals": 1,
+          "assists": 0
+        },
+        "real madrid|denzel dumfries": {
+          "name": "Denzel Dumfries",
+          "team": "Real Madrid",
+          "goals": 0,
+          "assists": 1
+        },
+        "real madrid|federico valverde": {
+          "name": "Federico Valverde",
+          "team": "Real Madrid",
+          "goals": 1,
+          "assists": 0
+        },
+        "real madrid|brahim díaz": {
+          "name": "Brahim Díaz",
+          "team": "Real Madrid",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635658": {
+      "fixture_id": 1635658,
+      "date": "2026-11-04T17:45:00+00:00",
+      "home": "Fenerbahce",
+      "away": "Liverpool",
+      "players": {
+        "liverpool|treymaurice nyoni": {
+          "name": "Treymaurice Nyoni",
+          "team": "Liverpool",
+          "goals": 1,
+          "assists": 0
+        },
+        "fenerbahce|mason greenwood": {
+          "name": "Mason Greenwood",
+          "team": "Fenerbahce",
+          "goals": 1,
+          "assists": 0
+        },
+        "liverpool|alexander isak": {
+          "name": "Alexander Isak",
+          "team": "Liverpool",
+          "goals": 1,
+          "assists": 0
+        },
+        "liverpool|cody gakpo": {
+          "name": "Cody Gakpo",
+          "team": "Liverpool",
+          "goals": 0,
+          "assists": 1
+        },
+        "fenerbahce|archie brown": {
+          "name": "Archie Brown",
+          "team": "Fenerbahce",
+          "goals": 1,
+          "assists": 1
+        },
+        "fenerbahce|vedat muriqi": {
+          "name": "Vedat Muriqi",
+          "team": "Fenerbahce",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635651": {
+      "fixture_id": 1635651,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "Borussia Dortmund",
+      "away": "Real Betis",
+      "players": {
+        "borussia dortmund|fábio silva": {
+          "name": "Fábio Silva",
+          "team": "Borussia Dortmund",
+          "goals": 1,
+          "assists": 1
+        },
+        "real betis|aitor ruibal": {
+          "name": "Aitor Ruibal",
+          "team": "Real Betis",
+          "goals": 1,
+          "assists": 0
+        },
+        "real betis|abde ezzalzouli": {
+          "name": "Abde Ezzalzouli",
+          "team": "Real Betis",
+          "goals": 0,
+          "assists": 1
+        },
+        "borussia dortmund|konstantinos karetsas": {
+          "name": "Konstantinos Karetsas",
+          "team": "Borussia Dortmund",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635656": {
+      "fixture_id": 1635656,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "Porto",
+      "away": "Napoli",
+      "players": {
+        "porto|jan bednarek": {
+          "name": "Jan Bednarek",
+          "team": "Porto",
+          "goals": 1,
+          "assists": 0
+        },
+        "porto|gabri veiga": {
+          "name": "Gabri Veiga",
+          "team": "Porto",
+          "goals": 1,
+          "assists": 1
+        },
+        "napoli|scott mctominay": {
+          "name": "Scott McTominay",
+          "team": "Napoli",
+          "goals": 1,
+          "assists": 0
+        },
+        "porto|santiago giménez": {
+          "name": "Santiago Giménez",
+          "team": "Porto",
+          "goals": 0,
+          "assists": 1
+        },
+        "porto|jakub kiwior": {
+          "name": "Jakub Kiwior",
+          "team": "Porto",
+          "goals": 1,
+          "assists": 0
+        },
+        "porto|hwang in-beom": {
+          "name": "Hwang In-Beom",
+          "team": "Porto",
+          "goals": 0,
+          "assists": 1
+        },
+        "porto|samuel aghehowa": {
+          "name": "Samuel Aghehowa",
+          "team": "Porto",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635681": {
+      "fixture_id": 1635681,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "Lens",
+      "away": "Como",
+      "players": {
+        "como|anastasios douvikas": {
+          "name": "Anastasios Douvikas",
+          "team": "Como",
+          "goals": 3,
+          "assists": 1
+        },
+        "como|maximo perrone": {
+          "name": "Maximo Perrone",
+          "team": "Como",
+          "goals": 0,
+          "assists": 1
+        },
+        "como|álex valle": {
+          "name": "Álex Valle",
+          "team": "Como",
+          "goals": 0,
+          "assists": 1
+        },
+        "como|nico paz": {
+          "name": "Nico Paz",
+          "team": "Como",
+          "goals": 1,
+          "assists": 2
+        },
+        "como|lucas da cunha": {
+          "name": "Lucas Da Cunha",
+          "team": "Como",
+          "goals": 1,
+          "assists": 0
+        },
+        "como|marc-oliver kempf": {
+          "name": "Marc-Oliver Kempf",
+          "team": "Como",
+          "goals": 1,
+          "assists": 0
+        },
+        "como|luis milla": {
+          "name": "Luis Milla",
+          "team": "Como",
+          "goals": 0,
+          "assists": 1
+        },
+        "como|mattia liberali": {
+          "name": "Mattia Liberali",
+          "team": "Como",
+          "goals": 1,
+          "assists": 2
+        },
+        "como|jacobo ramón": {
+          "name": "Jacobo Ramón",
+          "team": "Como",
+          "goals": 0,
+          "assists": 1
+        },
+        "lens|ruben aguilar": {
+          "name": "Ruben Aguilar",
+          "team": "Lens",
+          "goals": 1,
+          "assists": 0
+        },
+        "lens|florian thauvin": {
+          "name": "Florian Thauvin",
+          "team": "Lens",
+          "goals": 0,
+          "assists": 1
+        },
+        "como|martin baturina": {
+          "name": "Martin Baturina",
+          "team": "Como",
+          "goals": 1,
+          "assists": 0
+        },
+        "como|matteo papaccioli": {
+          "name": "Matteo Papaccioli",
+          "team": "Como",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635707": {
+      "fixture_id": 1635707,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "PSV Eindhoven",
+      "away": "Club Brugge",
+      "players": {
+        "club brugge|nicolo tresoldi": {
+          "name": "Nicolo Tresoldi",
+          "team": "Club Brugge",
+          "goals": 1,
+          "assists": 0
+        },
+        "club brugge|joaquin seys": {
+          "name": "Joaquin Seys",
+          "team": "Club Brugge",
+          "goals": 0,
+          "assists": 2
+        },
+        "psv eindhoven|kodai sano": {
+          "name": "Kodai Sano",
+          "team": "PSV Eindhoven",
+          "goals": 1,
+          "assists": 0
+        },
+        "club brugge|carlos forbs": {
+          "name": "Carlos Forbs",
+          "team": "Club Brugge",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635710": {
+      "fixture_id": 1635710,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "RB Leipzig",
+      "away": "Manchester City",
+      "players": {
+        "rb leipzig|ridle baku": {
+          "name": "Ridle Baku",
+          "team": "RB Leipzig",
+          "goals": 1,
+          "assists": 0
+        },
+        "rb leipzig|brajan gruda": {
+          "name": "Brajan Gruda",
+          "team": "RB Leipzig",
+          "goals": 0,
+          "assists": 1
+        },
+        "manchester city|enzo fernández": {
+          "name": "Enzo Fernández",
+          "team": "Manchester City",
+          "goals": 1,
+          "assists": 0
+        },
+        "manchester city|iliman ndiaye": {
+          "name": "Iliman Ndiaye",
+          "team": "Manchester City",
+          "goals": 0,
+          "assists": 1
+        },
+        "rb leipzig|antonio nusa": {
+          "name": "Antonio Nusa",
+          "team": "RB Leipzig",
+          "goals": 1,
+          "assists": 0
+        },
+        "rb leipzig|christopher nkunku": {
+          "name": "Christopher Nkunku",
+          "team": "RB Leipzig",
+          "goals": 0,
+          "assists": 1
+        },
+        "manchester city|erling haaland": {
+          "name": "Erling Haaland",
+          "team": "Manchester City",
+          "goals": 1,
+          "assists": 0
+        },
+        "manchester city|elliot anderson": {
+          "name": "Elliot Anderson",
+          "team": "Manchester City",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635726": {
+      "fixture_id": 1635726,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "Slavia Praha",
+      "away": "Arsenal",
+      "players": {
+        "arsenal|noni madueke": {
+          "name": "Noni Madueke",
+          "team": "Arsenal",
+          "goals": 1,
+          "assists": 0
+        },
+        "arsenal|viktor gyökeres": {
+          "name": "Viktor Gyökeres",
+          "team": "Arsenal",
+          "goals": 1,
+          "assists": 1
+        },
+        "arsenal|mikel merino": {
+          "name": "Mikel Merino",
+          "team": "Arsenal",
+          "goals": 0,
+          "assists": 1
+        },
+        "slavia praha|wiktor nowak": {
+          "name": "Wiktor Nowak",
+          "team": "Slavia Praha",
+          "goals": 1,
+          "assists": 0
+        },
+        "slavia praha|david jurasek": {
+          "name": "David Jurasek",
+          "team": "Slavia Praha",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635745": {
+      "fixture_id": 1635745,
+      "date": "2026-11-04T20:00:00+00:00",
+      "home": "Viking",
+      "away": "Sabah",
+      "players": {
+        "sabah|patrick orphe mbina": {
+          "name": "Patrick Orphe Mbina",
+          "team": "Sabah",
+          "goals": 1,
+          "assists": 0
+        },
+        "sabah|umarali rakhmonaliev": {
+          "name": "Umarali Rakhmonaliev",
+          "team": "Sabah",
+          "goals": 0,
+          "assists": 1
+        },
+        "viking|erik botheim": {
+          "name": "Erik Botheim",
+          "team": "Viking",
+          "goals": 2,
+          "assists": 0
+        },
+        "viking|kristoffer haugen": {
+          "name": "Kristoffer Haugen",
+          "team": "Viking",
+          "goals": 0,
+          "assists": 1
+        },
+        "viking|zlatko tripić": {
+          "name": "Zlatko Tripić",
+          "team": "Viking",
+          "goals": 1,
+          "assists": 1
+        },
+        "viking|henrik falchener": {
+          "name": "Henrik Falchener",
+          "team": "Viking",
+          "goals": 1,
+          "assists": 0
+        },
+        "viking|peter christiansen": {
+          "name": "Peter Christiansen",
+          "team": "Viking",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    }
+  }
 }
