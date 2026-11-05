@@ -33,8 +33,6 @@ from competition_config import (
 )
 from competition_manager import CompetitionManager
 from live_service import APIQuotaExceededError, get_quota_status
-from live_intelligence import build_live_intelligence
-from live_ai import answer_live_question
 from prediccion_ligamx import analizar_h2h
 from ml_models import preparar_features_al_vuelo, calcular_distribucion_tiros
 
@@ -128,10 +126,6 @@ DATASET_SYNC_SECONDS = int(
         "600",
     )
 )
-
-
-class LiveAIRequest(BaseModel):
-    question: str = ""
 
 
 ## Modelo Petición
@@ -1179,16 +1173,10 @@ def obtener_detalle_live(
     competition: str = Query(default=DEFAULT_COMPETITION_ID),
 ):
     runtime = _runtime_or_http(competition)
-    ensure_models_fresh(runtime.competition["id"])
 
     try:
         detail = runtime.live_service.get_fixture_detail(fixture_id)
         history_sync = runtime.history_service.save_finished_match(detail)
-
-        intelligence = build_live_intelligence(
-            detail,
-            runtime.state,
-        )
 
         return {
             "success": True,
@@ -1197,56 +1185,12 @@ def obtener_detalle_live(
                 "name": runtime.competition["name"],
             },
             "provider": "api-football",
-            "data": {
-                **detail,
-                "intelligence": intelligence,
-            },
+            "data": detail,
             "history_sync": history_sync,
         }
 
     except Exception as error:
         print("ERROR LIVE DETAIL:", error)
-        raise HTTPException(
-            status_code=500,
-            detail=str(error),
-        ) from error
-
-
-@app.post("/api/live/{fixture_id}/ai")
-def consultar_live_ai(
-    fixture_id: int,
-    request: LiveAIRequest,
-    competition: str = Query(default=DEFAULT_COMPETITION_ID),
-):
-    runtime = _runtime_or_http(competition)
-    ensure_models_fresh(runtime.competition["id"])
-
-    try:
-        detail = runtime.live_service.get_fixture_detail(fixture_id)
-
-        intelligence = build_live_intelligence(
-            detail,
-            runtime.state,
-        )
-
-        response = answer_live_question(
-            detail,
-            intelligence,
-            request.question,
-            competition_name=runtime.competition["name"],
-        )
-
-        return {
-            "success": True,
-            "competition": {
-                "id": runtime.competition["id"],
-                "name": runtime.competition["name"],
-            },
-            **response,
-        }
-
-    except Exception as error:
-        print("ERROR LIVE AI:", error)
         raise HTTPException(
             status_code=500,
             detail=str(error),
