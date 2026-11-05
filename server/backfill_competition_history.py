@@ -282,6 +282,10 @@ def _sportsdb_stats(event_stats):
         "away_yellow": None,
         "home_red": 0,
         "away_red": 0,
+        "home_shots_on_goal": None,
+        "away_shots_on_goal": None,
+        "home_shots_total": None,
+        "away_shots_total": None,
     }
 
     for stat in event_stats or []:
@@ -345,6 +349,8 @@ def _extract_api_team_stats(statistics, target_team_name):
         "corners": _int_or_none(values.get("Corner Kicks")),
         "yellow": _int_or_none(values.get("Yellow Cards")),
         "red": _safe_int(values.get("Red Cards")),
+        "shots_on_goal": _int_or_none(values.get("Shots on Goal")),
+        "shots_total": _int_or_none(values.get("Total Shots")),
     }
 
 
@@ -363,6 +369,12 @@ def _merge_missing_stats(primary, fallback_home, fallback_away):
         if merged.get("home_red") in {None, 0}:
             merged["home_red"] = _safe_int(fallback_home.get("red"))
 
+        if merged.get("home_shots_on_goal") is None:
+            merged["home_shots_on_goal"] = fallback_home.get("shots_on_goal")
+
+        if merged.get("home_shots_total") is None:
+            merged["home_shots_total"] = fallback_home.get("shots_total")
+
     if fallback_away:
         if merged.get("away_corners") is None:
             merged["away_corners"] = fallback_away.get("corners")
@@ -372,6 +384,12 @@ def _merge_missing_stats(primary, fallback_home, fallback_away):
 
         if merged.get("away_red") in {None, 0}:
             merged["away_red"] = _safe_int(fallback_away.get("red"))
+
+        if merged.get("away_shots_on_goal") is None:
+            merged["away_shots_on_goal"] = fallback_away.get("shots_on_goal")
+
+        if merged.get("away_shots_total") is None:
+            merged["away_shots_total"] = fallback_away.get("shots_total")
 
     return merged
 
@@ -672,8 +690,17 @@ def _build_row(
     home_red = _safe_int(stats.get("home_red"))
     away_red = _safe_int(stats.get("away_red"))
 
-    home_cards = home_yellow + home_red
-    away_cards = away_yellow + away_red
+    home_cards = home_yellow + (home_red * 2)
+    away_cards = away_yellow + (away_red * 2)
+
+    # Extracción y cálculo de tiros
+    home_sont = _safe_int(stats.get("home_shots_on_goal"))
+    away_sont = _safe_int(stats.get("away_shots_on_goal"))
+    home_shots_total = _safe_int(stats.get("home_shots_total"))
+    away_shots_total = _safe_int(stats.get("away_shots_total"))
+
+    home_shots_off = home_shots_total - home_sont
+    away_shots_off = away_shots_total - away_sont
 
     referee = str(event.get("strReferee") or "").strip()
 
@@ -697,6 +724,12 @@ def _build_row(
         "home_cards": home_cards,
         "away_cards": away_cards,
         "total_cards": home_cards + away_cards,
+        "home_sont": home_sont,
+        "away_sont": away_sont,
+        "home_shots_off": home_shots_off,
+        "away_shots_off": away_shots_off,
+        "home_shots_total": home_shots_total,
+        "away_shots_total": away_shots_total,
     }
 
 
