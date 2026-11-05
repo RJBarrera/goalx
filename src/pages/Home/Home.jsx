@@ -7,6 +7,7 @@ import MatchAnalytics from "../../components/MatchAnalytics/MatchAnalytics";
 import Navbar from "../../components/Navbar/Navbar";
 import SeasonHighlights from "../../components/SeasonHighlights/SeasonHighlights";
 import { useCompetition } from "../../context/CompetitionContext";
+import LiveChatFloating from "../../components/LiveChat/LiveChatFloating";
 
 import "../../App.css";
 
@@ -62,6 +63,7 @@ function Home() {
           </div>
 
           <LiveCenter onSeleccionarPartido={seleccionarPartidoParaPrediccion} />
+          <LiveChatFloating />
         </main>
 
         {/* Publicidad - lado derecho */}

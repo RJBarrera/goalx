@@ -35,6 +35,7 @@ from competition_manager import CompetitionManager
 from live_service import APIQuotaExceededError, get_quota_status
 from prediccion_ligamx import analizar_h2h
 from ml_models import preparar_features_al_vuelo, calcular_distribucion_tiros
+from public_chat import router as chat_router, chat_reset_worker
 
 ## Configuración
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -600,6 +601,7 @@ async def lifespan(_app: FastAPI):
 
     # SINCRONIZAR SET DE DATOS
     dataset_task = asyncio.create_task(dataset_sync_worker())
+    chat_task = asyncio.create_task(chat_reset_worker())
 
     try:
 
@@ -608,9 +610,10 @@ async def lifespan(_app: FastAPI):
     finally:
 
         dataset_task.cancel()
+        chat_task.cancel()
 
         with suppress(asyncio.CancelledError):
-            await dataset_task
+            await chat_task
 
 
 ## FastAPI
@@ -619,6 +622,8 @@ app = FastAPI(
     version="2.0.0",
     lifespan=lifespan,
 )
+
+app.include_router(chat_router)
 
 ## CORS
 app.add_middleware(

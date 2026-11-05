@@ -1,0 +1,252 @@
+.goalx-chat {
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto;
+  border: 1px solid #29364a;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(13, 20, 29, 0.7);
+  color: #e9f0f7;
+  font-family: inherit;
+}
+
+.goalx-chat * {
+  box-sizing: border-box;
+}
+
+.sports-chat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 320px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.sports-chat__logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid rgba(73, 230, 175, 0.28);
+  border-radius: 13px;
+  color: #42e7ac;
+  background: linear-gradient(
+    145deg,
+    rgba(37, 226, 160, 0.14),
+    rgba(28, 114, 170, 0.12)
+  );
+  box-shadow:
+    inset 0 0 18px rgba(66, 231, 172, 0.08),
+    0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+.goalx-chat__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px;
+  border-bottom: 1px solid #29364a;
+}
+
+.goalx-chat__header h2 {
+  margin: 0 0 5px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.goalx-chat__header p {
+  margin: 0;
+  color: #91a3b9;
+  font-size: 13px;
+}
+
+.goalx-chat__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9d9e8;
+  font-size: 13px;
+}
+
+.goalx-chat__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e7aa43;
+}
+
+.goalx-chat__dot.is-online {
+  background: #35d68b;
+}
+
+.goalx-chat__nickname {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #151f30;
+  font-size: 13px;
+}
+
+.goalx-chat__nickname input {
+  flex: 1;
+  min-width: 130px;
+  max-width: 250px;
+}
+
+.goalx-chat input {
+  background: #202c40;
+  color: #fff;
+  border: 1px solid #35455a;
+  border-radius: 9px;
+  padding: 11px 12px;
+  outline: none;
+  font: inherit;
+}
+
+.goalx-chat input:focus {
+  border-color: #41ca99;
+}
+
+.goalx-chat button {
+  background: #15855f;
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 11px 17px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.goalx-chat button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.goalx-chat__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 390px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.goalx-chat__empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #99adc2;
+  gap: 10px;
+}
+
+.goalx-chat__empty span {
+  font-size: 36px;
+}
+
+.goalx-chat__empty strong {
+  color: #fff;
+}
+
+.goalx-chat__empty p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.goalx-chat__message {
+  align-self: flex-start;
+  max-width: 85%;
+  padding: 11px 14px;
+  background: #202c40;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.goalx-chat__message.is-own {
+  align-self: flex-end;
+  background: #164934;
+}
+
+.goalx-chat__message-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.goalx-chat__message-meta strong {
+  color: #62ddae;
+}
+
+.goalx-chat__message-meta time {
+  color: #a3b2c4;
+}
+
+.goalx-chat__message p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.goalx-chat__composer {
+  display: flex;
+  gap: 10px;
+  padding: 15px 20px;
+  border-top: 1px solid #29364a;
+}
+
+.goalx-chat__composer input {
+  flex: 1;
+  min-width: 0;
+}
+
+.goalx-chat__error {
+  margin: 0 20px;
+  color: #ffaaa5;
+  font-size: 13px;
+}
+
+.goalx-chat__footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 15px;
+  font-size: 11px;
+  color: #8ea3b9;
+}
+
+@media (max-width: 600px) {
+  .goalx-chat {
+    border-radius: 12px;
+  }
+
+  .goalx-chat__messages {
+    height: 350px;
+    padding: 12px;
+  }
+
+  .goalx-chat__header {
+    padding: 15px;
+  }
+
+  .goalx-chat__message {
+    max-width: 94%;
+  }
+
+  .goalx-chat__composer,
+  .goalx-chat__nickname {
+    padding: 12px;
+  }
+}

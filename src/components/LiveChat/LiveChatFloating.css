@@ -1,0 +1,252 @@
+/* =========================================
+   GOALPICKS - CHAT FLOTANTE
+========================================= */
+
+.goalx-floating-chat {
+  position: fixed;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 10000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  font-family: inherit;
+}
+
+/* BOTÓN FLOTANTE */
+
+.goalx-floating-chat__launcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 52px;
+  padding: 13px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 100px;
+
+  background: #138965;
+  /* background: rgba(13, 20, 29, 0.70); */
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.23);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.goalx-floating-chat__launcher:hover {
+  background: #0e7153;
+  transform: translateY(-2px);
+}
+
+.goalx-floating-chat__launcher:focus-visible,
+.goalx-floating-chat__close:focus-visible {
+  outline: 3px solid #81efc4;
+  outline-offset: 3px;
+}
+
+.goalx-floating-chat__launcher-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.goalx-floating-chat__online-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a5ffbf;
+  box-shadow: 0 0 8px rgba(165, 255, 191, 0.6);
+}
+
+/* VENTANA FLOTANTE */
+
+.goalx-floating-chat__panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+
+  width: min(410px, calc(100vw - 32px));
+  height: min(570px, calc(100dvh - 112px));
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #29364a;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: #101827;
+  box-shadow: 0 15px 55px rgba(0, 0, 0, 0.32);
+
+  animation: goalxChatAppear 0.2s ease-out;
+}
+
+/* BOTÓN CERRAR */
+
+.goalx-floating-chat__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #35465c;
+  border-radius: 9px;
+
+  background: #202c40;
+  color: white;
+
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.goalx-floating-chat__close:hover {
+  background: #34435a;
+}
+
+/* ADAPTAR EL CHAT EXISTENTE */
+
+.goalx-floating-chat__panel .goalx-chat {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  min-height: 0;
+
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+
+  border: none;
+  border-radius: 0;
+}
+
+.goalx-floating-chat__panel .goalx-chat__header {
+  padding-right: 56px;
+}
+
+.goalx-floating-chat__panel .goalx-chat__messages {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.goalx-floating-chat__panel .goalx-chat__nickname,
+.goalx-floating-chat__panel .goalx-chat__composer,
+.goalx-floating-chat__panel .goalx-chat__footer {
+  flex-shrink: 0;
+}
+
+.goalx-floating-chat__panel .goalx-chat__nickname input {
+  min-width: 90px;
+}
+
+/* ANIMACIÓN */
+
+@keyframes goalxChatAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   DISPOSITIVOS MÓVILES
+========================================= */
+
+@media (max-width: 600px) {
+  .goalx-floating-chat {
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .goalx-floating-chat__launcher {
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .goalx-floating-chat__panel {
+    right: 0;
+
+    width: calc(100vw - 24px);
+    height: min(68dvh, 540px);
+    max-height: calc(100dvh - 100px);
+
+    border-radius: 16px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__header {
+    padding: 16px 56px 14px 14px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__header h2 {
+    font-size: 18px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__messages {
+    padding: 12px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__composer {
+    padding: 10px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__footer {
+    padding: 0 10px 10px;
+    font-size: 10px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__nickname {
+    padding: 10px;
+  }
+
+  .goalx-floating-chat__panel .goalx-chat__nickname input {
+    min-width: 80px;
+  }
+}
+
+/* PANTALLAS DE POCA ALTURA */
+
+@media (max-height: 500px) {
+  .goalx-floating-chat__panel {
+    height: calc(100dvh - 100px);
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  .goalx-floating-chat__panel {
+    animation: none;
+  }
+
+  .goalx-floating-chat__launcher {
+    transition: none;
+  }
+}

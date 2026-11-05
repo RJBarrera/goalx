@@ -51,3 +51,5 @@ ehthumbs.db
 server/dataset_state.json
 server/data/liga-mx-f/dataset_state.json
 server/*.tmp
+server/data/chat_messages.json
+server/data/chat_messages.json.tmp
