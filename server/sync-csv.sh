@@ -7,13 +7,15 @@ echo "=========================================="
 # Agrega o modifica ligas: nombre|origen|destino
 DATASETS=(
     "LIGA MX|/app/server/historial_ligamx_2023.csv|/data/historial_ligamx_2023.csv"
-    "LIGA MX FEMENIL|/app/server/data/liga-mx-f/historial_F.csv|/data/liga-mx-f/historial_F.csv"
+    "LIGA MX FEMENIL|/app/server/data/liga-mx-f/historial_ligamx_F.csv|/data/liga-mx-f/historial_ligamx_F.csv"
     "LA LIGA|/app/server/data/laliga/historial_laliga.csv|/data/laliga/historial_laliga.csv"
     "LIGUE 1|/app/server/data/ligue-1/historial_ligue1.csv|/data/ligue-1/historial_ligue1.csv"
     "PREMIER LEAGUE|/app/server/data/premier-league/historial_premier.csv|/data/premier-league/historial_premier.csv"
     "BUNDESLIGA|/app/server/data/bundesliga/historial_bundesliga.csv|/data/bundesliga/historial_bundesliga.csv"
     "SERIE A|/app/server/data/serie-a/historial_seriea.csv|/data/serie-a/historial_seriea.csv"
     "UEFA CHAMPIONS|/app/server/data/champions/historial_champions.csv|/data/champions/historial_champions.csv"
+    "UEFA CONFERENCE|/app/server/data/conference-league/historial_conference_league.csv|/data/conference-league/historial_conference_league.csv"
+    "UEFA EUROPA LEAGUE|/app/server/data/europa-league/historial_europa_league.csv|/data/europa-league/historial_europa_league.csv"
 )
 
 sync_dataset() {

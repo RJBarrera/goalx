@@ -1,0 +1,799 @@
+fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,away_corners,total_corners,home_cards,away_cards,total_cards,home_sont,away_sont,home_shots_off,away_shots_off,home_shots_total,away_shots_total
+933556,2022-08-18 16:00:00+00:00,João Pinheiro,HJK Helsinki,Silkeborg,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+933139,2022-08-18 16:30:00+00:00,Glenn Nyberg,Ferencvarosi TC,Shamrock Rovers,4,0,0,0,0,0,0,0,0,0,0,0,0,0
+933135,2022-08-18 17:00:00+00:00,Alejandro Hernández,Pyunik Yerevan,Sheriff Tiraspol,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+933548,2022-08-18 17:00:00+00:00,William Collum,Malmo FF,Sivasspor,3,1,0,0,0,0,0,0,0,0,0,0,0,0
+933550,2022-08-18 17:00:00+00:00,José Sánchez,Apollon Limassol,Olympiakos Piraeus,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+933554,2022-08-18 17:00:00+00:00,Bartosz Frankowski,FC Zurich,Heart Of Midlothian,2,1,0,0,0,0,0,0,0,0,0,0,0,0
+933137,2022-08-18 17:45:00+00:00,Ivan Kružliak,Ludogorets,FK Zalgiris Vilnius,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+933552,2022-08-18 18:00:00+00:00,Tobias Stieler,Dnipro-1,AEK Larnaca,1,2,0,0,0,0,0,0,0,0,0,0,0,0
+927412,2022-08-18 18:30:00+00:00,Irfan Peljto,Gent,Omonia Nicosia,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+933546,2022-08-18 19:00:00+00:00,Daniel Siebert,Austria Vienna,Fenerbahçe,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+933553,2022-08-25 16:00:00+00:00,Davide Massa,AEK Larnaca,Dnipro-1,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+933557,2022-08-25 16:30:00+00:00,Maurizio Mariani,Silkeborg,HJK Helsinki,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+927413,2022-08-25 17:00:00+00:00,Georgi Kabakov,Omonia Nicosia,Gent,2,0,0,0,0,0,0,0,0,0,0,0,0,0
+933547,2022-08-25 17:00:00+00:00,Jesús Gil Manzano,Fenerbahçe,Austria Vienna,4,1,0,0,0,0,0,0,0,0,0,0,0,0
+933549,2022-08-25 17:00:00+00:00,Srđan Jovanović,Sivasspor,Malmo FF,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+933140,2022-08-25 19:00:00+00:00,François Letexier,Shamrock Rovers,Ferencvarosi TC,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+933555,2022-08-25 19:00:00+00:00,Lawrence Visser,Heart Of Midlothian,FC Zurich,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+946753,2022-09-08 16:45:00+00:00,Mohammed Al-Hakim,FC Zurich,Arsenal,1,2,5,8,13,1,0,1,4,8,6,10,10,18
+946754,2022-09-08 16:45:00+00:00,Georgi Kabakov,PSV Eindhoven,Bodo/Glimt,1,1,5,4,9,2,3,5,7,4,8,5,15,9
+946755,2022-09-08 16:45:00+00:00,Giorgi Kruashvili,AEK Larnaca,Rennes,1,2,3,9,12,1,1,2,2,8,5,10,7,18
+946756,2022-09-08 16:45:00+00:00,Tamás Bognár,Fenerbahçe,Dynamo Kyiv,2,1,8,2,10,5,3,8,6,3,3,2,9,5
+946757,2022-09-08 16:45:00+00:00,Craig Pawson,Ludogorets,AS Roma,2,1,4,9,13,3,0,3,3,6,7,13,10,19
+946758,2022-09-08 16:45:00+00:00,Roi Reinshreiber,HJK Helsinki,Real Betis,0,2,4,6,10,1,3,4,1,5,3,15,4,20
+946759,2022-09-08 16:45:00+00:00,Duje Strukan,Malmo FF,SC Braga,0,2,4,5,9,5,2,7,2,6,8,9,10,15
+946760,2022-09-08 16:45:00+00:00,Serhiy Boyko,Union Berlin,Union St. Gilloise,0,1,5,2,7,4,1,5,3,3,7,4,10,7
+946761,2022-09-08 19:00:00+00:00,Marco Di Bello,Manchester United,Real Sociedad,0,1,5,3,8,2,3,5,3,3,12,4,15,7
+946762,2022-09-08 19:00:00+00:00,Rade Obrenović,Omonia Nicosia,Sheriff Tiraspol,0,3,3,4,7,2,4,6,1,4,8,9,9,13
+946763,2022-09-08 19:00:00+00:00,Ricardo De Burgos,Lazio,Feyenoord,4,2,7,2,9,1,1,2,8,4,7,13,15,17
+946764,2022-09-08 19:00:00+00:00,Aliyar Aghayev,Sturm Graz,FC Midtjylland,1,0,5,3,8,8,1,9,6,2,8,7,14,9
+946765,2022-09-08 19:00:00+00:00,Erik Lambrechts,SC Freiburg,Qarabag,2,1,2,4,6,2,3,5,6,6,8,11,14,17
+946766,2022-09-08 19:00:00+00:00,Harald Lechner,Nantes,Olympiakos Piraeus,2,1,10,2,12,3,2,5,5,0,9,3,14,3
+946767,2022-09-08 19:00:00+00:00,Harm Osmers,FK Crvena Zvezda,Monaco,0,1,8,5,13,3,3,6,5,3,8,8,13,11
+946768,2022-09-08 19:00:00+00:00,Fabio Maresca,Ferencvarosi TC,Trabzonspor,3,2,6,6,12,6,1,7,5,8,6,15,11,23
+946769,2022-09-15 16:45:00+00:00,Kristo Tohver,Real Sociedad,Omonia Nicosia,2,1,6,1,7,1,3,4,4,1,7,1,11,2
+946770,2022-09-15 16:45:00+00:00,Paweł Raczkowski,Sheriff Tiraspol,Manchester United,0,2,2,4,6,2,0,2,2,4,9,4,11,8
+946771,2022-09-15 16:45:00+00:00,Nikola Dabanović,FC Midtjylland,Lazio,5,1,2,4,6,2,1,3,7,2,8,11,15,13
+946772,2022-09-15 16:45:00+00:00,Jérôme Brisard,Feyenoord,Sturm Graz,6,0,7,4,11,0,3,3,8,3,4,6,12,9
+946773,2022-09-15 16:45:00+00:00,Matej Jug,Olympiakos Piraeus,SC Freiburg,0,3,4,4,8,1,2,3,2,8,5,8,7,16
+946774,2022-09-15 16:45:00+00:00,Enea Jorgji,Qarabag,Nantes,3,0,5,5,10,1,1,2,9,4,5,8,14,12
+946775,2022-09-15 16:45:00+00:00,Sascha Stegemann,Trabzonspor,FK Crvena Zvezda,2,1,6,3,9,2,6,8,6,2,12,5,18,7
+946776,2022-09-15 16:45:00+00:00,Espen Eskås,Monaco,Ferencvarosi TC,0,1,9,5,14,1,2,3,6,3,7,5,13,8
+946778,2022-09-15 19:00:00+00:00,Stéphanie Frappart,Bodo/Glimt,FC Zurich,2,1,6,3,9,1,2,3,4,4,15,8,19,12
+946779,2022-09-15 19:00:00+00:00,Jakob Kehlet,Dynamo Kyiv,AEK Larnaca,0,1,7,2,9,2,4,6,2,4,9,4,11,8
+946780,2022-09-15 19:00:00+00:00,Aleksei Kulbakov,Rennes,Fenerbahçe,2,2,7,4,11,6,1,7,4,3,5,5,9,8
+946781,2022-09-15 19:00:00+00:00,Andris Treimanis,Real Betis,Ludogorets,3,2,4,8,12,4,4,8,10,6,8,3,18,9
+946782,2022-09-15 19:00:00+00:00,Radu Petrescu,AS Roma,HJK Helsinki,3,0,7,1,8,2,4,6,10,0,19,4,29,4
+946783,2022-09-15 19:00:00+00:00,Bartosz Frankowski,Union St. Gilloise,Malmo FF,3,2,5,4,9,1,0,1,7,2,4,1,11,3
+946784,2022-09-15 19:00:00+00:00,Filip Glova,SC Braga,Union Berlin,1,0,4,3,7,2,3,5,4,5,8,7,12,12
+946785,2022-10-06 16:45:00+00:00,William Collum,FC Zurich,PSV Eindhoven,1,5,0,3,3,0,0,0,5,8,6,8,11,16
+946786,2022-10-06 16:45:00+00:00,Yevhen Aranovskyi,HJK Helsinki,Ludogorets,1,1,6,2,8,3,1,4,5,7,11,6,16,13
+946787,2022-10-06 16:45:00+00:00,Halil Umut Meler,Malmo FF,Union Berlin,0,1,2,6,8,2,3,5,4,7,3,12,7,19
+946788,2022-10-06 16:45:00+00:00,Harald Lechner,Sheriff Tiraspol,Real Sociedad,0,2,2,6,8,5,1,6,3,3,6,4,9,7
+946789,2022-10-06 16:45:00+00:00,João Pinheiro,Omonia Nicosia,Manchester United,2,3,4,5,9,2,2,4,4,8,4,20,8,28
+946790,2022-10-06 16:45:00+00:00,Benoît Bastien,Sturm Graz,Lazio,0,0,6,2,8,7,2,9,5,4,10,3,15,7
+946791,2022-10-06 16:45:00+00:00,Lawrence Visser,FK Crvena Zvezda,Ferencvarosi TC,4,1,1,5,6,3,3,6,8,3,8,7,16,10
+946792,2022-10-06 16:45:00+00:00,Giorgi Kruashvili,Monaco,Trabzonspor,3,1,6,1,7,2,3,5,8,2,15,4,23,6
+946793,2022-10-06 19:00:00+00:00,Harm Osmers,Arsenal,Bodo/Glimt,3,0,6,0,6,1,2,3,6,4,12,4,18,8
+946794,2022-10-06 19:00:00+00:00,José Sánchez,Rennes,Dynamo Kyiv,2,1,9,3,12,0,1,1,6,3,16,5,22,8
+946795,2022-10-06 19:00:00+00:00,Chris Kavanagh,Fenerbahçe,AEK Larnaca,2,0,4,2,6,2,3,5,8,1,8,4,16,5
+946796,2022-10-06 19:00:00+00:00,Matej Jug,AS Roma,Real Betis,1,2,6,0,6,3,4,7,5,5,8,7,13,12
+946797,2022-10-06 19:00:00+00:00,Stéphanie Frappart,SC Braga,Union St. Gilloise,1,2,2,3,5,2,2,4,7,4,3,14,10,18
+946798,2022-10-06 19:00:00+00:00,Mohammed Al-Hakim,FC Midtjylland,Feyenoord,2,2,6,1,7,6,3,9,5,4,13,7,18,11
+946799,2022-10-06 19:00:00+00:00,Glenn Nyberg,SC Freiburg,Nantes,2,0,5,5,10,3,1,4,6,2,10,13,16,15
+946800,2022-10-06 19:00:00+00:00,Irfan Peljto,Olympiakos Piraeus,Qarabag,0,3,3,4,7,1,3,4,4,12,10,3,14,15
+946801,2022-10-13 16:45:00+00:00,Irfan Peljto,Bodo/Glimt,Arsenal,0,1,3,5,8,1,3,4,1,1,5,6,6,7
+946802,2022-10-13 16:45:00+00:00,Paweł Raczkowski,AEK Larnaca,Fenerbahçe,1,2,4,8,12,9,4,13,2,8,4,7,6,15
+946803,2022-10-13 16:45:00+00:00,Serdar Gözübüyük,Dynamo Kyiv,Rennes,0,1,6,9,15,3,2,5,2,3,4,12,6,15
+946804,2022-10-13 16:45:00+00:00,Anastasios Sidiropoulos,Real Betis,AS Roma,1,1,4,4,8,4,3,7,2,2,5,2,7,4
+946805,2022-10-13 16:45:00+00:00,Aliyar Aghayev,Union St. Gilloise,SC Braga,3,3,4,4,8,2,2,4,6,8,6,8,12,16
+946806,2022-10-13 16:45:00+00:00,Rade Obrenović,Feyenoord,FC Midtjylland,2,2,8,6,14,3,3,6,6,4,8,5,14,9
+946807,2022-10-13 16:45:00+00:00,Horațiu Feșnic,Nantes,SC Freiburg,0,4,6,5,11,0,1,1,3,9,8,7,11,16
+946808,2022-10-13 16:45:00+00:00,Craig Pawson,Qarabag,Olympiakos Piraeus,0,0,6,0,6,3,2,5,0,2,9,4,9,6
+946809,2022-10-13 19:00:00+00:00,Ali Palabıyık,PSV Eindhoven,FC Zurich,5,0,4,4,8,1,3,4,8,2,14,9,22,11
+946810,2022-10-13 19:00:00+00:00,Kristo Tohver,Ludogorets,HJK Helsinki,2,0,7,1,8,1,7,8,6,1,18,5,24,6
+946811,2022-10-13 19:00:00+00:00,Aleksandar Stavrev,Union Berlin,Malmo FF,1,0,2,2,4,5,8,13,7,0,7,3,14,3
+946812,2022-10-13 19:00:00+00:00,Jérôme Brisard,Manchester United,Omonia Nicosia,1,0,13,1,14,0,3,3,13,1,21,2,34,3
+946813,2022-10-13 19:00:00+00:00,Enea Jorgji,Real Sociedad,Sheriff Tiraspol,3,0,5,1,6,1,5,6,8,0,19,2,27,2
+946814,2022-10-13 19:00:00+00:00,Sascha Stegemann,Lazio,Sturm Graz,2,2,2,0,2,6,6,12,3,7,6,12,9,19
+946815,2022-10-13 19:00:00+00:00,Jakob Kehlet,Trabzonspor,Monaco,4,0,3,11,14,4,1,5,9,4,6,13,15,17
+946816,2022-10-13 19:00:00+00:00,Daniel Stefański,Ferencvarosi TC,FK Crvena Zvezda,2,1,4,10,14,5,1,6,5,3,8,17,13,20
+946777,2022-10-20 17:00:00+00:00,Alejandro Hernández,Arsenal,PSV Eindhoven,1,0,7,0,7,3,1,4,8,1,17,3,25,4
+946817,2022-10-27 16:45:00+00:00,Yevhen Aranovskyi,FC Zurich,Bodo/Glimt,2,1,9,5,14,4,1,5,7,2,17,5,24,7
+946818,2022-10-27 16:45:00+00:00,Marco Di Bello,PSV Eindhoven,Arsenal,2,0,3,6,9,2,4,6,5,3,3,12,8,15
+946819,2022-10-27 16:45:00+00:00,Daniel Stefański,Lazio,FC Midtjylland,2,1,6,1,7,3,3,6,9,3,7,5,16,8
+946820,2022-10-27 16:45:00+00:00,John Beaton,AEK Larnaca,Dynamo Kyiv,3,3,3,3,6,1,4,5,4,4,7,4,11,8
+946821,2022-10-27 16:45:00+00:00,Novak Simović,Fenerbahçe,Rennes,3,3,5,1,6,2,3,5,6,4,8,2,14,6
+946822,2022-10-27 16:45:00+00:00,Harald Lechner,Ludogorets,Real Betis,0,1,4,2,6,2,1,3,5,1,9,4,14,5
+946823,2022-10-27 16:45:00+00:00,Roi Reinshreiber,Malmo FF,Union St. Gilloise,0,2,7,7,14,3,4,7,3,6,14,5,17,11
+946824,2022-10-27 16:45:00+00:00,Craig Pawson,Union Berlin,SC Braga,1,0,7,1,8,3,4,7,4,3,10,2,14,5
+946825,2022-10-27 19:00:00+00:00,Anastasios Sidiropoulos,Manchester United,Sheriff Tiraspol,3,0,8,0,8,1,2,3,10,0,14,0,24,0
+946826,2022-10-27 19:00:00+00:00,Tamás Bognár,Omonia Nicosia,Real Sociedad,0,2,1,2,3,3,2,5,1,4,4,12,5,16
+946827,2022-10-27 19:00:00+00:00,Tiago Martins,HJK Helsinki,AS Roma,1,2,2,6,8,2,3,5,3,4,3,14,6,18
+946828,2022-10-27 19:00:00+00:00,Espen Eskås,Sturm Graz,Feyenoord,1,0,3,4,7,1,4,5,3,4,8,10,11,14
+946829,2022-10-27 19:00:00+00:00,Kristo Tohver,SC Freiburg,Olympiakos Piraeus,1,1,9,0,9,1,10,11,8,3,12,4,20,7
+946830,2022-10-27 19:00:00+00:00,Jakob Kehlet,Nantes,Qarabag,2,1,6,9,15,3,1,4,8,7,9,4,17,11
+946831,2022-10-27 19:00:00+00:00,João Pinheiro,FK Crvena Zvezda,Trabzonspor,2,1,2,4,6,2,0,2,4,6,10,10,14,16
+946832,2022-10-27 19:00:00+00:00,Enea Jorgji,Ferencvarosi TC,Monaco,1,1,4,4,8,4,2,6,3,1,6,12,9,13
+946833,2022-11-03 17:45:00+00:00,Georgi Kabakov,Real Sociedad,Manchester United,0,1,5,2,7,2,3,5,4,1,9,3,13,4
+946834,2022-11-03 17:45:00+00:00,Fran Jović,Sheriff Tiraspol,Omonia Nicosia,1,0,3,6,9,2,1,3,3,5,15,10,18,15
+946835,2022-11-03 17:45:00+00:00,Matej Jug,FC Midtjylland,Sturm Graz,2,0,2,5,7,3,4,7,3,3,4,12,7,15
+946836,2022-11-03 17:45:00+00:00,Irfan Peljto,Feyenoord,Lazio,1,0,2,4,6,2,11,13,3,4,8,8,11,12
+946837,2022-11-03 17:45:00+00:00,Serhiy Boyko,Olympiakos Piraeus,Nantes,0,2,4,5,9,1,2,3,5,4,7,7,12,11
+946838,2022-11-03 17:45:00+00:00,Aleksei Kulbakov,Qarabag,SC Freiburg,1,1,9,1,10,6,4,10,5,2,7,6,12,8
+946839,2022-11-03 17:45:00+00:00,Harm Osmers,Trabzonspor,Ferencvarosi TC,1,0,5,2,7,3,3,6,7,1,11,5,18,6
+946840,2022-11-03 17:45:00+00:00,Serdar Gözübüyük,Monaco,FK Crvena Zvezda,4,1,5,3,8,1,4,5,6,2,10,5,16,7
+946841,2022-11-03 20:00:00+00:00,Erik Lambrechts,Arsenal,FC Zurich,1,0,8,4,12,1,3,4,4,2,13,5,17,7
+946842,2022-11-03 20:00:00+00:00,Donatas Rumšas,Bodo/Glimt,PSV Eindhoven,1,2,12,3,15,2,1,3,3,6,8,3,11,9
+946843,2022-11-03 20:00:00+00:00,Duje Strukan,Dynamo Kyiv,Fenerbahçe,0,2,2,5,7,6,3,9,0,4,4,7,4,11
+946844,2022-11-03 20:00:00+00:00,Mohammed Al-Hakim,Rennes,AEK Larnaca,1,1,2,3,5,1,2,3,1,2,14,10,15,12
+946845,2022-11-03 20:00:00+00:00,William Collum,Real Betis,HJK Helsinki,3,0,6,1,7,2,0,2,8,3,12,4,20,7
+946846,2022-11-03 20:00:00+00:00,Nikola Dabanović,AS Roma,Ludogorets,3,1,8,1,9,3,8,11,9,5,11,4,20,9
+946847,2022-11-03 20:00:00+00:00,Andris Treimanis,Union St. Gilloise,Union Berlin,0,1,1,2,3,3,3,6,2,2,4,8,6,10
+946848,2022-11-03 20:00:00+00:00,Ruddy Buquet,SC Braga,Malmo FF,2,1,7,1,8,2,1,3,11,2,9,5,20,7
+971761,2023-02-16 17:45:00+00:00,Maurizio Mariani,Barcelona,Manchester United,2,2,8,5,13,2,3,5,8,5,10,13,18,18
+971763,2023-02-16 17:45:00+00:00,Irfan Peljto,Shakhtar Donetsk,Rennes,2,1,2,9,11,3,3,6,4,6,10,11,14,17
+971765,2023-02-16 17:45:00+00:00,Halil Umut Meler,Ajax,Union Berlin,0,0,3,4,7,0,2,2,0,3,8,10,8,13
+971767,2023-02-16 17:45:00+00:00,Dennis Higler,Red Bull Salzburg,AS Roma,1,0,2,6,8,3,1,4,2,3,12,6,14,9
+971769,2023-02-16 20:00:00+00:00,João Pinheiro,Juventus,Nantes,1,1,3,5,8,2,3,5,6,1,8,6,14,7
+971771,2023-02-16 20:00:00+00:00,François Letexier,Sporting CP,FC Midtjylland,1,1,4,4,8,2,3,5,2,2,14,3,16,5
+971773,2023-02-16 20:00:00+00:00,Orel Grinfeld,Bayer Leverkusen,Monaco,2,3,2,4,6,3,3,6,8,5,9,5,17,10
+971775,2023-02-16 20:00:00+00:00,Radu Petrescu,Sevilla,PSV Eindhoven,3,0,8,3,11,2,0,2,4,4,11,10,15,14
+971770,2023-02-23 17:45:00+00:00,José Sánchez,Nantes,Juventus,0,3,4,6,10,4,1,5,4,12,6,7,10,19
+971772,2023-02-23 17:45:00+00:00,Ivan Kružliak,FC Midtjylland,Sporting CP,0,4,7,4,11,6,2,8,2,7,3,7,5,14
+971776,2023-02-23 17:45:00+00:00,Daniele Orsato,PSV Eindhoven,Sevilla,2,0,4,7,11,4,4,8,5,3,11,8,16,11
+971762,2023-02-23 20:00:00+00:00,Clément Turpin,Manchester United,Barcelona,2,1,1,2,3,3,3,6,5,3,7,3,12,6
+971766,2023-02-23 20:00:00+00:00,Ricardo De Burgos,Union Berlin,Ajax,3,1,6,4,10,2,9,11,6,3,4,8,10,11
+971768,2023-02-23 20:00:00+00:00,Slavko Vinčić,AS Roma,Red Bull Salzburg,2,0,8,0,8,4,0,4,6,3,10,12,16,15
+1010822,2023-03-09 17:45:00+00:00,Orel Grinfeld,Union Berlin,Union St. Gilloise,3,3,7,1,8,2,3,5,8,4,12,3,20,7
+1010824,2023-03-09 17:45:00+00:00,Davide Massa,Bayer Leverkusen,Ferencvarosi TC,2,0,0,2,2,3,4,7,2,1,7,7,9,8
+1010826,2023-03-09 17:45:00+00:00,Tobias Stieler,Sporting CP,Arsenal,2,2,3,9,12,2,2,4,6,7,4,7,10,14
+1010828,2023-03-09 17:45:00+00:00,Sandro Schärer,AS Roma,Real Sociedad,2,0,3,5,8,1,5,6,3,1,6,8,9,9
+1010830,2023-03-09 20:00:00+00:00,Anastasios Sidiropoulos,Juventus,SC Freiburg,1,0,3,2,5,2,2,4,6,0,14,1,20,1
+1010832,2023-03-09 20:00:00+00:00,François Letexier,Sevilla,Fenerbahçe,2,0,4,1,5,2,1,3,5,5,4,7,9,12
+1010834,2023-03-09 20:00:00+00:00,Daniel Siebert,Manchester United,Real Betis,4,1,8,3,11,2,0,2,13,2,12,4,25,6
+1010836,2023-03-09 20:00:00+00:00,Ivan Kružliak,Shakhtar Donetsk,Feyenoord,1,1,2,6,8,0,1,1,1,6,4,15,5,21
+1010831,2023-03-16 17:45:00+00:00,Serdar Gözübüyük,SC Freiburg,Juventus,0,2,6,1,7,6,2,8,4,8,8,7,12,15
+1010833,2023-03-16 17:45:00+00:00,Michael Oliver,Fenerbahçe,Sevilla,1,0,5,5,10,2,2,4,3,3,12,0,15,3
+1010835,2023-03-16 17:45:00+00:00,Srđan Jovanović,Real Betis,Manchester United,0,1,6,5,11,0,1,1,2,4,13,13,15,17
+1010837,2023-03-16 17:45:00+00:00,Jesús Gil Manzano,Feyenoord,Shakhtar Donetsk,7,1,3,1,4,0,2,2,10,2,6,5,16,7
+1010823,2023-03-16 20:00:00+00:00,José Sánchez,Union St. Gilloise,Union Berlin,3,0,0,3,3,1,7,8,9,1,4,5,13,6
+1010825,2023-03-16 20:00:00+00:00,Artur Soares Dias,Ferencvarosi TC,Bayer Leverkusen,0,2,3,9,12,0,0,0,2,9,7,8,9,17
+1010829,2023-03-16 20:00:00+00:00,István Kovács,Real Sociedad,AS Roma,0,0,9,3,12,6,3,9,3,0,16,3,19,3
+1016039,2023-04-13 16:45:00+00:00,José Sánchez,Feyenoord,AS Roma,1,0,5,5,10,2,0,2,2,3,10,14,12,17
+1016041,2023-04-13 19:00:00+00:00,Felix Zwayer,Manchester United,Sevilla,2,2,6,6,12,3,5,8,5,3,7,10,12,13
+1016043,2023-04-13 19:00:00+00:00,Halil Umut Meler,Juventus,Sporting CP,1,0,3,9,12,2,1,3,3,6,6,9,9,15
+1016045,2023-04-13 19:00:00+00:00,Ivan Kružliak,Bayer Leverkusen,Union St. Gilloise,1,1,8,4,12,1,3,4,2,4,13,4,15,8
+1016042,2023-04-20 19:00:00+00:00,Artur Soares Dias,Sevilla,Manchester United,3,0,8,5,13,1,3,4,6,3,14,13,20,16
+1016044,2023-04-20 19:00:00+00:00,François Letexier,Sporting CP,Juventus,1,1,5,4,9,2,2,4,2,1,11,7,13,8
+1016046,2023-04-20 19:00:00+00:00,Antonio Mateu Lahoz,Union St. Gilloise,Bayer Leverkusen,1,4,4,4,8,1,0,1,2,7,11,3,13,10
+1022970,2023-05-11 19:00:00+00:00,Daniel Siebert,Juventus,Sevilla,1,1,5,4,9,3,4,7,2,5,9,8,11,13
+1022972,2023-05-11 19:00:00+00:00,Michael Oliver,AS Roma,Bayer Leverkusen,1,0,2,3,5,4,3,7,5,2,7,8,12,10
+1022973,2023-05-18 19:00:00+00:00,Slavko Vinčić,Bayer Leverkusen,AS Roma,0,0,5,1,6,5,3,8,6,0,17,1,23,1
+1119750,2023-08-24 17:00:00+00:00,Kristo Tohver,Slavia Praha,Zorya Luhansk,2,0,9,2,11,0,5,5,10,1,15,7,25,8
+1119758,2023-08-24 17:00:00+00:00,Filip Glova,BK Hacken,Aberdeen,2,2,5,8,13,4,2,6,7,5,10,10,17,15
+1119754,2023-08-24 18:00:00+00:00,Marco Di Bello,Ludogorets,Ajax,1,4,4,2,6,0,1,1,4,4,5,0,9,4
+1119762,2023-08-24 18:00:00+00:00,Georgi Kabakov,Olimpija Ljubljana,Qarabag,0,2,3,7,10,7,1,8,5,7,11,9,16,16
+1121133,2023-08-24 18:00:00+00:00,Marco Guida,Dinamo Zagreb,Sparta Praha,3,1,1,4,5,1,1,2,5,4,11,7,16,11
+1113479,2023-08-24 18:30:00+00:00,Enea Jorgji,Union St. Gilloise,FC Lugano,2,0,4,3,7,3,1,4,6,6,9,5,15,11
+1119627,2023-08-24 18:30:00+00:00,William Collum,Slovan Bratislava,Aris,2,1,6,3,9,6,5,11,6,5,6,4,12,9
+1119760,2023-08-24 18:45:00+00:00,Rade Obrenović,KI Klaksvik,Sheriff Tiraspol,1,1,3,8,11,0,0,0,6,2,3,9,9,11
+1119752,2023-08-24 19:00:00+00:00,Donatas Rumšas,Olympiakos Piraeus,Cukaricki,3,1,6,1,7,2,1,3,12,2,7,4,19,6
+1119756,2023-08-24 19:00:00+00:00,Orel Grinfeld,Lask Linz,Zrinjski,2,1,4,0,4,2,0,2,3,1,3,4,6,5
+1119763,2023-08-31 16:00:00+00:00,Alejandro Hernández,Qarabag,Olimpija Ljubljana,1,1,7,4,11,4,5,9,1,3,7,6,8,9
+1119628,2023-08-31 17:00:00+00:00,Erik Lambrechts,Aris,Slovan Bratislava,6,2,2,1,3,1,3,4,13,5,6,5,19,10
+1119751,2023-08-31 17:00:00+00:00,Jérôme Brisard,Zorya Luhansk,Slavia Praha,2,1,1,11,12,1,0,1,4,6,1,7,5,13
+1119761,2023-08-31 17:00:00+00:00,Halil Umut Meler,Sheriff Tiraspol,KI Klaksvik,2,1,6,7,13,5,3,8,3,5,11,3,14,8
+1121134,2023-08-31 17:00:00+00:00,Tobias Stieler,Sparta Praha,Dinamo Zagreb,4,1,3,1,4,2,1,3,6,5,6,6,12,11
+1119753,2023-08-31 18:00:00+00:00,Danny Makkelie,Cukaricki,Olympiakos Piraeus,0,3,2,9,11,1,0,1,1,8,0,11,1,19
+1119755,2023-08-31 18:00:00+00:00,Ivan Kružliak,Ajax,Ludogorets,0,1,1,0,1,3,2,5,2,1,6,7,8,8
+1113480,2023-08-31 18:30:00+00:00,Harm Osmers,FC Lugano,Union St. Gilloise,0,1,4,5,9,4,1,5,2,6,9,10,11,16
+1119759,2023-08-31 18:45:00+00:00,Daniel Siebert,Aberdeen,BK Hacken,1,3,11,5,16,3,2,5,5,7,9,4,14,11
+1119757,2023-08-31 19:00:00+00:00,Tiago Martins,Zrinjski,Lask Linz,1,1,1,5,6,1,3,4,1,3,5,8,6,11
+1126336,2023-09-21 16:45:00+00:00,Rohit Saggi,Union St. Gilloise,Toulouse,1,1,6,4,10,3,6,9,4,3,10,6,14,9
+1126337,2023-09-21 16:45:00+00:00,Marco Di Bello,Lask Linz,Liverpool,1,3,6,7,13,3,2,5,2,6,5,8,7,14
+1126338,2023-09-21 16:45:00+00:00,Craig Pawson,Panathinaikos,Villarreal,2,0,6,4,10,1,4,5,3,1,10,3,13,4
+1126339,2023-09-21 16:45:00+00:00,Harm Osmers,Rennes,Maccabi Haifa,3,0,9,3,12,1,5,6,11,2,13,4,24,6
+1126340,2023-09-21 16:45:00+00:00,Giorgi Kruashvili,Servette FC,Slavia Praha,0,2,4,8,12,3,4,7,3,2,8,8,11,10
+1126341,2023-09-21 16:45:00+00:00,Andris Treimanis,Sheriff Tiraspol,AS Roma,1,2,4,2,6,6,1,7,3,6,9,9,12,15
+1126342,2023-09-21 16:45:00+00:00,Manfredas Lukjančukas,Bayer Leverkusen,BK Hacken,4,0,6,4,10,1,0,1,10,6,12,5,22,11
+1126343,2023-09-21 16:45:00+00:00,John Beaton,Qarabag,Molde,1,0,9,1,10,3,4,7,8,2,11,4,19,6
+1126344,2023-09-21 19:00:00+00:00,Filip Glova,West Ham,TSC Backa Topola,3,1,12,4,16,1,1,2,8,4,15,5,23,9
+1126345,2023-09-21 19:00:00+00:00,Allard Lindhout,Olympiakos Piraeus,SC Freiburg,2,3,8,5,13,2,3,5,5,6,12,7,17,13
+1126346,2023-09-21 19:00:00+00:00,Maurizio Mariani,Ajax,Marseille,3,3,5,3,8,5,1,6,5,12,8,13,13,25
+1126347,2023-09-21 19:00:00+00:00,Kristo Tohver,Brighton,AEK Athens FC,2,3,11,2,13,4,7,11,7,6,8,5,15,11
+1126348,2023-09-21 19:00:00+00:00,Jérôme Brisard,Sparta Praha,Aris,3,2,11,4,15,3,1,4,9,3,11,3,20,6
+1126349,2023-09-21 19:00:00+00:00,Lawrence Visser,Rangers,Real Betis,1,0,9,7,16,1,3,4,5,4,13,8,18,12
+1126350,2023-09-21 19:00:00+00:00,Roi Reinshreiber,Atalanta,Raków Częstochowa,2,0,11,0,11,1,0,1,10,1,19,2,29,3
+1126351,2023-09-21 19:00:00+00:00,Nikola Dabanović,Sturm Graz,Sporting CP,1,2,3,2,5,2,1,3,2,7,5,6,7,13
+1126352,2023-10-05 16:45:00+00:00,Mohammed Al-Hakim,SC Freiburg,West Ham,1,2,3,4,7,1,1,2,5,5,6,6,11,11
+1126353,2023-10-05 16:45:00+00:00,Benoît Bastien,TSC Backa Topola,Olympiakos Piraeus,2,2,1,3,4,1,3,4,5,3,4,10,9,13
+1126354,2023-10-05 16:45:00+00:00,Mykola Balakin,Marseille,Brighton,2,2,8,5,13,3,4,7,4,5,10,9,14,14
+1126355,2023-10-05 16:45:00+00:00,Matej Jug,AEK Athens FC,Ajax,1,1,7,4,11,4,2,6,5,7,18,3,23,10
+1126356,2023-10-05 16:45:00+00:00,Duje Strukan,Real Betis,Sparta Praha,2,1,4,3,7,4,3,7,4,2,13,8,17,10
+1126357,2023-10-05 16:45:00+00:00,Horațiu Feșnic,Aris,Rangers,2,1,2,6,8,3,2,5,4,4,9,7,13,11
+1126358,2023-10-05 16:45:00+00:00,Alejandro Hernández,Sporting CP,Atalanta,1,2,7,7,14,2,4,6,3,5,12,8,15,13
+1126359,2023-10-05 16:45:00+00:00,Aliyar Aghayev,Raków Częstochowa,Sturm Graz,0,1,5,7,12,2,2,4,2,6,5,12,7,18
+1126360,2023-10-05 19:00:00+00:00,Morten Krogh,Liverpool,Union St. Gilloise,2,0,7,11,18,0,0,0,9,2,10,4,19,6
+1126361,2023-10-05 19:00:00+00:00,Nicholas Walsh,Toulouse,Lask Linz,1,0,6,3,9,5,3,8,2,1,11,9,13,10
+1126362,2023-10-05 19:00:00+00:00,Harald Lechner,Villarreal,Rennes,1,0,3,6,9,4,2,6,2,4,5,13,7,17
+1126363,2023-10-05 19:00:00+00:00,António Nobre,Maccabi Haifa,Panathinaikos,0,0,7,2,9,3,2,5,7,0,7,8,14,8
+1126364,2023-10-05 19:00:00+00:00,Igor Pajač,AS Roma,Servette FC,4,0,4,8,12,0,2,2,7,1,11,7,18,8
+1126365,2023-10-05 19:00:00+00:00,Willy Delajod,Slavia Praha,Sheriff Tiraspol,6,0,11,2,13,0,3,3,8,1,10,6,18,7
+1126366,2023-10-05 19:00:00+00:00,Sebastian Gishamer,BK Hacken,Qarabag,0,1,4,7,11,1,2,3,1,2,6,12,7,14
+1126367,2023-10-05 19:00:00+00:00,Anastasios Papapetrou,Molde,Bayer Leverkusen,1,2,4,3,7,2,0,2,5,3,10,9,15,12
+1126368,2023-10-26 16:45:00+00:00,Andris Treimanis,Olympiakos Piraeus,West Ham,2,1,3,6,9,5,4,9,5,3,10,9,15,12
+1126369,2023-10-26 16:45:00+00:00,Aliyar Aghayev,TSC Backa Topola,SC Freiburg,1,3,1,5,6,3,1,4,2,5,3,11,5,16
+1126370,2023-10-26 16:45:00+00:00,Daniel Stefański,Marseille,AEK Athens FC,3,1,3,0,3,2,6,8,8,2,5,5,13,7
+1126371,2023-10-26 16:45:00+00:00,Sascha Stegemann,Sparta Praha,Rangers,0,0,7,3,10,1,4,5,4,4,12,8,16,12
+1126372,2023-10-26 16:45:00+00:00,Filip Glova,Aris,Real Betis,0,1,3,9,12,2,2,4,1,5,8,12,9,17
+1126373,2023-10-26 16:45:00+00:00,Duje Strukan,Sturm Graz,Atalanta,2,2,4,6,10,5,2,7,5,8,6,7,11,15
+1126374,2023-10-26 16:45:00+00:00,Anastasios Papapetrou,Raków Częstochowa,Sporting CP,1,1,2,4,6,3,4,7,2,3,16,2,18,5
+1126375,2023-10-26 16:45:00+00:00,Urs Schnyder,Molde,BK Hacken,5,1,4,8,12,1,0,1,8,7,9,14,17,21
+1126376,2023-10-26 19:00:00+00:00,Bartosz Frankowski,Brighton,Ajax,2,0,5,3,8,2,0,2,6,1,6,5,12,6
+1126377,2023-10-26 19:00:00+00:00,Atilla Karaoğlan,Union St. Gilloise,Lask Linz,2,1,4,1,5,2,4,6,7,3,7,3,14,6
+1126378,2023-10-26 19:00:00+00:00,Rade Obrenović,Liverpool,Toulouse,5,1,5,3,8,1,0,1,9,3,11,6,20,9
+1126380,2023-10-26 19:00:00+00:00,João Pinheiro,Panathinaikos,Rennes,1,2,6,4,10,2,5,7,6,6,13,7,19,13
+1126381,2023-10-26 19:00:00+00:00,Espen Eskås,AS Roma,Slavia Praha,2,0,0,4,4,2,1,3,5,2,2,7,7,9
+1126382,2023-10-26 19:00:00+00:00,John Brooks,Sheriff Tiraspol,Servette FC,1,1,1,4,5,2,0,2,5,2,5,13,10,15
+1126383,2023-10-26 19:00:00+00:00,Horațiu Feșnic,Bayer Leverkusen,Qarabag,5,1,2,1,3,2,3,5,11,2,10,1,21,3
+1126384,2023-11-09 17:45:00+00:00,Nikola Dabanović,Ajax,Brighton,0,2,5,7,12,0,2,2,3,3,5,5,8,8
+1126385,2023-11-09 17:45:00+00:00,Simone Sozza,Lask Linz,Union St. Gilloise,3,0,1,5,6,2,1,3,7,0,6,10,13,10
+1126386,2023-11-09 17:45:00+00:00,Georgi Kabakov,Toulouse,Liverpool,3,2,4,7,11,5,2,7,5,4,6,15,11,19
+1126387,2023-11-09 17:45:00+00:00,William Collum,Rennes,Panathinaikos,3,1,2,5,7,5,2,7,3,2,8,8,11,10
+1126388,2023-11-09 17:45:00+00:00,Mykola Balakin,Maccabi Haifa,Villarreal,1,2,6,6,12,3,3,6,4,10,10,14,14,24
+1126389,2023-11-09 17:45:00+00:00,Manfredas Lukjančukas,Servette FC,Sheriff Tiraspol,2,1,12,1,13,2,10,12,9,1,16,5,25,6
+1126390,2023-11-09 17:45:00+00:00,François Letexier,Slavia Praha,AS Roma,2,0,7,0,7,3,2,5,7,2,12,3,19,5
+1126391,2023-11-09 17:45:00+00:00,Craig Pawson,Qarabag,Bayer Leverkusen,0,1,4,5,9,5,2,7,2,3,9,8,11,11
+1126392,2023-11-09 20:00:00+00:00,Rohit Saggi,SC Freiburg,TSC Backa Topola,5,0,10,3,13,1,1,2,10,3,19,3,29,6
+1126393,2023-11-09 20:00:00+00:00,Matej Jug,West Ham,Olympiakos Piraeus,1,0,6,5,11,3,4,7,5,0,9,9,14,9
+1126394,2023-11-09 20:00:00+00:00,Glenn Nyberg,AEK Athens FC,Marseille,0,2,15,5,20,2,1,3,7,4,15,8,22,12
+1126395,2023-11-09 20:00:00+00:00,Mohammed Al-Hakim,Real Betis,Aris,4,1,7,3,10,1,1,2,9,4,6,4,15,8
+1126396,2023-11-09 20:00:00+00:00,Davide Massa,Rangers,Sparta Praha,2,1,5,5,10,4,4,8,8,3,9,6,17,9
+1126397,2023-11-09 20:00:00+00:00,Jérôme Brisard,Atalanta,Sturm Graz,1,0,8,1,9,0,2,2,3,0,12,4,15,4
+1126398,2023-11-09 20:00:00+00:00,Enea Jorgji,Sporting CP,Raków Częstochowa,2,1,9,1,10,2,3,5,6,2,13,1,19,3
+1126399,2023-11-09 20:00:00+00:00,Don Robertson,BK Hacken,Molde,1,3,4,7,11,2,0,2,5,6,5,7,10,13
+1126400,2023-11-30 17:45:00+00:00,Irfan Peljto,SC Freiburg,Olympiakos Piraeus,5,0,5,4,9,0,3,3,6,1,6,7,12,8
+1126401,2023-11-30 17:45:00+00:00,Allard Lindhout,TSC Backa Topola,West Ham,0,1,1,8,9,2,2,4,3,3,6,4,9,7
+1126402,2023-11-30 17:45:00+00:00,Sandro Schärer,AEK Athens FC,Brighton,0,1,4,4,8,5,1,6,5,2,14,7,19,9
+1126403,2023-11-30 17:45:00+00:00,Nikola Dabanović,Sparta Praha,Real Betis,1,0,3,5,8,1,4,5,3,6,4,5,7,11
+1126404,2023-11-30 17:45:00+00:00,Michael Oliver,Atalanta,Sporting CP,1,1,2,2,4,4,3,7,3,2,3,8,6,10
+1126405,2023-11-30 17:45:00+00:00,Filip Glova,Sturm Graz,Raków Częstochowa,0,1,3,7,10,2,2,4,5,4,8,11,13,15
+1126406,2023-11-30 17:45:00+00:00,Horațiu Feșnic,Maccabi Haifa,Rennes,0,3,3,9,12,3,1,4,0,4,5,14,5,18
+1126407,2023-11-30 20:00:00+00:00,Simone Sozza,Marseille,Ajax,4,3,7,2,9,2,6,8,10,6,9,1,19,7
+1126408,2023-11-30 20:00:00+00:00,Rohit Saggi,Rangers,Aris,1,1,5,5,10,1,6,7,5,3,10,6,15,9
+1126409,2023-11-30 20:00:00+00:00,Urs Schnyder,Liverpool,Lask Linz,4,0,8,6,14,0,1,1,9,3,15,4,24,7
+1126410,2023-11-30 20:00:00+00:00,Matej Jug,Toulouse,Union St. Gilloise,0,0,4,5,9,1,4,5,1,3,3,8,4,11
+1126411,2023-11-30 20:00:00+00:00,Ivan Kružliak,Villarreal,Panathinaikos,3,2,3,3,6,2,1,3,9,3,2,7,11,10
+1126412,2023-11-30 20:00:00+00:00,Daniel Stefański,Servette FC,AS Roma,1,1,4,3,7,3,3,6,6,2,7,11,13,13
+1126413,2023-11-30 20:00:00+00:00,Christian-Petru Ciochirca,Sheriff Tiraspol,Slavia Praha,2,3,1,12,13,4,2,6,2,6,2,12,4,18
+1126414,2023-11-30 20:00:00+00:00,Erik Lambrechts,Molde,Qarabag,2,2,5,2,7,3,3,6,9,3,13,4,22,7
+1126415,2023-11-30 20:00:00+00:00,Julian Weinberger,BK Hacken,Bayer Leverkusen,0,2,4,3,7,0,1,1,6,5,5,5,11,10
+1126379,2023-12-06 20:00:00+00:00,Nicholas Walsh,Villarreal,Maccabi Haifa,0,0,5,3,8,3,2,5,5,0,11,4,16,4
+1126416,2023-12-14 17:45:00+00:00,Orel Grinfeld,Union St. Gilloise,Liverpool,2,1,7,2,9,1,2,3,6,3,9,1,15,4
+1126417,2023-12-14 17:45:00+00:00,Fabio Maresca,Lask Linz,Toulouse,1,2,6,4,10,3,2,5,4,5,10,5,14,10
+1126418,2023-12-14 17:45:00+00:00,Atilla Karaoğlan,Rennes,Villarreal,2,3,4,3,7,4,3,7,5,5,5,8,10,13
+1126419,2023-12-14 17:45:00+00:00,Georgi Kabakov,Panathinaikos,Maccabi Haifa,1,2,15,2,17,2,5,7,6,4,16,5,22,9
+1126420,2023-12-14 17:45:00+00:00,Jérôme Brisard,AS Roma,Sheriff Tiraspol,3,0,6,2,8,1,2,3,6,2,12,2,18,4
+1126421,2023-12-14 17:45:00+00:00,Nicholas Walsh,Slavia Praha,Servette FC,4,0,4,4,8,0,2,2,7,3,7,7,14,10
+1126422,2023-12-14 17:45:00+00:00,Robert Jones,Bayer Leverkusen,Molde,5,1,5,3,8,2,0,2,10,3,10,5,20,8
+1126423,2023-12-14 17:45:00+00:00,Juxhin Xhaja,Qarabag,BK Hacken,2,1,1,2,3,2,2,4,3,5,6,14,9,19
+1126424,2023-12-14 20:00:00+00:00,João Pinheiro,West Ham,SC Freiburg,2,0,0,3,3,0,0,0,3,4,5,8,8,12
+1126425,2023-12-14 20:00:00+00:00,Morten Krogh,Olympiakos Piraeus,TSC Backa Topola,5,2,3,1,4,0,7,7,10,3,10,3,20,6
+1126426,2023-12-14 20:00:00+00:00,Craig Pawson,Ajax,AEK Athens FC,3,1,5,5,10,4,3,7,9,4,5,10,14,14
+1126427,2023-12-14 20:00:00+00:00,José Sánchez,Brighton,Marseille,1,0,0,2,2,4,3,7,5,0,8,5,13,5
+1126428,2023-12-14 20:00:00+00:00,Srđan Jovanović,Real Betis,Rangers,2,3,4,3,7,2,3,5,8,5,10,8,18,13
+1126429,2023-12-14 20:00:00+00:00,Harm Osmers,Aris,Sparta Praha,1,3,5,2,7,3,2,5,3,9,15,2,18,11
+1126430,2023-12-14 20:00:00+00:00,William Collum,Sporting CP,Sturm Graz,3,0,6,1,7,0,1,1,5,2,9,2,14,4
+1126431,2023-12-14 20:00:00+00:00,Enea Jorgji,Raków Częstochowa,Atalanta,0,4,6,6,12,1,2,3,3,6,12,9,15,15
+1149542,2024-02-15 17:45:00+00:00,Radu Petrescu,Feyenoord,AS Roma,1,1,4,5,9,3,2,5,6,5,12,9,18,14
+1149544,2024-02-15 17:45:00+00:00,Benoît Bastien,BSC Young Boys,Sporting CP,1,3,4,3,7,7,0,7,3,6,8,7,11,13
+1149546,2024-02-15 17:45:00+00:00,Alejandro Hernández,Galatasaray,Sparta Praha,3,2,5,4,9,4,7,11,5,6,10,5,15,11
+1149548,2024-02-15 17:45:00+00:00,Erik Lambrechts,Shakhtar Donetsk,Marseille,2,2,3,7,10,4,1,5,4,4,6,9,10,13
+1149550,2024-02-15 20:00:00+00:00,Nikola Dabanović,AC Milan,Rennes,3,0,8,2,10,0,1,1,8,4,11,8,19,12
+1149552,2024-02-15 20:00:00+00:00,Bartosz Frankowski,Lens,SC Freiburg,0,0,6,5,11,3,1,4,0,4,12,13,12,17
+1149554,2024-02-15 20:00:00+00:00,Donatas Rumšas,Benfica,Toulouse,2,1,6,2,8,1,9,10,5,2,22,4,27,6
+1149556,2024-02-15 20:00:00+00:00,Morten Krogh,SC Braga,Qarabag,2,4,7,2,9,1,2,3,9,5,7,6,16,11
+1149551,2024-02-22 17:45:00+00:00,João Pinheiro,Rennes,AC Milan,3,2,10,2,12,1,2,3,8,5,16,3,24,8
+1149555,2024-02-22 17:45:00+00:00,Maurizio Mariani,Toulouse,Benfica,0,0,9,2,11,3,1,4,6,1,10,7,16,8
+1149545,2024-02-22 20:00:00+00:00,Ivan Kružliak,Sporting CP,BSC Young Boys,1,1,7,0,7,0,2,2,7,4,9,4,16,8
+1149547,2024-02-22 20:00:00+00:00,Anthony Taylor,Sparta Praha,Galatasaray,4,1,4,2,6,3,5,8,6,2,5,9,11,11
+1149549,2024-02-22 20:00:00+00:00,Tobias Stieler,Marseille,Shakhtar Donetsk,3,1,8,4,12,1,5,6,7,5,12,6,19,11
+1175845,2024-03-06 17:45:00+00:00,Daniel Siebert,Sporting CP,Atalanta,1,1,4,10,14,1,3,4,2,3,3,10,5,13
+1175847,2024-03-07 17:45:00+00:00,José Sánchez,Sparta Praha,Liverpool,1,5,5,3,8,2,0,2,7,11,4,9,11,20
+1175849,2024-03-07 17:45:00+00:00,François Letexier,AS Roma,Brighton,4,0,5,6,11,1,2,3,7,4,7,7,14,11
+1175851,2024-03-07 17:45:00+00:00,Benoît Bastien,Qarabag,Bayer Leverkusen,2,2,3,8,11,1,0,1,6,4,6,6,12,10
+1175853,2024-03-07 20:00:00+00:00,Serdar Gözübüyük,Marseille,Villarreal,4,0,2,3,5,1,7,8,7,0,5,5,12,5
+1175855,2024-03-07 20:00:00+00:00,Tobias Stieler,Benfica,Rangers,2,2,14,4,18,2,3,5,5,5,19,4,24,9
+1175857,2024-03-07 20:00:00+00:00,Alejandro Hernández,SC Freiburg,West Ham,1,0,4,4,8,2,1,3,4,4,11,11,15,15
+1175859,2024-03-07 20:00:00+00:00,Halil Umut Meler,AC Milan,Slavia Praha,4,2,8,4,12,2,2,4,9,2,11,6,20,8
+1175854,2024-03-14 17:45:00+00:00,István Kovács,Villarreal,Marseille,3,1,9,3,12,3,5,8,8,2,17,5,25,7
+1175856,2024-03-14 17:45:00+00:00,Ivan Kružliak,Rangers,Benfica,0,1,8,6,14,1,1,2,3,4,9,10,12,14
+1175858,2024-03-14 17:45:00+00:00,Marco Guida,West Ham,SC Freiburg,5,0,6,1,7,2,0,2,7,3,4,7,11,10
+1175860,2024-03-14 17:45:00+00:00,Glenn Nyberg,Slavia Praha,AC Milan,1,3,3,5,8,5,3,8,2,6,6,6,8,12
+1175846,2024-03-14 20:00:00+00:00,Sandro Schärer,Atalanta,Sporting CP,2,1,3,3,6,1,0,1,5,4,5,4,10,8
+1175848,2024-03-14 20:00:00+00:00,Artur Soares Dias,Liverpool,Sparta Praha,6,1,8,2,10,1,0,1,12,2,10,7,22,9
+1175850,2024-03-14 20:00:00+00:00,Felix Zwayer,Brighton,AS Roma,1,0,5,1,6,2,5,7,5,1,16,7,21,8
+1175852,2024-03-14 20:00:00+00:00,Anthony Taylor,Bayer Leverkusen,Qarabag,3,2,13,5,18,1,4,5,8,3,25,8,33,11
+1184824,2024-04-11 19:00:00+00:00,Clément Turpin,AC Milan,AS Roma,0,1,9,3,12,3,1,4,5,3,20,7,25,10
+1184826,2024-04-11 19:00:00+00:00,Halil Umut Meler,Liverpool,Atalanta,0,3,4,2,6,0,2,2,5,7,14,4,19,11
+1184828,2024-04-11 19:00:00+00:00,Artur Soares Dias,Bayer Leverkusen,West Ham,2,0,10,1,11,0,2,2,13,1,20,0,33,1
+1184830,2024-04-11 19:00:00+00:00,Michael Oliver,Benfica,Marseille,2,1,5,8,13,1,0,1,3,2,7,10,10,12
+1184825,2024-04-18 19:00:00+00:00,Szymon Marciniak,AS Roma,AC Milan,2,1,0,11,11,2,6,8,3,4,3,16,6,20
+1184827,2024-04-18 19:00:00+00:00,François Letexier,Atalanta,Liverpool,0,1,2,1,3,3,0,3,2,5,6,5,8,10
+1184829,2024-04-18 19:00:00+00:00,José Sánchez,West Ham,Bayer Leverkusen,1,1,2,5,7,5,5,10,6,2,8,7,14,9
+1196783,2024-05-02 19:00:00+00:00,Daniel Siebert,Marseille,Atalanta,1,1,11,1,12,1,0,1,3,2,11,6,14,8
+1196785,2024-05-02 19:00:00+00:00,François Letexier,AS Roma,Bayer Leverkusen,0,2,4,2,6,3,3,6,2,4,6,15,8,19
+1196784,2024-05-09 19:00:00+00:00,Jesús Gil Manzano,Atalanta,Marseille,3,0,3,0,3,2,0,2,8,1,8,5,16,6
+1196786,2024-05-09 19:00:00+00:00,Danny Makkelie,Bayer Leverkusen,AS Roma,2,2,8,4,12,3,4,7,13,7,19,4,32,11
+1199589,2024-05-22 19:00:00+00:00,István Kovács,Atalanta,Bayer Leverkusen,3,0,2,5,7,4,3,7,7,3,3,7,10,10
+1286917,2024-08-22 17:00:00+00:00,Allard Lindhout,Lask Linz,FCSB,1,1,0,0,0,2,4,6,0,0,0,0,0,0
+1286919,2024-08-22 17:00:00+00:00,Aliyar Aghayev,Rīgas FS,Apoel Nicosia,2,1,0,0,0,2,2,4,0,0,0,0,0,0
+1287610,2024-08-22 17:00:00+00:00,István Kovács,Molde,IF Elfsborg,0,1,0,0,0,3,2,5,0,0,0,0,0,0
+1287614,2024-08-22 17:00:00+00:00,Sven Jablonski,Plzen,Heart Of Midlothian,1,0,0,0,0,2,3,5,0,0,0,0,0,0
+1287618,2024-08-22 17:30:00+00:00,Enea Jorgji,PAOK,Shamrock Rovers,4,0,0,0,0,0,6,6,0,0,0,0,0,0
+1286915,2024-08-22 18:00:00+00:00,Anastasios Papapetrou,Ludogorets,Petrocub,4,0,0,0,0,1,1,2,0,0,0,0,0,0
+1287608,2024-08-22 18:00:00+00:00,Sebastian Gishamer,Maccabi Tel Aviv,TSC Backa Topola,3,0,0,0,0,1,8,9,0,0,0,0,0,0
+1287606,2024-08-22 18:30:00+00:00,Morten Krogh,FC Lugano,Beşiktaş,3,3,0,0,0,2,2,4,0,0,0,0,0,0
+1287604,2024-08-22 18:45:00+00:00,Rohit Saggi,Dinamo Minsk,Anderlecht,0,1,0,0,0,4,0,4,0,0,0,0,0,0
+1287616,2024-08-22 18:45:00+00:00,Rade Obrenović,Jagiellonia,Ajax,1,4,0,0,0,1,2,3,0,0,0,0,0,0
+1287620,2024-08-22 19:00:00+00:00,Nicholas Walsh,Ferencvarosi TC,Borac Banja Luka,0,0,0,0,0,1,3,4,0,0,0,0,0,0
+1287612,2024-08-22 19:30:00+00:00,Mykola Balakin,SC Braga,Rapid Vienna,2,1,0,0,0,2,4,6,0,0,0,0,0,0
+1286916,2024-08-29 17:00:00+00:00,Sascha Stegemann,Petrocub,Ludogorets,1,2,3,7,10,8,2,10,4,8,5,9,9,17
+1287605,2024-08-29 18:00:00+00:00,Nikola Dabanović,Anderlecht,Dinamo Minsk,1,0,8,1,9,1,1,2,5,0,11,7,16,7
+1287607,2024-08-29 18:00:00+00:00,Radu Petrescu,Beşiktaş,FC Lugano,5,1,4,5,9,3,2,5,10,4,8,5,18,9
+1287617,2024-08-29 18:00:00+00:00,Maurizio Mariani,Ajax,Jagiellonia,3,0,4,1,5,1,1,2,10,0,12,1,22,1
+1286918,2024-08-29 18:30:00+00:00,Felix Zwayer,FCSB,Lask Linz,1,0,9,9,18,3,4,7,3,3,3,5,6,8
+1287615,2024-08-29 18:45:00+00:00,Georgi Kabakov,Heart Of Midlothian,Plzen,0,1,3,4,7,3,0,3,1,4,5,6,6,10
+1287609,2024-08-29 19:00:00+00:00,João Pinheiro,TSC Backa Topola,Maccabi Tel Aviv,1,5,6,2,8,4,1,5,4,11,4,5,8,16
+1287613,2024-08-29 19:00:00+00:00,Anthony Taylor,Rapid Vienna,SC Braga,2,2,5,12,17,5,3,8,6,3,1,15,7,18
+1287619,2024-08-29 19:00:00+00:00,Donatas Rumšas,Shamrock Rovers,PAOK,0,2,2,5,7,1,1,2,2,10,3,6,5,16
+1299128,2024-09-25 16:45:00+00:00,Juxhin Xhaja,AZ Alkmaar,IF Elfsborg,3,2,7,0,7,2,4,6,9,2,7,1,16,3
+1299129,2024-09-25 16:45:00+00:00,Orel Grinfeld,Bodo/Glimt,FC Porto,3,2,2,9,11,5,2,7,7,9,4,19,11,28
+1299130,2024-09-25 19:00:00+00:00,Anastasios Sidiropoulos,Dynamo Kyiv,Lazio,0,3,3,3,6,4,3,7,6,7,4,7,10,14
+1299131,2024-09-25 19:00:00+00:00,Nenad Minaković,FC Midtjylland,1899 Hoffenheim,1,1,10,5,15,1,0,1,7,3,6,11,13,14
+1299132,2024-09-25 19:00:00+00:00,Alejandro Hernández,Galatasaray,PAOK,3,1,9,1,10,1,1,2,9,5,16,2,25,7
+1299133,2024-09-25 19:00:00+00:00,Jérôme Brisard,Ludogorets,Slavia Praha,0,2,3,7,10,2,3,5,1,5,9,7,10,12
+1299134,2024-09-25 19:00:00+00:00,Simone Sozza,Manchester United,Twente,1,1,10,5,15,1,3,4,5,3,14,4,19,7
+1299135,2024-09-25 19:00:00+00:00,Morten Krogh,Nice,Real Sociedad,1,1,5,4,9,2,3,5,5,2,5,6,10,8
+1299136,2024-09-25 19:00:00+00:00,Julian Weinberger,Anderlecht,Ferencvarosi TC,2,1,3,3,6,6,5,11,6,3,7,6,13,9
+1299137,2024-09-26 16:45:00+00:00,Benoît Bastien,Fenerbahçe,Union St. Gilloise,2,1,7,6,13,6,4,10,4,7,6,8,10,15
+1299138,2024-09-26 16:45:00+00:00,Luís Godinho,Malmo FF,Rangers,0,2,5,3,8,2,2,4,0,5,7,12,7,17
+1299139,2024-09-26 19:00:00+00:00,John Brooks,Ajax,Beşiktaş,4,0,4,6,10,2,2,4,9,0,8,6,17,6
+1299140,2024-09-26 19:00:00+00:00,Mykola Balakin,Eintracht Frankfurt,Plzen,3,3,5,1,6,0,0,0,6,6,13,7,19,13
+1299141,2024-09-26 19:00:00+00:00,Ricardo De Burgos,FCSB,Rīgas FS,4,1,8,4,12,1,0,1,8,5,10,5,18,10
+1299142,2024-09-26 19:00:00+00:00,Lawrence Visser,Lyon,Olympiakos Piraeus,2,0,8,2,10,1,3,4,7,3,10,4,17,7
+1299143,2024-09-26 19:00:00+00:00,Georgi Kabakov,AS Roma,Athletic Club,1,1,2,10,12,2,4,6,3,2,2,10,5,12
+1299144,2024-09-26 19:00:00+00:00,Matej Jug,SC Braga,Maccabi Tel Aviv,2,1,8,2,10,3,9,12,9,2,22,8,31,10
+1299145,2024-09-26 19:00:00+00:00,Willy Delajod,Tottenham,Qarabag,3,0,3,9,12,3,1,4,5,5,5,9,10,14
+1299146,2024-10-03 16:45:00+00:00,Igor Pajač,Ferencvarosi TC,Tottenham,1,2,4,11,15,1,0,1,5,7,10,10,15,17
+1299147,2024-10-03 16:45:00+00:00,Horațiu Feșnic,Lazio,Nice,4,1,6,3,9,2,3,5,6,4,7,7,13,11
+1299148,2024-10-03 16:45:00+00:00,Giorgi Kruashvili,Maccabi Tel Aviv,FC Midtjylland,0,2,8,2,10,2,0,2,4,7,17,3,21,10
+1299149,2024-10-03 16:45:00+00:00,Damian Sylwestrzak,Olympiakos Piraeus,SC Braga,3,0,5,4,9,3,2,5,6,6,9,4,15,10
+1299150,2024-10-03 16:45:00+00:00,Anastasios Papapetrou,Qarabag,Malmo FF,1,2,7,1,8,0,2,2,1,5,11,4,12,9
+1299151,2024-10-03 16:45:00+00:00,Marian Barbu,Real Sociedad,Anderlecht,1,2,9,6,15,1,2,3,4,3,16,12,20,15
+1299152,2024-10-03 16:45:00+00:00,Filip Glova,Rīgas FS,Galatasaray,2,2,2,7,9,2,2,4,4,7,4,9,8,16
+1299153,2024-10-03 16:45:00+00:00,Andris Treimanis,Slavia Praha,Ajax,1,1,8,3,11,3,9,12,8,2,11,4,19,6
+1299154,2024-10-03 16:45:00+00:00,Aleksandar Stavrev,1899 Hoffenheim,Dynamo Kyiv,2,0,4,7,11,1,0,1,6,1,13,7,19,8
+1299155,2024-10-03 19:00:00+00:00,Balázs Berke,Athletic Club,AZ Alkmaar,2,0,4,1,5,1,2,3,7,2,10,3,17,5
+1299156,2024-10-03 19:00:00+00:00,John Beaton,Beşiktaş,Eintracht Frankfurt,1,3,11,1,12,3,3,6,11,5,16,6,27,11
+1299157,2024-10-03 19:00:00+00:00,Kristo Tohver,IF Elfsborg,AS Roma,1,0,3,5,8,3,1,4,4,5,2,18,6,23
+1299158,2024-10-03 19:00:00+00:00,Tobias Stieler,FC Porto,Manchester United,3,3,5,10,15,1,4,5,7,8,7,21,14,29
+1299159,2024-10-03 19:00:00+00:00,Chris Kavanagh,Twente,Fenerbahçe,1,1,4,2,6,3,5,8,9,2,5,4,14,6
+1299160,2024-10-03 19:00:00+00:00,Sascha Stegemann,PAOK,FCSB,0,1,13,1,14,2,8,10,6,2,22,4,28,6
+1299161,2024-10-03 19:00:00+00:00,Sven Jablonski,Rangers,Lyon,1,4,3,2,5,2,3,5,5,8,11,7,16,15
+1299162,2024-10-03 19:00:00+00:00,Ondřej Berka,Union St. Gilloise,Bodo/Glimt,0,0,4,2,6,3,2,5,3,1,18,8,21,9
+1299163,2024-10-03 19:00:00+00:00,Tamás Bognár,Plzen,Ludogorets,0,0,2,1,3,2,3,5,5,2,8,6,13,8
+1299164,2024-10-23 14:30:00+00:00,Matej Jug,Galatasaray,IF Elfsborg,4,3,5,4,9,0,2,2,11,6,12,8,23,14
+1299165,2024-10-23 14:30:00+00:00,Nenad Minaković,SC Braga,Bodo/Glimt,1,2,9,2,11,6,2,8,11,3,9,10,20,13
+1299166,2024-10-24 16:45:00+00:00,Allard Lindhout,Eintracht Frankfurt,Rīgas FS,1,0,7,4,11,1,0,1,4,1,16,9,20,10
+1299167,2024-10-24 16:45:00+00:00,Sebastian Gishamer,FC Midtjylland,Union St. Gilloise,1,0,6,6,12,1,5,6,5,7,10,6,15,13
+1299168,2024-10-24 16:45:00+00:00,Anastasios Sidiropoulos,Ferencvarosi TC,Nice,1,0,3,5,8,2,4,6,6,4,9,12,15,16
+1299169,2024-10-24 16:45:00+00:00,Rohit Saggi,Maccabi Tel Aviv,Real Sociedad,1,2,2,6,8,7,2,9,4,5,8,7,12,12
+1299170,2024-10-24 16:45:00+00:00,Urs Schnyder,PAOK,Plzen,2,2,8,0,8,1,7,8,8,6,11,5,19,11
+1299171,2024-10-24 16:45:00+00:00,Nicholas Walsh,Qarabag,Ajax,0,3,3,2,5,10,2,12,1,10,1,4,2,14
+1299172,2024-10-24 16:45:00+00:00,Serdar Gözübüyük,AS Roma,Dynamo Kyiv,1,0,9,2,11,1,4,5,5,2,12,5,17,7
+1299173,2024-10-24 19:00:00+00:00,Morten Krogh,Athletic Club,Slavia Praha,1,0,0,8,8,2,2,4,3,6,3,8,6,14
+1299174,2024-10-24 19:00:00+00:00,Damian Sylwestrzak,FC Porto,1899 Hoffenheim,2,0,6,9,15,3,1,4,4,1,7,14,11,15
+1299175,2024-10-24 19:00:00+00:00,Nikola Dabanović,Twente,Lazio,0,2,2,4,6,6,0,6,2,6,5,8,7,14
+1299176,2024-10-24 19:00:00+00:00,Clément Turpin,Fenerbahçe,Manchester United,1,1,5,3,8,2,1,3,5,5,5,7,10,12
+1299177,2024-10-24 19:00:00+00:00,Harm Osmers,Lyon,Beşiktaş,0,1,8,0,8,2,6,8,9,5,21,7,30,12
+1299178,2024-10-24 19:00:00+00:00,Simone Sozza,Malmo FF,Olympiakos Piraeus,0,1,4,3,7,2,3,5,2,5,14,10,16,15
+1299179,2024-10-24 19:00:00+00:00,Marco Di Bello,Rangers,FCSB,4,0,4,2,6,3,4,7,7,1,16,6,23,7
+1299180,2024-10-24 19:00:00+00:00,Filip Glova,Anderlecht,Ludogorets,2,0,5,3,8,3,8,11,8,2,9,5,17,7
+1299181,2024-10-24 19:00:00+00:00,Manfredas Lukjančukas,Tottenham,AZ Alkmaar,1,0,6,4,10,0,7,7,5,3,11,6,16,9
+1299182,2024-11-06 15:30:00+00:00,Sven Jablonski,Beşiktaş,Malmo FF,2,1,2,3,5,3,2,5,5,8,9,8,14,16
+1299183,2024-11-07 17:45:00+00:00,Luís Godinho,Bodo/Glimt,Qarabag,1,2,10,3,13,1,2,3,7,6,16,4,23,10
+1299184,2024-11-07 17:45:00+00:00,Chris Kavanagh,Eintracht Frankfurt,Slavia Praha,1,0,4,7,11,3,1,4,5,4,5,16,10,20
+1299185,2024-11-07 17:45:00+00:00,Juxhin Xhaja,IF Elfsborg,SC Braga,1,1,3,6,9,2,2,4,3,2,4,9,7,11
+1299186,2024-11-07 17:45:00+00:00,Duje Strukan,FCSB,FC Midtjylland,2,0,2,4,6,0,1,1,5,3,8,8,13,11
+1299187,2024-11-07 17:45:00+00:00,Lawrence Visser,Galatasaray,Tottenham,3,2,8,0,8,3,8,11,10,3,18,2,28,5
+1299188,2024-11-07 17:45:00+00:00,Anastasios Papapetrou,Ludogorets,Athletic Club,1,2,3,6,9,3,4,7,2,7,7,12,9,19
+1299189,2024-11-07 17:45:00+00:00,Balázs Berke,Nice,Twente,2,2,6,5,11,5,4,9,3,6,10,8,13,14
+1299190,2024-11-07 17:45:00+00:00,Sascha Stegemann,Olympiakos Piraeus,Rangers,1,1,4,4,8,2,3,5,2,6,12,5,14,11
+1299191,2024-11-07 17:45:00+00:00,Jérôme Brisard,Union St. Gilloise,AS Roma,1,1,5,4,9,2,2,4,5,5,9,6,14,11
+1299192,2024-11-07 20:00:00+00:00,Ondřej Berka,Ajax,Maccabi Tel Aviv,5,0,4,2,6,3,3,6,10,3,9,8,19,11
+1299193,2024-11-07 20:00:00+00:00,John Beaton,AZ Alkmaar,Fenerbahçe,3,1,5,3,8,2,6,8,3,6,8,5,11,11
+1299194,2024-11-07 20:00:00+00:00,Mohammed Al-Hakim,Dynamo Kyiv,Ferencvarosi TC,0,4,5,11,16,4,3,7,0,13,10,14,10,27
+1299195,2024-11-07 20:00:00+00:00,Georgi Kabakov,Lazio,FC Porto,2,1,6,5,11,3,6,9,5,1,6,6,11,7
+1299196,2024-11-07 20:00:00+00:00,Radu Petrescu,Manchester United,PAOK,2,0,9,2,11,2,1,3,4,4,12,4,16,8
+1299197,2024-11-07 20:00:00+00:00,Aleksandar Stavrev,Rīgas FS,Anderlecht,1,1,3,9,12,1,2,3,3,3,4,7,7,10
+1299198,2024-11-07 20:00:00+00:00,Marian Barbu,1899 Hoffenheim,Lyon,2,2,8,8,16,2,1,3,12,4,6,7,18,11
+1299199,2024-11-07 20:00:00+00:00,Andris Treimanis,Plzen,Real Sociedad,2,1,5,4,9,3,5,8,4,6,7,10,11,16
+1299200,2024-11-28 17:45:00+00:00,Giorgi Kruashvili,Athletic Club,IF Elfsborg,3,0,10,0,10,1,1,2,6,0,13,2,19,2
+1299201,2024-11-28 17:45:00+00:00,Horațiu Feșnic,AZ Alkmaar,Galatasaray,1,1,3,5,8,6,4,10,5,5,7,14,12,19
+1299202,2024-11-28 17:45:00+00:00,Simone Sozza,Beşiktaş,Maccabi Tel Aviv,1,3,2,7,9,3,2,5,3,10,8,9,11,19
+1299203,2024-11-28 17:45:00+00:00,Luís Godinho,Dynamo Kyiv,Plzen,1,2,8,1,9,1,2,3,6,5,8,10,14,15
+1299204,2024-11-28 17:45:00+00:00,Duje Strukan,Lazio,Ludogorets,0,0,7,3,10,6,2,8,6,0,14,3,20,3
+1299205,2024-11-28 17:45:00+00:00,Nenad Minaković,Qarabag,Lyon,1,4,5,3,8,0,2,2,4,10,13,6,17,16
+1299206,2024-11-28 17:45:00+00:00,Julian Weinberger,Rīgas FS,PAOK,0,2,6,5,11,0,1,1,3,6,5,9,8,15
+1299207,2024-11-28 17:45:00+00:00,Morten Krogh,Anderlecht,FC Porto,2,2,7,5,12,1,2,3,5,5,4,7,9,12
+1299208,2024-11-28 20:00:00+00:00,Craig Pawson,FC Midtjylland,Eintracht Frankfurt,1,2,6,4,10,1,0,1,3,6,8,11,11,17
+1299209,2024-11-28 20:00:00+00:00,John Beaton,Twente,Union St. Gilloise,0,1,4,4,8,2,4,6,3,9,10,9,13,18
+1299210,2024-11-28 20:00:00+00:00,Sebastian Gishamer,FCSB,Olympiakos Piraeus,0,0,4,4,8,8,1,9,2,2,8,10,10,12
+1299211,2024-11-28 20:00:00+00:00,Aliyar Aghayev,Ferencvarosi TC,Malmo FF,4,1,1,3,4,1,2,3,6,4,3,7,9,11
+1299212,2024-11-28 20:00:00+00:00,Lawrence Visser,Manchester United,Bodo/Glimt,3,2,2,1,3,2,1,3,6,4,14,3,20,7
+1299213,2024-11-28 20:00:00+00:00,Ricardo De Burgos,Nice,Rangers,1,4,8,1,9,2,2,4,7,8,12,6,19,14
+1299214,2024-11-28 20:00:00+00:00,Matej Jug,Real Sociedad,Ajax,2,0,5,4,9,3,2,5,3,3,9,9,12,12
+1299215,2024-11-28 20:00:00+00:00,Sascha Stegemann,Slavia Praha,Fenerbahçe,1,2,4,2,6,4,6,10,6,3,17,2,23,5
+1299216,2024-11-28 20:00:00+00:00,Igor Pajač,SC Braga,1899 Hoffenheim,3,0,1,9,10,0,1,1,5,4,4,11,9,15
+1299217,2024-11-28 20:00:00+00:00,Glenn Nyberg,Tottenham,AS Roma,2,2,7,6,13,2,1,3,12,7,12,11,24,18
+1299218,2024-12-11 15:30:00+00:00,Irfan Peljto,Fenerbahçe,Athletic Club,0,2,5,3,8,5,3,8,1,5,3,4,4,9
+1299219,2024-12-12 17:45:00+00:00,Kristo Tohver,Ludogorets,AZ Alkmaar,2,2,3,11,14,2,3,5,3,8,11,10,14,18
+1299220,2024-12-12 17:45:00+00:00,John Brooks,Malmo FF,Galatasaray,2,2,7,3,10,2,2,4,4,5,17,4,21,9
+1299221,2024-12-12 17:45:00+00:00,Jérôme Brisard,Olympiakos Piraeus,Twente,0,0,7,2,9,2,2,4,4,2,8,5,12,7
+1299222,2024-12-12 17:45:00+00:00,Guillermo Cuadra Fernández,PAOK,Ferencvarosi TC,5,0,3,2,5,2,4,6,7,2,6,7,13,9
+1299223,2024-12-12 17:45:00+00:00,Daniel Siebert,AS Roma,SC Braga,3,0,14,5,19,1,4,5,17,0,17,8,34,8
+1299224,2024-12-12 17:45:00+00:00,Juxhin Xhaja,1899 Hoffenheim,FCSB,0,0,4,2,6,4,3,7,3,4,11,4,14,8
+1299225,2024-12-12 17:45:00+00:00,Chris Kavanagh,Union St. Gilloise,Nice,2,1,8,3,11,4,1,5,12,2,12,11,24,13
+1299226,2024-12-12 17:45:00+00:00,Marian Barbu,Plzen,Manchester United,1,2,1,5,6,0,3,3,2,8,13,9,15,17
+1299227,2024-12-12 20:00:00+00:00,Ivan Kružliak,Ajax,Lazio,1,3,2,0,2,3,3,6,6,6,10,3,16,9
+1299228,2024-12-12 20:00:00+00:00,Filip Glova,Bodo/Glimt,Beşiktaş,2,1,11,6,17,1,2,3,4,4,12,10,16,14
+1299229,2024-12-12 20:00:00+00:00,António Nobre,IF Elfsborg,Qarabag,1,0,2,4,6,1,3,4,3,2,6,12,9,14
+1299230,2024-12-12 20:00:00+00:00,Aleksandar Stavrev,FC Porto,FC Midtjylland,2,0,3,7,10,1,1,2,7,1,10,4,17,5
+1299231,2024-12-12 20:00:00+00:00,Andris Treimanis,Lyon,Eintracht Frankfurt,3,2,4,0,4,5,7,12,6,5,13,2,19,7
+1299232,2024-12-12 20:00:00+00:00,Tamás Bognár,Maccabi Tel Aviv,Rīgas FS,2,1,1,4,5,2,2,4,5,4,5,10,10,14
+1299233,2024-12-12 20:00:00+00:00,Sandro Schärer,Rangers,Tottenham,1,1,7,7,14,1,2,3,6,3,9,9,15,12
+1299234,2024-12-12 20:00:00+00:00,Harm Osmers,Real Sociedad,Dynamo Kyiv,3,0,6,1,7,2,2,4,14,1,13,4,27,5
+1299235,2024-12-12 20:00:00+00:00,Anastasios Papapetrou,Slavia Praha,Anderlecht,1,2,9,1,10,2,3,5,5,2,15,5,20,7
+1299236,2025-01-21 15:30:00+00:00,Kristo Tohver,Galatasaray,Dynamo Kyiv,3,3,8,3,11,4,5,9,8,3,16,3,24,6
+1299237,2025-01-22 15:30:00+00:00,Julian Weinberger,Beşiktaş,Athletic Club,4,1,4,1,5,3,0,3,9,4,2,6,11,10
+1299238,2025-01-23 17:45:00+00:00,Irfan Peljto,AZ Alkmaar,AS Roma,1,0,6,1,7,3,3,6,1,2,6,9,7,11
+1299239,2025-01-23 17:45:00+00:00,Ricardo De Burgos,Bodo/Glimt,Maccabi Tel Aviv,3,1,4,1,5,1,2,3,5,3,9,2,14,5
+1299240,2025-01-23 17:45:00+00:00,Clément Turpin,FC Porto,Olympiakos Piraeus,0,1,2,2,4,3,1,4,2,2,14,5,16,7
+1299241,2025-01-23 17:45:00+00:00,Simone Sozza,Fenerbahçe,Lyon,0,0,3,7,10,4,5,9,2,7,9,6,11,13
+1299242,2025-01-23 17:45:00+00:00,Sascha Stegemann,Malmo FF,Twente,2,3,9,7,16,9,4,13,4,4,7,3,11,7
+1299243,2025-01-23 17:45:00+00:00,Filip Glova,Qarabag,FCSB,2,3,7,4,11,2,3,5,1,5,8,5,9,10
+1299244,2025-01-23 17:45:00+00:00,Morten Krogh,1899 Hoffenheim,Tottenham,2,3,6,4,10,1,0,1,5,5,17,3,22,8
+1299245,2025-01-23 17:45:00+00:00,António Nobre,Plzen,Anderlecht,2,0,3,0,3,0,0,0,5,2,7,4,12,6
+1299246,2025-01-23 20:00:00+00:00,Enea Jorgji,Eintracht Frankfurt,Ferencvarosi TC,2,0,7,2,9,3,0,3,8,0,6,1,14,1
+1299247,2025-01-23 20:00:00+00:00,Igor Pajač,IF Elfsborg,Nice,1,0,4,9,13,2,1,3,1,6,8,16,9,22
+1299248,2025-01-23 20:00:00+00:00,Lawrence Visser,Lazio,Real Sociedad,3,1,3,3,6,2,5,7,6,4,13,5,19,9
+1299249,2025-01-23 20:00:00+00:00,Mohammed Al-Hakim,Ludogorets,FC Midtjylland,0,2,8,3,11,2,2,4,6,6,10,5,16,11
+1299250,2025-01-23 20:00:00+00:00,Erik Lambrechts,Manchester United,Rangers,2,1,7,5,12,0,1,1,6,7,10,4,16,11
+1299251,2025-01-23 20:00:00+00:00,Matej Jug,PAOK,Slavia Praha,2,0,6,4,10,2,3,5,7,4,7,11,14,15
+1299252,2025-01-23 20:00:00+00:00,Marian Barbu,Rīgas FS,Ajax,1,0,1,5,6,3,1,4,2,6,5,7,7,13
+1299253,2025-01-23 20:00:00+00:00,Nicholas Walsh,Union St. Gilloise,SC Braga,2,1,3,0,3,11,9,20,3,4,3,4,6,8
+1299254,2025-01-30 20:00:00+00:00,Jesús Gil Manzano,Ajax,Galatasaray,2,1,2,10,12,1,3,4,6,9,6,19,12,28
+1299255,2025-01-30 20:00:00+00:00,Matej Jug,Athletic Club,Plzen,3,1,7,1,8,2,4,6,8,2,11,6,19,8
+1299256,2025-01-30 20:00:00+00:00,Orel Grinfeld,Dynamo Kyiv,Rīgas FS,1,0,5,5,10,2,2,4,3,2,6,5,9,7
+1299257,2025-01-30 20:00:00+00:00,Luís Godinho,FC Midtjylland,Fenerbahçe,2,2,3,2,5,0,3,3,5,4,8,3,13,7
+1299258,2025-01-30 20:00:00+00:00,Szymon Marciniak,Twente,Beşiktaş,1,0,11,5,16,1,4,5,2,3,20,5,22,8
+1299259,2025-01-30 20:00:00+00:00,Harm Osmers,FCSB,Manchester United,0,2,3,6,9,3,1,4,3,7,5,14,8,21
+1299260,2025-01-30 20:00:00+00:00,Nenad Minaković,Ferencvarosi TC,AZ Alkmaar,4,3,3,7,10,2,2,4,5,4,6,7,11,11
+1299261,2025-01-30 20:00:00+00:00,Anastasios Sidiropoulos,Lyon,Ludogorets,1,1,11,4,15,1,2,3,8,6,5,9,13,15
+1299262,2025-01-30 20:00:00+00:00,Nikola Dabanović,Maccabi Tel Aviv,FC Porto,0,1,9,5,14,0,1,1,1,3,6,6,7,9
+1299263,2025-01-30 20:00:00+00:00,Juxhin Xhaja,Nice,Bodo/Glimt,1,1,5,8,13,4,0,4,3,7,13,11,16,18
+1299264,2025-01-30 20:00:00+00:00,Radu Petrescu,Olympiakos Piraeus,Qarabag,3,0,7,3,10,0,6,6,9,1,14,2,23,3
+1299265,2025-01-30 20:00:00+00:00,Damian Sylwestrzak,Rangers,Union St. Gilloise,2,1,4,3,7,5,2,7,4,2,8,12,12,14
+1299266,2025-01-30 20:00:00+00:00,John Beaton,Real Sociedad,PAOK,2,0,4,4,8,2,2,4,7,4,9,8,16,12
+1299267,2025-01-30 20:00:00+00:00,Rade Obrenović,AS Roma,Eintracht Frankfurt,2,0,5,2,7,1,0,1,3,2,12,4,15,6
+1299268,2025-01-30 20:00:00+00:00,Giorgi Kruashvili,Anderlecht,1899 Hoffenheim,3,4,7,4,11,0,5,5,6,6,13,4,19,10
+1299269,2025-01-30 20:00:00+00:00,Allard Lindhout,Slavia Praha,Malmo FF,2,2,8,4,12,4,3,7,6,7,11,7,17,14
+1299270,2025-01-30 20:00:00+00:00,John Brooks,SC Braga,Lazio,1,0,4,7,11,0,1,1,4,4,4,8,8,12
+1299271,2025-01-30 20:00:00+00:00,Sebastian Gishamer,Tottenham,IF Elfsborg,3,0,10,0,10,1,0,1,11,0,10,4,21,4
+1345753,2025-02-13 17:45:00+00:00,Giorgi Kruashvili,Ferencvarosi TC,Plzen,1,0,8,8,16,1,0,1,3,2,9,15,12,17
+1345755,2025-02-13 17:45:00+00:00,Orel Grinfeld,FC Midtjylland,Real Sociedad,1,2,8,3,11,3,4,7,3,3,10,6,13,9
+1345757,2025-02-13 17:45:00+00:00,Donatas Rumšas,Union St. Gilloise,Ajax,0,2,6,4,10,1,1,2,4,7,9,3,13,10
+1345759,2025-02-13 17:45:00+00:00,Nikola Dabanović,Fenerbahçe,Anderlecht,3,0,6,6,12,2,1,3,6,2,7,13,13,15
+1345761,2025-02-13 20:00:00+00:00,Tobias Stieler,FC Porto,AS Roma,1,1,4,6,10,3,10,13,2,4,10,11,12,15
+1345763,2025-02-13 20:00:00+00:00,João Pinheiro,AZ Alkmaar,Galatasaray,4,1,7,1,8,2,6,8,9,2,8,6,17,8
+1345765,2025-02-13 20:00:00+00:00,Lawrence Visser,PAOK,FCSB,1,2,1,2,3,5,7,12,2,5,3,8,5,13
+1345767,2025-02-13 20:00:00+00:00,Sebastian Gishamer,Twente,Bodo/Glimt,2,1,3,0,3,2,3,5,7,2,7,4,14,6
+1345762,2025-02-20 17:45:00+00:00,François Letexier,AS Roma,FC Porto,3,2,5,2,7,2,6,8,6,1,13,4,19,5
+1345764,2025-02-20 17:45:00+00:00,Anthony Taylor,Galatasaray,AZ Alkmaar,2,2,5,8,13,1,0,1,9,11,11,15,20,26
+1345766,2025-02-20 17:45:00+00:00,Matej Jug,FCSB,PAOK,2,0,5,7,12,1,5,6,4,4,6,5,10,9
+1345754,2025-02-20 20:00:00+00:00,Jérôme Brisard,Plzen,Ferencvarosi TC,3,0,8,1,9,2,2,4,8,1,7,10,15,11
+1345756,2025-02-20 20:00:00+00:00,Serdar Gözübüyük,Real Sociedad,FC Midtjylland,5,2,7,6,13,1,4,5,10,3,12,5,22,8
+1345760,2025-02-20 20:00:00+00:00,Sandro Schärer,Anderlecht,Fenerbahçe,2,2,3,2,5,1,3,4,6,3,7,5,13,8
+1353186,2025-03-06 17:45:00+00:00,Rade Obrenović,AZ Alkmaar,Tottenham,1,0,7,2,9,3,1,4,5,1,7,6,12,7
+1353188,2025-03-06 17:45:00+00:00,Alejandro Hernández,Fenerbahçe,Rangers,1,3,11,3,14,1,1,2,7,6,16,2,23,8
+1353190,2025-03-06 17:45:00+00:00,Tobias Stieler,FCSB,Lyon,1,3,5,6,11,2,0,2,4,5,7,12,11,17
+1353192,2025-03-06 17:45:00+00:00,Ivan Kružliak,Real Sociedad,Manchester United,1,1,6,2,8,1,1,2,3,5,10,8,13,13
+1353194,2025-03-06 20:00:00+00:00,Donatas Rumšas,Plzen,Lazio,1,2,7,2,9,3,6,9,4,4,6,6,10,10
+1353196,2025-03-06 20:00:00+00:00,Mykola Balakin,Bodo/Glimt,Olympiakos Piraeus,3,0,8,7,15,0,1,1,6,5,3,13,9,18
+1353198,2025-03-06 20:00:00+00:00,Simone Sozza,Ajax,Eintracht Frankfurt,1,2,7,4,11,2,2,4,3,5,9,12,12,17
+1353200,2025-03-06 20:00:00+00:00,Sandro Schärer,AS Roma,Athletic Club,2,1,1,3,4,1,6,7,5,1,7,15,12,16
+1353195,2025-03-13 17:45:00+00:00,Danny Makkelie,Lazio,Plzen,1,1,12,4,16,2,2,4,5,3,10,8,15,11
+1353197,2025-03-13 17:45:00+00:00,Felix Zwayer,Olympiakos Piraeus,Bodo/Glimt,2,1,11,0,11,5,3,8,9,1,18,1,27,2
+1353199,2025-03-13 17:45:00+00:00,Irfan Peljto,Eintracht Frankfurt,Ajax,4,1,2,6,8,0,0,0,9,5,7,7,16,12
+1353201,2025-03-13 17:45:00+00:00,Clément Turpin,Athletic Club,AS Roma,3,1,9,2,11,2,6,8,8,2,14,3,22,5
+1353187,2025-03-13 20:00:00+00:00,João Pinheiro,Tottenham,AZ Alkmaar,3,1,5,2,7,0,1,1,4,2,13,8,17,10
+1353191,2025-03-13 20:00:00+00:00,Anthony Taylor,Lyon,FCSB,4,0,2,2,4,0,0,0,6,2,12,7,18,9
+1353193,2025-03-13 20:00:00+00:00,Benoît Bastien,Manchester United,Real Sociedad,4,1,6,4,10,2,9,11,10,3,15,5,25,8
+1361276,2025-04-10 16:45:00+00:00,Michael Oliver,Bodo/Glimt,Lazio,2,0,1,4,5,0,3,3,6,1,12,5,18,6
+1361278,2025-04-10 19:00:00+00:00,Szymon Marciniak,Tottenham,Eintracht Frankfurt,1,1,9,3,12,1,2,3,6,2,4,2,10,4
+1361280,2025-04-10 19:00:00+00:00,István Kovács,Rangers,Athletic Club,0,0,2,9,11,2,3,5,0,3,4,16,4,19
+1361282,2025-04-10 19:00:00+00:00,Glenn Nyberg,Lyon,Manchester United,2,2,5,8,13,1,4,5,5,5,11,8,16,13
+1361279,2025-04-17 19:00:00+00:00,Davide Massa,Eintracht Frankfurt,Tottenham,0,1,8,7,15,3,3,6,5,3,9,9,14,12
+1361281,2025-04-17 19:00:00+00:00,Irfan Peljto,Athletic Club,Rangers,2,0,6,3,9,1,3,4,4,2,18,5,22,7
+1371990,2025-05-01 19:00:00+00:00,José Sánchez,Tottenham,Bodo/Glimt,3,1,13,1,14,1,2,3,7,1,17,2,24,3
+1371992,2025-05-01 19:00:00+00:00,Espen Eskås,Athletic Club,Manchester United,0,3,4,5,9,5,3,8,3,7,6,7,9,14
+1371991,2025-05-08 19:00:00+00:00,Maurizio Mariani,Bodo/Glimt,Tottenham,0,2,3,8,11,1,2,3,2,3,5,5,7,8
+1371993,2025-05-08 19:00:00+00:00,Daniel Siebert,Manchester United,Athletic Club,4,1,0,2,2,3,4,7,5,1,6,10,11,11
+1374897,2025-05-21 19:00:00+00:00,Felix Zwayer,Tottenham,Manchester United,1,0,4,5,9,3,4,7,1,6,2,10,3,16
+1437226,2025-08-21 16:30:00+00:00,Srđan Jovanović,FC Midtjylland,KuPS,4,0,4,5,9,1,2,3,9,2,4,2,13,4
+1437227,2025-08-21 17:00:00+00:00,Tobias Stieler,Malmo FF,Sigma Olomouc,3,0,9,3,12,2,3,5,4,2,8,6,12,8
+1437228,2025-08-21 17:00:00+00:00,Marco Guida,Brann,AEK Larnaca,2,1,6,5,11,2,3,5,10,3,5,5,15,8
+1436776,2025-08-21 18:00:00+00:00,Giorgi Kruashvili,Maccabi Tel Aviv,Dynamo Kyiv,3,1,6,5,11,1,6,7,11,3,10,8,21,11
+1436778,2025-08-21 18:00:00+00:00,Chris Kavanagh,Shkendija,Ludogorets,2,1,4,2,6,2,1,3,4,4,10,10,14,14
+1436779,2025-08-21 18:00:00+00:00,Juan Martínez Munuera,Panathinaikos,Samsunspor,2,1,8,4,12,2,2,4,5,3,5,4,10,7
+1437229,2025-08-21 18:00:00+00:00,Georgi Kabakov,Zrinjski,Utrecht,0,2,6,2,8,7,3,10,3,7,9,5,12,12
+1436777,2025-08-21 18:15:00+00:00,Sascha Stegemann,Slovan Bratislava,BSC Young Boys,0,1,9,5,14,3,2,5,0,2,6,2,6,4
+1436775,2025-08-21 18:30:00+00:00,Donatas Rumšas,Lech Poznan,Genk,1,5,3,5,8,1,3,4,7,11,7,8,14,19
+1436773,2025-08-21 18:45:00+00:00,Ivan Kružliak,HNK Rijeka,PAOK,1,0,4,2,6,2,5,7,7,3,8,8,15,11
+1436774,2025-08-21 18:45:00+00:00,Serdar Gözübüyük,Aberdeen,FCSB,2,2,4,3,7,4,4,8,9,6,20,5,29,11
+1437230,2025-08-21 19:00:00+00:00,Morten Krogh,Lincoln Red Imps FC,SC Braga,0,4,0,4,4,2,1,3,1,4,1,7,2,11
+1437231,2025-08-27 16:30:00+00:00,Danny Makkelie,AEK Larnaca,Brann,0,4,4,3,7,2,2,4,0,6,9,5,9,11
+1437233,2025-08-28 15:00:00+00:00,Simone Sozza,KuPS,FC Midtjylland,0,2,1,10,11,2,0,2,6,8,2,22,8,30
+1436780,2025-08-28 16:30:00+00:00,Radu Petrescu,Sigma Olomouc,Malmo FF,0,2,10,2,12,2,3,5,2,7,11,5,13,12
+1437234,2025-08-28 17:00:00+00:00,Irfan Peljto,Samsunspor,Panathinaikos,0,0,7,3,10,3,3,6,3,2,7,5,10,7
+1437235,2025-08-28 17:30:00+00:00,José Sánchez,PAOK,HNK Rijeka,5,0,6,2,8,0,4,4,13,1,3,3,16,4
+1436781,2025-08-28 18:00:00+00:00,Davide Massa,Genk,Lech Poznan,1,2,8,4,12,1,1,2,4,2,8,6,12,8
+1436784,2025-08-28 18:00:00+00:00,Nikola Dabanović,Dynamo Kyiv,Maccabi Tel Aviv,1,0,8,7,15,1,2,3,2,2,4,2,6,4
+1436785,2025-08-28 18:00:00+00:00,Rade Obrenović,BSC Young Boys,Slovan Bratislava,3,2,7,4,11,2,0,2,5,7,5,10,10,17
+1437232,2025-08-28 18:00:00+00:00,Benoît Bastien,Utrecht,Zrinjski,0,0,4,7,11,2,3,5,1,1,6,3,7,4
+1436782,2025-08-28 18:30:00+00:00,Espen Eskås,FCSB,Aberdeen,3,0,4,3,7,1,7,8,4,2,4,4,8,6
+1437236,2025-08-28 19:00:00+00:00,Erik Lambrechts,SC Braga,Lincoln Red Imps FC,5,1,4,3,7,1,3,4,11,2,9,2,20,4
+1451164,2025-09-24 16:45:00+00:00,Orel Grinfeld,FC Midtjylland,Sturm Graz,2,0,4,3,7,3,2,5,5,4,2,7,7,11
+1451165,2025-09-24 16:45:00+00:00,Sven Jablonski,PAOK,Maccabi Tel Aviv,0,0,9,3,12,1,3,4,5,3,13,6,18,9
+1451166,2025-09-24 19:00:00+00:00,Luís Godinho,SC Freiburg,FC Basel 1893,2,1,4,4,8,2,2,4,5,4,10,11,15,15
+1451167,2025-09-24 19:00:00+00:00,Radu Petrescu,FK Crvena Zvezda,Celtic,1,1,8,4,12,2,2,4,4,6,12,2,16,8
+1451168,2025-09-24 19:00:00+00:00,Manfredas Lukjančukas,Malmo FF,Ludogorets,1,2,2,3,5,3,3,6,5,10,5,11,10,21
+1451169,2025-09-24 19:00:00+00:00,Jérôme Brisard,Dinamo Zagreb,Fenerbahçe,3,1,5,6,11,2,3,5,3,2,8,4,11,6
+1451170,2025-09-24 19:00:00+00:00,Sascha Stegemann,Real Betis,Nottingham Forest,2,2,3,3,6,3,2,5,4,6,5,10,9,16
+1451171,2025-09-24 19:00:00+00:00,Guillermo Cuadra Fernández,Nice,AS Roma,1,2,3,5,8,0,5,5,2,4,5,8,7,12
+1451172,2025-09-24 19:00:00+00:00,Nikola Dabanović,SC Braga,Feyenoord,1,0,7,2,9,1,2,3,2,1,6,4,8,5
+1451173,2025-09-25 16:45:00+00:00,Kristo Tohver,GO Ahead Eagles,FCSB,0,1,7,1,8,1,5,6,7,6,10,2,17,8
+1451174,2025-09-25 16:45:00+00:00,Allard Lindhout,Lille,Brann,2,1,11,4,15,1,2,3,4,3,13,9,17,12
+1451175,2025-09-25 19:00:00+00:00,Vassilis Fotias,Red Bull Salzburg,FC Porto,0,1,2,8,10,4,1,5,3,3,11,12,14,15
+1451176,2025-09-25 19:00:00+00:00,Jesús Gil Manzano,Aston Villa,Bologna,1,0,8,3,11,2,2,4,4,7,8,10,12,17
+1451177,2025-09-25 19:00:00+00:00,Ricardo De Burgos,BSC Young Boys,Panathinaikos,1,4,9,4,13,1,0,1,3,6,16,12,19,18
+1451178,2025-09-25 19:00:00+00:00,Sander van der Eijk,Ferencvarosi TC,Plzen,1,1,3,3,6,6,2,8,2,3,8,6,10,9
+1451179,2025-09-25 19:00:00+00:00,Matej Jug,Rangers,Genk,0,1,4,2,6,3,3,6,2,4,9,14,11,18
+1452153,2025-09-25 19:00:00+00:00,Nicholas Walsh,VfB Stuttgart,Celta Vigo,2,1,9,2,11,2,2,4,6,1,13,7,19,8
+1452154,2025-09-25 19:00:00+00:00,Horațiu Feșnic,Utrecht,Lyon,0,1,4,5,9,2,4,6,2,4,9,8,11,12
+1451180,2025-10-02 16:45:00+00:00,Tobias Stieler,Celtic,SC Braga,0,2,7,5,12,2,1,3,3,6,6,7,9,13
+1451181,2025-10-02 16:45:00+00:00,Sebastian Gishamer,Panathinaikos,GO Ahead Eagles,1,2,14,3,17,1,1,2,9,4,24,3,33,7
+1451182,2025-10-02 16:45:00+00:00,Julian Weinberger,Ludogorets,Real Betis,0,2,6,5,11,1,3,4,2,2,11,10,13,12
+1451183,2025-10-02 16:45:00+00:00,Nenad Minaković,Bologna,SC Freiburg,1,1,2,8,10,2,2,4,3,6,5,6,8,12
+1451184,2025-10-02 16:45:00+00:00,Srđan Jovanović,Fenerbahçe,Nice,2,1,3,4,7,3,1,4,5,3,12,7,17,10
+1451185,2025-10-02 16:45:00+00:00,Aliyar Aghayev,Brann,Utrecht,1,0,4,3,7,2,2,4,3,2,8,4,11,6
+1451186,2025-10-02 16:45:00+00:00,Mohammed Al-Hakim,FCSB,BSC Young Boys,0,2,8,3,11,1,3,4,3,9,14,7,17,16
+1451187,2025-10-02 16:45:00+00:00,Enea Jorgji,Plzen,Malmo FF,3,0,3,6,9,4,8,12,7,1,7,7,14,8
+1451188,2025-10-02 16:45:00+00:00,Erik Lambrechts,AS Roma,Lille,0,1,6,3,9,0,4,4,6,5,14,4,20,9
+1451189,2025-10-02 19:00:00+00:00,Davide Massa,FC Basel 1893,VfB Stuttgart,2,0,1,9,10,3,0,3,4,7,8,22,12,29
+1451190,2025-10-02 19:00:00+00:00,Anastasios Sidiropoulos,Genk,Ferencvarosi TC,0,1,5,3,8,0,3,3,3,5,10,3,13,8
+1451191,2025-10-02 19:00:00+00:00,Andris Treimanis,Lyon,Red Bull Salzburg,2,0,2,1,3,1,1,2,6,5,9,6,15,11
+1451192,2025-10-02 19:00:00+00:00,Harm Osmers,FC Porto,FK Crvena Zvezda,2,1,5,3,8,3,2,5,4,2,14,7,18,9
+1451193,2025-10-02 19:00:00+00:00,António Nobre,Maccabi Tel Aviv,Dinamo Zagreb,1,3,5,3,8,1,1,2,4,5,7,1,11,6
+1451194,2025-10-02 19:00:00+00:00,Willy Delajod,Nottingham Forest,FC Midtjylland,2,3,10,8,18,3,2,5,9,5,13,3,22,8
+1451195,2025-10-02 19:00:00+00:00,Halil Umut Meler,Sturm Graz,Rangers,2,1,3,7,10,2,1,3,8,10,8,6,16,16
+1451196,2025-10-02 19:00:00+00:00,Igor Pajač,Celta Vigo,PAOK,3,1,5,1,6,3,2,5,9,2,6,3,15,5
+1452155,2025-10-02 19:00:00+00:00,Rade Obrenović,Feyenoord,Aston Villa,0,2,8,1,9,3,3,6,8,3,11,3,19,6
+1451197,2025-10-23 16:45:00+00:00,Jakob Kehlet,Fenerbahçe,VfB Stuttgart,1,0,4,7,11,6,4,10,7,2,12,9,19,11
+1451198,2025-10-23 16:45:00+00:00,Vassilis Fotias,Brann,Rangers,3,0,3,5,8,1,2,3,5,1,8,8,13,9
+1451199,2025-10-23 16:45:00+00:00,Filip Glova,GO Ahead Eagles,Aston Villa,2,1,1,10,11,2,0,2,3,7,2,11,5,18
+1451200,2025-10-23 16:45:00+00:00,Elchin Masiyev,Genk,Real Betis,0,0,2,1,3,1,3,4,1,3,4,7,5,10
+1451202,2025-10-23 16:45:00+00:00,Goga Kikacheishvili,Red Bull Salzburg,Ferencvarosi TC,2,3,5,2,7,0,3,3,4,7,12,6,16,13
+1451203,2025-10-23 16:45:00+00:00,Manfredas Lukjančukas,Lyon,FC Basel 1893,2,0,4,2,6,1,1,2,6,3,12,7,18,10
+1451204,2025-10-23 16:45:00+00:00,Espen Eskås,SC Braga,FK Crvena Zvezda,2,0,2,2,4,0,1,1,4,3,7,6,11,9
+1451205,2025-10-23 16:45:00+00:00,Andris Treimanis,FCSB,Bologna,1,2,4,10,14,3,5,8,6,7,3,14,9,21
+1451201,2025-10-23 19:00:00+00:00,Harm Osmers,Feyenoord,Panathinaikos,3,1,3,2,5,1,5,6,8,5,10,7,18,12
+1451206,2025-10-23 19:00:00+00:00,Sander van der Eijk,Celta Vigo,Nice,2,1,7,4,11,1,6,7,6,3,19,6,25,9
+1451207,2025-10-23 19:00:00+00:00,Mohammad Al-Emara,BSC Young Boys,Ludogorets,3,2,3,2,5,2,1,3,6,4,9,11,15,15
+1451208,2025-10-23 19:00:00+00:00,Juan Martínez Munuera,Celtic,Sturm Graz,2,1,9,2,11,1,3,4,7,1,13,7,20,8
+1451209,2025-10-23 19:00:00+00:00,Halil Umut Meler,AS Roma,Plzen,1,2,10,3,13,2,5,7,8,2,12,4,20,6
+1451210,2025-10-23 19:00:00+00:00,Radu Petrescu,Nottingham Forest,FC Porto,2,0,3,8,11,2,2,4,3,2,5,8,8,10
+1451211,2025-10-23 19:00:00+00:00,Georgi Kabakov,Maccabi Tel Aviv,FC Midtjylland,0,3,4,6,10,0,4,4,3,4,9,8,12,12
+1451212,2025-10-23 19:00:00+00:00,Nikola Dabanović,Lille,PAOK,3,4,13,2,15,1,7,8,11,7,11,1,22,8
+1451213,2025-10-23 19:00:00+00:00,Willy Delajod,Malmo FF,Dinamo Zagreb,1,1,3,10,13,1,2,3,3,5,3,16,6,21
+1452156,2025-10-23 19:00:00+00:00,Rohit Saggi,SC Freiburg,Utrecht,2,0,5,4,9,0,1,1,7,2,7,9,14,11
+1451214,2025-11-06 17:45:00+00:00,Anastasios Sidiropoulos,Nice,SC Freiburg,1,3,5,4,9,1,2,3,4,7,13,9,17,16
+1451215,2025-11-06 17:45:00+00:00,Mykola Balakin,Sturm Graz,Nottingham Forest,0,0,0,4,4,1,1,2,2,2,1,7,3,9
+1451216,2025-11-06 17:45:00+00:00,Giorgi Kruashvili,Red Bull Salzburg,GO Ahead Eagles,2,0,3,4,7,0,2,2,8,2,9,8,17,10
+1451217,2025-11-06 17:45:00+00:00,John Beaton,Utrecht,FC Porto,1,1,2,7,9,5,5,10,3,8,8,11,11,19
+1451218,2025-11-06 17:45:00+00:00,Anastasios Papapetrou,Dinamo Zagreb,Celta Vigo,0,3,5,2,7,0,0,0,5,3,5,5,10,8
+1451219,2025-11-06 17:45:00+00:00,John Brooks,FK Crvena Zvezda,Lille,1,0,5,3,8,3,4,7,3,3,8,8,11,11
+1451220,2025-11-06 17:45:00+00:00,Juxhin Xhaja,FC Basel 1893,FCSB,3,1,8,5,13,2,5,7,9,7,16,7,25,14
+1451221,2025-11-06 17:45:00+00:00,Nicholas Walsh,Malmo FF,Panathinaikos,0,1,4,2,6,2,4,6,2,4,10,7,12,11
+1452157,2025-11-06 17:45:00+00:00,Nenad Minaković,FC Midtjylland,Celtic,3,1,4,4,8,0,3,3,12,3,12,2,24,5
+1451222,2025-11-06 20:00:00+00:00,Morten Krogh,Rangers,AS Roma,0,2,2,6,8,0,0,0,2,3,9,11,11,14
+1451223,2025-11-06 20:00:00+00:00,Allard Lindhout,Plzen,Fenerbahçe,0,0,11,2,13,3,5,8,6,4,12,6,18,10
+1451224,2025-11-06 20:00:00+00:00,Mohammed Al-Hakim,Ferencvarosi TC,Ludogorets,3,1,7,5,12,2,3,5,7,2,12,12,19,14
+1451225,2025-11-06 20:00:00+00:00,Daniel Schlager,Bologna,Brann,0,0,11,3,14,4,2,6,3,0,13,9,16,9
+1451226,2025-11-06 20:00:00+00:00,Balázs Berke,SC Braga,Genk,3,4,9,2,11,2,1,3,6,8,14,1,20,9
+1451227,2025-11-06 20:00:00+00:00,Matej Jug,Real Betis,Lyon,2,0,2,6,8,2,3,5,6,3,3,7,9,10
+1451228,2025-11-06 20:00:00+00:00,Horațiu Feșnic,VfB Stuttgart,Feyenoord,2,0,2,5,7,4,4,8,6,4,7,8,13,12
+1451229,2025-11-06 20:00:00+00:00,Srđan Jovanović,PAOK,BSC Young Boys,4,0,7,0,7,1,5,6,10,1,13,6,23,7
+1451230,2025-11-06 20:00:00+00:00,Julian Weinberger,Aston Villa,Maccabi Tel Aviv,2,0,3,1,4,0,2,2,8,3,6,3,14,6
+1451231,2025-11-27 17:45:00+00:00,Sebastian Gishamer,Feyenoord,Celtic,1,3,6,2,8,1,3,4,4,4,10,2,14,6
+1451232,2025-11-27 17:45:00+00:00,Sascha Stegemann,PAOK,Brann,1,1,6,8,14,2,1,3,7,5,9,4,16,9
+1451233,2025-11-27 17:45:00+00:00,Balázs Berke,Ludogorets,Celta Vigo,3,2,1,7,8,2,3,5,4,7,3,12,7,19
+1451234,2025-11-27 17:45:00+00:00,Ricardo De Burgos,Fenerbahçe,Ferencvarosi TC,1,1,7,4,11,6,4,10,6,1,13,4,19,5
+1451235,2025-11-27 17:45:00+00:00,Nikola Dabanović,AS Roma,FC Midtjylland,2,1,6,6,12,2,3,5,6,2,7,10,13,12
+1451236,2025-11-27 17:45:00+00:00,John Beaton,Lille,Dinamo Zagreb,4,0,5,1,6,2,1,3,9,0,8,3,17,3
+1451237,2025-11-27 17:45:00+00:00,Morten Krogh,Plzen,SC Freiburg,0,0,7,3,10,2,2,4,7,6,12,4,19,10
+1451238,2025-11-27 17:45:00+00:00,Matej Jug,FC Porto,Nice,3,0,4,3,7,2,2,4,3,0,3,8,6,8
+1451239,2025-11-27 17:45:00+00:00,Georgi Kabakov,Aston Villa,BSC Young Boys,2,1,7,0,7,2,1,3,8,1,11,5,19,6
+1451240,2025-11-27 20:00:00+00:00,Igor Pajač,Bologna,Red Bull Salzburg,4,1,6,2,8,0,2,2,14,4,16,5,30,9
+1451241,2025-11-27 20:00:00+00:00,Allard Lindhout,Rangers,SC Braga,1,1,8,3,11,5,6,11,6,5,6,4,12,9
+1451242,2025-11-27 20:00:00+00:00,Mohammed Al-Hakim,GO Ahead Eagles,VfB Stuttgart,0,4,2,5,7,3,4,7,2,9,4,11,6,20
+1451243,2025-11-27 20:00:00+00:00,Jérôme Brisard,FK Crvena Zvezda,FCSB,1,0,6,5,11,3,1,4,5,2,9,11,14,13
+1451244,2025-11-27 20:00:00+00:00,Nenad Minaković,Real Betis,Utrecht,2,1,3,3,6,1,1,2,7,3,11,3,18,6
+1451245,2025-11-27 20:00:00+00:00,Simone Sozza,Panathinaikos,Sturm Graz,2,1,7,3,10,3,3,6,4,2,4,5,8,7
+1451246,2025-11-27 20:00:00+00:00,Harm Osmers,Nottingham Forest,Malmo FF,3,0,7,0,7,4,1,5,10,1,12,0,22,1
+1451247,2025-11-27 20:00:00+00:00,Orel Grinfeld,Genk,FC Basel 1893,2,1,2,6,8,4,1,5,7,4,6,9,13,13
+1451248,2025-11-27 20:00:00+00:00,Kristo Tohver,Maccabi Tel Aviv,Lyon,0,6,0,3,3,7,2,9,0,8,5,10,5,18
+1451249,2025-12-11 17:45:00+00:00,Irfan Peljto,Utrecht,Nottingham Forest,1,2,7,5,12,2,2,4,3,11,7,8,10,19
+1451250,2025-12-11 17:45:00+00:00,Anastasios Papapetrou,Ferencvarosi TC,Rangers,2,1,5,5,10,1,2,3,3,2,13,5,16,7
+1451251,2025-12-11 17:45:00+00:00,Damian Sylwestrzak,Sturm Graz,FK Crvena Zvezda,0,1,7,5,12,3,5,8,1,2,15,13,16,15
+1451252,2025-12-11 17:45:00+00:00,Horațiu Feșnic,Ludogorets,PAOK,3,3,2,4,6,3,1,4,3,8,12,8,15,16
+1451253,2025-12-11 17:45:00+00:00,Vassilis Fotias,FC Midtjylland,Genk,1,0,5,5,10,2,3,5,7,4,7,7,14,11
+1451254,2025-12-11 17:45:00+00:00,Goga Kikacheishvili,Dinamo Zagreb,Real Betis,1,3,5,4,9,2,3,5,2,5,6,10,8,15
+1451255,2025-12-11 17:45:00+00:00,Marian Barbu,VfB Stuttgart,Maccabi Tel Aviv,4,1,7,2,9,2,2,4,7,2,8,5,15,7
+1451256,2025-12-11 17:45:00+00:00,Sander van der Eijk,BSC Young Boys,Lille,1,0,1,3,4,4,3,7,5,1,6,9,11,10
+1451257,2025-12-11 17:45:00+00:00,Giorgi Kruashvili,Nice,SC Braga,0,1,7,3,10,4,2,6,3,4,7,5,10,9
+1451258,2025-12-11 20:00:00+00:00,Mykola Balakin,FCSB,Feyenoord,4,3,3,4,7,2,1,3,4,5,3,9,7,14
+1451259,2025-12-11 20:00:00+00:00,István Kovács,Celtic,AS Roma,0,3,4,4,8,0,5,5,2,5,7,7,9,12
+1451260,2025-12-11 20:00:00+00:00,Radu Petrescu,Celta Vigo,Bologna,1,2,0,5,5,3,1,4,1,4,2,11,3,15
+1451261,2025-12-11 20:00:00+00:00,Halil Umut Meler,FC Basel 1893,Aston Villa,1,2,2,4,6,2,4,6,4,4,7,3,11,7
+1451262,2025-12-11 20:00:00+00:00,Elchin Masiyev,SC Freiburg,Red Bull Salzburg,1,0,10,2,12,2,3,5,5,3,23,3,28,6
+1451263,2025-12-11 20:00:00+00:00,António Nobre,Panathinaikos,Plzen,0,0,9,2,11,3,6,9,4,2,16,3,20,5
+1451264,2025-12-11 20:00:00+00:00,Rohit Saggi,FC Porto,Malmo FF,2,1,5,0,5,0,2,2,11,2,11,5,22,7
+1451265,2025-12-11 20:00:00+00:00,Willy Delajod,Brann,Fenerbahçe,0,4,1,10,11,2,1,3,2,10,4,10,6,20
+1451266,2025-12-11 20:00:00+00:00,Juxhin Xhaja,Lyon,GO Ahead Eagles,2,1,7,1,8,1,2,3,6,3,11,4,17,7
+1451267,2026-01-22 17:45:00+00:00,Sascha Stegemann,Malmo FF,FK Crvena Zvezda,0,1,3,7,10,2,1,3,0,3,4,8,4,11
+1451268,2026-01-22 17:45:00+00:00,Luís Godinho,Fenerbahçe,Aston Villa,0,1,5,5,10,4,5,9,8,4,5,8,13,12
+1451269,2026-01-22 17:45:00+00:00,Aliyar Aghayev,BSC Young Boys,Lyon,0,1,3,3,6,3,3,6,1,4,6,9,7,13
+1451270,2026-01-22 17:45:00+00:00,Halil Umut Meler,Feyenoord,Sturm Graz,3,0,5,2,7,2,1,3,6,2,12,2,18,4
+1451271,2026-01-22 17:45:00+00:00,Georgi Kabakov,Brann,FC Midtjylland,3,3,11,4,15,0,2,2,11,7,12,3,23,10
+1451272,2026-01-22 17:45:00+00:00,Simone Sozza,PAOK,Real Betis,2,0,5,8,13,4,2,6,4,2,8,17,12,19
+1451273,2026-01-22 17:45:00+00:00,Vassilis Fotias,Bologna,Celtic,2,2,16,2,18,1,5,6,10,5,26,3,36,8
+1451274,2026-01-22 17:45:00+00:00,Mohammed Al-Hakim,SC Freiburg,Maccabi Tel Aviv,1,0,5,4,9,0,3,3,6,3,15,1,21,4
+1451275,2026-01-22 17:45:00+00:00,Andris Treimanis,Plzen,FC Porto,1,1,2,7,9,4,4,8,2,8,8,11,10,19
+1451276,2026-01-22 20:00:00+00:00,Manfredas Lukjančukas,Rangers,Ludogorets,1,0,6,2,8,6,1,7,7,4,7,8,14,12
+1451277,2026-01-22 20:00:00+00:00,John Brooks,AS Roma,VfB Stuttgart,2,0,2,4,6,1,2,3,4,5,8,10,12,15
+1451278,2026-01-22 20:00:00+00:00,Anastasios Papapetrou,Red Bull Salzburg,FC Basel 1893,3,1,8,2,10,1,3,4,8,3,13,6,21,9
+1451279,2026-01-22 20:00:00+00:00,Sander van der Eijk,Dinamo Zagreb,FCSB,4,1,4,6,10,2,2,4,7,3,9,4,16,7
+1451280,2026-01-22 20:00:00+00:00,Igor Pajač,SC Braga,Nottingham Forest,1,0,3,1,4,3,5,8,0,5,6,7,6,12
+1451281,2026-01-22 20:00:00+00:00,Robert Hennessy,Utrecht,Genk,0,2,2,3,5,0,1,1,7,5,10,7,17,12
+1451282,2026-01-22 20:00:00+00:00,Oleksiy Derevinskyi,Nice,GO Ahead Eagles,3,1,6,12,18,2,3,5,6,5,13,12,19,17
+1451283,2026-01-22 20:00:00+00:00,Mykola Balakin,Ferencvarosi TC,Panathinaikos,1,1,5,4,9,2,2,4,2,3,8,9,10,12
+1451284,2026-01-22 20:00:00+00:00,Harm Osmers,Celta Vigo,Lille,2,1,3,7,10,6,2,8,4,4,3,16,7,20
+1451285,2026-01-29 20:00:00+00:00,Jasper Vergoote,FC Porto,Rangers,3,1,4,3,7,0,1,1,3,2,9,3,12,5
+1451286,2026-01-29 20:00:00+00:00,Javier Alberola Rojas,VfB Stuttgart,BSC Young Boys,3,2,8,4,12,1,1,2,10,4,18,8,28,12
+1451287,2026-01-29 20:00:00+00:00,Juxhin Xhaja,Sturm Graz,Brann,1,0,2,4,6,3,0,3,5,6,10,11,15,17
+1451288,2026-01-29 20:00:00+00:00,Willy Delajod,GO Ahead Eagles,SC Braga,0,0,1,3,4,1,1,2,0,1,4,8,4,9
+1451289,2026-01-29 20:00:00+00:00,Damian Sylwestrzak,Lille,SC Freiburg,1,0,8,2,10,2,2,4,4,0,6,4,10,4
+1451290,2026-01-29 20:00:00+00:00,Juan Martínez Munuera,Panathinaikos,AS Roma,1,1,6,4,10,1,4,5,1,4,10,7,11,11
+1451291,2026-01-29 20:00:00+00:00,Andrea Colombo,FK Crvena Zvezda,Celta Vigo,1,1,4,1,5,2,1,3,2,3,10,2,12,5
+1451292,2026-01-29 20:00:00+00:00,Nikola Dabanović,Real Betis,Feyenoord,2,1,2,4,6,3,3,6,5,5,11,9,16,14
+1451293,2026-01-29 20:00:00+00:00,Giorgi Kruashvili,FC Basel 1893,Plzen,0,1,6,7,13,2,2,4,3,3,10,12,13,15
+1451294,2026-01-29 20:00:00+00:00,Ricardo De Burgos,Lyon,PAOK,4,2,3,2,5,1,5,6,8,3,11,2,19,5
+1451295,2026-01-29 20:00:00+00:00,Goga Kikacheishvili,Maccabi Tel Aviv,Bologna,0,3,5,9,14,1,0,1,1,11,4,13,5,24
+1451296,2026-01-29 20:00:00+00:00,Nenad Minaković,FCSB,Fenerbahçe,1,1,7,5,12,1,3,4,8,8,7,9,15,17
+1451297,2026-01-29 20:00:00+00:00,Rohit Saggi,Aston Villa,Red Bull Salzburg,3,2,4,2,6,0,1,1,9,8,5,6,14,14
+1451298,2026-01-29 20:00:00+00:00,Horațiu Feșnic,Genk,Malmo FF,2,1,8,6,14,1,1,2,9,3,16,5,25,8
+1451299,2026-01-29 20:00:00+00:00,Sebastian Gishamer,Nottingham Forest,Ferencvarosi TC,4,0,6,4,10,1,1,2,10,3,10,6,20,9
+1451300,2026-01-29 20:00:00+00:00,Ondřej Berka,Ludogorets,Nice,1,0,5,8,13,1,2,3,8,4,11,15,19,19
+1451301,2026-01-29 20:00:00+00:00,Elchin Masiyev,FC Midtjylland,Dinamo Zagreb,2,0,5,5,10,2,1,3,5,3,5,7,10,10
+1451302,2026-01-29 20:00:00+00:00,Mohammad Al-Emara,Celtic,Utrecht,4,2,9,5,14,2,1,3,5,3,5,3,10,6
+1515530,2026-02-19 17:45:00+00:00,Rade Obrenović,Brann,Bologna,0,1,7,4,11,1,1,2,2,5,2,8,4,13
+1515531,2026-02-19 17:45:00+00:00,Halil Umut Meler,Dinamo Zagreb,Genk,1,3,4,3,7,2,0,2,2,6,6,6,8,12
+1515532,2026-02-19 17:45:00+00:00,Sandro Schärer,Fenerbahçe,Nottingham Forest,0,3,3,10,13,5,0,5,2,7,4,16,6,23
+1515533,2026-02-19 17:45:00+00:00,Ivan Kružliak,PAOK,Celta Vigo,1,2,3,3,6,1,2,3,2,8,3,1,5,9
+1515534,2026-02-19 20:00:00+00:00,Erik Lambrechts,Celtic,VfB Stuttgart,1,4,4,2,6,0,1,1,2,5,9,11,11,16
+1515535,2026-02-19 20:00:00+00:00,Sven Jablonski,Lille,FK Crvena Zvezda,0,1,6,7,13,1,3,4,1,4,6,4,7,8
+1515536,2026-02-19 20:00:00+00:00,Tobias Stieler,Ludogorets,Ferencvarosi TC,2,1,4,4,8,3,4,7,4,4,6,13,10,17
+1515537,2026-02-19 20:00:00+00:00,Nicholas Walsh,Panathinaikos,Plzen,2,2,4,0,4,3,2,5,5,7,6,7,11,14
+1515539,2026-02-26 17:45:00+00:00,Chris Kavanagh,Ferencvarosi TC,Ludogorets,2,0,3,6,9,5,4,9,8,3,8,10,16,13
+1515541,2026-02-26 17:45:00+00:00,Irfan Peljto,VfB Stuttgart,Celtic,0,1,13,7,20,0,1,1,8,2,16,1,24,3
+1515542,2026-02-26 20:00:00+00:00,Benoît Bastien,Bologna,Brann,1,0,13,1,14,3,3,6,5,3,11,4,16,7
+1515543,2026-02-26 20:00:00+00:00,Marco Guida,Celta Vigo,PAOK,1,0,6,2,8,1,0,1,3,0,11,4,14,4
+1515545,2026-02-26 20:00:00+00:00,Maurizio Mariani,Nottingham Forest,Fenerbahçe,1,2,5,3,8,1,0,1,4,4,9,7,13,11
+1528334,2026-03-12 17:45:00+00:00,José Sánchez,Lille,Aston Villa,0,1,3,2,5,0,2,2,3,1,4,8,7,9
+1528335,2026-03-12 17:45:00+00:00,Sven Jablonski,Bologna,AS Roma,1,1,7,3,10,3,2,5,4,2,9,6,13,8
+1528336,2026-03-12 17:45:00+00:00,Donatas Rumšas,VfB Stuttgart,FC Porto,1,2,1,3,4,2,4,6,7,6,7,8,14,14
+1528337,2026-03-12 17:45:00+00:00,Szymon Marciniak,Panathinaikos,Real Betis,1,0,5,7,12,4,7,11,1,6,6,7,7,13
+1528338,2026-03-12 20:00:00+00:00,Erik Lambrechts,Celta Vigo,Lyon,1,1,0,7,7,7,2,9,3,6,2,14,5,20
+1528339,2026-03-12 20:00:00+00:00,Rade Obrenović,Nottingham Forest,FC Midtjylland,0,1,7,2,9,1,0,1,6,2,16,4,22,6
+1528340,2026-03-12 20:00:00+00:00,Nicholas Walsh,Ferencvarosi TC,SC Braga,2,0,2,11,13,1,2,3,3,4,9,4,12,8
+1528341,2026-03-12 20:00:00+00:00,Chris Kavanagh,Genk,SC Freiburg,1,0,5,7,12,1,1,2,3,2,14,3,17,5
+1528348,2026-03-18 15:30:00+00:00,Glenn Nyberg,SC Braga,Ferencvarosi TC,4,0,4,1,5,5,1,6,6,3,3,1,9,4
+1528346,2026-03-19 17:45:00+00:00,Irfan Peljto,Lyon,Celta Vigo,0,2,1,6,7,6,5,11,1,8,3,6,4,14
+1528349,2026-03-19 17:45:00+00:00,Michael Oliver,SC Freiburg,Genk,5,1,3,5,8,5,2,7,6,3,9,10,15,13
+1528342,2026-03-19 20:00:00+00:00,Davide Massa,Aston Villa,Lille,2,0,5,5,10,1,1,2,3,3,5,5,8,8
+1528344,2026-03-19 20:00:00+00:00,Anthony Taylor,FC Porto,VfB Stuttgart,2,0,4,11,15,3,7,10,4,6,6,14,10,20
+1528345,2026-03-19 20:00:00+00:00,Tobias Stieler,Real Betis,Panathinaikos,4,0,4,1,5,1,4,5,11,2,11,2,22,4
+1535334,2026-04-08 16:45:00+00:00,Felix Zwayer,SC Braga,Real Betis,1,1,4,1,5,3,3,6,3,6,4,5,7,11
+1535335,2026-04-09 19:00:00+00:00,Sandro Schärer,Bologna,Aston Villa,1,3,4,3,7,2,1,3,4,4,15,4,19,8
+1535336,2026-04-09 19:00:00+00:00,Marco Guida,FC Porto,Nottingham Forest,1,1,5,2,7,1,0,1,8,2,8,4,16,6
+1535337,2026-04-09 19:00:00+00:00,Glenn Nyberg,SC Freiburg,Celta Vigo,3,0,3,0,3,1,0,1,7,0,6,4,13,4
+1535338,2026-04-16 16:45:00+00:00,Anthony Taylor,Celta Vigo,SC Freiburg,1,3,6,3,9,4,2,6,3,6,12,3,15,9
+1535339,2026-04-16 19:00:00+00:00,José Sánchez,Aston Villa,Bologna,4,0,4,2,6,0,1,1,7,4,6,7,13,11
+1535340,2026-04-16 19:00:00+00:00,Davide Massa,Real Betis,SC Braga,2,4,5,1,6,4,3,7,5,5,6,1,11,6
+1535341,2026-04-16 19:00:00+00:00,Danny Makkelie,Nottingham Forest,FC Porto,1,0,8,1,9,1,5,6,5,1,15,9,20,10
+1540871,2026-04-30 19:00:00+00:00,Anthony Taylor,SC Braga,SC Freiburg,2,1,3,1,4,2,3,5,6,2,7,8,13,10
+1540872,2026-04-30 19:00:00+00:00,João Pinheiro,Nottingham Forest,Aston Villa,1,0,5,7,12,0,1,1,5,4,6,6,11,10
+1540873,2026-05-07 19:00:00+00:00,Glenn Nyberg,Aston Villa,Nottingham Forest,4,0,6,3,9,0,2,2,10,2,8,5,18,7
+1540874,2026-05-07 19:00:00+00:00,Davide Massa,SC Freiburg,SC Braga,3,1,4,8,12,0,6,6,8,5,11,9,19,14
+1544596,2026-05-20 19:00:00+00:00,François Letexier,SC Freiburg,Aston Villa,0,3,1,8,9,1,3,4,2,6,2,11,4,17
+1623435,2026-08-20 15:00:00+00:00,Chris Kavanagh,Kairat Almaty,Anderlecht,0,3,2,8,10,3,4,7,2,4,-2,-4,0,0
+1623434,2026-08-20 16:00:00+00:00,Ricardo De Burgos,Jagiellonia,FC Iberia 1999,4,0,4,6,10,1,5,6,8,7,-8,-7,0,0
+1623436,2026-08-20 16:00:00+00:00,Mykola Balakin,Mjallby AIF,Red Bull Salzburg,0,1,2,6,8,1,0,1,1,8,9,16,10,24
+1623432,2026-08-20 17:00:00+00:00,Tobias Stieler,Beşiktaş,Kauno Žalgiris,3,0,15,2,17,1,4,5,6,0,15,3,21,3
+1623433,2026-08-20 17:00:00+00:00,Willy Delajod,Egnatia Rrogozhinë,Lillestrom,0,0,6,4,10,1,1,2,4,2,-4,-2,0,0
+1623439,2026-08-20 17:00:00+00:00,Igor Pajač,Trabzonspor,Ferencvarosi TC,0,1,7,5,12,2,5,7,3,4,21,7,24,11
+1623440,2026-08-20 17:00:00+00:00,Nicholas Walsh,Universitatea Craiova,Ararat-Armenia,1,1,8,4,12,4,0,4,7,2,-7,-2,0,0
+1627595,2026-08-20 17:00:00+00:00,Sebastian Gishamer,Lech Poznan,FC Thun,7,0,5,3,8,1,2,3,11,4,9,5,20,9
+1622632,2026-08-20 18:00:00+00:00,Espen Eskås,FK Crvena Zvezda,Plzen,3,0,1,2,3,2,4,6,7,5,-7,-5,0,0
+1623437,2026-08-20 18:00:00+00:00,Srđan Jovanović,OFI,CSKA Sofia,3,0,1,4,5,0,5,5,4,6,-4,-6,0,0
+1623438,2026-08-20 18:00:00+00:00,Georgi Kabakov,St. Truiden,Omonia Nicosia,1,0,6,1,7,1,2,3,3,2,14,6,17,8
+1623431,2026-08-20 19:00:00+00:00,Marco Guida,Benfica,Aarhus,3,1,11,1,12,2,1,3,13,1,19,2,32,3
+1623443,2026-08-27 16:00:00+00:00,Donatas Rumšas,Ararat-Armenia,Universitatea Craiova,1,0,3,7,10,3,6,9,2,7,3,15,5,22
+1623446,2026-08-27 16:00:00+00:00,Simone Sozza,FC Iberia 1999,Jagiellonia,1,2,8,4,12,4,0,4,5,5,16,12,21,17
+1623447,2026-08-27 17:00:00+00:00,Jesús Gil Manzano,Kauno Žalgiris,Beşiktaş,1,0,2,5,7,1,1,2,2,4,6,8,8,12
+1623449,2026-08-27 17:00:00+00:00,Damian Sylwestrzak,Omonia Nicosia,St. Truiden,4,2,5,6,11,1,5,6,5,5,14,10,19,15
+1623450,2026-08-27 17:00:00+00:00,Irfan Peljto,Red Bull Salzburg,Mjallby AIF,3,0,7,0,7,0,3,3,7,2,9,1,16,3
+1623441,2026-08-27 18:00:00+00:00,Daniel Siebert,Aarhus,Benfica,1,3,3,5,8,2,0,2,3,8,5,7,8,15
+1623444,2026-08-27 18:00:00+00:00,Ivan Kružliak,CSKA Sofia,OFI,0,2,7,5,12,3,1,4,6,7,13,9,19,16
+1627596,2026-08-27 18:00:00+00:00,Halil Umut Meler,FC Thun,Lech Poznan,2,2,6,3,9,2,3,5,3,3,7,10,10,13
+1623442,2026-08-27 18:30:00+00:00,Espen Eskås,Anderlecht,Kairat Almaty,3,0,7,3,10,2,4,6,8,3,7,3,15,6
+1623445,2026-08-27 18:30:00+00:00,Rade Obrenović,Ferencvarosi TC,Trabzonspor,4,0,9,4,13,1,7,8,11,2,-11,-2,0,0
+1636217,2026-09-16 16:45:00+00:00,Mohammed Al-Hakim,Ararat-Armenia,Sparta Praha,1,4,2,13,15,3,0,3,2,8,11,15,13,23
+1636312,2026-09-16 16:45:00+00:00,Balázs Berke,Omonia Nicosia,Celta Vigo,1,0,3,12,15,0,1,1,4,5,6,14,10,19
+1636207,2026-09-16 19:00:00+00:00,Jarred Gillett,AC Milan,Benfica,0,2,10,1,11,1,5,6,4,4,13,7,17,11
+1636212,2026-09-16 19:00:00+00:00,Ricardo De Burgos,Anderlecht,Lyon,1,2,6,4,10,0,2,2,5,10,9,3,14,13
+1636225,2026-09-16 19:00:00+00:00,Jasper Vergoote,Bayer Leverkusen,Celje,2,0,6,2,8,0,0,0,8,3,9,2,17,5
+1636265,2026-09-16 19:00:00+00:00,John Brooks,Hapoel Beer Sheva,Dinamo Zagreb,0,0,6,2,8,0,0,0,2,1,13,6,15,7
+1636309,2026-09-16 19:00:00+00:00,Harm Osmers,Olympiakos Piraeus,Jagiellonia,2,1,13,0,13,2,3,5,6,3,20,1,26,4
+1636341,2026-09-16 19:00:00+00:00,Manfredas Lukjančukas,Sturm Graz,Rennes,0,0,5,4,9,2,0,2,4,5,7,18,11,23
+1636344,2026-09-16 19:00:00+00:00,Jérémie Pignard,Sunderland,AZ Alkmaar,1,0,12,5,17,3,2,5,5,2,15,9,20,11
+1636285,2026-09-17 16:45:00+00:00,Mohammad Al-Emara,Levski Sofia,Red Bull Salzburg,0,1,5,4,9,1,5,6,0,7,14,5,14,12
+1636304,2026-09-17 16:45:00+00:00,Javier Alberola Rojas,OFI,1899 Hoffenheim,2,0,4,8,12,2,3,5,3,5,6,16,9,21
+1636232,2026-09-17 19:00:00+00:00,Andrea Colombo,Beşiktaş,Marseille,4,1,3,3,6,2,1,3,7,3,11,11,18,14
+1636247,2026-09-17 19:00:00+00:00,Patrik Kolarić,Celtic,Ferencvarosi TC,1,3,11,3,14,0,2,2,4,6,12,8,16,14
+1636251,2026-09-17 19:00:00+00:00,Michal Očenáš,Crystal Palace,Lech Poznan,4,0,6,5,11,0,3,3,6,6,10,11,16,17
+1636278,2026-09-17 19:00:00+00:00,Oleksiy Derevinskyi,Juventus,NEC Nijmegen,5,0,0,1,1,1,1,2,7,3,4,8,11,11
+1636287,2026-09-17 19:00:00+00:00,Ondřej Berka,Lillestrom,Torreense,1,2,11,2,13,1,5,6,6,3,19,8,25,11
+1636316,2026-09-17 19:00:00+00:00,Yigal Frid,Plzen,Union St. Gilloise,0,3,5,1,6,2,2,4,5,13,9,9,14,22
+1636321,2026-09-17 19:00:00+00:00,Paweł Raczkowski,Real Sociedad,Bournemouth,1,2,10,3,13,3,3,6,5,3,11,8,16,11
+1636222,2026-10-15 16:45:00+00:00,Radoslav Gidzhenov,AZ Alkmaar,Hapoel Beer Sheva,2,1,5,1,6,4,4,8,7,4,8,2,15,6
+1636239,2026-10-15 16:45:00+00:00,Elchin Masiyev,Celje,Omonia Nicosia,0,3,3,6,9,4,2,6,2,6,10,8,12,14
+1636279,2026-10-15 16:45:00+00:00,Miloš Milanović,Lech Poznan,Bayer Leverkusen,0,4,4,5,9,1,2,3,3,10,7,12,10,22
+1636293,2026-10-15 16:45:00+00:00,João Pinheiro,Lyon,Crystal Palace,3,2,5,3,8,1,3,4,4,4,7,8,11,12
+1636328,2026-10-15 16:45:00+00:00,Goga Kikacheishvili,Union St. Gilloise,Real Sociedad,1,1,4,2,6,2,1,3,5,1,11,5,16,6
+1636332,2026-10-15 16:45:00+00:00,Horațiu Feșnic,Red Bull Salzburg,AC Milan,0,4,3,2,5,1,3,4,2,10,12,5,14,15
+1636338,2026-10-15 16:45:00+00:00,Martin Matoša,Sparta Praha,Lillestrom,1,1,6,1,7,3,2,5,8,2,7,4,15,6
+1636350,2026-10-15 16:45:00+00:00,Enea Jorgji,Torreense,Sunderland,1,2,2,9,11,1,3,4,1,5,2,17,3,22
+1636228,2026-10-15 19:00:00+00:00,Nikola Dabanović,Benfica,Celtic,4,1,8,6,14,3,0,3,7,7,19,7,26,14
+1636236,2026-10-15 19:00:00+00:00,Jérôme Brisard,Bournemouth,Sturm Graz,3,0,7,3,10,3,3,6,7,1,16,5,23,6
+1636243,2026-10-15 19:00:00+00:00,Sander van der Eijk,Celta Vigo,Juventus,1,2,2,7,9,2,2,4,2,6,7,16,9,22
+1636256,2026-10-15 19:00:00+00:00,Orel Grinfeld,Dinamo Zagreb,Anderlecht,1,0,6,2,8,2,2,4,3,6,10,4,13,10
+1636260,2026-10-15 19:00:00+00:00,Damian Sylwestrzak,Ferencvarosi TC,Plzen,2,1,7,3,10,3,1,4,6,7,6,11,12,18
+1636268,2026-10-15 19:00:00+00:00,Lawrence Visser,1899 Hoffenheim,Beşiktaş,2,3,7,5,12,5,1,6,3,5,10,14,13,19
+1636274,2026-10-15 19:00:00+00:00,Anastasios Papapetrou,Jagiellonia,Ararat-Armenia,3,1,2,3,5,3,2,5,5,4,8,11,13,15
+1636295,2026-10-15 19:00:00+00:00,Michael Oliver,Marseille,Olympiakos Piraeus,0,1,9,1,10,2,2,4,5,4,6,5,11,9
+1636300,2026-10-15 19:00:00+00:00,Aliyar Aghayev,NEC Nijmegen,Levski Sofia,1,1,6,1,7,1,0,1,9,2,9,6,18,8
+1636326,2026-10-15 19:00:00+00:00,Andrea Colombo,Rennes,OFI,2,1,13,3,16,3,2,5,9,1,16,1,25,2
+1636215,2026-10-22 16:45:00+00:00,Patrik Kolarić,Ararat-Armenia,AZ Alkmaar,0,4,5,6,11,2,0,2,4,9,5,8,9,17
+1636258,2026-10-22 16:45:00+00:00,Manfredas Lukjančukas,Dinamo Zagreb,NEC Nijmegen,2,4,5,2,7,1,2,3,10,5,6,10,16,15
+1636262,2026-10-22 16:45:00+00:00,Jérôme Brisard,Ferencvarosi TC,Torreense,4,1,7,4,11,4,2,6,5,4,9,4,14,8
+1636276,2026-10-22 16:45:00+00:00,Morten Krogh,Juventus,Rennes,2,2,7,5,12,1,1,2,4,5,10,11,14,16
+1636280,2026-10-22 16:45:00+00:00,Balázs Berke,Lech Poznan,Sunderland,1,1,3,6,9,0,1,1,6,11,10,14,16,25
+1636303,2026-10-22 16:45:00+00:00,Oleksiy Derevinskyi,OFI,Bayer Leverkusen,0,2,5,10,15,1,3,4,2,15,4,18,6,33
+1636330,2026-10-22 16:45:00+00:00,Mykola Balakin,Union St. Gilloise,Hapoel Beer Sheva,4,0,4,0,4,2,3,5,15,4,14,2,29,6
+1636340,2026-10-22 16:45:00+00:00,Nenad Minaković,Sturm Graz,Marseille,1,0,2,4,6,3,3,6,5,1,8,13,13,14
+1636234,2026-10-22 19:00:00+00:00,Danny Makkelie,Beşiktaş,Crystal Palace,2,2,1,3,4,4,1,5,2,3,3,5,5,8
+1636235,2026-10-22 19:00:00+00:00,Vassilis Fotias,Bournemouth,AC Milan,3,0,6,4,10,2,5,7,7,0,13,3,20,3
+1636241,2026-10-22 19:00:00+00:00,John Brooks,Celje,Red Bull Salzburg,2,2,2,3,5,2,2,4,3,4,6,11,9,15
+1636249,2026-10-22 19:00:00+00:00,Georgi Kabakov,Celtic,Celta Vigo,1,2,2,6,8,4,0,4,4,4,4,18,8,22
+1636267,2026-10-22 19:00:00+00:00,Halil Umut Meler,1899 Hoffenheim,Lyon,3,0,11,9,20,3,1,4,8,2,13,6,21,8
+1636273,2026-10-22 19:00:00+00:00,Ondřej Berka,Jagiellonia,Anderlecht,0,3,4,4,8,3,3,6,1,8,5,7,6,15
+1636288,2026-10-22 19:00:00+00:00,Mohammad Al-Emara,Lillestrom,Real Sociedad,0,6,3,3,6,1,2,3,2,8,12,8,14,16
+1636308,2026-10-22 19:00:00+00:00,Espen Eskås,Olympiakos Piraeus,Sparta Praha,1,0,14,3,17,2,4,6,2,1,21,13,23,14
+1636311,2026-10-22 19:00:00+00:00,Jasper Vergoote,Omonia Nicosia,Benfica,1,4,4,5,9,1,4,5,5,10,2,13,7,23
+1636318,2026-10-22 19:00:00+00:00,Alejandro Hernández,Plzen,Levski Sofia,1,2,4,1,5,1,1,2,2,3,11,3,13,6
+1636324,2026-11-04 15:30:00+00:00,Igor Pajač,Rennes,Olympiakos Piraeus,0,0,3,3,6,1,0,1,4,3,5,9,9,12
