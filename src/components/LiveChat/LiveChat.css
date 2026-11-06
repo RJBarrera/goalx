@@ -409,6 +409,12 @@
   .goalx-chat__messages::-webkit-scrollbar {
     width: 5px;
   }
+
+  /* EVITAR ZOOM AUTOMÁTICO EN MÓVILES */
+  .goalx-chat input {
+    font-size: 16px;
+    transition: none;
+  }
 }
 
 /* ACCESIBILIDAD */
