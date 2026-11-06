@@ -111,9 +111,9 @@ function Navbar() {
           </div>
 
           <div className="sports-navbar__brand-text">
-            <strong>
+            {/* <strong>
               GOAL<span>PICKS</span>
-            </strong>
+            </strong> */}
 
             <div className="glob-sports-navbar__engine-dot">
               <span className="sports-navbar__engine-dot" />
