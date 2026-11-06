@@ -1,78 +1,104 @@
+/* GOALPICKS - LIVE CHAT */
+
+/* PALETA COMPARTIDA */
+:root {
+  --goalx-chat-bg: rgba(13, 20, 29, 0.96);
+  --goalx-chat-surface: rgba(20, 28, 38, 0.98);
+  --goalx-chat-surface-soft: rgba(255, 255, 255, 0.055);
+  --goalx-chat-green: #65c58a;
+  --goalx-chat-green-hover: #78d39a;
+  --goalx-chat-green-text: #07180e;
+  --goalx-chat-text: #f3f5f7;
+  --goalx-chat-muted: #9aa5b1;
+  --goalx-chat-border: rgba(255, 255, 255, 0.1);
+}
+
+/* CONTENEDOR PRINCIPAL */
+
 .goalx-chat {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1000px;
   margin: 28px auto;
-  border: 1px solid #29364a;
+  border: 1px solid var(--goalx-chat-border);
   border-radius: 18px;
   overflow: hidden;
-  background: rgba(13, 20, 29, 0.7);
-  color: #e9f0f7;
+  background: var(--goalx-chat-bg);
+  color: var(--goalx-chat-text);
   font-family: inherit;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .goalx-chat * {
   box-sizing: border-box;
 }
 
-.sports-chat {
+/* CABECERA Y LOGOTIPO */
+.goalx-chat__header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 12px;
-  min-width: 320px;
-  color: #ffffff;
+  padding: 18px 20px;
+  background: rgba(13, 20, 29, 0.88);
+  border-bottom: 1px solid var(--goalx-chat-border);
+}
+
+.goalx-chat .sports-chat {
+  display: flex;
+  flex: 1 1 160px;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: var(--goalx-chat-text);
   text-decoration: none;
 }
 
-.sports-chat__logo {
+.goalx-chat .sports-chat__logo {
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
-  flex-shrink: 0;
-  border: 1px solid rgba(73, 230, 175, 0.28);
-  border-radius: 13px;
-  color: #42e7ac;
-  background: linear-gradient(
-    145deg,
-    rgba(37, 226, 160, 0.14),
-    rgba(28, 114, 170, 0.12)
-  );
-  box-shadow:
-    inset 0 0 18px rgba(66, 231, 172, 0.08),
-    0 8px 22px rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--goalx-chat-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.goalx-chat__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 20px;
-  border-bottom: 1px solid #29364a;
-}
-
-.goalx-chat__header h2 {
-  margin: 0 0 5px;
-  font-size: 22px;
-  color: #fff;
+.goalx-chat .sports-chat__logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .goalx-chat__header p {
   margin: 0;
-  color: #91a3b9;
+  color: var(--goalx-chat-text);
   font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
 }
+
+/* ESTADO DE CONEXIÓN */
 
 .goalx-chat__status {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #c9d9e8;
-  font-size: 13px;
+  flex-shrink: 0;
+  color: #c1cad3;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .goalx-chat__dot {
+  display: inline-block;
+  flex-shrink: 0;
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -80,8 +106,13 @@
 }
 
 .goalx-chat__dot.is-online {
-  background: #35d68b;
+  background: var(--goalx-chat-green);
+  box-shadow:
+    0 0 0 4px rgba(101, 197, 138, 0.08),
+    0 0 12px rgba(101, 197, 138, 0.35);
 }
+
+/* CONFIGURACIÓN DEL APODO */
 
 .goalx-chat__nickname {
   display: flex;
@@ -89,39 +120,83 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 12px 20px;
-  background: #151f30;
-  font-size: 13px;
+  background: rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #c1cad3;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .goalx-chat__nickname input {
-  flex: 1;
-  min-width: 130px;
+  flex: 1 1 100px;
+  min-width: 0;
   max-width: 250px;
 }
 
+/* CAMPOS DE TEXTO */
 .goalx-chat input {
-  background: #202c40;
-  color: #fff;
-  border: 1px solid #35455a;
-  border-radius: 9px;
+  min-height: 42px;
   padding: 11px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
   outline: none;
+  background: var(--goalx-chat-surface-soft);
+  color: var(--goalx-chat-text);
   font: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.goalx-chat input::placeholder {
+  color: #8995a3;
+}
+
+.goalx-chat input:hover:not(:disabled) {
+  border-color: rgba(101, 197, 138, 0.3);
 }
 
 .goalx-chat input:focus {
-  border-color: #41ca99;
+  border-color: var(--goalx-chat-green);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(101, 197, 138, 0.1);
 }
 
+/* BOTONES */
 .goalx-chat button {
-  background: #15855f;
-  color: #fff;
-  border: none;
-  border-radius: 9px;
-  padding: 11px 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--goalx-chat-green);
+  color: var(--goalx-chat-green-text);
   cursor: pointer;
   font: inherit;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.goalx-chat button:hover:not(:disabled) {
+  background: var(--goalx-chat-green-hover);
+  transform: translateY(-1px);
+}
+
+.goalx-chat button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.goalx-chat button:focus-visible {
+  outline: 2px solid #a5f0bf;
+  outline-offset: 2px;
 }
 
 .goalx-chat button:disabled {
@@ -129,24 +204,35 @@
   cursor: not-allowed;
 }
 
+/* ÁREA DE MENSAJES */
+
 .goalx-chat__messages {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-height: 0;
   height: 390px;
   padding: 20px;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(7, 14, 28, 0.16);
+  scrollbar-width: thin;
+  scrollbar-color: var(--goalx-chat-green) transparent;
 }
 
+/* SIN MENSAJES */
+
 .goalx-chat__empty {
-  flex: 1;
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
-  color: #99adc2;
   gap: 10px;
+  padding: 20px 0;
+  text-align: center;
+  color: var(--goalx-chat-muted);
 }
 
 .goalx-chat__empty span {
@@ -154,56 +240,77 @@
 }
 
 .goalx-chat__empty strong {
-  color: #fff;
+  color: var(--goalx-chat-text);
+  font-size: 14px;
 }
 
 .goalx-chat__empty p {
   margin: 0;
+  color: var(--goalx-chat-muted);
   font-size: 13px;
 }
 
+/* BURBUJAS DE MENSAJES */
+
+/* MENSAJES RECIBIDOS */
 .goalx-chat__message {
   align-self: flex-start;
   max-width: 85%;
   padding: 11px 14px;
-  background: #202c40;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.065);
+  color: #e9eff5;
   overflow-wrap: anywhere;
 }
 
+/* MENSAJES PROPIOS */
+
 .goalx-chat__message.is-own {
   align-self: flex-end;
-  background: #164934;
+  border-color: rgba(101, 197, 138, 0.2);
+  background: rgba(101, 197, 138, 0.13);
+  color: #e9f7ed;
 }
+
+/* NOMBRE Y HORA */
 
 .goalx-chat__message-meta {
   display: flex;
-  gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 6px;
   font-size: 12px;
 }
 
 .goalx-chat__message-meta strong {
-  color: #62ddae;
+  color: var(--goalx-chat-green);
+  font-weight: 700;
 }
 
 .goalx-chat__message-meta time {
-  color: #a3b2c4;
+  color: var(--goalx-chat-muted);
+  font-size: 11px;
 }
 
+/* TEXTO DEL MENSAJE */
 .goalx-chat__message p {
   margin: 0;
+  color: inherit;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
   white-space: pre-wrap;
 }
 
+/* ENVÍO DE MENSAJES */
 .goalx-chat__composer {
   display: flex;
+  align-items: center;
   gap: 10px;
   padding: 15px 20px;
-  border-top: 1px solid #29364a;
+  border-top: 1px solid var(--goalx-chat-border);
+  background: rgba(13, 20, 29, 0.92);
 }
 
 .goalx-chat__composer input {
@@ -211,25 +318,73 @@
   min-width: 0;
 }
 
+/* ERRORES */
 .goalx-chat__error {
-  margin: 0 20px;
+  margin: 0;
+  padding: 9px 20px;
+  background: rgba(218, 111, 97, 0.08);
   color: #ffaaa5;
-  font-size: 13px;
+  font-size: 12px;
 }
 
+/* PIE DEL CHAT */
 .goalx-chat__footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
   padding: 0 20px 15px;
+  background: rgba(13, 20, 29, 0.92);
+  color: var(--goalx-chat-muted);
   font-size: 11px;
-  color: #8ea3b9;
+  line-height: 1.4;
 }
 
+/* SCROLLBAR PREMIUM */
+.goalx-chat__messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.goalx-chat__messages::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+.goalx-chat__messages::-webkit-scrollbar-thumb {
+  background: var(--goalx-chat-green);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+}
+
+.goalx-chat__messages::-webkit-scrollbar-thumb:hover {
+  background: var(--goalx-chat-green-hover);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.goalx-chat__messages::-webkit-scrollbar-thumb:active {
+  background: #4eab73;
+}
+
+/* RESPONSIVE - MÓVILES */
 @media (max-width: 600px) {
   .goalx-chat {
     border-radius: 12px;
+  }
+
+  .goalx-chat__header {
+    gap: 8px;
+    padding: 15px;
+  }
+
+  .goalx-chat .sports-chat {
+    gap: 9px;
+    flex-basis: 145px;
+  }
+
+  .goalx-chat__status {
+    font-size: 11px;
   }
 
   .goalx-chat__messages {
@@ -237,67 +392,29 @@
     padding: 12px;
   }
 
-  .goalx-chat__header {
-    padding: 15px;
-  }
-
   .goalx-chat__message {
     max-width: 94%;
   }
 
-  .goalx-chat__composer,
-  .goalx-chat__nickname {
+  .goalx-chat__nickname,
+  .goalx-chat__composer {
     padding: 12px;
+  }
+
+  .goalx-chat__footer {
+    padding: 0 12px 12px;
+    font-size: 10px;
+  }
+
+  .goalx-chat__messages::-webkit-scrollbar {
+    width: 5px;
   }
 }
 
-/* GOALPICKS - SCROLLBAR PREMIUM Chat en vivo */
-
-/* Contenedor de mensajes */
-.goalx-chat__messages {
-  scrollbar-width: thin;
-  scrollbar-color: #21b987 transparent;
-  overscroll-behavior: contain;
-}
-
-/* Ancho de la barra */
-.goalx-chat__messages::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Fondo del carril */
-.goalx-chat__messages::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 20px;
-}
-
-/* Barra de desplazamiento */
-.goalx-chat__messages::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #37e3a6 0%, #12b981 55%, #0c7557 100%);
-
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  border-radius: 20px;
-}
-
-/* Efecto al pasar el cursor */
-.goalx-chat__messages::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #6af3c2 0%, #37e3a6 50%, #19aa7c 100%);
-
-  border: 1px solid transparent;
-  background-clip: padding-box;
-}
-
-/* Efecto al arrastrar */
-.goalx-chat__messages::-webkit-scrollbar-thumb:active {
-  background: #0f936b;
-  border: 1px solid transparent;
-  background-clip: padding-box;
-}
-
-/* Adaptación móvil */
-@media (max-width: 600px) {
-  .goalx-chat__messages::-webkit-scrollbar {
-    width: 5px;
+/* ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+  .goalx-chat input,
+  .goalx-chat button {
+    transition: none;
   }
 }
