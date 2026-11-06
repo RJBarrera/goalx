@@ -1613,13 +1613,21 @@ def exportar_dataset(
         )
 
     runtime = _runtime_or_http(competition)
-    history_path = runtime.history_service.history_path
-
-    if not history_path.exists():
-        raise HTTPException(
-            status_code=404,
-            detail="No existe el histórico.",
+    # Cambiamos el consumo de CSV a PostgreSQL
+    if runtime.history_service.history_backend == "postgres":
+        # Mantener compatibilidad con GitHub durante la transición.
+        # CSV exportado en memoria, sin archivos históricos en disco.
+        csv_data = runtime.history_service.load_history().to_csv(index=False)
+        filename = runtime.competition["seed_history_filename"]
+        return Response(
+            content=csv_data,
+            media_type="text/csv; charset=utf-8",
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
         )
+
+    history_path = runtime.history_service.history_path
+    if not history_path.exists():
+        raise HTTPException(status_code=404, detail="No existe el histórico.")
 
     return FileResponse(
         path=str(history_path),

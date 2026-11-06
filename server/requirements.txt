@@ -10,3 +10,4 @@ xgboost
 scikit-learn
 tzdata
 websockets
+psycopg[binary]

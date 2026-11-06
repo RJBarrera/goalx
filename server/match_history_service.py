@@ -146,6 +146,16 @@ class MatchHistoryService:
         )
         self.competition_id = self.competition["id"]
 
+        # Cambiamos el consumo de CSV a PostgreSQL
+        # Selector reversible: csv (anterior) o postgres (Railway).
+        self.history_backend = os.getenv("GOALX_HISTORY_BACKEND", "csv").strip().lower()
+        if self.history_backend not in {"csv", "postgres"}:
+            raise ValueError("GOALX_HISTORY_BACKEND debe ser csv o postgres")
+        self.postgres_repository = None
+        if self.history_backend == "postgres":
+            from postgres_history_repository import PostgresHistoryRepository
+            self.postgres_repository = PostgresHistoryRepository(self.competition_id)
+
         self.seed_history_path = SERVER_DIR / self.competition["seed_history_filename"]
         self.seed_highlights_path = (
             SERVER_DIR / self.competition["seed_highlights_filename"]
@@ -202,40 +212,26 @@ class MatchHistoryService:
         return mapping.get(cleaned, cleaned)
 
     # INICIALIZAR STORAGE
-    def _initialize_storage(
-        self,
-    ):
-
+    # Cambiamos el consumo de CSV a PostgreSQL
+    def _initialize_storage(self):
         with self._lock:
-            self.history_path.parent.mkdir(
-                parents=True,
-                exist_ok=True,
-            )
+            # JSON de estados, destacados y otros recursos siguen siendo independientes.
+            self.state_path.parent.mkdir(parents=True, exist_ok=True)
+            self.highlights_path.parent.mkdir(parents=True, exist_ok=True)
 
-            self.state_path.parent.mkdir(
-                parents=True,
-                exist_ok=True,
-            )
-
-            # Copiar el historico base del repositorio.
-            if not self.history_path.exists() and self.seed_history_path.exists():
-
-                if self.history_path.resolve() != self.seed_history_path.resolve():
-
-                    shutil.copy2(
-                        self.seed_history_path,
-                        self.history_path,
+            if self.history_backend == "postgres":
+                # Ni crea ni lee archivos CSV. Verifica la tabla al iniciar.
+                self.postgres_repository.validate()
+            else:
+                self.history_path.parent.mkdir(parents=True, exist_ok=True)
+                if not self.history_path.exists() and self.seed_history_path.exists():
+                    if self.history_path.resolve() != self.seed_history_path.resolve():
+                        shutil.copy2(self.seed_history_path, self.history_path)
+                if not self.history_path.exists():
+                    pd.DataFrame(columns=HISTORY_COLUMNS).to_csv(
+                        self.history_path, index=False
                     )
-
-            # SI NO EXISTE NADA
-            if not self.history_path.exists():
-
-                pd.DataFrame(columns=HISTORY_COLUMNS).to_csv(
-                    self.history_path,
-                    index=False,
-                )
-
-            self._validate_schema()
+                self._validate_schema()
 
             if not self.state_path.exists():
                 self._write_state(DEFAULT_STATE.copy())
@@ -243,21 +239,12 @@ class MatchHistoryService:
             if (
                 not self.highlights_path.exists()
                 and self.seed_highlights_path.exists()
-                and self.highlights_path.resolve()
-                != self.seed_highlights_path.resolve()
+                and self.highlights_path.resolve() != self.seed_highlights_path.resolve()
             ):
-                shutil.copy2(
-                    self.seed_highlights_path,
-                    self.highlights_path,
-                )
+                shutil.copy2(self.seed_highlights_path, self.highlights_path)
 
             if not self.highlights_path.exists():
-                self._write_highlights_state(
-                    {
-                        "version": 1,
-                        "fixtures": {},
-                    }
-                )
+                self._write_highlights_state({"version": 1, "fixtures": {}})
 
     # VALIDAR CSV
     def _validate_schema(
@@ -526,12 +513,20 @@ class MatchHistoryService:
 
         self._write_highlights_state(state)
 
-    # LEER CSV
-    def _read_history(
-        self,
-    ):
-
+    # Cambiamos el consumo de CSV a PostgreSQL
+    # Lectura única para CSV y PostgreSQL (misma interfaz pandas).
+    def load_history(self):
+        if self.history_backend == "postgres":
+            return self.postgres_repository.load_history()
         return pd.read_csv(self.history_path)
+
+    def _read_history(self):
+        return self.load_history()
+
+    def get_history_revision(self):
+        if self.history_backend == "postgres":
+            return self.postgres_repository.revision()
+        return None
 
     # ES FINAL
     def is_finished(
@@ -555,11 +550,12 @@ class MatchHistoryService:
         fixture_id = _fixture_key(fixture_id)
 
         if not fixture_id:
-
             return False
 
-        with self._lock:
+        if self.history_backend == "postgres":
+            return self.postgres_repository.has_fixture(fixture_id)
 
+        with self._lock:
             df = self._read_history()
 
             existing = {
@@ -874,41 +870,28 @@ class MatchHistoryService:
                     "fixture_id": fixture_id,
                     "missing": missing,
                 }
-
-            # LEER CSV HISTORICO
-            df = self._read_history()
-
-            # CONSERVAR EXACTAMENTE EL ORDEN DEL CSV EXISTENTE
-            existing_columns = list(df.columns)
-
-            new_row = {
-                column: row.get(
-                    column,
-                    pd.NA,
+            # Cambiamos el consumo de CSV a PostgreSQL
+            if self.history_backend == "postgres":
+                # INSERT con ON CONFLICT: evita duplicados incluso entre procesos.
+                inserted = self.postgres_repository.insert_finished_match(row)
+                if not inserted:
+                    return {"action": "duplicate", "fixture_id": fixture_id}
+                records = self.postgres_repository.revision()[0]
+            else:
+                # Compatibilidad con el histórico CSV durante la migración.
+                df = self._read_history()
+                existing_columns = list(df.columns)
+                new_row = {
+                    column: row.get(column, pd.NA)
+                    for column in existing_columns
+                }
+                df = pd.concat(
+                    [df, pd.DataFrame([new_row])], ignore_index=True
                 )
-                for column in existing_columns
-            }
-
-            df = pd.concat(
-                [
-                    df,
-                    pd.DataFrame([new_row]),
-                ],
-                ignore_index=True,
-            )
-
-            # ESCRITURA
-            temp_path = self.history_path.with_suffix(".csv.tmp")
-
-            df.to_csv(
-                temp_path,
-                index=False,
-            )
-
-            os.replace(
-                temp_path,
-                self.history_path,
-            )
+                temp_path = self.history_path.with_suffix(".csv.tmp")
+                df.to_csv(temp_path, index=False)
+                os.replace(temp_path, self.history_path)
+                records = len(df)
 
             # ESTADO
             state = self._read_state()
@@ -939,7 +922,7 @@ class MatchHistoryService:
                 "action": "saved",
                 "fixture_id": int(fixture_id),
                 "row": row,
-                "records": len(df),
+                "records": records,
             }
 
     # Obtener destacados de la competencia actual
@@ -1132,76 +1115,74 @@ class MatchHistoryService:
         }
 
     # DATASET DIRTY
-    def is_dirty(
-        self,
-    ):
-
+    # Cambiamos el consumo de CSV a PostgreSQL
+    def is_dirty(self):
         with self._lock:
             state = self._read_state()
-            return bool(state.get("dataset_dirty"))
+            if state.get("dataset_dirty"):
+                return True
+            if self.history_backend == "postgres":
+                # Detectar inserciones directas en PostgreSQL, además de este servicio.
+                return self.postgres_repository.revision() != state.get("postgres_revision")
+            return False
 
-    # MARCAR DATASET PARA RECARGA
-    def mark_dataset_dirty(
-        self,
-    ):
-
+    def mark_dataset_dirty(self):
         with self._lock:
             state = self._read_state()
             state["dataset_dirty"] = True
             state["last_update"] = _utc_now()
             self._write_state(state)
 
-    # MODELO ACTUALIZADO
-    def mark_models_clean(
-        self,
-    ):
-
+    def mark_models_clean(self, expected_revision=None):
         with self._lock:
             state = self._read_state()
-            state["dataset_dirty"] = False
+            if self.history_backend == "postgres":
+                current = self.postgres_repository.revision()
+                # Si llegaron registros mientras entrenábamos, dejar dirty.
+                state["dataset_dirty"] = (
+                    expected_revision is not None and current != expected_revision
+                )
+                state["postgres_revision"] = (
+                    expected_revision if expected_revision is not None else current
+                )
+            else:
+                state["dataset_dirty"] = False
             state["model_last_refresh"] = _utc_now()
             self._write_state(state)
 
     # ESTADO DEL DATASET
-    def get_status(
-        self,
-    ):
-
+    def get_status(self):
         with self._lock:
-            df = self._read_history()
             state = self._read_state()
-            years = []
-
-            if "date" in df.columns and not df.empty:
-                parsed_dates = pd.to_datetime(
-                    df["date"],
-                    errors="coerce",
-                    utc=True,
-                )
-
-                years = sorted(
-                    parsed_dates.dt.year.dropna().astype(int).unique().tolist()
-                )
-
+            if self.history_backend == "postgres":
+                summary = self.postgres_repository.stats()
+                records, years = summary["records"], summary["years"]
+                history_label = f"PostgreSQL: {self.postgres_repository.label}"
+            else:
+                df = self._read_history()
+                records = len(df)
+                history_label = str(self.history_path)
+                years = []
+                if "date" in df.columns and not df.empty:
+                    parsed_dates = pd.to_datetime(df["date"], errors="coerce", utc=True)
+                    years = sorted(
+                        parsed_dates.dt.year.dropna().astype(int).unique().tolist()
+                    )
             return {
                 "competition_id": self.competition_id,
                 "competition": self.competition["name"],
-                "history_path": str(self.history_path),
-                "records": len(df),
+                "history_path": history_label,
+                "history_backend": self.history_backend,
+                "records": records,
                 "years": years,
-                "dataset_dirty": bool(state.get("dataset_dirty")),
+                "dataset_dirty": self.is_dirty(),
                 "last_update": state.get("last_update"),
                 "last_fixture_id": state.get("last_fixture_id"),
                 "last_match": state.get("last_match"),
                 "last_result": state.get("last_result"),
-                "records_added_total": state.get(
-                    "records_added_total",
-                    0,
-                ),
+                "records_added_total": state.get("records_added_total", 0),
                 "model_last_refresh": state.get("model_last_refresh"),
-                "pending_fixtures": list(
-                    (state.get("pending_fixtures") or {}).values()
-                ),
+                "pending_fixtures": list((state.get("pending_fixtures") or {}).values()),
             }
 
     # OBTENER PARTIDOS PENDIENTES

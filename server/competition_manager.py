@@ -152,6 +152,13 @@ class CompetitionManager:
                 return runtime.state
 
             history_path = runtime.history_service.history_path
+            # Cambiamos el consumo de CSV a PostgreSQL
+            source_name = (
+                runtime.history_service.postgres_repository.label
+                if runtime.history_service.history_backend == "postgres"
+                else str(history_path)
+            )
+            revision_before_training = runtime.history_service.get_history_revision()
 
             print("\n" + "=" * 50)
             print(
@@ -159,12 +166,9 @@ class CompetitionManager:
                 runtime.competition["name"],
             )
             print("=" * 50)
-            print(f"📂 CSV: {history_path}")
+            print(f"📂 Histórico ({runtime.history_service.history_backend}): {source_name}")
 
-            if not history_path.is_file():
-                raise FileNotFoundError(f"No se encontró el CSV: {history_path}")
-
-            df = pd.read_csv(history_path)
+            df = runtime.history_service.load_history()
 
             missing = [
                 column
@@ -241,7 +245,9 @@ class CompetitionManager:
                     f"Faltan {missing_records}."
                 )
                 runtime.initialized = True
-                runtime.history_service.mark_models_clean()
+                runtime.history_service.mark_models_clean(
+                    expected_revision=revision_before_training
+                )
 
                 print(
                     "🟡 MOTOR EN ESPERA:",
@@ -393,7 +399,9 @@ class CompetitionManager:
             )
             runtime.initialized = True
 
-            runtime.history_service.mark_models_clean()
+            runtime.history_service.mark_models_clean(
+                expected_revision=revision_before_training
+            )
 
             print(f"🟢 MOTOR {runtime.competition['name']} LISTO\n")
 
