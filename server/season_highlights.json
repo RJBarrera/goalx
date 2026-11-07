@@ -669,6 +669,72 @@
           "assists": 0
         }
       }
+    },
+    "1551029": {
+      "fixture_id": 1551029,
+      "date": "2026-11-07T01:00:00+00:00",
+      "home": "Atletico San Luis",
+      "away": "FC Juarez",
+      "players": {
+        "fc juarez|oscar estupiñan": {
+          "name": "Oscar Estupiñan",
+          "team": "FC Juarez",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1551030": {
+      "fixture_id": 1551030,
+      "date": "2026-11-07T01:00:00+00:00",
+      "home": "Necaxa",
+      "away": "Club Tijuana",
+      "players": {
+        "necaxa|danny leyva": {
+          "name": "Danny Leyva",
+          "team": "Necaxa",
+          "goals": 1,
+          "assists": 0
+        },
+        "necaxa|lorenzo faravelli": {
+          "name": "Lorenzo Faravelli",
+          "team": "Necaxa",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1551031": {
+      "fixture_id": 1551031,
+      "date": "2026-11-07T03:00:00+00:00",
+      "home": "Atlante",
+      "away": "Santos Laguna",
+      "players": {
+        "santos laguna|tahiel adrian jimenez": {
+          "name": "Tahiel Adrian Jimenez",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 0
+        },
+        "santos laguna|ezequiel bullaude": {
+          "name": "Ezequiel Bullaude",
+          "team": "Santos Laguna",
+          "goals": 0,
+          "assists": 1
+        },
+        "santos laguna|esteban lozano": {
+          "name": "Esteban Lozano",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 0
+        },
+        "santos laguna|mauricio cuevas": {
+          "name": "Mauricio Cuevas",
+          "team": "Santos Laguna",
+          "goals": 0,
+          "assists": 1
+        }
+      }
     }
   }
 }
