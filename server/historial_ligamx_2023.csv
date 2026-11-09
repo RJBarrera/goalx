@@ -1483,6 +1483,12 @@ fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,a
 1551026,2026-11-01 03:10:00+00:00,Luis Santander,Club America,Toluca,2,2,6,5,11,5,3,8,5,7,10,10,15,17
 1551027,2026-11-01 23:00:00+00:00,Daniel Quintero,Santos Laguna,Necaxa,1,0,12,6,18,1,3,4,3,8,3,13,6,21
 1551028,2026-11-02 01:10:00+00:00,Jesus López,Cruz Azul,León,2,1,4,6,10,4,5,9,5,4,10,12,15,16
-1551029,2026-11-07T01:00:00+00:00,Victor Alfonso Caceres Hernandez,Atletico San Luis,FC Juarez,0,1,8,3,11,2,3,5,8,4,10,11,18,15
-1551030,2026-11-07T01:00:00+00:00,Adonai Escobedo Gonzalez,Necaxa,Club Tijuana,1,0,5,6,11,1,2,3,5,3,12,15,17,18
-1551031,2026-11-07T03:00:00+00:00,Marco Antonio Ortiz Nava,Atlante,Santos Laguna,0,2,3,6,9,2,2,4,5,3,13,9,18,12
+1551030,2026-11-07 01:00:00+00:00,Adonai Escobedo,Necaxa,Club Tijuana,1,0,5,6,11,1,2,3,5,3,11,15,16,18
+1551029,2026-11-07 01:00:00+00:00,Victor Cáceres,Atletico San Luis,FC Juarez,0,1,8,3,11,2,3,5,8,4,10,11,18,15
+1551031,2026-11-07 03:00:00+00:00,Marco Ortíz,Atlante,Santos Laguna,0,2,3,6,9,4,2,6,5,3,13,9,18,12
+1551032,2026-11-07 23:00:00+00:00,Fernando Hernández,Atlas,CF Pachuca,1,4,7,5,12,5,1,6,6,8,5,7,11,15
+1551033,2026-11-08 01:00:00+00:00,Ismael López,Tigres UANL,Cruz Azul,2,3,10,4,14,3,4,7,8,7,11,11,19,18
+1551034,2026-11-08 01:00:00+00:00,Daniel Quintero,Toluca,Monterrey,4,0,6,6,12,1,7,8,7,2,3,5,10,7
+1551035,2026-11-08 03:10:00+00:00,César Ramos,U.N.A.M. - Pumas,Club America,2,2,4,2,6,6,3,9,3,2,13,10,16,12
+1551036,2026-11-09 00:00:00+00:00,Katia García,Club Queretaro,Puebla,0,2,9,0,9,3,3,6,5,3,16,6,21,9
+1551037,2026-11-09 02:10:00+00:00,Guillermo Pacheco,León,Guadalajara Chivas,1,1,2,6,8,4,1,5,5,6,3,12,8,18

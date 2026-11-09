@@ -1301,3 +1301,12 @@ fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,a
 1575203,2026-10-31 17:30:00+00:00,Tobias Stieler,Bayern München,Borussia Dortmund,2,2,5,2,7,2,1,3,5,6,18,6,23,12
 1575207,2026-11-01 14:30:00+00:00,Richard Hempel,Union Berlin,1. FC Köln,1,1,2,6,8,4,3,7,2,2,3,12,5,14
 1575205,2026-11-01 16:30:00+00:00,Florian Exner,Eintracht Frankfurt,Hamburger SV,3,1,6,6,12,2,4,6,10,3,5,9,15,12
+1575218,2026-11-06 19:30:00+00:00,Sven Jablonski,Hamburger SV,Borussia Mönchengladbach,3,1,5,3,8,1,3,4,9,6,9,13,18,19
+1575217,2026-11-07 14:30:00+00:00,Robert Schröder,FSV Mainz 05,Bayern München,1,2,7,8,15,0,1,1,1,9,9,17,10,26
+1575212,2026-11-07 14:30:00+00:00,Harm Osmers,Borussia Dortmund,SV Elversberg,2,1,6,6,12,3,1,4,6,7,13,9,19,16
+1575213,2026-11-07 14:30:00+00:00,Daniel Schlager,RB Leipzig,FC Augsburg,5,2,2,2,4,1,2,3,7,8,10,5,17,13
+1575220,2026-11-07 14:30:00+00:00,Bastian Dankert,SC Paderborn 07,Eintracht Frankfurt,2,2,2,6,8,1,3,4,3,3,8,13,11,16
+1575214,2026-11-07 17:30:00+00:00,Sören Storks,VfB Stuttgart,Werder Bremen,1,0,4,4,8,0,3,3,5,5,8,18,13,23
+1575219,2026-11-08 14:30:00+00:00,Felix Zwayer,1. FC Köln,Bayer Leverkusen,1,2,2,6,8,6,5,11,6,8,6,6,12,14
+1575216,2026-11-08 16:30:00+00:00,Sascha Stegemann,SC Freiburg,Union Berlin,2,0,5,1,6,2,2,4,9,0,11,4,20,4
+1575215,2026-11-08 18:30:00+00:00,Martin Petersen,1899 Hoffenheim,FC Schalke 04,2,1,6,4,10,0,2,2,7,6,8,17,15,23
