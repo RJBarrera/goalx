@@ -80,9 +80,8 @@ LALIGA_EQUIVALENCIAS = {
     "Málaga": "Malaga",
     "Deportivo La Coruna": "Deportivo La Coruña",
     "Deportivo de A Coruña": "Deportivo La Coruña",
+    "Racing de Santander": "Racing Santander",
 }
-
-PREMIER_LEAGUE_EQUIVALENCIAS = {}
 
 # Equipos que pueden aparecer en múltiples competiciones
 EQUIVALENCIAS_GENERALES = {
@@ -97,6 +96,9 @@ EQUIVALENCIAS_GENERALES = {
     "Como 1907": "Como",
     "Inter Milan": "Inter",
     "Napoli": "Napoli",
+
+    # Premier
+    "Brighton and Hove Albion": "Brighton",
 
     # Bundesliga
     "Bayern Munich": "Bayern München",
@@ -120,8 +122,18 @@ BUNDESLIGA_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
     "Borussia Monchengladbach": "Borussia Mönchengladbach",
     "FC Schalke 04": "Schalke 04",
     "FSV Mainz 05": "Mainz 05",
+    "Mainz": "Mainz 05",
     "Hamburger SV": "Hamburger",
-    "SC Paderborn 07": "Paderborn", "":""
+    "Hamburg": "Hamburger",
+    "SC Paderborn 07": "Paderborn",
+    "Stuttgart":"VfB Stuttgart",
+}
+
+PREMIER_LEAGUE_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
+    "Ipswich Town": "Ipswich",
+    "Leeds United": "Leeds",
+    "Tottenham Hotspur": "Tottenham",
+    "Newcastle United": "Newcastle"
 }
 
 SERIE_A_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
@@ -150,6 +162,7 @@ EUROPA_LEAGUE_EQUIVALENCIAS = EQUIVALENCIAS_GENERALES | {
     "Ararat-Armenia": "Ararat Armenia",
     "Beşiktaş": "Besiktas",
     "Omonoia Nicosia": "Omonia Nicosia",
+    "Lillestrøm": "Lillestrom",
 }
 
 
@@ -179,7 +192,7 @@ COMPETITION_EQUIVALENCES = {
     "liga-mx-f": LIGA_MX_F_EQUIVALENCIAS,
     "laliga": LALIGA_EQUIVALENCIAS,
     "ligue-1": LIGUE1_EQUIVALENCIAS,
-    # "premier-league": PREMIER_LEAGUE_EQUIVALENCIAS,
+    "premier-league": PREMIER_LEAGUE_EQUIVALENCIAS,
     "bundesliga": BUNDESLIGA_EQUIVALENCIAS,
     "serie-a": SERIE_A_EQUIVALENCIAS,
     "champions": CHAMPIONS_EQUIVALENCIAS,
