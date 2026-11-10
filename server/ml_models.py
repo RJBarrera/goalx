@@ -6,25 +6,28 @@ from sklearn.preprocessing import LabelEncoder
 from scipy.stats import poisson
 import math
 
+# Ventana de partidos recientes a considerar
+RECENT_MATCH_WINDOW = 10
+
 FEATURES_MODELO = [
-    "home_avg_gf_5",
-    "home_avg_gc_5",
-    "home_avg_tarjetas_5",
-    "home_avg_corners_5",
-    "home_avg_corners_contra_5",
-    "home_puntos_5",
+    "home_avg_gf_10",
+    "home_avg_gc_10",
+    "home_avg_tarjetas_10",
+    "home_avg_corners_10",
+    "home_avg_corners_contra_10",
+    "home_puntos_10",
     "home_dias_descanso",
-    "away_avg_gf_5",
-    "away_avg_gc_5",
-    "away_avg_tarjetas_5",
-    "away_avg_corners_5",
-    "away_avg_corners_contra_5",
-    "away_puntos_5",
+    "away_avg_gf_10",
+    "away_avg_gc_10",
+    "away_avg_tarjetas_10",
+    "away_avg_corners_10",
+    "away_avg_corners_contra_10",
+    "away_puntos_10",
     "away_dias_descanso",
-    "home_avg_sot_5",
-    "home_avg_shots_total_5",
-    "away_avg_sot_5",
-    "away_avg_shots_total_5",
+    "home_avg_sot_10",
+    "home_avg_shots_total_10",
+    "away_avg_sot_10",
+    "away_avg_shots_total_10",
 ]
 
 
@@ -41,7 +44,7 @@ def preparar_features_al_vuelo(df):
     df_ml["date"] = pd.to_datetime(df_ml["date"], utc=True, format="mixed")
     df_ml = df_ml.sort_values("date")
 
-    # Calcular promedios (Ultimos 5 partidos) para cada equipo
+    # Calcular promedios (ultimos 10 partidos) para cada equipo
     # Creamos un dataframe temporal apilando locales y visitantes para calcular rachas
     equipos_stats = []
 
@@ -87,8 +90,11 @@ def preparar_features_al_vuelo(df):
             partidos_equipo["away_sont"],
         )
 
-        partidos_equipo["avg_sot_5"] = (
-            partidos_equipo["sot_favor"].shift(1).rolling(5, min_periods=1).mean()
+        partidos_equipo["avg_sot_10"] = (
+            partidos_equipo["sot_favor"]
+            .shift(1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
+            .mean()
         )
 
         # TIROS TOTALES
@@ -98,10 +104,10 @@ def preparar_features_al_vuelo(df):
             partidos_equipo["away_shots_total"],
         )
 
-        partidos_equipo["avg_shots_total_5"] = (
+        partidos_equipo["avg_shots_total_10"] = (
             partidos_equipo["shots_total_favor"]
             .shift(1)
-            .rolling(5, min_periods=1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
             .mean()
         )
 
@@ -119,27 +125,42 @@ def preparar_features_al_vuelo(df):
         )
 
         # PROMEDIOS Y ACUMULADOS
-        partidos_equipo["avg_gf_5"] = (
-            partidos_equipo["goles_favor"].shift(1).rolling(5, min_periods=1).mean()
-        )
-        partidos_equipo["avg_gc_5"] = (
-            partidos_equipo["goles_contra"].shift(1).rolling(5, min_periods=1).mean()
-        )
-        partidos_equipo["avg_tarjetas_5"] = (
-            partidos_equipo["tarjetas_recibidas"]
+        partidos_equipo["avg_gf_10"] = (
+            partidos_equipo["goles_favor"]
             .shift(1)
-            .rolling(5, min_periods=1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
             .mean()
         )
-        partidos_equipo["avg_corners_5"] = (
-            partidos_equipo["corners_favor"].shift(1).rolling(5, min_periods=1).mean()
+        partidos_equipo["avg_gc_10"] = (
+            partidos_equipo["goles_contra"]
+            .shift(1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
+            .mean()
         )
-        partidos_equipo["avg_corners_contra_5"] = (
-            partidos_equipo["corners_contra"].shift(1).rolling(5, min_periods=1).mean()
+        partidos_equipo["avg_tarjetas_10"] = (
+            partidos_equipo["tarjetas_recibidas"]
+            .shift(1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
+            .mean()
         )
-        partidos_equipo["puntos_5"] = (
-            partidos_equipo["puntos_obtenidos"].shift(1).rolling(5, min_periods=1).sum()
-        )  # Suma de puntos, no promedio
+        partidos_equipo["avg_corners_10"] = (
+            partidos_equipo["corners_favor"]
+            .shift(1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
+            .mean()
+        )
+        partidos_equipo["avg_corners_contra_10"] = (
+            partidos_equipo["corners_contra"]
+            .shift(1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
+            .mean()
+        )
+        partidos_equipo["puntos_10"] = (
+            partidos_equipo["puntos_obtenidos"]
+            .shift(1)
+            .rolling(RECENT_MATCH_WINDOW, min_periods=1)
+            .sum()
+        )
 
         partidos_equipo["equipo_objetivo"] = equipo
         equipos_stats.append(
@@ -147,14 +168,14 @@ def preparar_features_al_vuelo(df):
                 [
                     "fixture_id",
                     "equipo_objetivo",
-                    "avg_gf_5",
-                    "avg_gc_5",
-                    "avg_tarjetas_5",
-                    "avg_corners_5",
-                    "avg_corners_contra_5",
-                    "avg_sot_5",
-                    "avg_shots_total_5",
-                    "puntos_5",
+                    "avg_gf_10",
+                    "avg_gc_10",
+                    "avg_tarjetas_10",
+                    "avg_corners_10",
+                    "avg_corners_contra_10",
+                    "avg_sot_10",
+                    "avg_shots_total_10",
+                    "puntos_10",
                     "dias_descanso",
                 ]
             ]
@@ -168,14 +189,14 @@ def preparar_features_al_vuelo(df):
         df_stats.rename(
             columns={
                 "equipo_objetivo": "home_team",
-                "avg_gf_5": "home_avg_gf_5",
-                "avg_gc_5": "home_avg_gc_5",
-                "avg_tarjetas_5": "home_avg_tarjetas_5",
-                "avg_corners_5": "home_avg_corners_5",
-                "avg_corners_contra_5": "home_avg_corners_contra_5",
-                "avg_sot_5": "home_avg_sot_5",
-                "avg_shots_total_5": "home_avg_shots_total_5",
-                "puntos_5": "home_puntos_5",
+                "avg_gf_10": "home_avg_gf_10",
+                "avg_gc_10": "home_avg_gc_10",
+                "avg_tarjetas_10": "home_avg_tarjetas_10",
+                "avg_corners_10": "home_avg_corners_10",
+                "avg_corners_contra_10": "home_avg_corners_contra_10",
+                "avg_sot_10": "home_avg_sot_10",
+                "avg_shots_total_10": "home_avg_shots_total_10",
+                "puntos_10": "home_puntos_10",
                 "dias_descanso": "home_dias_descanso",
             }
         ),
@@ -188,14 +209,14 @@ def preparar_features_al_vuelo(df):
         df_stats.rename(
             columns={
                 "equipo_objetivo": "away_team",
-                "avg_gf_5": "away_avg_gf_5",
-                "avg_gc_5": "away_avg_gc_5",
-                "avg_tarjetas_5": "away_avg_tarjetas_5",
-                "avg_corners_5": "away_avg_corners_5",
-                "avg_corners_contra_5": "away_avg_corners_contra_5",
-                "avg_sot_5": "away_avg_sot_5",
-                "avg_shots_total_5": "away_avg_shots_total_5",
-                "puntos_5": "away_puntos_5",
+                "avg_gf_10": "away_avg_gf_10",
+                "avg_gc_10": "away_avg_gc_10",
+                "avg_tarjetas_10": "away_avg_tarjetas_10",
+                "avg_corners_10": "away_avg_corners_10",
+                "avg_corners_contra_10": "away_avg_corners_contra_10",
+                "avg_sot_10": "away_avg_sot_10",
+                "avg_shots_total_10": "away_avg_shots_total_10",
+                "puntos_10": "away_puntos_10",
                 "dias_descanso": "away_dias_descanso",
             }
         ),
@@ -282,7 +303,7 @@ def entrenar_xgboost_marcadores(df_crudo, *, features_prepared=False):
     le = LabelEncoder()
     y = le.fit_transform(marcador_str)
 
-    # Variables predictoras (ultimos 5 partidos)
+    # Variables predictoras (ultimos 10 partidos)
     X = df_features[FEATURES_MODELO]
 
     modelo_xgb_marcadores = xgb.XGBClassifier(

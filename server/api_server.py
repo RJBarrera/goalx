@@ -35,6 +35,7 @@ from competition_manager import CompetitionManager
 from live_service import APIQuotaExceededError, get_quota_status
 from prediccion_ligamx import analizar_h2h
 from ml_models import preparar_features_al_vuelo, calcular_distribucion_tiros
+from cross_competition_form import prepare_prediction_features
 from public_chat import router as chat_router, chat_reset_worker
 
 ## Configuración
@@ -910,35 +911,44 @@ def calcular_prediccion(request: PrediccionRequest):
                 X_pred = pd.DataFrame(
                     [
                         {
-                            "home_avg_gf_5": home_stats["home_avg_gf_5"],
-                            "home_avg_gc_5": home_stats["home_avg_gc_5"],
-                            "home_avg_tarjetas_5": home_stats["home_avg_tarjetas_5"],
-                            "home_avg_corners_5": home_stats["home_avg_corners_5"],
-                            "home_avg_corners_contra_5": home_stats[
-                                "home_avg_corners_contra_5"
+                            "home_avg_gf_10": home_stats["home_avg_gf_10"],
+                            "home_avg_gc_10": home_stats["home_avg_gc_10"],
+                            "home_avg_tarjetas_10": home_stats["home_avg_tarjetas_10"],
+                            "home_avg_corners_10": home_stats["home_avg_corners_10"],
+                            "home_avg_corners_contra_10": home_stats[
+                                "home_avg_corners_contra_10"
                             ],
-                            "home_puntos_5": home_stats["home_puntos_5"],
+                            "home_puntos_10": home_stats["home_puntos_10"],
                             "home_dias_descanso": 7.0,  # Valor estándar para partidos futuros
-                            "away_avg_gf_5": away_stats["away_avg_gf_5"],
-                            "away_avg_gc_5": away_stats["away_avg_gc_5"],
-                            "away_avg_tarjetas_5": away_stats["away_avg_tarjetas_5"],
-                            "away_avg_corners_5": away_stats["away_avg_corners_5"],
-                            "away_avg_corners_contra_5": away_stats[
-                                "away_avg_corners_contra_5"
+                            "away_avg_gf_10": away_stats["away_avg_gf_10"],
+                            "away_avg_gc_10": away_stats["away_avg_gc_10"],
+                            "away_avg_tarjetas_10": away_stats["away_avg_tarjetas_10"],
+                            "away_avg_corners_10": away_stats["away_avg_corners_10"],
+                            "away_avg_corners_contra_10": away_stats[
+                                "away_avg_corners_contra_10"
                             ],
-                            "away_puntos_5": away_stats["away_puntos_5"],
+                            "away_puntos_10": away_stats["away_puntos_10"],
                             "away_dias_descanso": 7.0,  # Valor estándar para partidos futuros
-                            "home_avg_sot_5": home_stats["home_avg_sot_5"],
-                            "home_avg_shots_total_5": home_stats[
-                                "home_avg_shots_total_5"
+                            "home_avg_sot_10": home_stats["home_avg_sot_10"],
+                            "home_avg_shots_total_10": home_stats[
+                                "home_avg_shots_total_10"
                             ],
-                            "away_avg_sot_5": away_stats["away_avg_sot_5"],
-                            "away_avg_shots_total_5": away_stats[
-                                "away_avg_shots_total_5"
+                            "away_avg_sot_10": away_stats["away_avg_sot_10"],
+                            "away_avg_shots_total_10": away_stats[
+                                "away_avg_shots_total_10"
                             ],
                         }
                     ]
                 )
+
+                # Multicompetencia, toma la info de otras competencias
+                # _, X_pred = prepare_prediction_features(
+                #     df,
+                #     local,
+                #     visitante,
+                #     runtime.competition["id"],
+                #     runtime.cross_competition_form,
+                # )
 
                 # Prediccion Tarjetas
                 if xgb_model:

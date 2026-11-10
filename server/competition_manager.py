@@ -28,6 +28,7 @@ from ml_models import (
     entrenar_xgboost_1x2,
     entrenar_xgboost_tiros,
 )
+from cross_competition_form import CrossCompetitionForm
 
 REQUIRED_DATASET_COLUMNS = [
     "home_team",
@@ -102,6 +103,8 @@ class CompetitionRuntime:
         }
         self.model_lock = threading.RLock()
         self.initialized = False
+        self.cross_competition_form = None
+        self.cross_competition_history_sources = []
 
         self.live_service = LiveFootballService(
             competition=competition,
@@ -139,6 +142,91 @@ class CompetitionManager:
                 self._runtimes[competition_id] = runtime
 
             return runtime
+
+    @staticmethod
+    def _history_file_signature(path):
+        try:
+            stat = path.stat()
+        except FileNotFoundError:
+            return None
+
+        return stat.st_mtime_ns, stat.st_size
+
+    def _load_cross_competition_form(self, target_competition):
+        target_group = target_competition.get("team_context_group", "men")
+        history_frames = []
+        history_sources = []
+
+        for item in self.list_competitions():
+            competition_id = item["id"]
+            if competition_id == target_competition["id"]:
+                continue
+
+            competition = get_competition(competition_id)
+            if competition.get("team_context_group", "men") != target_group:
+                continue
+
+            source_runtime = self.get_runtime(competition_id)
+            history_path = source_runtime.history_service.history_path
+            signature = self._history_file_signature(history_path)
+            history_sources.append((competition_id, history_path, signature))
+
+            if signature is None:
+                print(
+                    "⚠️ No se encontró el histórico complementario de "
+                    f"{competition['name']}: {history_path}"
+                )
+                continue
+
+            source_df = pd.read_csv(history_path)
+            required = {
+                "date",
+                "home_team",
+                "away_team",
+                "home_goals",
+                "away_goals",
+            }
+            missing = sorted(required.difference(source_df.columns))
+            if missing:
+                raise RuntimeError(
+                    f"El histórico de {competition['name']} no contiene "
+                    "las columnas requeridas para forma cruzada: "
+                    + ", ".join(missing)
+                )
+
+            source_df["home_team"] = source_df["home_team"].apply(
+                source_runtime.history_service.normalize_team_name
+            )
+            source_df["away_team"] = source_df["away_team"].apply(
+                source_runtime.history_service.normalize_team_name
+            )
+            source_df["competition_id"] = competition_id
+            history_frames.append(source_df)
+
+        history = (
+            pd.concat(history_frames, ignore_index=True)
+            if history_frames
+            else pd.DataFrame(
+                columns=[
+                    "date",
+                    "home_team",
+                    "away_team",
+                    "home_goals",
+                    "away_goals",
+                    "competition_id",
+                ]
+            )
+        )
+        return CrossCompetitionForm(history), history_sources
+
+    def _cross_competition_history_changed(self, runtime):
+        for _, history_path, previous_signature in (
+            runtime.cross_competition_history_sources
+        ):
+            if self._history_file_signature(history_path) != previous_signature:
+                return True
+
+        return False
 
     def initialize_models(
         self,
@@ -216,6 +304,11 @@ class CompetitionManager:
                 equipos = []
                 arbitros = ["Desconocido"]
 
+            (
+                runtime.cross_competition_form,
+                runtime.cross_competition_history_sources,
+            ) = self._load_cross_competition_form(runtime.competition)
+
             records = len(df)
             minimum = int(runtime.competition.get("model_min_matches", 1))
 
@@ -271,6 +364,10 @@ class CompetitionManager:
             print("⚙️ Preparando variables para XGBoost...")
             started = time.time()
             df_features = preparar_features_al_vuelo(df)
+            df_goal_features = runtime.cross_competition_form.add_features(
+                df_features,
+                runtime.competition["id"],
+            )
             print(
                 "   ✅ Variables preparadas en "
                 f"{time.time() - started:.2f} segundos."
@@ -279,11 +376,11 @@ class CompetitionManager:
             print("⚙️ Entrenando modelo XGBoost para tarjetas...")
             started = time.time()
             xgb_model = entrenar_xgboost_tarjetas(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             xgb_clasificador = entrenar_xgboost_tarjetas_probabilidad(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             print(
@@ -294,7 +391,7 @@ class CompetitionManager:
             print("⚙️ Entrenando modelo XGBoost para marcadores...")
             started = time.time()
             xgb_marcadores, le_marcadores = entrenar_xgboost_marcadores(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             print(
@@ -304,7 +401,7 @@ class CompetitionManager:
             print("⚙️ Entrenando modelos XGBoost para goles (xG)...")
             started = time.time()
             xgb_goles_home, xgb_goles_away = entrenar_xgboost_goles(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             print(
@@ -314,7 +411,7 @@ class CompetitionManager:
             print("⚙️ Entrenando modelos XGBoost para mercados de goles...")
             started = time.time()
             xgb_ou15, xgb_ou25, xgb_btts = entrenar_xgboost_goles_mercados(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             print(
@@ -324,12 +421,12 @@ class CompetitionManager:
             print("⚙️ Entrenando modelos XGBoost para Córners...")
             started = time.time()
             xgb_corn_h, xgb_corn_a, xgb_corn_ou95 = entrenar_xgboost_corners(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             xgb_c_h45, xgb_c_h55, xgb_c_a35, xgb_c_a45 = (
                 entrenar_xgboost_corners_mercados(
-                    df_features,
+                    df_goal_features,
                     features_prepared=True,
                 )
             )
@@ -340,7 +437,7 @@ class CompetitionManager:
             print("⚙️ Entrenando modelo XGBoost para 1X2...")
             started = time.time()
             runtime.state["xgb_1x2"] = entrenar_xgboost_1x2(
-                df_features,
+                df_goal_features,
                 features_prepared=True,
             )
             print(
@@ -351,7 +448,7 @@ class CompetitionManager:
             started = time.time()
             xgb_sot_home, xgb_sot_away, xgb_shots_home, xgb_shots_away = (
                 entrenar_xgboost_tiros(
-                    df_features,
+                    df_goal_features,
                     features_prepared=True,
                 )
             )
@@ -410,10 +507,14 @@ class CompetitionManager:
             return True
 
         if not runtime.history_service.is_dirty():
-            return False
+            if not self._cross_competition_history_changed(runtime):
+                return False
 
         with runtime.model_lock:
-            if not runtime.history_service.is_dirty():
+            if (
+                not runtime.history_service.is_dirty()
+                and not self._cross_competition_history_changed(runtime)
+            ):
                 return False
 
             print(

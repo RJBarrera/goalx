@@ -13,7 +13,8 @@ DEFAULT_CONFIG = {
 
 def _build_competition(
     comp_id, name, short_name, country, type_, sportsdb_id, api_football_id,
-    season_mode, model_min_matches, suffix, is_default=False
+    season_mode, model_min_matches, suffix, is_default=False,
+    team_context_group="men"
 ):
     """Auxiliar para generar el diccionario completo heredando los defaults."""
     config = DEFAULT_CONFIG.copy()
@@ -24,6 +25,7 @@ def _build_competition(
         "country": country,
         "type": type_,
         "default": is_default,
+        "team_context_group": team_context_group,
         "sportsdb_league_id": sportsdb_id,
         "api_football_league_id": api_football_id,
         "season_mode": season_mode,
@@ -43,7 +45,8 @@ COMPETITIONS = {
     ),
     "liga-mx-f": _build_competition(
         "liga-mx-f", "Liga MX Femenil", "Liga MX Femenil", "México", "league", 
-        5206, 673, "split_calendar", 20, "ligamx_F", is_default=True
+        5206, 673, "split_calendar", 20, "ligamx_F", is_default=True,
+        team_context_group="women"
     ),
     "laliga": _build_competition(
         "laliga", "La Liga", "La Liga", "España", "league", 
