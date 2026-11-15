@@ -735,6 +735,20 @@
           "assists": 1
         }
       }
+    },
+    "1550951": {
+      "fixture_id": 1550951,
+      "date": "2026-11-14T23:00:00+00:00",
+      "home": "Club Queretaro",
+      "away": "Monterrey",
+      "players": {
+        "monterrey|diego rossi": {
+          "name": "Diego Rossi",
+          "team": "Monterrey",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
