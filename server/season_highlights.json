@@ -749,6 +749,114 @@
           "assists": 0
         }
       }
+    },
+    "1551039": {
+      "fixture_id": 1551039,
+      "date": "2026-11-21T01:00:00+00:00",
+      "home": "Puebla",
+      "away": "Atletico San Luis",
+      "players": {
+        "puebla|mathías adrián tomás borges": {
+          "name": "Mathías Adrián Tomás Borges",
+          "team": "Puebla",
+          "goals": 1,
+          "assists": 0
+        },
+        "puebla|kevin velasco": {
+          "name": "Kevin Velasco",
+          "team": "Puebla",
+          "goals": 0,
+          "assists": 1
+        },
+        "atletico san luis|felipe mora": {
+          "name": "Felipe Mora",
+          "team": "Atletico San Luis",
+          "goals": 1,
+          "assists": 0
+        },
+        "atletico san luis|anderson duarte": {
+          "name": "Anderson Duarte",
+          "team": "Atletico San Luis",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1551040": {
+      "fixture_id": 1551040,
+      "date": "2026-11-21T03:00:00+00:00",
+      "home": "FC Juarez",
+      "away": "Atlas",
+      "players": {
+        "atlas|víctor ríos": {
+          "name": "Víctor Ríos",
+          "team": "Atlas",
+          "goals": 1,
+          "assists": 0
+        },
+        "atlas|kevin zenon": {
+          "name": "Kevin Zenon",
+          "team": "Atlas",
+          "goals": 0,
+          "assists": 2
+        },
+        "fc juarez|oscar estupiñan": {
+          "name": "Oscar Estupiñan",
+          "team": "FC Juarez",
+          "goals": 1,
+          "assists": 0
+        },
+        "fc juarez|guilherme castilho": {
+          "name": "Guilherme Castilho",
+          "team": "FC Juarez",
+          "goals": 0,
+          "assists": 2
+        },
+        "fc juarez|luca dupuy": {
+          "name": "Luca Dupuy",
+          "team": "FC Juarez",
+          "goals": 1,
+          "assists": 0
+        },
+        "atlas|juan sánchez": {
+          "name": "Juan Sánchez",
+          "team": "Atlas",
+          "goals": 1,
+          "assists": 0
+        },
+        "atlas|luís andré leite esteves": {
+          "name": "Luís André Leite Esteves",
+          "team": "Atlas",
+          "goals": 0,
+          "assists": 1
+        },
+        "atlas|elías montiel": {
+          "name": "Elías Montiel",
+          "team": "Atlas",
+          "goals": 1,
+          "assists": 0
+        },
+        "fc juarez|josé luis rodríguez": {
+          "name": "José Luis Rodríguez",
+          "team": "FC Juarez",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1551038": {
+      "fixture_id": 1551038,
+      "date": "2026-11-21T03:10:00+00:00",
+      "home": "Club Tijuana",
+      "away": "Atlante",
+      "players": {
+        "club tijuana|gilberto mora": {
+          "name": "Gilberto Mora",
+          "team": "Club Tijuana",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
