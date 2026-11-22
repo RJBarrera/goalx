@@ -857,6 +857,92 @@
           "assists": 0
         }
       }
+    },
+    "1551041": {
+      "fixture_id": 1551041,
+      "date": "2026-11-21T22:50:00+00:00",
+      "home": "CF Pachuca",
+      "away": "Toluca",
+      "players": {
+        "cf pachuca|alan bautista": {
+          "name": "Alan Bautista",
+          "team": "CF Pachuca",
+          "goals": 1,
+          "assists": 0
+        },
+        "cf pachuca|salomón rondón": {
+          "name": "Salomón Rondón",
+          "team": "CF Pachuca",
+          "goals": 1,
+          "assists": 1
+        }
+      }
+    },
+    "1551042": {
+      "fixture_id": 1551042,
+      "date": "2026-11-21T23:00:00+00:00",
+      "home": "Santos Laguna",
+      "away": "Leon",
+      "players": {
+        "santos laguna|ramiro sordo": {
+          "name": "Ramiro Sordo",
+          "team": "Santos Laguna",
+          "goals": 1,
+          "assists": 0
+        },
+        "leon|ismael díaz": {
+          "name": "Ismael Díaz",
+          "team": "Leon",
+          "goals": 1,
+          "assists": 0
+        },
+        "leon|daniel arcila": {
+          "name": "Daniel Arcila",
+          "team": "Leon",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1551043": {
+      "fixture_id": 1551043,
+      "date": "2026-11-22T01:00:00+00:00",
+      "home": "U.N.A.M. - Pumas",
+      "away": "Monterrey",
+      "players": {
+        "monterrey|lucas orellano": {
+          "name": "Lucas Orellano",
+          "team": "Monterrey",
+          "goals": 2,
+          "assists": 0
+        },
+        "monterrey|orbelín pineda": {
+          "name": "Orbelín Pineda",
+          "team": "Monterrey",
+          "goals": 0,
+          "assists": 1
+        },
+        "monterrey|óliver torres": {
+          "name": "Óliver Torres",
+          "team": "Monterrey",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1551044": {
+      "fixture_id": 1551044,
+      "date": "2026-11-22T03:00:00+00:00",
+      "home": "Tigres UANL",
+      "away": "Club America",
+      "players": {
+        "tigres uanl|juan brunetta": {
+          "name": "Juan Brunetta",
+          "team": "Tigres UANL",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
