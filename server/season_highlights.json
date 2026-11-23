@@ -943,6 +943,76 @@
           "assists": 0
         }
       }
+    },
+    "1551045": {
+      "fixture_id": 1551045,
+      "date": "2026-11-22T23:07:00+00:00",
+      "home": "Guadalajara Chivas",
+      "away": "Cruz Azul",
+      "players": {
+        "guadalajara chivas|efrain alvarez": {
+          "name": "Efrain Alvarez",
+          "team": "Guadalajara Chivas",
+          "goals": 1,
+          "assists": 0
+        },
+        "guadalajara chivas|richard ledezma": {
+          "name": "Richard Ledezma",
+          "team": "Guadalajara Chivas",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1551046": {
+      "fixture_id": 1551046,
+      "date": "2026-11-23T01:10:00+00:00",
+      "home": "Club Queretaro",
+      "away": "Necaxa",
+      "players": {
+        "club queretaro|ali ávila": {
+          "name": "Ali Ávila",
+          "team": "Club Queretaro",
+          "goals": 1,
+          "assists": 0
+        },
+        "club queretaro|mateo coronel": {
+          "name": "Mateo Coronel",
+          "team": "Club Queretaro",
+          "goals": 0,
+          "assists": 1
+        },
+        "necaxa|miguel rodriguez": {
+          "name": "Miguel Rodriguez",
+          "team": "Necaxa",
+          "goals": 1,
+          "assists": 0
+        },
+        "necaxa|diego ochoa": {
+          "name": "Diego Ochoa",
+          "team": "Necaxa",
+          "goals": 0,
+          "assists": 1
+        },
+        "club queretaro|enzo giménez": {
+          "name": "Enzo Giménez",
+          "team": "Club Queretaro",
+          "goals": 1,
+          "assists": 0
+        },
+        "club queretaro|carlo garcia": {
+          "name": "Carlo Garcia",
+          "team": "Club Queretaro",
+          "goals": 0,
+          "assists": 1
+        },
+        "necaxa|julián carranza": {
+          "name": "Julián Carranza",
+          "team": "Necaxa",
+          "goals": 1,
+          "assists": 0
+        }
+      }
     }
   }
 }
