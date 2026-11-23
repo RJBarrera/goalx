@@ -1636,5 +1636,14 @@ fixture_id,date,referee,home_team,away_team,home_goals,away_goals,home_corners,a
 1570445,2026-11-08 13:00:00+00:00,César Soto,Elche,Real Betis,0,2,9,8,17,4,0,4,1,9,12,9,13,18
 1570449,2026-11-08 15:15:00+00:00,Juan Martínez,Real Sociedad,Rayo Vallecano,1,0,7,6,13,2,2,4,3,3,14,8,17,11
 1570452,2026-11-08 17:30:00+00:00,Carlos Muñiz,Villarreal,Getafe,2,0,9,4,13,2,2,4,7,1,15,8,22,9
-1570444,2026-11-08 7:30:00+00:00,Miguel Ortiz,Celta Vigo,Levante,0,0,6,1,7,1,2,3,8,0,15,6,23,6
+1570444,2026-11-08 17:30:00+00:00,Miguel Ortiz,Celta Vigo,Levante,0,0,6,1,7,1,2,3,8,0,15,6,23,6
 1570443,2026-11-08 20:00:00+00:00,Javier Alberola,Atletico Madrid,Barcelona,1,2,4,2,6,4,1,5,4,4,5,15,9,19
+1570454,2026-11-20 20:00:00+00:00,Mateo Busquets,Athletic Club,Espanyol,0,1,9,2,11,3,1,4,6,3,11,3,17,6
+1570453,2026-11-21 13:00:00+00:00,Víctor García,Alaves,Deportivo La Coruna,3,1,8,2,10,4,4,8,8,2,13,5,21,7
+1570460,2026-11-21 15:15:00+00:00,José Munuera,Rayo Vallecano,Valencia,0,1,8,5,13,2,1,3,5,2,16,9,21,11
+1570462,2026-11-21 17:30:00+00:00,José Sánchez,Sevilla,Real Betis,1,1,7,2,9,7,4,11,6,3,19,3,25,6
+1570461,2026-11-21 20:00:00+00:00,Adrián Cordero,Real Madrid,Celta Vigo,2,1,8,3,11,1,2,3,7,4,17,4,24,8
+1570455,2026-11-22 13:00:00+00:00,Alejandro Hernández,Barcelona,Villarreal,3,2,10,0,10,4,6,10,9,2,21,2,30,4
+1570459,2026-11-22 15:15:00+00:00,Manuel Jesús Orellana,Racing Santander,Real Sociedad,3,2,7,14,21,2,2,4,8,7,4,24,12,31
+1570458,2026-11-22 17:30:00+00:00,Ricardo De Burgos,Osasuna,Malaga,1,0,4,1,5,4,0,4,2,0,9,5,11,5
+1570456,2026-11-22 20:00:00+00:00,Jesús Gil,Getafe,Atletico Madrid,0,3,2,7,9,4,2,6,1,10,10,10,11,20
