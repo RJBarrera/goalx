@@ -450,6 +450,250 @@
           "assists": 1
         }
       }
+    },
+    "1635641": {
+      "fixture_id": 1635641,
+      "date": "2026-11-24T17:45:00+00:00",
+      "home": "Bodo/Glimt",
+      "away": "LASK",
+      "players": {}
+    },
+    "1635667": {
+      "fixture_id": 1635667,
+      "date": "2026-11-24T17:45:00+00:00",
+      "home": "Galatasaray",
+      "away": "Aston Villa",
+      "players": {
+        "galatasaray|d. gul": {
+          "name": "D. Gul",
+          "team": "Galatasaray",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635611": {
+      "fixture_id": 1635611,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "Arsenal",
+      "away": "Borussia Dortmund",
+      "players": {
+        "arsenal|v. gyokeres": {
+          "name": "V. Gyokeres",
+          "team": "Arsenal",
+          "goals": 1,
+          "assists": 0
+        },
+        "arsenal|n. madueke": {
+          "name": "N. Madueke",
+          "team": "Arsenal",
+          "goals": 0,
+          "assists": 1
+        },
+        "borussia dortmund|m. beier": {
+          "name": "M. Beier",
+          "team": "Borussia Dortmund",
+          "goals": 1,
+          "assists": 0
+        },
+        "borussia dortmund|j. gadou": {
+          "name": "J. Gadou",
+          "team": "Borussia Dortmund",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635649": {
+      "fixture_id": 1635649,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "Como",
+      "away": "AEK Athens",
+      "players": {
+        "como|l. milla": {
+          "name": "L. Milla",
+          "team": "Como",
+          "goals": 1,
+          "assists": 0
+        },
+        "como|m. baturina": {
+          "name": "M. Baturina",
+          "team": "Como",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635663": {
+      "fixture_id": 1635663,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "Feyenoord",
+      "away": "Porto",
+      "players": {}
+    },
+    "1635692": {
+      "fixture_id": 1635692,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "Manchester City",
+      "away": "Napoli",
+      "players": {
+        "napoli|r. hojlund": {
+          "name": "R. Hojlund",
+          "team": "Napoli",
+          "goals": 1,
+          "assists": 0
+        },
+        "napoli|b. gilmour": {
+          "name": "B. Gilmour",
+          "team": "Napoli",
+          "goals": 0,
+          "assists": 1
+        },
+        "manchester city|a. bouaddi": {
+          "name": "A. Bouaddi",
+          "team": "Manchester City",
+          "goals": 1,
+          "assists": 0
+        },
+        "manchester city|j. doku": {
+          "name": "J. Doku",
+          "team": "Manchester City",
+          "goals": 0,
+          "assists": 1
+        },
+        "napoli|n. lang": {
+          "name": "N. Lang",
+          "team": "Napoli",
+          "goals": 1,
+          "assists": 0
+        },
+        "napoli|l. spinazzola": {
+          "name": "L. Spinazzola",
+          "team": "Napoli",
+          "goals": 0,
+          "assists": 1
+        },
+        "manchester city|r. cherki": {
+          "name": "R. Cherki",
+          "team": "Manchester City",
+          "goals": 1,
+          "assists": 0
+        },
+        "manchester city|i. ndiaye": {
+          "name": "I. Ndiaye",
+          "team": "Manchester City",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635713": {
+      "fixture_id": 1635713,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "RB Leipzig",
+      "away": "Lens",
+      "players": {
+        "rb leipzig|d. raum": {
+          "name": "D. Raum",
+          "team": "RB Leipzig",
+          "goals": 1,
+          "assists": 0
+        },
+        "rb leipzig|a. nusa": {
+          "name": "A. Nusa",
+          "team": "RB Leipzig",
+          "goals": 2,
+          "assists": 0
+        },
+        "lens|m. udol": {
+          "name": "M. Udol",
+          "team": "Lens",
+          "goals": 1,
+          "assists": 0
+        },
+        "rb leipzig|c. nkunku": {
+          "name": "C. Nkunku",
+          "team": "RB Leipzig",
+          "goals": 0,
+          "assists": 1
+        }
+      }
+    },
+    "1635715": {
+      "fixture_id": 1635715,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "Real Madrid",
+      "away": "PSV Eindhoven",
+      "players": {
+        "psv eindhoven|i. perisic": {
+          "name": "I. Perisic",
+          "team": "PSV Eindhoven",
+          "goals": 1,
+          "assists": 0
+        },
+        "real madrid|f. valverde": {
+          "name": "F. Valverde",
+          "team": "Real Madrid",
+          "goals": 1,
+          "assists": 0
+        },
+        "real madrid|a. guler": {
+          "name": "A. Guler",
+          "team": "Real Madrid",
+          "goals": 0,
+          "assists": 2
+        },
+        "real madrid|j. bellingham": {
+          "name": "J. Bellingham",
+          "team": "Real Madrid",
+          "goals": 1,
+          "assists": 1
+        },
+        "real madrid|k. mbappe": {
+          "name": "K. Mbappe",
+          "team": "Real Madrid",
+          "goals": 2,
+          "assists": 1
+        },
+        "real madrid|b. diaz": {
+          "name": "B. Diaz",
+          "team": "Real Madrid",
+          "goals": 0,
+          "assists": 1
+        },
+        "real madrid|vinicius junior": {
+          "name": "Vinicius Junior",
+          "team": "Real Madrid",
+          "goals": 1,
+          "assists": 0
+        }
+      }
+    },
+    "1635731": {
+      "fixture_id": 1635731,
+      "date": "2026-11-24T20:00:00+00:00",
+      "home": "Slovan Bratislava",
+      "away": "Real Betis",
+      "players": {
+        "real betis|c. hernandez": {
+          "name": "C. Hernandez",
+          "team": "Real Betis",
+          "goals": 2,
+          "assists": 0
+        },
+        "real betis|a. ortiz": {
+          "name": "A. Ortiz",
+          "team": "Real Betis",
+          "goals": 0,
+          "assists": 1
+        },
+        "real betis|isco": {
+          "name": "Isco",
+          "team": "Real Betis",
+          "goals": 0,
+          "assists": 1
+        }
+      }
     }
   }
 }
