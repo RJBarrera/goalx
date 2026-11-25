@@ -478,26 +478,26 @@
       "home": "Arsenal",
       "away": "Borussia Dortmund",
       "players": {
-        "arsenal|v. gyokeres": {
-          "name": "V. Gyokeres",
+        "arsenal|viktor gyökeres": {
+          "name": "Viktor Gyökeres",
           "team": "Arsenal",
           "goals": 1,
           "assists": 0
         },
-        "arsenal|n. madueke": {
-          "name": "N. Madueke",
+        "arsenal|noni madueke": {
+          "name": "Noni Madueke",
           "team": "Arsenal",
           "goals": 0,
           "assists": 1
         },
-        "borussia dortmund|m. beier": {
-          "name": "M. Beier",
+        "borussia dortmund|maximilian beier": {
+          "name": "Maximilian Beier",
           "team": "Borussia Dortmund",
           "goals": 1,
           "assists": 0
         },
-        "borussia dortmund|j. gadou": {
-          "name": "J. Gadou",
+        "borussia dortmund|joane gadou": {
+          "name": "Joane Gadou",
           "team": "Borussia Dortmund",
           "goals": 0,
           "assists": 1
